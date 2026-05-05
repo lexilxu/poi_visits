@@ -1,0 +1,94 @@
+project:
+  root_dir: "."
+  output_dir: "feature_attribution/outputs"
+
+data:
+  benchmark_split_path: "data/splits/benchmarks/benchmark_split.npz"
+  poi_meta_path: "data/processed/poi_meta.csv"
+  location_table_path: "data/raw/location_table.csv"
+  static_adj_dir: "data/adjacency/static"
+  prediction_dir: "outputs/predictions"
+
+forecast:
+  seq_in_len: 14
+  seq_out_len: 7
+
+models:
+  lstm:
+    enabled: true
+    model_type: "lstm"
+    model_name: "lstm"
+    checkpoint_path: "outputs/checkpoints/lstm.pt"
+    hidden_dim: 64
+    num_layers: 1
+    dropout: 0.0
+
+  evolvegcn_static_distance_knn:
+    enabled: true
+    model_type: "evolvegcn_style_static"
+    model_name: "evolvegcn_static_distance_knn"
+    checkpoint_path: "outputs/checkpoints/evolvegcn_static_distance_knn.pt"
+    data_path: "data/splits/evolvegcn/poi_evolvegcn_static_distance_knn.npz"
+    hidden_dim: 16
+
+  mtgnn_distance_knn:
+    enabled: false
+    model_type: "mtgnn"
+    model_name: "mtgnn_distance_knn"
+    checkpoint_path: "external/MTGNN/save/poi_distance_knn_exp1_0.pth"
+    data_dir: "data/splits/mtgnn"
+    adj_path: "data/adjacency/static/mtgnn_adj_distance_knn.pkl"
+    mtgnn_dir: "external/MTGNN"
+
+attribution:
+  batch_size: 8
+  max_batches: 5
+  device: "cuda:0"
+
+  methods:
+    - "saliency"
+    - "input_x_gradient"
+    - "integrated_gradients"
+
+  integrated_gradients:
+    baseline: "mean"
+    n_steps: 20
+
+  targets:
+    global:
+      enabled: true
+      horizons: "all"
+
+    target_pois:
+      enabled: true
+      poi_indices:
+        - 0
+        - 10
+        - 25
+      horizons:
+        - 1
+        - 3
+        - 7
+
+perturbation:
+  enabled: true
+  max_batches: 5
+  mask_value: "mean"
+
+  lag_occlusion:
+    enabled: true
+
+  category_occlusion:
+    enabled: true
+    category_col: "top_category"
+    max_categories: 20
+
+  poi_occlusion:
+    enabled: true
+    top_k_pois: 50
+
+outputs:
+  raw_attribution_dir: "feature_attribution/outputs/raw_attributions"
+  summary_dir: "feature_attribution/outputs/summaries"
+  plot_dir: "feature_attribution/outputs/plots"
+  report_dir: "feature_attribution/outputs/reports"

@@ -1,0 +1,117 @@
+# configs/best_hyperparams.yaml
+
+# This file stores adjacency-specific hyperparameters for final runs.
+# Replace these values with the best values selected from tuning.
+
+mtgnn:
+  default:
+    learning_rate: 0.001
+    weight_decay: 0.0001
+    dropout: 0.3
+    batch_size: 8
+
+    gcn_true: "True"
+    buildA_true: "True"
+    load_static_feature: "False"
+    cl: "True"
+
+    gcn_depth: 2
+    subgraph_size: 20
+    node_dim: 40
+    dilation_exponential: 1
+
+    conv_channels: 32
+    residual_channels: 32
+    skip_channels: 64
+    end_channels: 128
+
+    layers: 3
+    clip: 5
+    step_size1: 2500
+    step_size2: 100
+    print_every: 50
+
+    propalpha: 0.05
+    tanhalpha: 3
+    num_split: 1
+
+  top_category:
+    learning_rate: 0.001
+    dropout: 0.1
+    batch_size: 8
+
+  identity:
+    learning_rate: 0.0005
+    dropout: 0.3
+    batch_size: 8
+
+  naics2:
+    learning_rate: 0.001
+    dropout: 0.3
+    batch_size: 8
+
+  distance_knn:
+    learning_rate: 0.001
+    dropout: 0.1
+    batch_size: 16
+
+  visit_correlation:
+    learning_rate: 0.001
+    dropout: 0.3
+    batch_size: 8
+
+  distance_rbf:
+    learning_rate: 0.0005
+    dropout: 0.1
+    batch_size: 16
+
+
+evolvegcn:
+  default:
+    hidden_dim: 32
+    lr: 0.001
+    batch_size: 1
+    loss: "mse"
+    normalize: true
+
+  identity:
+    hidden_dim: 32
+    lr: 0.001
+    batch_size: 1
+    loss: "mse"
+    normalize: true
+
+  distance_knn:
+    hidden_dim: 32
+    lr: 0.001
+    batch_size: 1
+    loss: "mse"
+    normalize: true
+
+  distance_rbf:
+    hidden_dim: 32
+    lr: 0.0005
+    batch_size: 1
+    loss: "mse"
+    normalize: true
+
+  top_category:
+    hidden_dim: 32
+    lr: 0.0005
+    batch_size: 1
+    loss: "mse"
+    normalize: true
+
+  naics2:
+    hidden_dim: 32
+    lr: 0.0005
+    batch_size: 1
+    loss: "mse"
+    normalize: true
+
+  visit_correlation:
+    hidden_dim: 32
+    lr: 0.0005
+    batch_size: 1
+    loss: "huber"
+    normalize: true
