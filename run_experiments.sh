@@ -124,6 +124,11 @@ run_cmd () {
 #  --train_ratio "${TRAIN_RATIO}" \
 #  --val_ratio "${VAL_RATIO}"
 #
+#run_cmd python src/build_static_features.py \
+#  --poi_meta "${PROCESSED_DIR}/poi_meta.csv" \
+#  --location_table "${LOCATION_TABLE}" \
+#  --output_dir "${SPLIT_DIR}"
+#
 ## ============================================================
 ## 3. Export model-specific split files
 ## ============================================================
@@ -132,6 +137,12 @@ run_cmd () {
 #  --samples_path "${SAMPLES_PATH}" \
 #  --indices_path "${INDICES_PATH}" \
 #  --output_dir "${MTGNN_SPLIT_DIR}" \
+#  --static_features_path "${SPLIT_DIR}/static_node_features.npy" \
+#  --cat_ids_path "${SPLIT_DIR}/static_cat_ids.npy" \
+#  --naics2_ids_path "${SPLIT_DIR}/static_naics2_ids.npy" \
+#  --naics4_ids_path "${SPLIT_DIR}/static_naics4_ids.npy" \
+#  --brand_ids_path "${SPLIT_DIR}/static_brand_ids.npy" \
+#  --parent_ids_path "${SPLIT_DIR}/static_parent_ids.npy" \
 #  --seq_in_len "${SEQ_IN_LEN}" \
 #  --seq_out_len "${SEQ_OUT_LEN}"
 #
@@ -172,6 +183,81 @@ run_cmd () {
 #    --threshold "${DYNAMIC_THRESHOLD}"
 #fi
 
+
+# ============================================================
+# 6. Get in_dim from MTGNN split files
+# ============================================================
+
+IN_DIM=$(python - <<EOF
+import json, os
+info = {}
+static_info = os.path.join("${SPLIT_DIR}", "static_node_features_info.json")
+if os.path.exists(static_info):
+    with open(static_info) as f:
+        info = json.load(f)
+D_s = info.get("D_s_continuous", 0)
+has = sum(1 for k in ["cat_vocab","naics2_vocab","naics4_vocab","brand_vocab","parent_vocab"] if info.get(k))
+emb = has * info.get("cat_emb_dim", 8)
+print(1 + D_s + emb)
+EOF
+)
+
+CAT_VOCAB=$(python - <<EOF
+import json, os
+v = 0
+static_info = os.path.join("${SPLIT_DIR}", "static_node_features_info.json")
+if os.path.exists(static_info):
+    with open(static_info) as f:
+        v = len(json.load(f).get("cat_vocab", []))
+print(v)
+EOF
+)
+
+NAICS2_VOCAB=$(python - <<EOF
+import json, os
+v = 0
+static_info = os.path.join("${SPLIT_DIR}", "static_node_features_info.json")
+if os.path.exists(static_info):
+    with open(static_info) as f:
+        v = len(json.load(f).get("naics2_vocab", []))
+print(v)
+EOF
+)
+
+NAICS4_VOCAB=$(python - <<EOF
+import json, os
+v = 0
+static_info = os.path.join("${SPLIT_DIR}", "static_node_features_info.json")
+if os.path.exists(static_info):
+    with open(static_info) as f:
+        v = len(json.load(f).get("naics4_vocab", []))
+print(v)
+EOF
+)
+
+BRAND_VOCAB=$(python - <<EOF
+import json, os
+v = 0
+static_info = os.path.join("${SPLIT_DIR}", "static_node_features_info.json")
+if os.path.exists(static_info):
+    with open(static_info) as f:
+        v = len(json.load(f).get("brand_vocab", []))
+print(v)
+EOF
+)
+
+PARENT_VOCAB=$(python - <<EOF
+import json, os
+v = 0
+static_info = os.path.join("${SPLIT_DIR}", "static_node_features_info.json")
+if os.path.exists(static_info):
+    with open(static_info) as f:
+        v = len(json.load(f).get("parent_vocab", []))
+print(v)
+EOF
+)
+
+echo "Detected IN_DIM=${IN_DIM}"
 
 # ============================================================
 # 7. Get number of nodes
@@ -256,7 +342,8 @@ for ADJ_NAME in "${STATIC_ADJ_NAMES[@]}"; do
     --indices_path "${INDICES_PATH}" \
     --adjacency_mode static \
     --adj_path "${ADJ_NPY}" \
-    --output_path "${EVOLVEGCN_SPLIT_PATH}"
+    --output_path "${EVOLVEGCN_SPLIT_PATH}" \
+    --static_features_path "${SPLIT_DIR}/static_node_features.npy"
 
   # -------------------------------
   # Run MTGNN
@@ -270,13 +357,23 @@ for ADJ_NAME in "${STATIC_ADJ_NAMES[@]}"; do
     --num_nodes "${NUM_NODES}" \
     --seq_in_len "${SEQ_IN_LEN}" \
     --seq_out_len "${SEQ_OUT_LEN}" \
-    --in_dim 1 \
+    --in_dim "${IN_DIM}" \
     --device "${DEVICE}" \
     --epochs "${MTGNN_EPOCHS}" \
     --batch_size "${BATCH_SIZE}" \
     --runs 1 \
     --expid 1 \
-    --save_prefix "${SAVE_PREFIX}"
+    --save_prefix "${SAVE_PREFIX}" \
+    --cat_vocab_size "${CAT_VOCAB}" \
+    --cat_emb_dim 8 \
+    --naics2_vocab_size "${NAICS2_VOCAB}" \
+    --naics2_emb_dim 8 \
+    --naics4_vocab_size "${NAICS4_VOCAB}" \
+    --naics4_emb_dim 8 \
+    --brand_vocab_size "${BRAND_VOCAB}" \
+    --brand_emb_dim 8 \
+    --parent_vocab_size "${PARENT_VOCAB}" \
+    --parent_emb_dim 8
 
   # Copy MTGNN outputs into common prediction folder.
   MTGNN_OUTPUT_DIR="${MTGNN_DIR}/save/poi_${ADJ_NAME}_outputs"
@@ -332,7 +429,8 @@ if [ "${RUN_DYNAMIC_EVOLVEGCN}" = true ]; then
       --indices_path "${INDICES_PATH}" \
       --adjacency_mode dynamic \
       --dynamic_adj_path "${DYNAMIC_ADJ_PATH}" \
-      --output_path "${EVOLVEGCN_DYNAMIC_SPLIT_PATH}"
+      --output_path "${EVOLVEGCN_DYNAMIC_SPLIT_PATH}" \
+      --static_features_path "${SPLIT_DIR}/static_node_features.npy"
 
     run_cmd python runners/run_evolvegcn.py \
       --evolvegcn_dir "${EVOLVEGCN_DIR}" \

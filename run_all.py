@@ -6,6 +6,7 @@ import yaml
 import shutil
 import argparse
 import subprocess
+import numpy as np
 from pathlib import Path
 
 
@@ -78,6 +79,15 @@ def prepare_data(args):
     ])
 
 
+def build_static_features(args):
+    run([
+        "python", "src/build_static_features.py",
+        "--poi_meta", os.path.join(args.processed_dir, "poi_meta.csv"),
+        "--location_table", args.location_table,
+        "--output_dir", args.split_dir,
+    ])
+
+
 def create_shared_split(args):
     run([
         "python", "src/create_shared_split.py",
@@ -105,6 +115,12 @@ def export_mtgnn_split(args):
         "--samples_path", os.path.join(args.split_dir, "all_samples.npz"),
         "--indices_path", os.path.join(args.split_dir, "split_indices.npz"),
         "--output_dir", os.path.join(args.split_dir, "mtgnn"),
+        "--static_features_path", os.path.join(args.split_dir, "static_node_features.npy"),
+        "--cat_ids_path", os.path.join(args.split_dir, "static_cat_ids.npy"),
+        "--naics2_ids_path", os.path.join(args.split_dir, "static_naics2_ids.npy"),
+        "--naics4_ids_path", os.path.join(args.split_dir, "static_naics4_ids.npy"),
+        "--brand_ids_path", os.path.join(args.split_dir, "static_brand_ids.npy"),
+        "--parent_ids_path", os.path.join(args.split_dir, "static_parent_ids.npy"),
         "--seq_in_len", str(args.seq_in_len),
         "--seq_out_len", str(args.seq_out_len),
     ])
@@ -167,6 +183,28 @@ def run_mtgnn_for_adjacencies(args, hyperparams, num_nodes):
     if args.skip_mtgnn:
         print("Skipping MTGNN.")
         return
+
+    mtgnn_split_dir = os.path.join(args.split_dir, "mtgnn")
+    train_npz = np.load(os.path.join(mtgnn_split_dir, "train.npz"))
+    in_dim = int(train_npz["x"].shape[3])
+    print(f"Detected MTGNN in_dim={in_dim} from split files")
+
+    info_path = os.path.join(args.split_dir, "static_node_features_info.json")
+    cat_vocab_size = naics2_vocab_size = naics4_vocab_size = 0
+    brand_vocab_size = parent_vocab_size = 0
+    emb_dim = 8
+    if os.path.exists(info_path):
+        with open(info_path) as f:
+            info = json.load(f)
+        cat_vocab_size = len(info.get("cat_vocab", []))
+        naics2_vocab_size = len(info.get("naics2_vocab", []))
+        naics4_vocab_size = len(info.get("naics4_vocab", []))
+        brand_vocab_size = len(info.get("brand_vocab", []))
+        parent_vocab_size = len(info.get("parent_vocab", []))
+        emb_dim = info.get("cat_emb_dim", 8)
+    print(f"  cat: {cat_vocab_size}, naics2: {naics2_vocab_size}, naics4: {naics4_vocab_size}")
+    print(f"  brand: {brand_vocab_size}, parent: {parent_vocab_size}")
+    print(f"  All categorical emb_dim: {emb_dim}")
 
     mtgnn_hyp = hyperparams.get("mtgnn", {})
     default_cfg = mtgnn_hyp.get("default", {})
@@ -253,6 +291,17 @@ def run_mtgnn_for_adjacencies(args, hyperparams, num_nodes):
             "--propalpha", str(cfg.get("propalpha", 0.05)),
             "--tanhalpha", str(cfg.get("tanhalpha", 3)),
             "--num_split", str(cfg.get("num_split", 1)),
+
+            "--brand_vocab_size", str(brand_vocab_size),
+            "--brand_emb_dim", str(emb_dim),
+            "--parent_vocab_size", str(parent_vocab_size),
+            "--parent_emb_dim", str(emb_dim),
+            "--cat_vocab_size", str(cat_vocab_size),
+            "--cat_emb_dim", str(emb_dim),
+            "--naics2_vocab_size", str(naics2_vocab_size),
+            "--naics2_emb_dim", str(emb_dim),
+            "--naics4_vocab_size", str(naics4_vocab_size),
+            "--naics4_emb_dim", str(emb_dim),
         ]
 
         run(cmd)
@@ -311,6 +360,7 @@ def run_evolvegcn_for_adjacencies(args, hyperparams):
             "--adjacency_mode", "static",
             "--adj_path", adj_npy,
             "--output_path", evolvegcn_data_path,
+            "--static_features_path", os.path.join(args.split_dir, "static_node_features.npy"),
         ])
 
         adj_cfg = evol_hyp.get(adj_name, {})
@@ -455,6 +505,7 @@ def main():
 
     if not args.skip_split:
         create_shared_split(args)
+        build_static_features(args)
         export_benchmark_split(args)
         export_mtgnn_split(args)
 

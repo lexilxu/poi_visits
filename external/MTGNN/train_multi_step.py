@@ -67,6 +67,16 @@ parser.add_argument('--num_split',type=int,default=1,help='number of splits for 
 
 parser.add_argument('--runs',type=int,default=10,help='number of runs')
 
+parser.add_argument('--cat_vocab_size',type=int,default=0)
+parser.add_argument('--cat_emb_dim',type=int,default=8)
+parser.add_argument('--naics2_vocab_size',type=int,default=0)
+parser.add_argument('--naics2_emb_dim',type=int,default=8)
+parser.add_argument('--naics4_vocab_size',type=int,default=0)
+parser.add_argument('--naics4_emb_dim',type=int,default=8)
+parser.add_argument('--brand_vocab_size',type=int,default=0)
+parser.add_argument('--brand_emb_dim',type=int,default=8)
+parser.add_argument('--parent_vocab_size',type=int,default=0)
+parser.add_argument('--parent_emb_dim',type=int,default=8)
 
 
 args = parser.parse_args()
@@ -87,11 +97,6 @@ def main(runid):
     predefined_A = torch.tensor(predefined_A)-torch.eye(args.num_nodes)
     predefined_A = predefined_A.to(device)
 
-    # if args.load_static_feature:
-    #     static_feat = load_node_feature('data/sensor_graph/location.csv')
-    # else:
-    #     static_feat = None
-
     model = gtnet(args.gcn_true, args.buildA_true, args.gcn_depth, args.num_nodes,
                   device, predefined_A=predefined_A,
                   dropout=args.dropout, subgraph_size=args.subgraph_size,
@@ -100,7 +105,12 @@ def main(runid):
                   conv_channels=args.conv_channels, residual_channels=args.residual_channels,
                   skip_channels=args.skip_channels, end_channels= args.end_channels,
                   seq_length=args.seq_in_len, in_dim=args.in_dim, out_dim=args.seq_out_len,
-                  layers=args.layers, propalpha=args.propalpha, tanhalpha=args.tanhalpha, layer_norm_affline=True)
+                  layers=args.layers, propalpha=args.propalpha, tanhalpha=args.tanhalpha, layer_norm_affline=True,
+                  cat_vocab_size=args.cat_vocab_size, cat_emb_dim=args.cat_emb_dim,
+                  naics2_vocab_size=args.naics2_vocab_size, naics2_emb_dim=args.naics2_emb_dim,
+                  naics4_vocab_size=args.naics4_vocab_size, naics4_emb_dim=args.naics4_emb_dim,
+                  brand_vocab_size=args.brand_vocab_size, brand_emb_dim=args.brand_emb_dim,
+                  parent_vocab_size=args.parent_vocab_size, parent_emb_dim=args.parent_emb_dim)
 
     print(args)
     print('The recpetive field size is', model.receptive_field)
@@ -122,9 +132,9 @@ def main(runid):
         dataloader['train_loader'].shuffle()
         for iter, (x, y) in enumerate(dataloader['train_loader'].get_iterator()):
             trainx = torch.Tensor(x).to(device)
-            trainx= trainx.transpose(1, 3)
-            trainy = torch.Tensor(y).to(device)
-            trainy = trainy.transpose(1, 3)
+            # y: (B, T, N, C) -> select first channel -> (B, N, T)
+            trainy = torch.Tensor(y)[:, 0, :, 0].transpose(1, 2).to(device)  # (B, N, T)
+            
             if iter%args.step_size2==0:
                 perm = np.random.permutation(range(args.num_nodes))
             num_sub = int(args.num_nodes/args.num_split)
@@ -134,9 +144,9 @@ def main(runid):
                 else:
                     id = perm[j * num_sub:]
                 id = torch.tensor(id).to(device)
-                tx = trainx[:, :, id, :]
-                ty = trainy[:, :, id, :]
-                metrics = engine.train(tx, ty[:,0,:,:],id)
+                tx = trainx[:, :, id, :]  # (B, C, num_sub, T)
+                ty = trainy[:, id, :]       # (B, num_sub, T)
+                metrics = engine.train(tx, ty, id)
                 train_loss.append(metrics[0])
                 train_mape.append(metrics[1])
                 train_rmse.append(metrics[2])
@@ -153,10 +163,8 @@ def main(runid):
         s1 = time.time()
         for iter, (x, y) in enumerate(dataloader['val_loader'].get_iterator()):
             testx = torch.Tensor(x).to(device)
-            testx = testx.transpose(1, 3)
-            testy = torch.Tensor(y).to(device)
-            testy = testy.transpose(1, 3)
-            metrics = engine.eval(testx, testy[:,0,:,:])
+            testy = torch.Tensor(y)[:, 0, :, 0].transpose(1, 2).to(device)  # (B, N, T)
+            metrics = engine.eval(testx, testy)
             valid_loss.append(metrics[0])
             valid_mape.append(metrics[1])
             valid_rmse.append(metrics[2])
@@ -192,15 +200,12 @@ def main(runid):
 
     #valid data
     outputs = []
-    realy = torch.Tensor(dataloader['y_val']).to(device)
-    realy = realy.transpose(1,3)[:,0,:,:]
+    realy = torch.Tensor(dataloader['y_val'])[:, 0, :, 0].transpose(1, 2).to(device)  # (B, N, T)
 
     for iter, (x, y) in enumerate(dataloader['val_loader'].get_iterator()):
         testx = torch.Tensor(x).to(device)
-        testx = testx.transpose(1,3)
         with torch.no_grad():
-            preds = engine.model(testx)
-            preds = preds.transpose(1,3)
+            preds = engine.model(testx)  # (B, 1, N, T) -> squeeze to (B, N, T)
         outputs.append(preds.squeeze())
 
     yhat = torch.cat(outputs,dim=0)
@@ -212,15 +217,12 @@ def main(runid):
 
     #test data
     outputs = []
-    realy = torch.Tensor(dataloader['y_test']).to(device)
-    realy = realy.transpose(1, 3)[:, 0, :, :]
+    realy = torch.Tensor(dataloader['y_test'])[:, 0, :, 0].transpose(1, 2).to(device)  # (B, N, T)
 
     for iter, (x, y) in enumerate(dataloader['test_loader'].get_iterator()):
         testx = torch.Tensor(x).to(device)
-        testx = testx.transpose(1, 3)
         with torch.no_grad():
-            preds = engine.model(testx)
-            preds = preds.transpose(1, 3)
+            preds = engine.model(testx)  # (B, 1, N, T)
         outputs.append(preds.squeeze())
 
     yhat = torch.cat(outputs, dim=0)
@@ -321,8 +323,3 @@ if __name__ == "__main__":
     for i in report_horizons:
         log = "{:d}\t{:.4f}\t{:.4f}\t{:.4f}\t{:.4f}\t{:.4f}\t{:.4f}"
         print(log.format(i + 1, amae[i], armse[i], amape[i], smae[i], srmse[i], smape[i]))
-
-
-
-
-

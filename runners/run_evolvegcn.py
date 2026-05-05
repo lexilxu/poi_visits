@@ -11,18 +11,27 @@ from torch.utils.data import Dataset, DataLoader
 
 
 class POIGraphDataset(Dataset):
-    def __init__(self, x, y):
+    def __init__(self, x, y, static_node_features=None):
         """
         x: (B, P, N)
         y: (B, H, N)
+        static_node_features: tensor (N, D_s) or None
         """
         self.x = torch.tensor(x, dtype=torch.float32)
         self.y = torch.tensor(y, dtype=torch.float32)
+        self.static = None
+        if static_node_features is not None:
+            if isinstance(static_node_features, np.ndarray):
+                self.static = torch.tensor(static_node_features, dtype=torch.float32)
+            else:
+                self.static = static_node_features
 
     def __len__(self):
         return self.x.shape[0]
 
     def __getitem__(self, idx):
+        if self.static is not None:
+            return self.x[idx], self.y[idx], torch.tensor(idx, dtype=torch.long), self.static
         return self.x[idx], self.y[idx], torch.tensor(idx, dtype=torch.long)
 
 
@@ -93,26 +102,34 @@ class GraphGRUForecast(nn.Module):
 
     Input:
         x: (B, P, N)
+        static_node_features: (N, D_s) optional
 
     Output:
         pred: (B, H, N)
     """
 
-    def __init__(self, num_nodes, horizon, hidden_dim=32):
+    def __init__(self, num_nodes, horizon, hidden_dim=32, in_dim=1):
         super().__init__()
 
         self.num_nodes = num_nodes
         self.horizon = horizon
         self.hidden_dim = hidden_dim
+        self.in_dim = in_dim
+        # D_s = in_dim - 1 (the +1 is the scalar visit signal)
+        self.D_s = max(0, in_dim - 1)
 
-        self.input_proj = nn.Linear(1, hidden_dim)
+        self.input_proj = nn.Linear(in_dim, hidden_dim)
         self.gru_cell = nn.GRUCell(hidden_dim, hidden_dim)
         self.decoder = nn.Linear(hidden_dim, horizon)
 
-    def forward_static(self, x, static_adj):
+        if self.D_s > 0:
+            self.static_proj = nn.Linear(self.D_s, hidden_dim)
+
+    def forward_static(self, x, static_adj, static_node_features=None):
         """
         x: (B, P, N)
         static_adj: (N, N)
+        static_node_features: (N, D_s) optional
         """
         B, P, N = x.shape
 
@@ -135,7 +152,40 @@ class GraphGRUForecast(nn.Module):
 
         return pred
 
-    def forward_dynamic(self, x, sample_positions, edge_data):
+    def forward_static_s(self, x, static_adj, static_node_features=None):
+        """
+        x: (B, P, N), static_node_features: (N, D_s)
+        Concatenate graph-propagated visit signal with static node features.
+        """
+        B, P, N = x.shape
+
+        h = torch.zeros(B * N, self.hidden_dim, device=x.device)
+
+        for t in range(P):
+            xt = x[:, t, :]  # (B, N)
+            xt_g = torch.matmul(xt, static_adj.T)  # (B, N)
+
+            # Concatenate graph signal with static features along feature dim
+            if static_node_features is not None:
+                # static_node_features: (N, D_s)
+                # Expand to (B, N, D_s) for batched concatenation
+                s_expanded = static_node_features.unsqueeze(0).expand(B, -1, -1)  # (B, N, D_s)
+                # Concatenate: (B, N, 1) + (B, N, D_s) -> (B, N, 1 + D_s)
+                xt_concat = torch.cat([xt_g.unsqueeze(-1), s_expanded], dim=-1)  # (B, N, 1+D_s)
+                feat = xt_concat.reshape(B * N, self.in_dim)  # (B*N, 1+D_s)
+            else:
+                feat = xt_g.reshape(B * N, 1)
+
+            feat = self.input_proj(feat)
+            h = self.gru_cell(feat, h)
+
+        h_nodes = h.reshape(B, N, self.hidden_dim)
+
+        pred_nh = self.decoder(h_nodes)
+        pred = pred_nh.permute(0, 2, 1)
+        return pred
+
+    def forward_dynamic(self, x, sample_positions, edge_data, static_node_features=None):
         """
         x: (B, P, N)
 
@@ -177,18 +227,77 @@ class GraphGRUForecast(nn.Module):
             h = self.gru_cell(feat, h)
 
         h_nodes = h.reshape(B, N, self.hidden_dim)
-        pred_nh = self.decoder(h_nodes)      # (B, N, H)
-        pred = pred_nh.permute(0, 2, 1)      # (B, H, N)
 
+        if static_node_features is not None:
+            h_static = self.static_proj(static_node_features)
+            h_static = h_static.unsqueeze(0).expand(B, -1, -1)
+            h_nodes = h_nodes + h_static
+
+        pred_nh = self.decoder(h_nodes)
+        pred = pred_nh.permute(0, 2, 1)
         return pred
 
-    def forward(self, x, adjacency_mode, static_adj=None, sample_positions=None, edge_data=None):
+    def forward_dynamic_s(self, x, sample_positions, edge_data, static_node_features=None):
+        """
+        x: (B, P, N), static_node_features: (N, D_s)
+        Concatenate graph-propagated visit signal with static node features.
+        """
+        B, P, N = x.shape
+
+        h = torch.zeros(B * N, self.hidden_dim, device=x.device)
+
+        for t in range(P):
+            xt_all = []
+
+            for b in range(B):
+                sample_pos = int(sample_positions[b].item())
+                graph_id = sample_pos * P + t
+
+                A = edge_graph_to_dense(
+                    edge_src=edge_data["edge_src"],
+                    edge_dst=edge_data["edge_dst"],
+                    edge_weight=edge_data["edge_weight"],
+                    edge_ptr=edge_data["edge_ptr"],
+                    graph_id=graph_id,
+                    num_nodes=N,
+                    device=x.device,
+                )
+
+                A = normalize_adj_torch(A)
+
+                xt_b = x[b, t, :]
+                xt_g_b = torch.matmul(A, xt_b)
+                xt_all.append(xt_g_b)
+
+            xt_g = torch.stack(xt_all, dim=0)  # (B, N)
+
+            # Concatenate graph signal with static features
+            if static_node_features is not None:
+                s_expanded = static_node_features.unsqueeze(0).expand(B, -1, -1)  # (B, N, D_s)
+                xt_concat = torch.cat([xt_g.unsqueeze(-1), s_expanded], dim=-1)  # (B, N, 1+D_s)
+                feat = xt_concat.reshape(B * N, self.in_dim)  # (B*N, 1+D_s)
+            else:
+                feat = xt_g.reshape(B * N, 1)
+
+            feat = self.input_proj(feat)
+            h = self.gru_cell(feat, h)
+
+        h_nodes = h.reshape(B, N, self.hidden_dim)
+
+        pred_nh = self.decoder(h_nodes)
+        pred = pred_nh.permute(0, 2, 1)
+        return pred
+
+    def forward(self, x, adjacency_mode, static_adj=None, sample_positions=None, edge_data=None, static_node_features=None):
+        if static_node_features is not None:
+            if adjacency_mode == "static":
+                return self.forward_static_s(x, static_adj, static_node_features)
+            return self.forward_dynamic_s(x, sample_positions, edge_data, static_node_features)
+
         if adjacency_mode == "static":
-            return self.forward_static(x, static_adj)
-
+            return self.forward_static(x, static_adj, static_node_features)
         if adjacency_mode == "dynamic":
-            return self.forward_dynamic(x, sample_positions, edge_data)
-
+            return self.forward_dynamic(x, sample_positions, edge_data, static_node_features)
         raise ValueError(f"Unknown adjacency_mode: {adjacency_mode}")
 
 
@@ -304,14 +413,22 @@ def save_metrics_csv(y_true, y_pred, model_name, output_path, split_name):
     return df
 
 
-def train_one_epoch(model, loader, adjacency_mode, static_adj, edge_data, optimizer, loss_fn, device):
+def train_one_epoch(model, loader, adjacency_mode, static_adj, edge_data, static_node_features, optimizer, loss_fn, device):
     model.train()
     losses = []
 
-    for x, y, sample_pos in loader:
+    for batch in loader:
+        if len(batch) == 4:
+            x, y, sample_pos, static = batch
+            static = static.to(device)
+        else:
+            x, y, sample_pos = batch
+            static = None
         x = x.to(device)
         y = y.to(device)
         sample_pos = sample_pos.to(device)
+        if static is not None:
+            static = static.to(device)
 
         optimizer.zero_grad()
 
@@ -321,6 +438,7 @@ def train_one_epoch(model, loader, adjacency_mode, static_adj, edge_data, optimi
             static_adj=static_adj,
             sample_positions=sample_pos,
             edge_data=edge_data,
+            static_node_features=static_node_features,
         )
 
         loss = loss_fn(pred, y)
@@ -333,11 +451,15 @@ def train_one_epoch(model, loader, adjacency_mode, static_adj, edge_data, optimi
 
 
 @torch.no_grad()
-def evaluate_loss(model, loader, adjacency_mode, static_adj, edge_data, loss_fn, device):
+def evaluate_loss(model, loader, adjacency_mode, static_adj, edge_data, static_node_features, loss_fn, device):
     model.eval()
     losses = []
 
-    for x, y, sample_pos in loader:
+    for batch in loader:
+        if len(batch) == 4:
+            x, y, sample_pos, static = batch
+        else:
+            x, y, sample_pos = batch
         x = x.to(device)
         y = y.to(device)
         sample_pos = sample_pos.to(device)
@@ -348,6 +470,7 @@ def evaluate_loss(model, loader, adjacency_mode, static_adj, edge_data, loss_fn,
             static_adj=static_adj,
             sample_positions=sample_pos,
             edge_data=edge_data,
+            static_node_features=static_node_features,
         )
 
         loss = loss_fn(pred, y)
@@ -357,13 +480,17 @@ def evaluate_loss(model, loader, adjacency_mode, static_adj, edge_data, loss_fn,
 
 
 @torch.no_grad()
-def predict(model, loader, adjacency_mode, static_adj, edge_data, device):
+def predict(model, loader, adjacency_mode, static_adj, edge_data, static_node_features, device):
     model.eval()
 
     preds = []
     trues = []
 
-    for x, y, sample_pos in loader:
+    for batch in loader:
+        if len(batch) == 4:
+            x, y, sample_pos, static = batch
+        else:
+            x, y, sample_pos = batch
         x = x.to(device)
         sample_pos = sample_pos.to(device)
 
@@ -373,6 +500,7 @@ def predict(model, loader, adjacency_mode, static_adj, edge_data, device):
             static_adj=static_adj,
             sample_positions=sample_pos,
             edge_data=edge_data,
+            static_node_features=static_node_features,
         )
 
         preds.append(pred.cpu())
@@ -511,6 +639,7 @@ def main():
     train_edge_data = None
     val_edge_data = None
     test_edge_data = None
+    static_node_features = None
 
     if adjacency_mode == "static":
         adj = data["adj"].astype(np.float32)
@@ -534,9 +663,18 @@ def main():
     else:
         raise ValueError(f"Unknown adjacency_mode: {adjacency_mode}")
 
-    train_ds = POIGraphDataset(x_train, y_train)
-    val_ds = POIGraphDataset(x_val, y_val)
-    test_ds = POIGraphDataset(x_test, y_test)
+    if "static_node_features" in data:
+        s = data["static_node_features"].astype(np.float32)
+        static_node_features = torch.tensor(s, dtype=torch.float32, device=device)
+        print(f"Loaded static_node_features: {static_node_features.shape}")
+    else:
+        print("No static_node_features found in data file")
+
+    in_dim = 1 + (static_node_features.shape[1] if static_node_features is not None else 0)
+
+    train_ds = POIGraphDataset(x_train, y_train, static_node_features)
+    val_ds = POIGraphDataset(x_val, y_val, static_node_features)
+    test_ds = POIGraphDataset(x_test, y_test, static_node_features)
 
     train_loader = DataLoader(
         train_ds,
@@ -563,6 +701,7 @@ def main():
         num_nodes=N,
         horizon=H,
         hidden_dim=args.hidden_dim,
+        in_dim=in_dim,
     ).to(device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
@@ -582,6 +721,7 @@ def main():
             adjacency_mode=adjacency_mode,
             static_adj=static_adj,
             edge_data=train_edge_data,
+            static_node_features=static_node_features,
             optimizer=optimizer,
             loss_fn=loss_fn,
             device=device,
@@ -593,6 +733,7 @@ def main():
             adjacency_mode=adjacency_mode,
             static_adj=static_adj,
             edge_data=val_edge_data,
+            static_node_features=static_node_features,
             loss_fn=loss_fn,
             device=device,
         )
@@ -656,6 +797,7 @@ def main():
         adjacency_mode=adjacency_mode,
         static_adj=static_adj,
         edge_data=val_edge_data,
+        static_node_features=static_node_features,
         device=device,
     )
 
@@ -688,6 +830,7 @@ def main():
         adjacency_mode=adjacency_mode,
         static_adj=static_adj,
         edge_data=test_edge_data,
+        static_node_features=static_node_features,
         device=device,
     )
 

@@ -5,15 +5,14 @@ import argparse
 import numpy as np
 
 
-def export_static(args, X, Y, train_idx, val_idx, test_idx):
+def export_static(args, X, Y, train_idx, val_idx, test_idx, S=None):
     adj = np.load(args.adj_path).astype(np.float32)
     N = X.shape[2]
 
     if adj.shape != (N, N):
         raise ValueError(f"Static adjacency shape {adj.shape} does not match N={N}")
 
-    np.savez_compressed(
-        args.output_path,
+    out = dict(
         adjacency_mode="static",
         x_train=X[train_idx],
         y_train=Y[train_idx],
@@ -26,6 +25,14 @@ def export_static(args, X, Y, train_idx, val_idx, test_idx):
         test_idx=test_idx,
         adj=adj,
     )
+    if S is not None:
+        s_mean = S.mean(axis=0, keepdims=True)
+        s_std = S.std(axis=0, keepdims=True)
+        s_std[s_std == 0] = 1.0
+        S_norm = (S - s_mean) / s_std
+        out["static_node_features"] = S_norm
+
+    np.savez_compressed(args.output_path, **out)
 
 
 def subset_dynamic_edges(dynamic_adj, sample_indices, seq_in_len):
@@ -69,7 +76,7 @@ def subset_dynamic_edges(dynamic_adj, sample_indices, seq_in_len):
     )
 
 
-def export_dynamic(args, X, Y, train_idx, val_idx, test_idx):
+def export_dynamic(args, X, Y, train_idx, val_idx, test_idx, S=None):
     dynamic_adj = np.load(args.dynamic_adj_path)
 
     seq_in_len = X.shape[1]
@@ -96,8 +103,7 @@ def export_dynamic(args, X, Y, train_idx, val_idx, test_idx):
         dynamic_adj, test_idx, seq_in_len
     )
 
-    np.savez_compressed(
-        args.output_path,
+    out = dict(
         adjacency_mode="dynamic",
         x_train=X[train_idx],
         y_train=Y[train_idx],
@@ -123,6 +129,14 @@ def export_dynamic(args, X, Y, train_idx, val_idx, test_idx):
         seq_in_len=np.array(seq_in_len),
         num_nodes=np.array(N),
     )
+    if S is not None:
+        s_mean = S.mean(axis=0, keepdims=True)
+        s_std = S.std(axis=0, keepdims=True)
+        s_std[s_std == 0] = 1.0
+        S_norm = (S - s_mean) / s_std
+        out["static_node_features"] = S_norm
+
+    np.savez_compressed(args.output_path, **out)
 
 
 def main():
@@ -131,6 +145,7 @@ def main():
     parser.add_argument("--samples_path", type=str, default="data/splits/all_samples.npz")
     parser.add_argument("--indices_path", type=str, default="data/splits/split_indices.npz")
     parser.add_argument("--output_path", type=str, required=True)
+    parser.add_argument("--static_features_path", type=str, default="data/splits/static_node_features.npy")
 
     parser.add_argument(
         "--adjacency_mode",
@@ -156,17 +171,26 @@ def main():
     val_idx = indices["val_idx"]
     test_idx = indices["test_idx"]
 
+    S = None
+    if os.path.exists(args.static_features_path):
+        S = np.load(args.static_features_path).astype(np.float32)
+        if S.shape[0] != X.shape[2]:
+            raise ValueError(f"Static features nodes {S.shape[0]} != num_nodes {X.shape[2]}")
+        print(f"Loaded static features: S.shape={S.shape}")
+    else:
+        print("Static features not found, proceeding without them")
+
     if args.adjacency_mode == "static":
         if args.adj_path is None:
             raise ValueError("--adj_path is required for static adjacency mode")
 
-        export_static(args, X, Y, train_idx, val_idx, test_idx)
+        export_static(args, X, Y, train_idx, val_idx, test_idx, S)
 
     elif args.adjacency_mode == "dynamic":
         if args.dynamic_adj_path is None:
             raise ValueError("--dynamic_adj_path is required for dynamic adjacency mode")
 
-        export_dynamic(args, X, Y, train_idx, val_idx, test_idx)
+        export_dynamic(args, X, Y, train_idx, val_idx, test_idx, S)
 
     print("Saved EvolveGCN split:", args.output_path)
     print("mode:", args.adjacency_mode)

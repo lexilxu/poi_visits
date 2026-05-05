@@ -2,13 +2,27 @@ from layer import *
 
 
 class gtnet(nn.Module):
-    def __init__(self, gcn_true, buildA_true, gcn_depth, num_nodes, device, predefined_A=None, static_feat=None, dropout=0.3, subgraph_size=20, node_dim=40, dilation_exponential=1, conv_channels=32, residual_channels=32, skip_channels=64, end_channels=128, seq_length=12, in_dim=2, out_dim=12, layers=3, propalpha=0.05, tanhalpha=3, layer_norm_affline=True):
+    def __init__(self, gcn_true, buildA_true, gcn_depth, num_nodes, device, predefined_A=None, static_feat=None, dropout=0.3, subgraph_size=20, node_dim=40, dilation_exponential=1, conv_channels=32, residual_channels=32, skip_channels=64, end_channels=128, seq_length=12, in_dim=2, out_dim=12, layers=3, propalpha=0.05, tanhalpha=3, layer_norm_affline=True, cat_vocab_size=0, cat_emb_dim=8, naics2_vocab_size=0, naics2_emb_dim=8, naics4_vocab_size=0, naics4_emb_dim=8, brand_vocab_size=0, brand_emb_dim=8, parent_vocab_size=0, parent_emb_dim=8):
         super(gtnet, self).__init__()
         self.gcn_true = gcn_true
         self.buildA_true = buildA_true
         self.num_nodes = num_nodes
         self.dropout = dropout
         self.predefined_A = predefined_A
+
+        self.cat_emb = nn.Embedding(cat_vocab_size, cat_emb_dim) if cat_vocab_size > 0 else None
+        self.naics2_emb = nn.Embedding(naics2_vocab_size, naics2_emb_dim) if naics2_vocab_size > 0 else None
+        self.naics4_emb = nn.Embedding(naics4_vocab_size, naics4_emb_dim) if naics4_vocab_size > 0 else None
+        self.brand_emb = nn.Embedding(brand_vocab_size, brand_emb_dim) if brand_vocab_size > 0 else None
+        self.parent_emb = nn.Embedding(parent_vocab_size, parent_emb_dim) if parent_vocab_size > 0 else None
+
+        emb_list = [(self.cat_emb, cat_emb_dim), (self.naics2_emb, naics2_emb_dim),
+                     (self.naics4_emb, naics4_emb_dim), (self.brand_emb, brand_emb_dim),
+                     (self.parent_emb, parent_emb_dim)]
+        self.static_emb_dim = sum(d for e, d in emb_list if e is not None)
+        real_in_dim = 1 + 4 + self.static_emb_dim
+        self.in_dim = real_in_dim if self.static_emb_dim > 0 else in_dim
+
         self.filter_convs = nn.ModuleList()
         self.gate_convs = nn.ModuleList()
         self.residual_convs = nn.ModuleList()
@@ -16,7 +30,8 @@ class gtnet(nn.Module):
         self.gconv1 = nn.ModuleList()
         self.gconv2 = nn.ModuleList()
         self.norm = nn.ModuleList()
-        self.start_conv = nn.Conv2d(in_channels=in_dim,
+
+        self.start_conv = nn.Conv2d(in_channels=self.in_dim,
                                     out_channels=residual_channels,
                                     kernel_size=(1, 1))
         self.gc = graph_constructor(num_nodes, subgraph_size, node_dim, device, alpha=tanhalpha, static_feat=static_feat)
@@ -75,11 +90,11 @@ class gtnet(nn.Module):
                                              kernel_size=(1,1),
                                              bias=True)
         if self.seq_length > self.receptive_field:
-            self.skip0 = nn.Conv2d(in_channels=in_dim, out_channels=skip_channels, kernel_size=(1, self.seq_length), bias=True)
+            self.skip0 = nn.Conv2d(in_channels=self.in_dim, out_channels=skip_channels, kernel_size=(1, self.seq_length), bias=True)
             self.skipE = nn.Conv2d(in_channels=residual_channels, out_channels=skip_channels, kernel_size=(1, self.seq_length-self.receptive_field+1), bias=True)
 
         else:
-            self.skip0 = nn.Conv2d(in_channels=in_dim, out_channels=skip_channels, kernel_size=(1, self.receptive_field), bias=True)
+            self.skip0 = nn.Conv2d(in_channels=self.in_dim, out_channels=skip_channels, kernel_size=(1, self.receptive_field), bias=True)
             self.skipE = nn.Conv2d(in_channels=residual_channels, out_channels=skip_channels, kernel_size=(1, 1), bias=True)
 
 
@@ -93,7 +108,21 @@ class gtnet(nn.Module):
         if self.seq_length<self.receptive_field:
             input = nn.functional.pad(input,(self.receptive_field-self.seq_length,0,0,0))
 
-
+        B, C, N, P = input.shape
+        if self.static_emb_dim > 0:
+            id_tensors = [
+                (self.cat_emb, input[:, 0, :, 0].long()),
+                (self.naics2_emb, input[:, 1, :, 0].long()),
+                (self.naics4_emb, input[:, 2, :, 0].long()),
+                (self.brand_emb, input[:, 3, :, 0].long()),
+                (self.parent_emb, input[:, 4, :, 0].long()),
+            ]
+            emb_parts = [e(id_tensor) for e, id_tensor in id_tensors if e is not None]
+            h_emb = torch.cat(emb_parts, dim=-1)
+            h_emb = h_emb.permute(0, 2, 1).unsqueeze(-1).expand(-1, -1, -1, P)
+            x_merged = torch.cat([input[:, 5:], h_emb], dim=1)
+        else:
+            x_merged = input
 
         if self.gcn_true:
             if self.buildA_true:
@@ -104,8 +133,8 @@ class gtnet(nn.Module):
             else:
                 adp = self.predefined_A
 
-        x = self.start_conv(input)
-        skip = self.skip0(F.dropout(input, self.dropout, training=self.training))
+        x = self.start_conv(x_merged)
+        skip = self.skip0(F.dropout(x_merged, self.dropout, training=self.training))
         for i in range(self.layers):
             residual = x
             filter = self.filter_convs[i](x)

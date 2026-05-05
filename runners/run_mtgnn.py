@@ -66,6 +66,17 @@ def main():
     parser.add_argument("--tanhalpha", type=float, default=3)
     parser.add_argument("--num_split", type=int, default=1)
 
+    parser.add_argument("--cat_vocab_size", type=int, default=0)
+    parser.add_argument("--cat_emb_dim", type=int, default=8)
+    parser.add_argument("--naics2_vocab_size", type=int, default=0)
+    parser.add_argument("--naics2_emb_dim", type=int, default=8)
+    parser.add_argument("--naics4_vocab_size", type=int, default=0)
+    parser.add_argument("--naics4_emb_dim", type=int, default=8)
+    parser.add_argument("--brand_vocab_size", type=int, default=0)
+    parser.add_argument("--brand_emb_dim", type=int, default=8)
+    parser.add_argument("--parent_vocab_size", type=int, default=0)
+    parser.add_argument("--parent_emb_dim", type=int, default=8)
+
     args = parser.parse_args()
 
     mtgnn_dir = Path(args.mtgnn_dir).resolve()
@@ -141,6 +152,17 @@ def main():
         "--propalpha", str(args.propalpha),
         "--tanhalpha", str(args.tanhalpha),
         "--num_split", str(args.num_split),
+
+        "--cat_vocab_size", str(args.cat_vocab_size),
+        "--cat_emb_dim", str(args.cat_emb_dim),
+        "--naics2_vocab_size", str(args.naics2_vocab_size),
+        "--naics2_emb_dim", str(args.naics2_emb_dim),
+        "--naics4_vocab_size", str(args.naics4_vocab_size),
+        "--naics4_emb_dim", str(args.naics4_emb_dim),
+        "--brand_vocab_size", str(args.brand_vocab_size),
+        "--brand_emb_dim", str(args.brand_emb_dim),
+        "--parent_vocab_size", str(args.parent_vocab_size),
+        "--parent_emb_dim", str(args.parent_emb_dim),
 
         "--runs", str(args.runs),
     ]

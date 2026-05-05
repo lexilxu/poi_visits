@@ -7,7 +7,7 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=xuliu8@uw.edu
+#SBATCH --mail-user=yida0101@uw.edu
 
 #SBATCH --partition=ckpt
 #SBATCH --gres=gpu:a100:1    
