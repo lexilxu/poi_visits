@@ -97,6 +97,11 @@ def main(runid):
     predefined_A = torch.tensor(predefined_A)-torch.eye(args.num_nodes)
     predefined_A = predefined_A.to(device)
 
+    # if args.load_static_feature:
+    #     static_feat = load_node_feature('data/sensor_graph/location.csv')
+    # else:
+    #     static_feat = None
+
     model = gtnet(args.gcn_true, args.buildA_true, args.gcn_depth, args.num_nodes,
                   device, predefined_A=predefined_A,
                   dropout=args.dropout, subgraph_size=args.subgraph_size,
@@ -132,8 +137,7 @@ def main(runid):
         dataloader['train_loader'].shuffle()
         for iter, (x, y) in enumerate(dataloader['train_loader'].get_iterator()):
             trainx = torch.Tensor(x).to(device)
-            # y: (B, T, N, C) -> select first channel -> (B, N, T)
-            trainy = torch.Tensor(y)[:, 0, :, 0].transpose(1, 2).to(device)  # (B, N, T)
+            trainy = torch.Tensor(y).transpose(1, 2).to(device)
             
             if iter%args.step_size2==0:
                 perm = np.random.permutation(range(args.num_nodes))
@@ -163,7 +167,7 @@ def main(runid):
         s1 = time.time()
         for iter, (x, y) in enumerate(dataloader['val_loader'].get_iterator()):
             testx = torch.Tensor(x).to(device)
-            testy = torch.Tensor(y)[:, 0, :, 0].transpose(1, 2).to(device)  # (B, N, T)
+            testy = torch.Tensor(y).transpose(1, 2).to(device)
             metrics = engine.eval(testx, testy)
             valid_loss.append(metrics[0])
             valid_mape.append(metrics[1])
@@ -217,7 +221,7 @@ def main(runid):
 
     #test data
     outputs = []
-    realy = torch.Tensor(dataloader['y_test'])[:, 0, :, 0].transpose(1, 2).to(device)  # (B, N, T)
+    realy = torch.Tensor(dataloader['y_test']).transpose(1, 2).to(device)
 
     for iter, (x, y) in enumerate(dataloader['test_loader'].get_iterator()):
         testx = torch.Tensor(x).to(device)

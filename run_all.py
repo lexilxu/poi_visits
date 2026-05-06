@@ -186,7 +186,7 @@ def run_mtgnn_for_adjacencies(args, hyperparams, num_nodes):
 
     mtgnn_split_dir = os.path.join(args.split_dir, "mtgnn")
     train_npz = np.load(os.path.join(mtgnn_split_dir, "train.npz"))
-    in_dim = int(train_npz["x"].shape[3])
+    in_dim = int(train_npz["x"].shape[1])
     print(f"Detected MTGNN in_dim={in_dim} from split files")
 
     info_path = os.path.join(args.split_dir, "static_node_features_info.json")
@@ -255,7 +255,7 @@ def run_mtgnn_for_adjacencies(args, hyperparams, num_nodes):
             "--num_nodes", str(num_nodes),
             "--seq_in_len", str(args.seq_in_len),
             "--seq_out_len", str(args.seq_out_len),
-            "--in_dim", str(args.in_dim),
+            "--in_dim", str(in_dim),
             "--device", args.device,
             "--epochs", str(args.mtgnn_epochs),
             "--batch_size", str(batch_size),

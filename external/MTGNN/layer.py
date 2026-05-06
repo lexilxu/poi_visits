@@ -319,7 +319,12 @@ class LayerNorm(nn.Module):
 
     def forward(self, input, idx):
         if self.elementwise_affine:
-            return F.layer_norm(input, tuple(input.shape[1:]), self.weight[:,idx,:], self.bias[:,idx,:], self.eps)
+            w = self.weight[:, idx, :]   # (C, N, 1)
+            b = self.bias[:, idx, :]     # (C, N, 1)
+            mean = input.mean(dim=(1, 3), keepdim=True)
+            var = input.var(dim=(1, 3), keepdim=True, unbiased=False)
+            x = (input - mean) / torch.sqrt(var + self.eps)
+            return x * w + b
         else:
             return F.layer_norm(input, tuple(input.shape[1:]), self.weight, self.bias, self.eps)
 

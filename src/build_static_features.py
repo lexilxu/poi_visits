@@ -124,13 +124,13 @@ def build_static_features(poi_meta, location_table, location_table_path=None):
     if naics_col is not None:
         naics_cleaned = merged[naics_col].apply(clean_naics)
         naics2_vals = naics_cleaned.apply(
-            lambda x: x[:2] if x and len(x) >= 2 else "__unk__"
+            lambda x: x[:2] if isinstance(x, str) and len(x) >= 2 else "__unk__"
         )
         naics2_ids, naics2_vocab = frequency_group(
             naics2_vals, NAICS2_FREQ_THRESH, "__unk__", "__other__"
         )
         naics4_vals = naics_cleaned.apply(
-            lambda x: x[:4] if x and len(x) >= 4 else "__unk__"
+            lambda x: x[:4] if isinstance(x, str) and len(x) >= 4 else "__unk__"
         )
         naics4_ids, naics4_vocab = frequency_group(
             naics4_vals, NAICS4_FREQ_THRESH, "__unk__", "__other__"

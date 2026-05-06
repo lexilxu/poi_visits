@@ -1,5 +1,4 @@
-# src/export_mtgnn_split.py
-# Build MTGNN split files: x (B, C, N, P) with visit + continuous + categorical IDs
+# scripts/export_mtgnn_split.py
 
 import os
 import json
