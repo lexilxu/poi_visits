@@ -35,7 +35,7 @@ def save_mtgnn_file(path, X, Y, S_cont, cat_ids, naics2_ids, naics4_ids, brand_i
     add_id(parent_ids, "parent")
 
     x = np.concatenate(parts, axis=1).astype(np.float32)
-    y = Y[..., None].astype(np.float32)
+    y = Y.astype(np.float32)
 
     x_offsets = np.arange(-seq_in_len + 1, 1).reshape(-1, 1)
     y_offsets = np.arange(1, seq_out_len + 1).reshape(-1, 1)

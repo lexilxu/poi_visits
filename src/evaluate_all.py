@@ -49,6 +49,48 @@ def corr(y_true, y_pred):
     return float(np.corrcoef(y_true, y_pred)[0, 1])
 
 
+def normalize_to_bhn(y, name, file_path):
+    """
+    Normalize array to shape (B, H, N).
+
+    Handles four source formats:
+      1. Benchmark (ar_ridge, evolvegcn_*, lstm, naive):
+         y has shape (B, H, N) already — dim-1 = H = 7 (small), dim-2 = N = 9926 (large).
+      2. MTGNN external (train_multi_step.py):
+         y has shape (B, N, H) — dim-1 = N = 9926 (large), dim-2 = H = 7 (small).
+      3. train_poi.py true:
+         y has shape (B, H, N, 1) — squeeze last unit dim.
+      4. train_poi.py pred:
+         y has shape (B, N, H) — same as MTGNN external, transpose.
+
+    Heuristic: if dim-1 is a small int (2-14, plausible horizon) and dim-2 is
+    large (>100, plausible num_nodes), it is (B, H, N) — no transpose needed.
+    Otherwise transpose to (B, H, N).
+    """
+    orig_shape = y.shape
+    y = np.asarray(y)
+
+    # 4D -> 3D (e.g. (B,H,N,1) -> (B,H,N))
+    if y.ndim == 4:
+        y = y.squeeze(-1)
+
+    # 3D: detect (B, H, N) vs (B, N, H)
+    if y.ndim == 3:
+        d1, d2 = y.shape[1], y.shape[2]
+        # Small dim-1 (2-14) = horizon, large dim-2 (>100) = num_nodes -> correct
+        if 2 <= d1 <= 14 and d2 > 100:
+            pass  # already (B, H, N)
+        else:
+            y = y.transpose(0, 2, 1)
+
+    if y.ndim != 3:
+        raise ValueError(
+            f"Cannot normalize {name} from {file_path} with shape {orig_shape} to (B,H,N): got {y.shape}"
+        )
+
+    return y
+
+
 def check_prediction_shapes(model_name, y_true, y_pred):
     if y_true.shape != y_pred.shape:
         raise ValueError(
@@ -269,6 +311,9 @@ def main():
 
         y_pred = np.load(pred_path)
         y_true = np.load(true_path)
+
+        y_pred = normalize_to_bhn(y_pred, "pred", pred_path)
+        y_true = normalize_to_bhn(y_true, "true", true_path)
 
         if args.clip_negative:
             y_pred = np.clip(y_pred, a_min=0.0, a_max=None)

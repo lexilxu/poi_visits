@@ -2,6 +2,7 @@
 
 import argparse
 import subprocess
+import os
 from pathlib import Path
 
 
@@ -64,7 +65,7 @@ def main():
 
     parser.add_argument("--propalpha", type=float, default=0.05)
     parser.add_argument("--tanhalpha", type=float, default=3)
-    parser.add_argument("--num_split", type=int, default=1)
+    parser.add_argument("--num_split", type=int, default=4)
 
     parser.add_argument("--cat_vocab_size", type=int, default=0)
     parser.add_argument("--cat_emb_dim", type=int, default=8)
@@ -76,6 +77,7 @@ def main():
     parser.add_argument("--brand_emb_dim", type=int, default=8)
     parser.add_argument("--parent_vocab_size", type=int, default=0)
     parser.add_argument("--parent_emb_dim", type=int, default=8)
+    parser.add_argument("--static_node_features", type=str, default=None, help="Path to .npy static node features for graph constructor")
 
     args = parser.parse_args()
 
@@ -164,6 +166,8 @@ def main():
         "--parent_vocab_size", str(args.parent_vocab_size),
         "--parent_emb_dim", str(args.parent_emb_dim),
 
+        "--static_node_features", str(args.static_node_features) if args.static_node_features else "None",
+
         "--runs", str(args.runs),
     ]
 
@@ -172,7 +176,10 @@ def main():
     print("Running command:")
     print(" ".join(command))
 
-    subprocess.run(command, cwd=mtgnn_dir, check=True)
+    run_env = dict(os.environ)
+    run_env["MKL_SERVICE_FORCE_INTEL"] = "1"
+
+    subprocess.run(command, cwd=mtgnn_dir, check=True, env=run_env)
 
 
 if __name__ == "__main__":

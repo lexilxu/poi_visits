@@ -269,6 +269,8 @@ def run_mtgnn_for_adjacencies(args, hyperparams, num_nodes):
             "--load_static_feature", str(cfg.get("load_static_feature", "False")),
             "--cl", str(cfg.get("cl", "True")),
 
+            "--static_node_features", os.path.join(args.split_dir, "static_node_features.npy"),
+
             "--gcn_depth", str(cfg.get("gcn_depth", 2)),
             "--dropout", str(dropout),
             "--subgraph_size", str(cfg.get("subgraph_size", 20)),
@@ -290,7 +292,7 @@ def run_mtgnn_for_adjacencies(args, hyperparams, num_nodes):
 
             "--propalpha", str(cfg.get("propalpha", 0.05)),
             "--tanhalpha", str(cfg.get("tanhalpha", 3)),
-            "--num_split", str(cfg.get("num_split", 1)),
+            "--num_split", str(cfg.get("num_split", args.mtgnn_num_split)),
 
             "--brand_vocab_size", str(brand_vocab_size),
             "--brand_emb_dim", str(emb_dim),
@@ -480,6 +482,7 @@ def main():
     parser.add_argument("--mtgnn_learning_rate", type=float, default=0.001)
     parser.add_argument("--mtgnn_dropout", type=float, default=0.3)
     parser.add_argument("--mtgnn_runs", type=int, default=1)
+    parser.add_argument("--mtgnn_num_split", type=int, default=4)
 
     # EvolveGCN fallback defaults
     parser.add_argument("--evolvegcn_epochs", type=int, default=50)

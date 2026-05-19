@@ -77,6 +77,7 @@ parser.add_argument('--brand_vocab_size',type=int,default=0)
 parser.add_argument('--brand_emb_dim',type=int,default=8)
 parser.add_argument('--parent_vocab_size',type=int,default=0)
 parser.add_argument('--parent_emb_dim',type=int,default=8)
+parser.add_argument('--static_node_features', type=str, default=None, help='path to static node features .npy file for graph constructor')
 
 
 args = parser.parse_args()
@@ -84,11 +85,6 @@ torch.set_num_threads(3)
 
 
 def main(runid):
-    # torch.manual_seed(args.seed)
-    # torch.backends.cudnn.deterministic = True
-    # torch.backends.cudnn.benchmark = False
-    # np.random.seed(args.seed)
-    #load data
     device = torch.device(args.device)
     dataloader = load_dataset(args.data, args.batch_size, args.batch_size, args.batch_size)
     scaler = dataloader['scaler']
@@ -97,10 +93,13 @@ def main(runid):
     predefined_A = torch.tensor(predefined_A)-torch.eye(args.num_nodes)
     predefined_A = predefined_A.to(device)
 
-    # if args.load_static_feature:
-    #     static_feat = load_node_feature('data/sensor_graph/location.csv')
-    # else:
-    #     static_feat = None
+    if args.static_node_features and os.path.exists(args.static_node_features):
+        static_feat = np.load(args.static_node_features).astype(np.float32)
+        static_feat = torch.tensor(static_feat, dtype=torch.float32).to(device)
+        print(f"Loaded static node features for graph constructor: {static_feat.shape}")
+    else:
+        static_feat = None
+        print("No static node features loaded for graph constructor")
 
     model = gtnet(args.gcn_true, args.buildA_true, args.gcn_depth, args.num_nodes,
                   device, predefined_A=predefined_A,
@@ -115,7 +114,8 @@ def main(runid):
                   naics2_vocab_size=args.naics2_vocab_size, naics2_emb_dim=args.naics2_emb_dim,
                   naics4_vocab_size=args.naics4_vocab_size, naics4_emb_dim=args.naics4_emb_dim,
                   brand_vocab_size=args.brand_vocab_size, brand_emb_dim=args.brand_emb_dim,
-                  parent_vocab_size=args.parent_vocab_size, parent_emb_dim=args.parent_emb_dim)
+                  parent_vocab_size=args.parent_vocab_size, parent_emb_dim=args.parent_emb_dim,
+                  static_feat=static_feat)
 
     print(args)
     print('The recpetive field size is', model.receptive_field)
@@ -148,9 +148,10 @@ def main(runid):
                 else:
                     id = perm[j * num_sub:]
                 id = torch.tensor(id).to(device)
-                tx = trainx[:, :, id, :]  # (B, C, num_sub, T)
-                ty = trainy[:, id, :]       # (B, num_sub, T)
-                metrics = engine.train(tx, ty, id)
+                seq_id = torch.arange(len(id)).to(device)
+                tx = trainx[:, :, id, :]
+                ty = trainy[:, id, :]
+                metrics = engine.train(tx, ty, id, seq_id)
                 train_loss.append(metrics[0])
                 train_mape.append(metrics[1])
                 train_rmse.append(metrics[2])
@@ -159,7 +160,6 @@ def main(runid):
                 print(log.format(iter, train_loss[-1], train_mape[-1], train_rmse[-1]),flush=True)
         t2 = time.time()
         train_time.append(t2-t1)
-        #validation
         valid_loss = []
         valid_mape = []
         valid_rmse = []
@@ -167,11 +167,20 @@ def main(runid):
         s1 = time.time()
         for iter, (x, y) in enumerate(dataloader['val_loader'].get_iterator()):
             testx = torch.Tensor(x).to(device)
-            testy = torch.Tensor(y).transpose(1, 2).to(device)
-            metrics = engine.eval(testx, testy)
-            valid_loss.append(metrics[0])
-            valid_mape.append(metrics[1])
-            valid_rmse.append(metrics[2])
+            testy = torch.Tensor(y).to(device)
+            num_val = testx.size(2)
+            num_sub_val = int(num_val / args.num_split) if args.num_split > 1 else num_val
+            for j in range(args.num_split):
+                if j != args.num_split - 1:
+                    id_j = torch.arange(j * num_sub_val, (j + 1) * num_sub_val).to(device)
+                else:
+                    id_j = torch.arange(j * num_sub_val, num_val).to(device)
+                seq_id_j = torch.arange(len(id_j)).to(device)
+                tx_j = testx[:, :, id_j, :]
+                metrics = engine.eval(tx_j, testy[:, :, id_j].transpose(1, 2), seq_idx=seq_id_j)
+                valid_loss.append(metrics[0])
+                valid_mape.append(metrics[1])
+                valid_rmse.append(metrics[2])
         s2 = time.time()
         log = 'Epoch: {:03d}, Inference Time: {:.4f} secs'
         print(log.format(i,(s2-s1)))
@@ -197,46 +206,99 @@ def main(runid):
 
 
     bestid = np.argmin(his_loss)
-    engine.model.load_state_dict(torch.load(args.save + "exp" + str(args.expid) + "_" + str(runid) +".pth"))
+    engine.model.load_state_dict(torch.load(args.save + "exp" + str(args.expid) + "_" + str(runid) +".pth", weights_only=False))
 
     print("Training finished")
     print("The valid loss on best model is", str(round(his_loss[bestid],4)))
 
-    #valid data
     outputs = []
-    realy = torch.Tensor(dataloader['y_val'])[:, 0, :, 0].transpose(1, 2).to(device)  # (B, N, T)
+    realy = torch.Tensor(dataloader['y_val']).to(device)
 
     for iter, (x, y) in enumerate(dataloader['val_loader'].get_iterator()):
         testx = torch.Tensor(x).to(device)
-        with torch.no_grad():
-            preds = engine.model(testx)  # (B, 1, N, T) -> squeeze to (B, N, T)
-        outputs.append(preds.squeeze())
+        testy = torch.Tensor(y).to(device)
+        num_nodes = testx.size(2)
+        num_sub = int(num_nodes / args.num_split) if args.num_split > 1 else num_nodes
+        batch_outputs = []
+        for j in range(args.num_split):
+            start_idx = j * num_sub
+            end_idx = (j + 1) * num_sub if j < args.num_split - 1 else num_nodes
+            id_j = torch.arange(start_idx, end_idx).to(device)
+            seq_id_j = torch.arange(len(id_j)).to(device)
+            tx_j = testx[:, :, id_j, :]
+            with torch.no_grad():
+                preds = engine.model(tx_j, idx=seq_id_j)
+            if preds.dim() == 4:
+                B, C, N, T = preds.shape
+                if C == 1:
+                    preds = preds.squeeze(1)
+                elif preds.size(-1) == 1:
+                    preds = preds.squeeze(-1)
+            if preds.size(0) < testx.size(0):
+                preds = torch.cat([preds, preds[-1:].expand(testx.size(0) - preds.size(0), -1, -1)], dim=0)
+            batch_outputs.append(preds)
+        batch_yhat = torch.cat(batch_outputs, dim=2)
+        outputs.append(batch_yhat)
 
-    yhat = torch.cat(outputs,dim=0)
-    yhat = yhat[:realy.size(0),...]
+    yhat = torch.cat(outputs, dim=0)
+    if yhat.size(0) > realy.size(0):
+        yhat = yhat[:realy.size(0), ...]
+    if yhat.size(1) != realy.size(1):
+        yhat = yhat.transpose(1, 2)
+    if yhat.size(2) > realy.size(2):
+        yhat = yhat[:, :, :realy.size(2)]
+    elif yhat.size(2) < realy.size(2):
+        pad_size = realy.size(2) - yhat.size(2)
+        yhat = torch.cat([yhat, yhat[:, :, -1:].expand(-1, -1, pad_size)], dim=2)
 
+    pred = yhat
+    vmae, vmape, vrmse = metric(pred, realy)
 
-    pred = scaler.inverse_transform(yhat)
-    vmae, vmape, vrmse = metric(pred,realy)
-
-    #test data
     outputs = []
-    realy = torch.Tensor(dataloader['y_test']).transpose(1, 2).to(device)
+    realy = torch.Tensor(dataloader['y_test']).to(device)
 
     for iter, (x, y) in enumerate(dataloader['test_loader'].get_iterator()):
         testx = torch.Tensor(x).to(device)
-        with torch.no_grad():
-            preds = engine.model(testx)  # (B, 1, N, T)
-        outputs.append(preds.squeeze())
+        testy = torch.Tensor(y).to(device)
+        num_nodes = testx.size(2)
+        num_sub = int(num_nodes / args.num_split) if args.num_split > 1 else num_nodes
+        batch_outputs = []
+        for j in range(args.num_split):
+            start_idx = j * num_sub
+            end_idx = (j + 1) * num_sub if j < args.num_split - 1 else num_nodes
+            id_j = torch.arange(start_idx, end_idx).to(device)
+            seq_id_j = torch.arange(len(id_j)).to(device)
+            tx_j = testx[:, :, id_j, :]
+            with torch.no_grad():
+                preds = engine.model(tx_j, idx=seq_id_j)
+            if preds.dim() == 4:
+                B, C, N, T = preds.shape
+                if C == 1:
+                    preds = preds.squeeze(1)
+                elif preds.size(-1) == 1:
+                    preds = preds.squeeze(-1)
+            if preds.size(0) < testx.size(0):
+                preds = torch.cat([preds, preds[-1:].expand(testx.size(0) - preds.size(0), -1, -1)], dim=0)
+            batch_outputs.append(preds)
+        batch_yhat = torch.cat(batch_outputs, dim=2)
+        outputs.append(batch_yhat)
 
     yhat = torch.cat(outputs, dim=0)
-    yhat = yhat[:realy.size(0), ...]
+    if yhat.size(0) > realy.size(0):
+        yhat = yhat[:realy.size(0), ...]
+    if yhat.size(1) != realy.size(1):
+        yhat = yhat.transpose(1, 2)
+    if yhat.size(2) > realy.size(2):
+        yhat = yhat[:, :, :realy.size(2)]
+    elif yhat.size(2) < realy.size(2):
+        pad_size = realy.size(2) - yhat.size(2)
+        yhat = torch.cat([yhat, yhat[:, :, -1:].expand(-1, -1, pad_size)], dim=2)
 
     mae = []
     mape = []
     rmse = []
     for i in range(args.seq_out_len):
-        pred = scaler.inverse_transform(yhat[:, :, i])
+        pred = yhat[:, :, i]
         real = realy[:, :, i]
         metrics = metric(pred, real)
         log = 'Evaluate best model on test data for horizon {:d}, Test MAE: {:.4f}, Test MAPE: {:.4f}, Test RMSE: {:.4f}'
@@ -245,22 +307,12 @@ def main(runid):
         mape.append(metrics[1])
         rmse.append(metrics[2])
 
-    # ------------------------------------------------------------------
-    # Save test predictions and targets for external evaluation pipeline
-    # ------------------------------------------------------------------
     out_dir = args.save + "outputs"
     os.makedirs(out_dir, exist_ok=True)
     
-    # yhat is usually shape: (num_test, num_nodes, seq_out_len)
-    # realy is usually shape: (num_test, num_nodes, seq_out_len)
-    pred_all = scaler.inverse_transform(yhat).detach().cpu().numpy()
+    pred_all = yhat.detach().cpu().numpy()
     true_all = realy.detach().cpu().numpy()
 
-    # Convert to pipeline format: (num_test, seq_out_len, num_nodes)
-    pred_all = np.transpose(pred_all, (0, 2, 1))
-    true_all = np.transpose(true_all, (0, 2, 1))
-
-    # POI visits are nonnegative counts.
     pred_all = np.clip(pred_all, a_min=0.0, a_max=None)
     
     pred_path = os.path.join(out_dir, f"mtgnn_pred_expid{args.expid}.npy")
@@ -306,20 +358,17 @@ if __name__ == "__main__":
     srmse = np.std(rmse,0)
 
     print('\n\nResults for 10 runs\n\n')
-    #valid data
     print('valid\tMAE\tRMSE\tMAPE')
     log = 'mean:\t{:.4f}\t{:.4f}\t{:.4f}'
     print(log.format(np.mean(vmae),np.mean(vrmse),np.mean(vmape)))
     log = 'std:\t{:.4f}\t{:.4f}\t{:.4f}'
     print(log.format(np.std(vmae),np.std(vrmse),np.std(vmape)))
     print('\n\n')
-    #test data
     print("test|horizon\tMAE-mean\tRMSE-mean\tMAPE-mean\tMAE-std\tRMSE-std\tMAPE-std")
 
     report_horizons = [2, 5, 11]
     report_horizons = [i for i in report_horizons if i < args.seq_out_len]
 
-    # Always include the final horizon if it is not already included.
     final_horizon = args.seq_out_len - 1
     if final_horizon not in report_horizons:
         report_horizons.append(final_horizon)

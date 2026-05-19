@@ -67,7 +67,7 @@ class SimpleTrainer:
         output = self.model(input)
         output = output.transpose(1, 3)
         real = torch.unsqueeze(real_val, dim=1)
-        predict = self.scaler.inverse_transform(output)
+        predict = output
         loss = self.loss_fn(predict, real)
         loss.backward()
         if self.clip is not None:
@@ -81,7 +81,7 @@ class SimpleTrainer:
             output = self.model(input)
             output = output.transpose(1, 3)
             real = torch.unsqueeze(real_val, dim=1)
-            predict = self.scaler.inverse_transform(output)
+            predict = output
             loss = self.loss_fn(predict, real)
         return loss.item(), 0.0, 0.0
 

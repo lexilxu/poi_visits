@@ -19,14 +19,13 @@ class gtnet(nn.Module):
         self.norm = nn.ModuleList()
 
         self.seq_length = seq_length
-        
-        # Embedding layers for static attributes
+
         self.cat_emb = None
         self.naics2_emb = None
         self.naics4_emb = None
         self.brand_emb = None
         self.parent_emb = None
-        
+
         if cat_vocab_size > 0:
             self.cat_emb = nn.Embedding(cat_vocab_size, cat_emb_dim)
         if naics2_vocab_size > 0:
@@ -37,17 +36,24 @@ class gtnet(nn.Module):
             self.brand_emb = nn.Embedding(brand_vocab_size, brand_emb_dim)
         if parent_vocab_size > 0:
             self.parent_emb = nn.Embedding(parent_vocab_size, parent_emb_dim)
-        
-        # Total embedding dim
-        self.num_static_embs = sum([
+
+        self.num_cat_embs = sum([
             cat_vocab_size > 0,
             naics2_vocab_size > 0,
             naics4_vocab_size > 0,
             brand_vocab_size > 0,
             parent_vocab_size > 0
         ])
-        
+        self.total_cat_emb_dim = (
+            (cat_vocab_size > 0) * cat_emb_dim +
+            (naics2_vocab_size > 0) * naics2_emb_dim +
+            (naics4_vocab_size > 0) * naics4_emb_dim +
+            (brand_vocab_size > 0) * brand_emb_dim +
+            (parent_vocab_size > 0) * parent_emb_dim
+        )
+
         self.in_dim = in_dim
+        self.residual_channels = residual_channels
         self.start_conv = nn.Conv2d(in_channels=in_dim,
                                     out_channels=residual_channels,
                                     kernel_size=(1, 1))
@@ -128,45 +134,47 @@ class gtnet(nn.Module):
         else:
             current_seq_len = seq_len
 
-        # Build embedding tensor from static attributes
+        num_nodes = input.size(2)
+
+        D_s = max(0, self.in_dim - 1 - self.num_cat_embs)
+
         emb_list = []
-        
-        if self.cat_emb is not None and cat_idx is not None:
-            cat_emb = self.cat_emb(cat_idx)  # (N, cat_emb_dim)
-            emb_list.append(cat_emb)
-        if self.naics2_emb is not None and naics2_idx is not None:
-            naics2_emb = self.naics2_emb(naics2_idx)
-            emb_list.append(naics2_emb)
-        if self.naics4_emb is not None and naics4_idx is not None:
-            naics4_emb = self.naics4_emb(naics4_idx)
-            emb_list.append(naics4_emb)
-        if self.brand_emb is not None and brand_idx is not None:
-            brand_emb = self.brand_emb(brand_idx)
-            emb_list.append(brand_emb)
-        if self.parent_emb is not None and parent_idx is not None:
-            parent_emb = self.parent_emb(parent_idx)
-            emb_list.append(parent_emb)
-        
-        # Concatenate all embeddings: (N, total_emb_dim)
+        emb_dims = []
+        for name, emb, provided_idx in [
+            ("cat", self.cat_emb, cat_idx),
+            ("naics2", self.naics2_emb, naics2_idx),
+            ("naics4", self.naics4_emb, naics4_idx),
+            ("brand", self.brand_emb, brand_idx),
+            ("parent", self.parent_emb, parent_idx),
+        ]:
+            if emb is None:
+                continue
+            if idx is None and provided_idx is not None:
+                e = emb(provided_idx)
+            else:
+                cat_channel = 1 + D_s + len(emb_list)
+                e = emb(input[:, cat_channel, :, 0].long())
+            emb_list.append(e)
+            emb_dims.append(e.size(-1))
+
         if len(emb_list) > 0:
-            static_emb = torch.cat(emb_list, dim=-1)  # (N, total_emb_dim)
-            # Expand to match sequence length: (N, total_emb_dim) -> (1, N, total_emb_dim) -> (1, N, total_emb_dim, T)
-            static_emb = static_emb.unsqueeze(0).unsqueeze(-1)  # (1, N, total_emb, 1)
-            static_emb = static_emb.expand(-1, -1, -1, current_seq_len)  # (1, N, total_emb, T)
-            static_emb = static_emb.transpose(1, 2)  # (1, total_emb, N, T)
-            # Pad or project static_emb to match in_dim
+            static_emb = torch.cat(emb_list, dim=-1)
+            B, N, total_emb = static_emb.shape
+            static_emb = static_emb.view(B, total_emb, N, 1)
+            static_emb = static_emb.expand(B, total_emb, N, current_seq_len).contiguous()
             if static_emb.shape[1] < self.in_dim:
-                padding = torch.zeros(1, self.in_dim - static_emb.shape[1], static_emb.shape[2], static_emb.shape[3],
-                                      device=static_emb.device, dtype=static_emb.dtype)
-                static_emb = torch.cat([static_emb, padding], dim=1)
+                pad = torch.zeros(B, self.in_dim - static_emb.shape[1], N, current_seq_len,
+                                  device=static_emb.device, dtype=static_emb.dtype)
+                static_emb = torch.cat([static_emb, pad], dim=1)
             elif static_emb.shape[1] > self.in_dim:
                 static_emb = static_emb[:, :self.in_dim, :, :]
-            # Merge with input: (B, in_dim, N, T)
-            if input.size(0) != static_emb.size(0):
-                static_emb = static_emb.expand(input.size(0), -1, -1, -1)
-            x_merged = input + static_emb
+            x = input + static_emb
+            skip = self.skip0(F.dropout(x, self.dropout, training=self.training))
         else:
-            x_merged = input
+            x = input
+            skip = self.skip0(F.dropout(x, self.dropout, training=self.training))
+
+        x = self.start_conv(x)
 
         if self.gcn_true:
             if self.buildA_true:
@@ -175,10 +183,11 @@ class gtnet(nn.Module):
                 else:
                     adp = self.gc(idx)
             else:
-                adp = self.predefined_A
+                if idx is not None:
+                    adp = self.predefined_A[idx][:, idx]
+                else:
+                    adp = self.predefined_A
 
-        x = self.start_conv(x_merged)
-        skip = self.skip0(F.dropout(x_merged, self.dropout, training=self.training))
         for i in range(self.layers):
             residual = x
             filter = self.filter_convs[i](x)

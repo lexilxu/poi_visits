@@ -16,15 +16,28 @@ class Trainer():
         self.seq_out_len = seq_out_len
         self.cl = cl
 
-    def train(self, input, real_val, idx=None):
+    def train(self, input, real_val, idx=None, seq_idx=None):
         self.model.train()
         self.optimizer.zero_grad()
-        output = self.model(input, idx=idx)
-        output = output.transpose(1,3)
-        real = torch.unsqueeze(real_val,dim=1)
-        predict = self.scaler.inverse_transform(output)
-        if self.iter%self.step==0 and self.task_level<=self.seq_out_len:
-            self.task_level +=1
+        output = self.model(input, idx=seq_idx)
+
+        output = output.transpose(1, 3)
+        real = torch.unsqueeze(real_val, dim=1)
+
+        if idx is not None:
+            num_sub = real.size(2)
+            output = output[:, :, :num_sub, :]
+
+        T_out = output.size(3)
+        T_real = real.size(3)
+        if T_out > T_real:
+            output = output[:, :, :, :T_real]
+        elif T_out < T_real:
+            output = torch.nn.functional.pad(output, (0, T_real - T_out))
+
+        predict = output
+        if self.iter % self.step == 0 and self.task_level <= self.seq_out_len:
+            self.task_level += 1
         if self.cl:
             loss = self.loss(predict[:, :, :, :self.task_level], real[:, :, :, :self.task_level], 0.0)
         else:
@@ -36,22 +49,28 @@ class Trainer():
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.clip)
 
         self.optimizer.step()
-        # mae = util.masked_mae(predict,real,0.0).item()
-        mape = util.masked_mape(predict,real,0.0).item()
-        rmse = util.masked_rmse(predict,real,0.0).item()
+        mape = util.masked_mape(predict, real, 0.0).item()
+        rmse = util.masked_rmse(predict, real, 0.0).item()
         self.iter += 1
-        return loss.item(),mape,rmse
+        return loss.item(), mape, rmse
 
-    def eval(self, input, real_val):
+    def eval(self, input, real_val, seq_idx=None):
         self.model.eval()
-        output = self.model(input)
-        output = output.transpose(1,3)
-        real = torch.unsqueeze(real_val,dim=1)
-        predict = self.scaler.inverse_transform(output)
-        loss = self.loss(predict, real, 0.0)
-        mape = util.masked_mape(predict,real,0.0).item()
-        rmse = util.masked_rmse(predict,real,0.0).item()
-        return loss.item(),mape,rmse
+        output = self.model(input, idx=seq_idx)
+        output = output.transpose(1, 3)
+        real = torch.unsqueeze(real_val, dim=1)
+
+        if output.size(3) != real.size(3):
+            if output.size(3) > real.size(3):
+                output = output[:, :, :, :real.size(3)]
+            else:
+                real = real[:, :, :, :output.size(3)]
+
+        predict = output.squeeze(1)
+        loss = self.loss(predict, real.squeeze(1), 0.0)
+        mape = util.masked_mape(predict, real.squeeze(1), 0.0).item()
+        rmse = util.masked_rmse(predict, real.squeeze(1), 0.0).item()
+        return loss.item(), mape, rmse
 
 
 

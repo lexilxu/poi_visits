@@ -33,7 +33,7 @@ mtgnn:
 
     propalpha: 0.05
     tanhalpha: 3
-    num_split: 1
+    num_split: 4
 
   top_category:
     learning_rate: 0.001
