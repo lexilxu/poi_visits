@@ -7,6 +7,59 @@ import numpy as np
 import pandas as pd
 
 
+# ---------------------------------------------------------------------------
+# FAR (False Activation Rate) — I_0 cache (computed once per process)
+# ---------------------------------------------------------------------------
+_I0_INDICES = None  # POI indices with zero visits across ALL data (train+val+test)
+
+
+def get_zero_history_poi_indices(data_dir="data/splits/mtgnn"):
+    """
+    Identify I_0: POI indices whose total visit count is zero across
+    ALL historical data (train + val + test splits).
+
+    Returns a numpy array of POI indices (N_i0,).
+    """
+    global _I0_INDICES
+    if _I0_INDICES is not None:
+        return _I0_INDICES
+
+    all_zeros = np.zeros(0, dtype=bool)
+    for split in ["train", "val", "test"]:
+        path = os.path.join(data_dir, f"{split}.npz")
+        d = np.load(path)
+        # Channel 0 is the visit data
+        ch0 = d["x"][:, 0, :, :]  # (B, N, T_in)
+        poi_sum = ch0.sum(axis=(0, 2))  # (N,)
+        if all_zeros.size == 0:
+            all_zeros = np.zeros_like(poi_sum, dtype=bool)
+        all_zeros |= (poi_sum == 0)
+
+    _I0_INDICES = np.where(all_zeros)[0]
+    print(f"[FAR] I_0 (zero-history POIs): {len(_I0_INDICES)} / {len(all_zeros)}")
+    return _I0_INDICES
+
+
+def far(y_true, y_pred, i0_indices, delta=0.5):
+    if i0_indices is None or len(i0_indices) == 0:
+        return np.nan, 0
+
+    # Extract only I_0 POI events
+    omega_true = y_true[:, :, i0_indices]   # (B, H, N_i0)
+    omega_pred = y_pred[:, :, i0_indices]   # (B, H, N_i0)
+
+    # Omega_0^0: j in I_0 AND Y_{b,h,j} = 0
+    omega_mask = (omega_true == 0)           # (B, H, N_i0)
+
+    omega_size = int(omega_mask.sum())
+    if omega_size == 0:
+        return np.nan, 0
+
+    # Count how many of those zero-truth events have pred >= delta
+    false_activations = ((omega_pred >= delta) & omega_mask).sum()
+    return float(false_activations / omega_size), omega_size
+
+
 def ensure_dir(path):
     os.makedirs(path, exist_ok=True)
 
@@ -50,23 +103,6 @@ def corr(y_true, y_pred):
 
 
 def normalize_to_bhn(y, name, file_path):
-    """
-    Normalize array to shape (B, H, N).
-
-    Handles four source formats:
-      1. Benchmark (ar_ridge, evolvegcn_*, lstm, naive):
-         y has shape (B, H, N) already — dim-1 = H = 7 (small), dim-2 = N = 9926 (large).
-      2. MTGNN external (train_multi_step.py):
-         y has shape (B, N, H) — dim-1 = N = 9926 (large), dim-2 = H = 7 (small).
-      3. train_poi.py true:
-         y has shape (B, H, N, 1) — squeeze last unit dim.
-      4. train_poi.py pred:
-         y has shape (B, N, H) — same as MTGNN external, transpose.
-
-    Heuristic: if dim-1 is a small int (2-14, plausible horizon) and dim-2 is
-    large (>100, plausible num_nodes), it is (B, H, N) — no transpose needed.
-    Otherwise transpose to (B, H, N).
-    """
     orig_shape = y.shape
     y = np.asarray(y)
 
@@ -105,7 +141,7 @@ def check_prediction_shapes(model_name, y_true, y_pred):
         )
 
 
-def evaluate_by_horizon(model_name, y_true, y_pred):
+def evaluate_by_horizon(model_name, y_true, y_pred, i0_indices=None):
     """
     y_true, y_pred: arrays with shape (B, H, N)
 
@@ -122,7 +158,7 @@ def evaluate_by_horizon(model_name, y_true, y_pred):
         yt = y_true[:, h, :]
         yp = y_pred[:, h, :]
 
-        rows.append({
+        row = {
             "model": model_name,
             "horizon": h + 1,
             "num_samples": B,
@@ -132,20 +168,25 @@ def evaluate_by_horizon(model_name, y_true, y_pred):
             "RSE": rse(yt, yp),
             "RAE": rae(yt, yp),
             "CORR": corr(yt, yp),
-        })
+        }
+        if i0_indices is not None and len(i0_indices) > 0:
+            far_h, omega_h = far(yt.reshape(B, 1, N), yp.reshape(B, 1, N), i0_indices)
+            row["FAR"] = far_h
+        rows.append(row)
 
     return rows
 
 
-def evaluate_average(model_name, y_true, y_pred):
+def evaluate_average(model_name, y_true, y_pred, i0_indices=None):
     """
     Average metrics over all samples, horizons, and POIs.
+    Also computes FAR over the full Omega_0^0 set.
     """
     check_prediction_shapes(model_name, y_true, y_pred)
 
     B, H, N = y_true.shape
 
-    return {
+    row = {
         "model": model_name,
         "num_samples": B,
         "num_horizons": H,
@@ -156,6 +197,11 @@ def evaluate_average(model_name, y_true, y_pred):
         "RAE": rae(y_true, y_pred),
         "CORR": corr(y_true, y_pred),
     }
+    if i0_indices is not None and len(i0_indices) > 0:
+        far_val, omega_size = far(y_true, y_pred, i0_indices)
+        row["FAR"] = far_val
+        row["FAR_omega_size"] = omega_size
+    return row
 
 
 def make_latex_table(avg_df, output_path, caption, label, decimals=4):
@@ -164,16 +210,18 @@ def make_latex_table(avg_df, output_path, caption, label, decimals=4):
     """
     table_df = avg_df.copy()
 
-    metric_cols = ["MAE", "RMSE", "RSE", "RAE", "CORR"]
+    metric_cols = ["MAE", "RMSE", "RSE", "RAE", "CORR", "FAR"]
     for col in metric_cols:
-        table_df[col] = table_df[col].map(lambda x: f"${x:.{decimals}f}$" if pd.notna(x) else "")
+        if col in table_df.columns:
+            table_df[col] = table_df[col].map(lambda x: f"${x:.{decimals}f}$" if pd.notna(x) else "")
 
-    table_df = table_df[["model"] + metric_cols]
+    cols = ["model"] + [c for c in metric_cols if c in table_df.columns]
+    table_df = table_df[cols]
     table_df = table_df.set_index("model")
 
     latex = table_df.to_latex(
         escape=False,
-        column_format="lrrrrr",
+        column_format="l" + "r" * (len(cols) - 1),
         caption=caption,
         label=label,
     )
@@ -190,16 +238,18 @@ def make_horizon_latex_table(horizon_df, output_path, caption, label, decimals=4
     """
     table_df = horizon_df.copy()
 
-    metric_cols = ["MAE", "RMSE", "RSE", "RAE", "CORR"]
+    metric_cols = ["MAE", "RMSE", "RSE", "RAE", "CORR", "FAR"]
     for col in metric_cols:
-        table_df[col] = table_df[col].map(lambda x: f"${x:.{decimals}f}$" if pd.notna(x) else "")
+        if col in table_df.columns:
+            table_df[col] = table_df[col].map(lambda x: f"${x:.{decimals}f}$" if pd.notna(x) else "")
 
-    table_df = table_df[["model", "horizon"] + metric_cols]
+    cols = ["model", "horizon"] + [c for c in metric_cols if c in table_df.columns]
+    table_df = table_df[cols]
 
     latex = table_df.to_latex(
         index=False,
         escape=False,
-        column_format="lrrrrrr",
+        column_format="l" + "r" * (len(cols) - 1),
         caption=caption,
         label=label,
     )
@@ -279,6 +329,13 @@ def main():
         help="Clip negative predictions to zero before evaluation.",
     )
 
+    parser.add_argument(
+        "--far_delta",
+        type=float,
+        default=0.5,
+        help="Threshold delta for False Activation Rate (FAR). Default: 0.5",
+    )
+
     args = parser.parse_args()
 
     ensure_dir(args.metric_dir)
@@ -290,6 +347,10 @@ def main():
         raise RuntimeError(f"No *_pred.npy files found in {args.prediction_dir}")
 
     selected_models = set(args.models) if args.models is not None else None
+
+    # Load I_0 (zero-history POI indices) once
+    data_dir = "data/splits/mtgnn"
+    i0_indices = get_zero_history_poi_indices(data_dir)
 
     horizon_rows = []
     average_rows = []
@@ -325,6 +386,7 @@ def main():
                 model_name=model_name,
                 y_true=y_true,
                 y_pred=y_pred,
+                i0_indices=i0_indices,
             )
         )
 
@@ -333,6 +395,7 @@ def main():
                 model_name=model_name,
                 y_true=y_true,
                 y_pred=y_pred,
+                i0_indices=i0_indices,
             )
         )
 

@@ -121,6 +121,7 @@ class GraphGRUForecast(nn.Module):
         self.input_proj = nn.Linear(in_dim, hidden_dim)
         self.gru_cell = nn.GRUCell(hidden_dim, hidden_dim)
         self.decoder = nn.Linear(hidden_dim, horizon)
+        self.skip_fc = nn.Linear(1, hidden_dim)
 
         if self.D_s > 0:
             self.static_proj = nn.Linear(self.D_s, hidden_dim)
@@ -147,6 +148,9 @@ class GraphGRUForecast(nn.Module):
             h = self.gru_cell(feat, h)
 
         h_nodes = h.reshape(B, N, self.hidden_dim)
+        skip = self.skip_fc(x[:, -1, :].reshape(B * N, 1))
+        h_nodes = h_nodes.reshape(B * N, self.hidden_dim) + skip
+        h_nodes = h_nodes.reshape(B, N, self.hidden_dim)
         pred_nh = self.decoder(h_nodes)      # (B, N, H)
         pred = pred_nh.permute(0, 2, 1)      # (B, H, N)
 
@@ -180,6 +184,9 @@ class GraphGRUForecast(nn.Module):
             h = self.gru_cell(feat, h)
 
         h_nodes = h.reshape(B, N, self.hidden_dim)
+        skip = self.skip_fc(x[:, -1, :].reshape(B * N, 1))
+        h_nodes = h_nodes.reshape(B * N, self.hidden_dim) + skip
+        h_nodes = h_nodes.reshape(B, N, self.hidden_dim)
 
         pred_nh = self.decoder(h_nodes)
         pred = pred_nh.permute(0, 2, 1)
@@ -227,6 +234,9 @@ class GraphGRUForecast(nn.Module):
             h = self.gru_cell(feat, h)
 
         h_nodes = h.reshape(B, N, self.hidden_dim)
+        skip = self.skip_fc(x[:, -1, :].reshape(B * N, 1))
+        h_nodes = h_nodes.reshape(B * N, self.hidden_dim) + skip
+        h_nodes = h_nodes.reshape(B, N, self.hidden_dim)
 
         if static_node_features is not None:
             h_static = self.static_proj(static_node_features)
@@ -283,6 +293,9 @@ class GraphGRUForecast(nn.Module):
             h = self.gru_cell(feat, h)
 
         h_nodes = h.reshape(B, N, self.hidden_dim)
+        skip = self.skip_fc(x[:, -1, :].reshape(B * N, 1))
+        h_nodes = h_nodes.reshape(B * N, self.hidden_dim) + skip
+        h_nodes = h_nodes.reshape(B, N, self.hidden_dim)
 
         pred_nh = self.decoder(h_nodes)
         pred = pred_nh.permute(0, 2, 1)
