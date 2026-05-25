@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{5pt}
+\caption{Gradient-based comparison of semantic attribute granularity (MTGNN + Identity).}
+\label{tab:semantic_granularity_attribution}
+\begin{tabularx}{\textwidth}{{>{\raggedright\arraybackslash}p{2.7cm}}{>{\raggedright\arraybackslash}p{2.5cm}}{>{\raggedleft\arraybackslash}p{2.1cm}}{>{\raggedleft\arraybackslash}p{2.0cm}}{>{\raggedleft\arraybackslash}p{2.1cm}}{>{\raggedleft\arraybackslash}X}}
+\toprule
+\textbf{Semantic attribute} & \textbf{Granularity} & \textbf{Mean attribution share} & \textbf{Dominance rate} & \textbf{Dominant-event MAE} & \textbf{\# dominant events} \\
+\midrule
+top\_category        & Coarse category          & 0.0450 & 0.0638 & 0.9857 & 66,488 \\
+sub\_category        & Fine category            & 0.0826 & 0.8612 & 2.2589 & 897,571 \\
+naics2               & Coarse industry code     & 0.0755 & 0.0750 & 1.9661 & 78,171 \\
+naics4               & Fine industry code       & 0.0826 & 0.0000 & -- & 0 \\
+\bottomrule
+\end{tabularx}
+\end{table}

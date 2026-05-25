@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{4pt}
+\caption{Attribution regime clustering results (EvolveGCN + Identity).}
+\label{tab:attribution_regime_clustering_egcn}
+\begin{tabularx}{\textwidth}{
+>{\raggedright\arraybackslash}p{2.3cm}
+>{\raggedright\arraybackslash}p{2.4cm}
+>{\raggedright\arraybackslash}p{2.6cm}
+>{\raggedright\arraybackslash}X
+>{\raggedleft\arraybackslash}p{1.5cm}}
+\toprule
+\textbf{Regime} & \textbf{Dominant source} & \textbf{Representative POIs} & \textbf{Interpretation} & \textbf{MAE} \\
+\midrule
+History-driven & Visit history & West Seattle Runner, Subzero Appliance Expert, Kakao & Predictions mainly rely on the POI's own recent visitation pattern. & 0.5247 \\
+Location-driven & Location & Alaska USA Federal Credit Union, Wallingford B\&g Bf Day, Seattle Central College Bookstore & Predictions are mainly explained by spatial context and neighborhood demand conditions. & 1.2033 \\
+Identity-driven & Category / NAICS / brand & Seattle Children's Sand Point Clinic, SkyCafe Observation Deck at The Space Needle, Villa Academy Preschool\&after & Predictions depend more on what the POI is (category, NAICS, brand) than on its recent visit history. & 2.1200 \\
+Parent-driven & Parent-place information & UW Medicine, Congregation Shaarei Tefilah Lubavitch, 3D Wood Puzzles & Predictions are influenced by the larger destination environment to which the POI belongs. & 2.6268 \\
+Metadata-sensitive & Opening hours / missingness & Ancient Grounds, PICK QUICK Drive In, Blue Moon Tavern & Predictions are sensitive to operational information or metadata completeness. & 2.5800 \\
+\bottomrule
+\end{tabularx}
+\end{table}

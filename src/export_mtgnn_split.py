@@ -6,7 +6,10 @@ import argparse
 import numpy as np
 
 
-def save_mtgnn_file(path, X, Y, S_cont, cat_ids, naics2_ids, naics4_ids, brand_ids, parent_ids, seq_in_len, seq_out_len, scaler_mean=None, scaler_std=None):
+def save_mtgnn_file(path, X, Y, S_cont, cat_ids, naics2_ids, naics4_ids,
+                    brand_ids, parent_ids, sub_cat_ids=None,
+                    seq_in_len=10, seq_out_len=7,
+                    scaler_mean=None, scaler_std=None):
     P = X.shape[1]
     B = X.shape[0]
     N = X.shape[2]
@@ -29,6 +32,7 @@ def save_mtgnn_file(path, X, Y, S_cont, cat_ids, naics2_ids, naics4_ids, brand_i
             parts.append(exp)
 
     add_id(cat_ids, "cat")
+    add_id(sub_cat_ids, "sub_cat")
     add_id(naics2_ids, "naics2")
     add_id(naics4_ids, "naics4")
     add_id(brand_ids, "brand")
@@ -57,6 +61,7 @@ def main():
     parser.add_argument("--naics2_ids_path", type=str, default="data/splits/static_naics2_ids.npy")
     parser.add_argument("--naics4_ids_path", type=str, default="data/splits/static_naics4_ids.npy")
     parser.add_argument("--brand_ids_path", type=str, default="data/splits/static_brand_ids.npy")
+    parser.add_argument("--sub_cat_ids_path", type=str, default="data/splits/static_sub_category_ids.npy")
     parser.add_argument("--parent_ids_path", type=str, default="data/splits/static_parent_ids.npy")
     parser.add_argument("--seq_in_len", type=int, default=14)
     parser.add_argument("--seq_out_len", type=int, default=7)
@@ -88,11 +93,13 @@ def main():
     naics2_ids = load_id(args.naics2_ids_path, "naics2_ids")
     naics4_ids = load_id(args.naics4_ids_path, "naics4_ids")
     brand_ids = load_id(args.brand_ids_path, "brand_ids")
+    sub_cat_ids = load_id(args.sub_cat_ids_path, "sub_cat_ids")
     parent_ids = load_id(args.parent_ids_path, "parent_ids")
 
     N = X.shape[2]
-    for name, ids in [("S", S), ("cat", cat_ids), ("naics2", naics2_ids),
-                       ("naics4", naics4_ids), ("brand", brand_ids), ("parent", parent_ids)]:
+    for name, ids in [("S", S), ("cat", cat_ids), ("sub_cat", sub_cat_ids),
+                       ("naics2", naics2_ids), ("naics4", naics4_ids),
+                       ("brand", brand_ids), ("parent", parent_ids)]:
         if ids is not None and ids.shape[0] != N:
             raise ValueError(f"{name} nodes {ids.shape[0]} != num_nodes {N}")
 
@@ -108,6 +115,7 @@ def main():
             os.path.join(args.output_dir, f"{split_name}.npz"),
             X[idx], Y[idx], S,
             cat_ids, naics2_ids, naics4_ids, brand_ids, parent_ids,
+            sub_cat_ids,
             args.seq_in_len, args.seq_out_len,
             scaler_mean, scaler_std,
         )
@@ -120,8 +128,8 @@ def main():
             info = json.load(f)
 
     D_s = S.shape[1]
-    emb = 5 * 8
-    print(f"in_dim = 1(visit) + {D_s}(cont) + {emb}(5 categorical emb) = {1 + D_s + emb}")
+    emb = 6 * 8  # 6 categorical embeddings (cat, sub_cat, naics2, naics4, brand, parent)
+    print(f"in_dim = 1(visit) + {D_s}(cont) + {emb}(6 categorical emb) = {1 + D_s + emb}")
 
 
 if __name__ == "__main__":
