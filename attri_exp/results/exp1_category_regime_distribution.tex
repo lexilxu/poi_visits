@@ -1,0 +1,44 @@
+\begin{table*}[htbp]
+\centering
+\caption{Category-level distribution of attribution regimes and forecasting errors.}
+\label{tab:category_regime_mae}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.33\textwidth} r c c c c c c r c@{}}
+\toprule
+POI category
+& \# POIs
+&\multicolumn{5}{c}{Regime share (\%)}
+& MAE
+& Dominant \\
+\cmidrule(lr){3-7}
+&
+& H
+& L
+& I
+& P
+& M
+&
+ \\
+\midrule
+Restaurants and cafes & 2,604 & 29.3 & 38.6 & 3.1 & 13.7 & 15.1 & 1.34 & Location-driven \\
+Grocery and daily retail & 423 & 40.2 & 28.8 & 4.0 & 15.1 & 11.8 & 1.32 & History-driven \\
+Pharmacies and health-related retail & 240 & 36.2 & 30.4 & 4.2 & 17.1 & 12.1 & 1.26 & History-driven \\
+Clinics and medical services & 1,090 & 60.4 & 20.0 & 1.0 & 13.3 & 5.3 & 1.34 & History-driven \\
+Repair, towing, and irregular services & 283 & 64.3 & 18.4 & 2.5 & 8.8 & 6.0 & 0.85 & History-driven \\
+Schools, campuses, and education-related POIs & 294 & 44.9 & 28.2 & 2.0 & 16.7 & 8.2 & 1.32 & History-driven \\
+Shopping centers and office-building POIs & 2,879 & 44.7 & 26.5 & 2.0 & 15.2 & 11.6 & 1.31 & History-driven \\
+Bars and nightlife POIs & 383 & 37.6 & 42.3 & 2.1 & 7.3 & 10.7 & 1.07 & Location-driven \\
+Small local businesses & 1,688 & 51.4 & 24.5 & 2.1 & 10.3 & 11.7 & 1.19 & History-driven \\
+\bottomrule
+\end{tabular*}
+\vspace{2pt}
+\begin{minipage}{\textwidth}
+\footnotesize
+\emph{Note.} H, L, I, P, and M denote history-driven, location-driven, 
+identity-driven, parent-driven, and metadata-sensitive regimes, respectively. 
+Regime shares are computed within each POI category and sum to 100\%. 
+The dominant regime is identified by the largest within-category share.
+\end{minipage}
+\end{table*}

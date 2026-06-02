@@ -1,0 +1,35 @@
+\begin{table*}[htbp]
+\centering
+\caption{Parent-place attribution for embedded POIs.}
+\label{tab:parent_place_attribution}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{0.46\textwidth} r c c c c c}
+\hline
+Embedded POI group
+& No. POIs
+& Parent
+& Own
+& Gap
+& MAE
+& Dominant \\
+\hline
+Cafes and restaurants inside larger destinations & 181 & 19.9 & 80.1 & -60.2 & 1.42 & Own \\
+Pharmacies and health-related retail inside medical or commercial places & 18 & 16.7 & 83.3 & -66.7 & 1.23 & Own \\
+Retail and service shops inside shopping centers or office buildings & 126 & 11.1 & 88.9 & -77.8 & 1.15 & Own \\
+Education-related POIs inside campuses & 8 & 12.5 & 87.5 & -75.0 & 1.45 & Own \\
+Medical and clinic-related POIs inside larger health facilities & 61 & 41.0 & 59.0 & -18.0 & 3.15 & Own \\
+All embedded POIs & 581 & 16.0 & 84.0 & -68.0 & 1.40 & Own \\
+\hline
+\end{tabular}
+}
+\vspace{2pt}
+{\footnotesize
+\emph{Note.} Parent is the average attribution share of the parent-place feature group. 
+Own is the aggregated attribution share of the POI's own feature groups. 
+Gap is computed as Parent minus Own. 
+The dominant source is Parent if the gap is positive, and Own otherwise.
+}
+\end{table*}
