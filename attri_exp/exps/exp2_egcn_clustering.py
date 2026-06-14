@@ -21,24 +21,24 @@ REGIME_MAP = {
     "visit_history": "History-driven",
     "location":      "Location-driven",
     "identity":      "Identity-driven",
-    "parent":       "Parent-driven",
-    "metadata":     "Metadata-sensitive",
+    "parent":        "Parent-driven",
+    "metadata":     "Others-driven",
 }
 
 REGIME_DOMINANT = {
     "History-driven":      "Visit history",
     "Location-driven":     "Location",
     "Identity-driven":     "Category / NAICS / brand",
-    "Parent-driven":      "Parent-place information",
-    "Metadata-sensitive":  "Opening hours / missingness",
+    "Parent-driven":       "Parent-place information",
+    "Others-driven":       "Others-driven",
 }
 
 REGIME_INTERP = {
     "History-driven":     "Predictions mainly rely on the POI's own recent visitation pattern.",
     "Identity-driven":    "Predictions depend more on what the POI is (category, NAICS, brand) than on its recent visit history.",
     "Location-driven":    "Predictions are mainly explained by spatial context and neighborhood demand conditions.",
-    "Parent-driven":     "Predictions are influenced by the larger destination environment to which the POI belongs.",
-    "Metadata-sensitive": "Predictions are sensitive to operational information or metadata completeness.",
+    "Parent-driven":      "Predictions are influenced by the larger destination environment to which the POI belongs.",
+    "Others-driven":      "Predictions are mainly explained by other static attributes, including opening-hour features and missingness indicators.",
 }
 
 
@@ -197,7 +197,7 @@ def assign_regimes(grads):
 
     ALL_REGIMES = [
         "History-driven", "Location-driven", "Identity-driven",
-        "Parent-driven", "Metadata-sensitive",
+        "Parent-driven", "Others-driven",
     ]
     missing = [r for r in ALL_REGIMES if (regime_labels == r).sum() == 0]
 
@@ -207,7 +207,7 @@ def assign_regimes(grads):
             "Location-driven": "location",
             "Identity-driven": "identity",
             "Parent-driven": "parent",
-            "Metadata-sensitive": "metadata",
+            "Others-driven": "metadata",
         }
         for reg in missing:
             src = src_map[reg]
@@ -227,7 +227,7 @@ def assign_regimes(grads):
 def find_representative_pois(poi_meta, regime_labels, norm_matrix):
     ALL_REGIMES = [
         "History-driven", "Location-driven", "Identity-driven",
-        "Parent-driven", "Metadata-sensitive",
+        "Parent-driven", "Others-driven",
     ]
     poi_meta = poi_meta.reset_index(drop=True)
     rep_pois = {}
@@ -254,7 +254,7 @@ def find_representative_pois(poi_meta, regime_labels, norm_matrix):
 def save_table(regime_labels, y_pred, y_true, rep_pois):
     ALL_REGIMES_ORDERED = [
         "History-driven", "Location-driven", "Identity-driven",
-        "Parent-driven", "Metadata-sensitive",
+        "Parent-driven", "Others-driven",
     ]
     found_regimes = {}
     for reg in ALL_REGIMES_ORDERED:
@@ -352,50 +352,50 @@ def plot_spatial_regimes(df, regime_col="regime", save_path="spatial.png"):
         "Location-driven":  "#72B7B2",
         "Identity-driven":   "#F58518",
         "Parent-driven":    "#54A24B",
-        "Metadata-sensitive": "#B279A2",
+        "Others-driven": "#B279A2",
     }
 
     ALL_REGIMES = [
         "History-driven", "Location-driven", "Identity-driven",
-        "Parent-driven", "Metadata-sensitive",
+        "Parent-driven", "Others-driven",
     ]
 
-    lon_pad = 0.03 * (lon.max() - lon.min())
-    lat_pad = 0.03 * (lat.max() - lat.min())
+    lon_pad = 0.01 * (lon.max() - lon.min())
+    lat_pad = 0.01 * (lat.max() - lat.min())
 
-    fig, ax = plt.subplots(figsize=(16, 9))
+    # Portrait layout: taller figure to show full Seattle extent
+    fig, ax = plt.subplots(figsize=(30, 24))
+    fig.subplots_adjust(left=0.15, right=0.85, top=0.98, bottom=0.12)
 
     ax.set_xlim(lon.min() - lon_pad, lon.max() + lon_pad)
     ax.set_ylim(lat.min() - lat_pad, lat.max() + lat_pad)
-    ax.set_aspect(0.5, adjustable="box")
-    ax.set_facecolor("#E8E8E8")  # ocean color fallback
+    ax.set_facecolor("#E8E8E8")
 
     for reg in ALL_REGIMES:
         sub = regimes == reg
-        ax.scatter(lon[sub], lat[sub], s=28,
+        ax.scatter(lon[sub], lat[sub], s=30,
                    color=regime_colors.get(reg, "gray"),
                    alpha=0.75, linewidths=0,
                    rasterized=True, zorder=2,
                    label=f"{reg} (n={sub.sum():,})")
 
-    ax.set_xlabel("Longitude", fontsize=18)
-    ax.set_ylabel("Latitude", fontsize=18)
-    ax.tick_params(axis="both", labelsize=13)
+    ax.set_xlabel("Longitude", fontsize=35)
+    ax.set_ylabel("Latitude", fontsize=35)
+    ax.tick_params(axis="both", labelsize=30)
     ax.grid(True, linewidth=0.4, alpha=0.20, zorder=0)
     for spine in ["top", "right"]:
         ax.spines[spine].set_visible(False)
 
-    # Add real map basemap (ESRI World Street Map, no attribution)
     ctx.add_basemap(ax, crs="EPSG:4326",
                     source=ctx.providers.Esri.WorldStreetMap,
-                    attribution="", zorder=0)
+                    attribution="")
 
     handles = [mpatches.Patch(color=regime_colors[r], label=r) for r in ALL_REGIMES]
-    ax.legend(handles=handles, fontsize=16, loc="upper center",
-              bbox_to_anchor=(0.5, -0.08), ncol=5, frameon=False)
+    fig.legend(handles=handles, fontsize=35, loc="lower center",
+               bbox_to_anchor=(0.5, 0.025), ncol=5, frameon=False,
+               handletextpad=0.6, columnspacing=1.0)
 
-    plt.tight_layout()
-    plt.savefig(save_path, dpi=320, bbox_inches="tight")
+    plt.savefig(save_path, dpi=300)
     plt.close()
     print(f"Saved: {save_path}")
 
@@ -452,7 +452,7 @@ def main():
     unique_regimes = sorted(set(regime_labels))
     print(f"Regimes found: {len(unique_regimes)}")
     for reg in ["History-driven", "Location-driven", "Identity-driven",
-                "Parent-driven", "Metadata-sensitive"]:
+                "Parent-driven", "Others-driven"]:
         cnt = int((regime_labels == reg).sum())
         print(f"  {reg}: n={cnt}")
 
@@ -462,7 +462,7 @@ def main():
 
     print("\nRegime MAE:")
     for reg in ["History-driven", "Location-driven", "Identity-driven",
-                "Parent-driven", "Metadata-sensitive"]:
+                "Parent-driven", "Others-driven"]:
         mask = regime_labels == reg
         if mask.sum() > 0:
             mae = float(np.mean(np.abs(y_true[:, :, mask] - y_pred[:, :, mask])))
