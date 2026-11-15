@@ -1,0 +1,49 @@
+{
+  "status": "complete",
+  "source_archive_sha256": "e5753a9bbe402c048f9b0b206281b18e617a99a09cfbb146cc5cf6f40a0ef2f5",
+  "monthly": [
+    {
+      "month": "2020-07",
+      "selected_rows": 22880,
+      "original_cohort_present": 9738,
+      "original_cohort_missing": 146,
+      "city_rows": {
+        "Portland/OR": 11646,
+        "Seattle/WA": 11234
+      }
+    },
+    {
+      "month": "2020-08",
+      "selected_rows": 22921,
+      "original_cohort_present": 9763,
+      "original_cohort_missing": 121,
+      "city_rows": {
+        "Portland/OR": 11676,
+        "Seattle/WA": 11245
+      }
+    },
+    {
+      "month": "2020-09",
+      "selected_rows": 22727,
+      "original_cohort_present": 9749,
+      "original_cohort_missing": 135,
+      "city_rows": {
+        "Portland/OR": 11545,
+        "Seattle/WA": 11182
+      }
+    }
+  ],
+  "parking": {
+    "source_rows": 398027,
+    "invalid_rows": 0,
+    "first_date": "2020-07-07",
+    "last_date": "2021-01-30",
+    "observed_days": 138,
+    "training_blockfaces": 1343,
+    "training_blockface_hour_pairs": 3569,
+    "valid_panel_observations": 390008,
+    "paidoccupancy_above_capacity": 10985,
+    "cohort_rule": "At least 15 observed training dates per blockface and clock time during October 1-November 19; positive capacity and finite coordinates",
+    "label": "Payment-based occupancy, with missing source observations retained as missing"
+  }
+}

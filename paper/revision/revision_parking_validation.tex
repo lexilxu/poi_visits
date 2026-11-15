@@ -1,0 +1,25 @@
+\subsection{External Paid-Parking Validation}
+\label{subsec:parking_validation}
+
+\textit{Design.}
+We evaluate whether POI forecasts improve prediction and monitoring of payment-based parking pressure. SDOT reports paid occupancy inferred from transactions \citep{sdot_parking_data}; we divide this count by recorded parking capacity. For blockface $\ell$ and clock time $\nu\in\{10{:}00,14{:}00,18{:}00\}$, let $\omega_{b,h,\ell,\nu}$ denote this ratio at the target date of sample $b$ and lead $h$. Ratios above one remain in the response. The eligible blockface--clock-time pairs are fixed from training observations, with 1,343, 1,341, and 885 candidates at the three clock times.
+
+The parking-only ridge model uses a smoothed training mean for each blockface, weekday, and clock time, together with seven- and fourteen-day occupancy lags, lag-missingness indicators, weekday, and clock time. Smoothing adds five observations at the training blockface and clock-time mean. Let $\mathbf u_{b,h,\ell,\nu}$ collect these standardized predictors. The augmented model adds predicted visits within a catchment:
+\begin{equation}
+\widehat\omega_{b,h,\ell,\nu}
+=\max\left\{0,\beta_0+\boldsymbol\beta^{\mathsf T}\mathbf u_{b,h,\ell,\nu}
++\beta_{\mathrm{POI}}\log\left(1+\sum_{j\in\mathcal N_R(\ell)}\hat Y_{b,h,j}\right)\right\},
+\label{eq:parking_mapping}
+\end{equation}
+where $\mathcal N_R(\ell)$ contains POIs within great-circle distance $R$ of blockface $\ell$, and the $\beta$ coefficients are fitted transport-mapping parameters. The added term represents predicted activity around the blockface. The primary radius is 500 m, with 250 and 1,000 m as sensitivities; all blockfaces have matched POIs at every radius.
+
+The mapping uses each observed training date and clock time once, through November 19. Training substitutes contemporaneous observed visits for $\hat Y$ in Eq.~\eqref{eq:parking_mapping}; validation and test substitute saved POI forecasts. The ridge penalty is selected from $\{10^{-4},10^{-2},1,100\}$ by validation occupancy-ratio MAE at lead seven. January retains all coefficients and selections. The primary lead is seven days, with one- and three-day sensitivities. The POI inputs use $T=14$, MAE training, and all five seeds. Calendar and seven-day-lag parking forecasts provide additional comparators.
+
+A monitoring budget selects the highest-scored 10\% or 20\% of the training-defined candidates at each target date and clock time. Selection precedes the outcome-availability mask; observed selected locations determine precision, and observed high-pressure events determine recall. High pressure means $\omega\geq0.85$. We report planned and observed selections, recall, precision, and the share of measured paid occupancy captured. Paired intervals retain the three clock times together, resample seven consecutive target dates, and use 1-, 3-, and 5-km spatial cells.
+
+\textit{Results.}
+Table~\ref{tab:parking_validation} shows small magnitude-error reductions. At 500 m, identity Fixed-MTGNN changes December ratio MAE from 0.190803 to 0.190191, a difference of $-0.000612$ with a 95\% joint temporal and 3-km spatial interval of $[-0.001181,-0.000275]$. January changes from 0.191378 to 0.190885, with difference $-0.000494$ and interval $[-0.000995,-0.000180]$. The relative reductions are approximately 0.32\% and 0.26\%. Shared-LSTM and the graph inputs produce similar parking errors.
+
+\input{revision_parking_table.tex}
+
+Monitoring differences are smaller than their uncertainty. At the 10\% budget, NAICS-2 GraphGRU changes high-pressure recall by $0.127$ percentage points in December and $-0.037$ in January relative to parking-only ridge. The corresponding joint intervals are $[-0.536,0.651]$ and $[-0.518,0.418]$ percentage points. Thus, the modest improvement in payment-based occupancy error yields similar monitoring coverage. The external outcome supports a narrow predictive contribution of POI forecasts in this sample; physical occupancy and realized inspection benefits remain separate quantities.

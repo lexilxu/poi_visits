@@ -1,0 +1,781 @@
+id,stage,model,T,H,adjacency,variant,loss,graph,k,seed,selected_lr,validation_MAE,best_epoch,NAICS2,cohort,POIs,MAE
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,11,All,1,0.046485986560583115
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,11,Known parent,1,0.046485986560583115
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,23,All,45,1.1016900539398193
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,31,All,116,0.7624174952507019
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,31,Known parent,8,0.4036719501018524
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,32,All,67,0.7888206243515015
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,32,Known parent,3,0.27047497034072876
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,33,All,26,1.173033356666565
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,42,All,133,0.8336687088012695
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,42,Known parent,4,1.1053513288497925
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,44,All,1502,1.2668399810791016
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,44,Known parent,114,1.0809186697006226
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,45,All,699,1.4079186916351318
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,45,Known parent,37,1.7935261726379395
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,48,All,56,1.2353390455245972
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,48,Known parent,2,2.530557632446289
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,49,All,44,1.0747381448745728
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,49,Known parent,1,0.046578384935855865
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,51,All,99,0.7971053123474121
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,51,Known parent,8,0.6243405342102051
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,52,All,178,0.4693275988101959
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,52,Known parent,4,0.6270273327827454
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,53,All,108,3.730191469192505
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,53,Known parent,2,0.29686471819877625
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,54,All,94,0.565467119216919
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,55,All,9,0.939450204372406
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,56,All,19,0.942102313041687
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,61,All,294,1.4106470346450806
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,61,Known parent,8,1.6453514099121094
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,62,All,1118,1.4196068048477173
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,62,Known parent,118,2.3335845470428467
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,71,All,1142,1.7717818021774292
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,71,Known parent,50,1.5235011577606201
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,72,All,3007,1.3928899765014648
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,72,Known parent,180,1.485106348991394
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,81,All,1075,0.6475834846496582
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,81,Known parent,39,0.4118134677410126
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,92,All,52,0.9185099601745605
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,42,0.003,1.3121698307509972,44,92,Known parent,2,0.2725929319858551
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,11,All,1,0.04393391311168671
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,11,Known parent,1,0.04393391311168671
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,23,All,45,1.1009751558303833
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,31,All,116,0.7641437649726868
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,31,Known parent,8,0.40195801854133606
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,32,All,67,0.7913790345191956
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,32,Known parent,3,0.2726692259311676
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,33,All,26,1.1754789352416992
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,42,All,133,0.8356045484542847
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,42,Known parent,4,1.1229575872421265
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,44,All,1502,1.2719664573669434
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,44,Known parent,114,1.0866881608963013
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,45,All,699,1.4133564233779907
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,45,Known parent,37,1.8128831386566162
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,48,All,56,1.2284878492355347
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,48,Known parent,2,2.5585715770721436
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,49,All,44,1.0816850662231445
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,49,Known parent,1,0.04423290118575096
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,51,All,99,0.7935649156570435
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,51,Known parent,8,0.6215910911560059
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,52,All,178,0.47315284609794617
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,52,Known parent,4,0.6445559859275818
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,53,All,108,3.7615790367126465
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,53,Known parent,2,0.3027016222476959
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,54,All,94,0.5651879906654358
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,55,All,9,0.9387447834014893
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,56,All,19,0.9536004066467285
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,61,All,294,1.4150840044021606
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,61,Known parent,8,1.675864577293396
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,62,All,1118,1.431158185005188
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,62,Known parent,118,2.3422131538391113
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,71,All,1142,1.7811812162399292
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,71,Known parent,50,1.5216745138168335
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,72,All,3007,1.3922529220581055
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,72,Known parent,180,1.4901217222213745
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,81,All,1075,0.6489220261573792
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,81,Known parent,39,0.41185998916625977
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,92,All,52,0.924996018409729
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,43,0.003,1.3281384935790888,23,92,Known parent,2,0.27272504568099976
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,11,All,1,0.05841352045536041
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,11,Known parent,1,0.05841352045536041
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,23,All,45,1.119307518005371
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,31,All,116,0.7710450887680054
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,31,Known parent,8,0.4103609025478363
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,32,All,67,0.799017608165741
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,32,Known parent,3,0.2837744951248169
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,33,All,26,1.1858198642730713
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,42,All,133,0.845056414604187
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,42,Known parent,4,1.1285321712493896
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,44,All,1502,1.2809127569198608
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,44,Known parent,114,1.0869243144989014
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,45,All,699,1.4201797246932983
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,45,Known parent,37,1.8109900951385498
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,48,All,56,1.253950595855713
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,48,Known parent,2,2.587690591812134
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,49,All,44,1.108181357383728
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,49,Known parent,1,0.058688391000032425
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,51,All,99,0.8018074631690979
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,51,Known parent,8,0.6209169030189514
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,52,All,178,0.4818706214427948
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,52,Known parent,4,0.649603009223938
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,53,All,108,3.7612197399139404
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,53,Known parent,2,0.3156079649925232
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,54,All,94,0.573183000087738
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,55,All,9,0.9457163214683533
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,56,All,19,0.9670621752738953
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,61,All,294,1.424306035041809
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,61,Known parent,8,1.726790189743042
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,62,All,1118,1.4457578659057617
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,62,Known parent,118,2.3803443908691406
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,71,All,1142,1.7838797569274902
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,71,Known parent,50,1.5297248363494873
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,72,All,3007,1.3981928825378418
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,72,Known parent,180,1.4970290660858154
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,81,All,1075,0.6557255387306213
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,81,Known parent,39,0.4206365942955017
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,92,All,52,0.9367945194244385
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,44,0.003,1.328657347101376,28,92,Known parent,2,0.28449615836143494
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,11,All,1,0.05012565478682518
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,11,Known parent,1,0.05012565478682518
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,23,All,45,1.116284966468811
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,31,All,116,0.767308235168457
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,31,Known parent,8,0.4084232747554779
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,32,All,67,0.7961097955703735
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,32,Known parent,3,0.2842584550380707
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,33,All,26,1.1831607818603516
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,42,All,133,0.8422462344169617
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,42,Known parent,4,1.130972146987915
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,44,All,1502,1.2799746990203857
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,44,Known parent,114,1.0931476354599
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,45,All,699,1.4168239831924438
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,45,Known parent,37,1.8055697679519653
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,48,All,56,1.2474446296691895
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,48,Known parent,2,2.550671100616455
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,49,All,44,1.0987783670425415
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,49,Known parent,1,0.0503581278026104
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,51,All,99,0.8008347749710083
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,51,Known parent,8,0.6209167242050171
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,52,All,178,0.4787429869174957
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,52,Known parent,4,0.6486645340919495
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,53,All,108,3.7056081295013428
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,53,Known parent,2,0.31591150164604187
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,54,All,94,0.569541335105896
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,55,All,9,0.9418677687644958
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,56,All,19,0.9630033373832703
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,61,All,294,1.4201064109802246
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,61,Known parent,8,1.6803958415985107
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,62,All,1118,1.4329228401184082
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,62,Known parent,118,2.3544771671295166
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,71,All,1142,1.779320240020752
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,71,Known parent,50,1.5382976531982422
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,72,All,3007,1.3985189199447632
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,72,Known parent,180,1.4919524192810059
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,81,All,1075,0.654998779296875
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,81,Known parent,39,0.4182227849960327
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,92,All,52,0.931408166885376
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,45,0.003,1.3177975001084004,39,92,Known parent,2,0.281100869178772
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,11,All,1,0.057874031364917755
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,11,Known parent,1,0.057874031364917755
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,23,All,45,1.05366051197052
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,31,All,116,0.7587876915931702
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,31,Known parent,8,0.4023227393627167
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,32,All,67,0.7749318480491638
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,32,Known parent,3,0.27913156151771545
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,33,All,26,1.108992576599121
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,42,All,133,0.8135363459587097
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,42,Known parent,4,1.108269214630127
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,44,All,1502,1.243965983390808
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,44,Known parent,114,1.0978208780288696
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,45,All,699,1.3836917877197266
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,45,Known parent,37,1.775983214378357
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,48,All,56,1.2166647911071777
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,48,Known parent,2,2.3418142795562744
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,49,All,44,0.9911797642707825
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,49,Known parent,1,0.05809707194566727
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,51,All,99,0.7872693538665771
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,51,Known parent,8,0.6267522573471069
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,52,All,178,0.4662497639656067
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,52,Known parent,4,0.632208526134491
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,53,All,108,3.5773305892944336
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,53,Known parent,2,0.2988421320915222
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,54,All,94,0.5658537149429321
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,55,All,9,0.9266615509986877
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,56,All,19,0.9074612855911255
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,61,All,294,1.3829845190048218
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,61,Known parent,8,1.473299503326416
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,62,All,1118,1.3551348447799683
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,62,Known parent,118,2.176304578781128
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,71,All,1142,1.7458831071853638
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,71,Known parent,50,1.5406798124313354
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,72,All,3007,1.3804750442504883
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,72,Known parent,180,1.4644536972045898
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,81,All,1075,0.647546112537384
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,81,Known parent,39,0.41338294744491577
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,92,All,52,0.9135259389877319
+Matched-LSTM_T14_Identity_full_MAE,matched,Matched-LSTM,14,7,Identity,full,MAE,,,46,0.003,1.2955107935082673,75,92,Known parent,2,0.27656224370002747
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,11,All,1,0.16889433562755585
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,11,Known parent,1,0.16889433562755585
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,23,All,45,1.1299556493759155
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,31,All,116,0.8201991319656372
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,31,Known parent,8,0.49878746271133423
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,32,All,67,0.835235059261322
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,32,Known parent,3,0.40382009744644165
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,33,All,26,1.1789311170578003
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,42,All,133,0.8819047808647156
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,42,Known parent,4,1.169785737991333
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,44,All,1502,1.2966762781143188
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,44,Known parent,114,1.127587080001831
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,45,All,699,1.4184986352920532
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,45,Known parent,37,1.8551899194717407
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,48,All,56,1.256090521812439
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,48,Known parent,2,2.48189115524292
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,49,All,44,1.1338809728622437
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,49,Known parent,1,0.17009222507476807
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,51,All,99,0.8482787013053894
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,51,Known parent,8,0.7098388075828552
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,52,All,178,0.554399847984314
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,52,Known parent,4,0.7460078001022339
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,53,All,108,3.73396897315979
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,53,Known parent,2,0.4346300959587097
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,54,All,94,0.6351795196533203
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,55,All,9,1.0030418634414673
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,56,All,19,1.0080076456069946
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,61,All,294,1.4130992889404297
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,61,Known parent,8,1.7680984735488892
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,62,All,1118,1.462664246559143
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,62,Known parent,118,2.357189416885376
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,71,All,1142,1.7772789001464844
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,71,Known parent,50,1.5251749753952026
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,72,All,3007,1.3979358673095703
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,72,Known parent,180,1.5132434368133545
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,81,All,1075,0.7130368947982788
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,81,Known parent,39,0.4909188151359558
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,92,All,52,0.9910855889320374
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,42,0.003,1.3841494934995953,17,92,Known parent,2,0.3749050796031952
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,11,All,1,0.15311133861541748
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,11,Known parent,1,0.15311133861541748
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,23,All,45,1.1593549251556396
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,31,All,116,0.8256569504737854
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,31,Known parent,8,0.4872056245803833
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,32,All,67,0.8453518152236938
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,32,Known parent,3,0.396534264087677
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,33,All,26,1.2143596410751343
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,42,All,133,0.8975043892860413
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,42,Known parent,4,1.2155520915985107
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,44,All,1502,1.3277469873428345
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,44,Known parent,114,1.1437960863113403
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,45,All,699,1.4534690380096436
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,45,Known parent,37,1.904951572418213
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,48,All,56,1.2473281621932983
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,48,Known parent,2,2.5535600185394287
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,49,All,44,1.172308325767517
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,49,Known parent,1,0.15334221720695496
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,51,All,99,0.8501794338226318
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,51,Known parent,8,0.7174090147018433
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,52,All,178,0.5525506734848022
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,52,Known parent,4,0.7465516924858093
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,53,All,108,3.848172187805176
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,53,Known parent,2,0.42781582474708557
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,54,All,94,0.6320643424987793
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,55,All,9,1.0143418312072754
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,56,All,19,1.0405800342559814
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,61,All,294,1.4414604902267456
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,61,Known parent,8,1.8570256233215332
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,62,All,1118,1.4898290634155273
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,62,Known parent,118,2.4324138164520264
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,71,All,1142,1.8218296766281128
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,71,Known parent,50,1.5389117002487183
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,72,All,3007,1.4296005964279175
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,72,Known parent,180,1.5552382469177246
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,81,All,1075,0.7094103097915649
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,81,Known parent,39,0.4909329116344452
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,92,All,52,0.992806613445282
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,43,0.003,1.3995205432119733,12,92,Known parent,2,0.3791560232639313
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,11,All,1,0.15416006743907928
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,11,Known parent,1,0.15416006743907928
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,23,All,45,1.1423107385635376
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,31,All,116,0.8068289756774902
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,31,Known parent,8,0.4783203899860382
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,32,All,67,0.8262789249420166
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,32,Known parent,3,0.38738298416137695
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,33,All,26,1.1888184547424316
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,42,All,133,0.877258837223053
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,42,Known parent,4,1.1668071746826172
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,44,All,1502,1.298987627029419
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,44,Known parent,114,1.1210356950759888
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,45,All,699,1.4230972528457642
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,45,Known parent,37,1.8574222326278687
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,48,All,56,1.26272714138031
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,48,Known parent,2,2.538126230239868
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,49,All,44,1.151046872138977
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,49,Known parent,1,0.15453268587589264
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,51,All,99,0.8380798697471619
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,51,Known parent,8,0.6865369081497192
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,52,All,178,0.5405372381210327
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,52,Known parent,4,0.7181032299995422
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,53,All,108,3.7298243045806885
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,53,Known parent,2,0.414234459400177
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,54,All,94,0.6202771663665771
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,55,All,9,0.9883301854133606
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,56,All,19,1.0053635835647583
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,61,All,294,1.4151034355163574
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,61,Known parent,8,1.8107901811599731
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,62,All,1118,1.4652460813522339
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,62,Known parent,118,2.386246919631958
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,71,All,1142,1.7815427780151367
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,71,Known parent,50,1.53005850315094
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,72,All,3007,1.3990517854690552
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,72,Known parent,180,1.5158014297485352
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,81,All,1075,0.6999902129173279
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,81,Known parent,39,0.47999975085258484
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,92,All,52,0.9767969846725464
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,44,0.003,1.3622094420275193,19,92,Known parent,2,0.3666817247867584
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,11,All,1,0.18662257492542267
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,11,Known parent,1,0.18662257492542267
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,23,All,45,1.1506060361862183
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,31,All,116,0.8263311982154846
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,31,Known parent,8,0.5031149983406067
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,32,All,67,0.843868613243103
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,32,Known parent,3,0.41866013407707214
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,33,All,26,1.1961021423339844
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,42,All,133,0.8950096368789673
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,42,Known parent,4,1.190311312675476
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,44,All,1502,1.3140392303466797
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,44,Known parent,114,1.1385128498077393
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,45,All,699,1.4325240850448608
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,45,Known parent,37,1.8732811212539673
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,48,All,56,1.262534260749817
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,48,Known parent,2,2.518714189529419
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,49,All,44,1.1672875881195068
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,49,Known parent,1,0.18726174533367157
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,51,All,99,0.8572449684143066
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,51,Known parent,8,0.7180562019348145
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,52,All,178,0.5662388801574707
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,52,Known parent,4,0.7430983185768127
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,53,All,108,3.7511656284332275
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,53,Known parent,2,0.4419998526573181
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,54,All,94,0.6441810131072998
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,55,All,9,1.021307110786438
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,56,All,19,1.0210721492767334
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,61,All,294,1.4284507036209106
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,61,Known parent,8,1.8304786682128906
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,62,All,1118,1.4795031547546387
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,62,Known parent,118,2.4127655029296875
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,71,All,1142,1.7890912294387817
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,71,Known parent,50,1.5405198335647583
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,72,All,3007,1.4105050563812256
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,72,Known parent,180,1.5300575494766235
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,81,All,1075,0.7204915881156921
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,81,Known parent,39,0.5034874677658081
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,92,All,52,0.9991753101348877
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,45,0.003,1.385902416694369,17,92,Known parent,2,0.3992680013179779
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,11,All,1,0.17582367360591888
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,11,Known parent,1,0.17582367360591888
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,23,All,45,1.1234463453292847
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,31,All,116,0.8166866898536682
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,31,Known parent,8,0.4997214674949646
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,32,All,67,0.8273398280143738
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,32,Known parent,3,0.40847885608673096
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,33,All,26,1.1601468324661255
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,42,All,133,0.8761898875236511
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,42,Known parent,4,1.1498801708221436
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,44,All,1502,1.286088228225708
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,44,Known parent,114,1.1172670125961304
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,45,All,699,1.4079018831253052
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,45,Known parent,37,1.8433955907821655
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,48,All,56,1.2646626234054565
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,48,Known parent,2,2.4423155784606934
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,49,All,44,1.1218913793563843
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,49,Known parent,1,0.17700588703155518
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,51,All,99,0.8460631370544434
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,51,Known parent,8,0.7205692529678345
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,52,All,178,0.5531310439109802
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,52,Known parent,4,0.743273913860321
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,53,All,108,3.6964616775512695
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,53,Known parent,2,0.4352238178253174
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,54,All,94,0.6329628229141235
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,55,All,9,0.9924107789993286
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,56,All,19,0.985878050327301
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,61,All,294,1.4055062532424927
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,61,Known parent,8,1.7439913749694824
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,62,All,1118,1.4494081735610962
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,62,Known parent,118,2.317815065383911
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,71,All,1142,1.76093590259552
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,71,Known parent,50,1.521738886833191
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,72,All,3007,1.3899089097976685
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,72,Known parent,180,1.5001510381698608
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,81,All,1075,0.71293705701828
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,81,Known parent,39,0.4923798143863678
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,92,All,52,0.9793270230293274
+Matched-LSTM_T14_Identity_full_MSE,matched,Matched-LSTM,14,7,Identity,full,MSE,,,46,0.003,1.3764199874797654,24,92,Known parent,2,0.3816503584384918
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,11,All,1,0.04595913365483284
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,11,Known parent,1,0.04595913365483284
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,23,All,45,1.135312795639038
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,31,All,116,0.7577899694442749
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,31,Known parent,8,0.39838069677352905
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,32,All,67,0.7908416986465454
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,32,Known parent,3,0.2910805940628052
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,33,All,26,1.1694844961166382
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,42,All,133,0.8404313325881958
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,42,Known parent,4,1.112048864364624
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,44,All,1502,1.2819688320159912
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,44,Known parent,114,1.0896320343017578
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,45,All,699,1.4228622913360596
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,45,Known parent,37,1.813340425491333
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,48,All,56,1.3087658882141113
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,48,Known parent,2,2.523991346359253
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,49,All,44,1.0998209714889526
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,49,Known parent,1,0.04600078985095024
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,51,All,99,0.8018704056739807
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,51,Known parent,8,0.6078333854675293
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,52,All,178,0.4719837009906769
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,52,Known parent,4,0.6332986950874329
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,53,All,108,4.00928258895874
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,53,Known parent,2,0.3027206063270569
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,54,All,94,0.5654587149620056
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,55,All,9,0.9377583861351013
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,56,All,19,0.9772264361381531
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,61,All,294,1.4425220489501953
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,61,Known parent,8,1.7188607454299927
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,62,All,1118,1.4789214134216309
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,62,Known parent,118,2.462590456008911
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,71,All,1142,1.7930221557617188
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,71,Known parent,50,1.5398086309432983
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,72,All,3007,1.4019560813903809
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,72,Known parent,180,1.4944401979446411
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,81,All,1075,0.653361439704895
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,81,Known parent,39,0.4224204421043396
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,92,All,52,0.9281936883926392
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,42,0.003,1.3252492868163555,48,92,Known parent,2,0.2725462019443512
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,11,All,1,0.043840836733579636
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,11,Known parent,1,0.043840836733579636
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,23,All,45,1.1349172592163086
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,31,All,116,0.7652961611747742
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,31,Known parent,8,0.3994535505771637
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,32,All,67,0.7967004179954529
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,32,Known parent,3,0.27483171224594116
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,33,All,26,1.1911439895629883
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,42,All,133,0.843514084815979
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,42,Known parent,4,1.1253666877746582
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,44,All,1502,1.3056669235229492
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,44,Known parent,114,1.0926998853683472
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,45,All,699,1.4572378396987915
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,45,Known parent,37,1.8873090744018555
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,48,All,56,1.3566877841949463
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,48,Known parent,2,2.5806102752685547
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,49,All,44,1.1119755506515503
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,49,Known parent,1,0.04388147220015526
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,51,All,99,0.7975910902023315
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,51,Known parent,8,0.6201959252357483
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,52,All,178,0.47419944405555725
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,52,Known parent,4,0.640499472618103
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,53,All,108,4.458958148956299
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,53,Known parent,2,0.3013027012348175
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,54,All,94,0.5618263483047485
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,55,All,9,0.9468728303909302
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,56,All,19,0.9828540682792664
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,61,All,294,1.4781482219696045
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,61,Known parent,8,1.764061450958252
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,62,All,1118,1.5163356065750122
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,62,Known parent,118,2.5107381343841553
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,71,All,1142,1.8290289640426636
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,71,Known parent,50,1.542157530784607
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,72,All,3007,1.4166786670684814
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,72,Known parent,180,1.5089234113693237
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,81,All,1075,0.651671826839447
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,81,Known parent,39,0.4169120490550995
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,92,All,52,0.9288730025291443
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,43,0.003,1.3352377534760362,29,92,Known parent,2,0.2726389169692993
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,11,All,1,0.04177193343639374
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,11,Known parent,1,0.04177193343639374
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,23,All,45,1.1557656526565552
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,31,All,116,0.7649974226951599
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,31,Known parent,8,0.39796021580696106
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,32,All,67,0.8011723160743713
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,32,Known parent,3,0.27358773350715637
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,33,All,26,1.1909087896347046
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,42,All,133,0.8486294746398926
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,42,Known parent,4,1.1188952922821045
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,44,All,1502,1.3089243173599243
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,44,Known parent,114,1.0996392965316772
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,45,All,699,1.4538394212722778
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,45,Known parent,37,1.848525881767273
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,48,All,56,1.3701003789901733
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,48,Known parent,2,2.6305623054504395
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,49,All,44,1.1252775192260742
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,49,Known parent,1,0.04183311015367508
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,51,All,99,0.8096252083778381
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,51,Known parent,8,0.6060798168182373
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,52,All,178,0.4715510606765747
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,52,Known parent,4,0.6231605410575867
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,53,All,108,4.0580644607543945
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,53,Known parent,2,0.29457467794418335
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,54,All,94,0.5622358322143555
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,55,All,9,0.9546784162521362
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,56,All,19,0.9940787553787231
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,61,All,294,1.4726260900497437
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,61,Known parent,8,1.7574406862258911
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,62,All,1118,1.5007730722427368
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,62,Known parent,118,2.518838882446289
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,71,All,1142,1.8242003917694092
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,71,Known parent,50,1.5549461841583252
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,72,All,3007,1.4291903972625732
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,72,Known parent,180,1.5163012742996216
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,81,All,1075,0.6571387052536011
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,81,Known parent,39,0.4197830855846405
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,92,All,52,0.9312224388122559
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,44,0.003,1.3213284140674684,37,92,Known parent,2,0.26446667313575745
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,11,All,1,0.042529914528131485
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,11,Known parent,1,0.042529914528131485
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,23,All,45,1.1422306299209595
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,31,All,116,0.7592753171920776
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,31,Known parent,8,0.39972665905952454
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,32,All,67,0.7949328422546387
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,32,Known parent,3,0.283634215593338
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,33,All,26,1.172698736190796
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,42,All,133,0.8392229676246643
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,42,Known parent,4,1.1048660278320312
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,44,All,1502,1.2881052494049072
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,44,Known parent,114,1.0855045318603516
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,45,All,699,1.4222272634506226
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,45,Known parent,37,1.8141533136367798
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,48,All,56,1.3307887315750122
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,48,Known parent,2,2.529703140258789
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,49,All,44,1.0934278964996338
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,49,Known parent,1,0.04256289452314377
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,51,All,99,0.8033759593963623
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,51,Known parent,8,0.6021019816398621
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,52,All,178,0.47120049595832825
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,52,Known parent,4,0.6370814442634583
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,53,All,108,3.823390007019043
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,53,Known parent,2,0.30312666296958923
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,54,All,94,0.5620108842849731
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,55,All,9,0.9329491257667542
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,56,All,19,0.9765238761901855
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,61,All,294,1.4461334943771362
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,61,Known parent,8,1.7124239206314087
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,62,All,1118,1.4726287126541138
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,62,Known parent,118,2.4823126792907715
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,71,All,1142,1.7918224334716797
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,71,Known parent,50,1.550898551940918
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,72,All,3007,1.4100186824798584
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,72,Known parent,180,1.4910281896591187
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,81,All,1075,0.656268298625946
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,81,Known parent,39,0.4203999638557434
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,92,All,52,0.9198606014251709
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,45,0.003,1.3194690101607216,56,92,Known parent,2,0.2701180577278137
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,11,All,1,0.04172738268971443
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,11,Known parent,1,0.04172738268971443
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,23,All,45,1.1357251405715942
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,31,All,116,0.76129150390625
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,31,Known parent,8,0.3980693221092224
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,32,All,67,0.7934979796409607
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,32,Known parent,3,0.27803775668144226
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,33,All,26,1.1713902950286865
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,42,All,133,0.8399631381034851
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,42,Known parent,4,1.1001888513565063
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,44,All,1502,1.286505103111267
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,44,Known parent,114,1.088134765625
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,45,All,699,1.428739309310913
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,45,Known parent,37,1.8088148832321167
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,48,All,56,1.3416552543640137
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,48,Known parent,2,2.5435945987701416
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,49,All,44,1.0935561656951904
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,49,Known parent,1,0.041806966066360474
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,51,All,99,0.8057977557182312
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,51,Known parent,8,0.6077185869216919
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,52,All,178,0.47009316086769104
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,52,Known parent,4,0.6327074766159058
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,53,All,108,3.9357192516326904
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,53,Known parent,2,0.2966499626636505
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,54,All,94,0.560357391834259
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,55,All,9,0.9387180805206299
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,56,All,19,0.9812162518501282
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,61,All,294,1.4547615051269531
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,61,Known parent,8,1.72636878490448
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,62,All,1118,1.476930856704712
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,62,Known parent,118,2.4735770225524902
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,71,All,1142,1.797965168952942
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,71,Known parent,50,1.5449988842010498
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,72,All,3007,1.4106204509735107
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,72,Known parent,180,1.4952954053878784
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,81,All,1075,0.6549891233444214
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,81,Known parent,39,0.41811126470565796
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,92,All,52,0.9238912463188171
+Matched-LSTM_T28_Identity_full_MAE,matched,Matched-LSTM,28,7,Identity,full,MAE,,,46,0.003,1.3222621245736255,49,92,Known parent,2,0.2639770805835724
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,11,All,1,0.2327273190021515
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,11,Known parent,1,0.2327273190021515
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,23,All,45,1.2514373064041138
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,31,All,116,0.8948723077774048
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,31,Known parent,8,0.5499992966651917
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,32,All,67,0.9080910086631775
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,32,Known parent,3,0.4711240231990814
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,33,All,26,1.2955999374389648
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,42,All,133,0.9658714532852173
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,42,Known parent,4,1.2811251878738403
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,44,All,1502,1.4118516445159912
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,44,Known parent,114,1.2279884815216064
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,45,All,699,1.5338698625564575
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,45,Known parent,37,1.993456244468689
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,48,All,56,1.3576034307479858
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,48,Known parent,2,2.6352899074554443
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,49,All,44,1.2735847234725952
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,49,Known parent,1,0.23323260247707367
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,51,All,99,0.9166238903999329
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,51,Known parent,8,0.7907760143280029
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,52,All,178,0.617565393447876
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,52,Known parent,4,0.8266038298606873
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,53,All,108,3.9422123432159424
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,53,Known parent,2,0.48570573329925537
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,54,All,94,0.6901370882987976
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,55,All,9,1.0981422662734985
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,56,All,19,1.1267869472503662
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,61,All,294,1.5132694244384766
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,61,Known parent,8,1.9473768472671509
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,62,All,1118,1.5715006589889526
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,62,Known parent,118,2.5337631702423096
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,71,All,1142,1.8932394981384277
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,71,Known parent,50,1.6097538471221924
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,72,All,3007,1.5091594457626343
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,72,Known parent,180,1.649863600730896
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,81,All,1075,0.7720454931259155
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,81,Known parent,39,0.5572023987770081
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,92,All,52,1.067725658416748
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,42,0.0003,1.476501863581835,100,92,Known parent,2,0.4386000335216522
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,11,All,1,0.255872905254364
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,11,Known parent,1,0.255872905254364
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,23,All,45,1.350785732269287
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,31,All,116,0.9587940573692322
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,31,Known parent,8,0.5961208939552307
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,32,All,67,0.9701324105262756
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,32,Known parent,3,0.5069685578346252
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,33,All,26,1.3953773975372314
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,42,All,133,1.0359631776809692
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,42,Known parent,4,1.377785325050354
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,44,All,1502,1.5084532499313354
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,44,Known parent,114,1.2902753353118896
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,45,All,699,1.6500998735427856
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,45,Known parent,37,2.1685729026794434
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,48,All,56,1.383256196975708
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,48,Known parent,2,2.8753879070281982
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,49,All,44,1.388779640197754
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,49,Known parent,1,0.255957692861557
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,51,All,99,0.976509153842926
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,51,Known parent,8,0.8470406532287598
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,52,All,178,0.6633648872375488
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,52,Known parent,4,0.8926330804824829
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,53,All,108,4.57808780670166
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,53,Known parent,2,0.5209116339683533
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,54,All,94,0.7401673793792725
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,55,All,9,1.1935827732086182
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,56,All,19,1.194217562675476
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,61,All,294,1.6140084266662598
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,61,Known parent,8,2.043070077896118
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,62,All,1118,1.6870536804199219
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,62,Known parent,118,2.6557157039642334
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,71,All,1142,2.017876625061035
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,71,Known parent,50,1.684422492980957
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,72,All,3007,1.601288080215454
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,72,Known parent,180,1.7625757455825806
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,81,All,1075,0.8191416263580322
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,81,Known parent,39,0.5993037819862366
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,92,All,52,1.1354163885116577
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,43,0.0003,1.5615352373243916,37,92,Known parent,2,0.4808499217033386
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,11,All,1,0.21830256283283234
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,11,Known parent,1,0.21830256283283234
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,23,All,45,1.2360860109329224
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,31,All,116,0.8728026151657104
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,31,Known parent,8,0.5347782373428345
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,32,All,67,0.8922333121299744
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,32,Known parent,3,0.45660707354545593
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,33,All,26,1.2714109420776367
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,42,All,133,0.944539487361908
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,42,Known parent,4,1.2386280298233032
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,44,All,1502,1.3875577449798584
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,44,Known parent,114,1.2064129114151
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,45,All,699,1.504675030708313
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,45,Known parent,37,1.9670249223709106
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,48,All,56,1.3407129049301147
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,48,Known parent,2,2.625082492828369
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,49,All,44,1.252493143081665
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,49,Known parent,1,0.21881352365016937
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,51,All,99,0.8974745869636536
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,51,Known parent,8,0.7607561349868774
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,52,All,178,0.6033524870872498
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,52,Known parent,4,0.79877769947052
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,53,All,108,3.851440668106079
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,53,Known parent,2,0.4672253429889679
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,54,All,94,0.6738519072532654
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,55,All,9,1.0699471235275269
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,56,All,19,1.1022536754608154
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,61,All,294,1.4894498586654663
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,61,Known parent,8,1.9334900379180908
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,62,All,1118,1.5535780191421509
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,62,Known parent,118,2.5358481407165527
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,71,All,1142,1.8617759943008423
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,71,Known parent,50,1.5835528373718262
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,72,All,3007,1.4800997972488403
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,72,Known parent,180,1.613292932510376
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,81,All,1075,0.7578358054161072
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,81,Known parent,39,0.5435667037963867
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,92,All,52,1.0413202047348022
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,44,0.0003,1.4479495066882986,99,92,Known parent,2,0.42315855622291565
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,11,All,1,0.18307499587535858
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,11,Known parent,1,0.18307499587535858
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,23,All,45,1.267532467842102
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,31,All,116,0.8963961601257324
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,31,Known parent,8,0.5438757538795471
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,32,All,67,0.9125690460205078
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,32,Known parent,3,0.45226675271987915
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,33,All,26,1.3093700408935547
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,42,All,133,0.9732041954994202
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,42,Known parent,4,1.2992390394210815
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,44,All,1502,1.4274976253509521
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,44,Known parent,114,1.2378822565078735
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,45,All,699,1.5525656938552856
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,45,Known parent,37,2.0165884494781494
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,48,All,56,1.3362661600112915
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,48,Known parent,2,2.7155702114105225
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,49,All,44,1.2799543142318726
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,49,Known parent,1,0.1836991161108017
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,51,All,99,0.9155794382095337
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,51,Known parent,8,0.7803366780281067
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,52,All,178,0.6078221797943115
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,52,Known parent,4,0.8398998379707336
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,53,All,108,3.9028632640838623
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,53,Known parent,2,0.4759872853755951
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,54,All,94,0.685090184211731
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,55,All,9,1.0971601009368896
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,56,All,19,1.1367450952529907
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,61,All,294,1.518109679222107
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,61,Known parent,8,1.9514672756195068
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,62,All,1118,1.5688681602478027
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,62,Known parent,118,2.549654006958008
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,71,All,1142,1.9177876710891724
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,71,Known parent,50,1.6312401294708252
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,72,All,3007,1.5280299186706543
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,72,Known parent,180,1.675392746925354
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,81,All,1075,0.7683547139167786
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,81,Known parent,39,0.5435941219329834
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,92,All,52,1.0787630081176758
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,45,0.0003,1.4845319546019542,100,92,Known parent,2,0.42355912923812866
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,11,All,1,0.24649187922477722
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,11,Known parent,1,0.24649187922477722
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,23,All,45,1.2881572246551514
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,31,All,116,0.9225944876670837
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,31,Known parent,8,0.5759904384613037
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,32,All,67,0.9347712993621826
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,32,Known parent,3,0.49202972650527954
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,33,All,26,1.3309370279312134
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,42,All,133,0.9964393973350525
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,42,Known parent,4,1.3063430786132812
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,44,All,1502,1.4436475038528442
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,44,Known parent,114,1.2529107332229614
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,45,All,699,1.5688477754592896
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,45,Known parent,37,2.032217264175415
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,48,All,56,1.3595199584960938
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,48,Known parent,2,2.7197105884552
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,49,All,44,1.3161448240280151
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,49,Known parent,1,0.24692626297473907
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,51,All,99,0.9428967833518982
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,51,Known parent,8,0.8166648745536804
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,52,All,178,0.6398699879646301
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,52,Known parent,4,0.8600912094116211
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,53,All,108,4.003310203552246
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,53,Known parent,2,0.5032760500907898
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,54,All,94,0.7139863967895508
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,55,All,9,1.1355257034301758
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,56,All,19,1.156489610671997
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,61,All,294,1.5391101837158203
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,61,Known parent,8,1.9767264127731323
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,62,All,1118,1.599583387374878
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,62,Known parent,118,2.5597927570343018
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,71,All,1142,1.9288688898086548
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,71,Known parent,50,1.6335468292236328
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,72,All,3007,1.5406200885772705
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,72,Known parent,180,1.6869553327560425
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,81,All,1075,0.7944849729537964
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,81,Known parent,39,0.5794129967689514
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,92,All,52,1.0959267616271973
+Matched-LSTM_T28_Identity_full_MSE,matched,Matched-LSTM,28,7,Identity,full,MSE,,,46,0.0003,1.5018870685668035,98,92,Known parent,2,0.46347302198410034

@@ -1,0 +1,240 @@
+{
+  "status": "complete",
+  "panels": [
+    {
+      "period": "december",
+      "adjacency": "NAICS-2",
+      "events": 297990,
+      "target_POIs": 1935,
+      "overall_gain": -0.013737273808873622,
+      "x_cutpoints": [
+        0.0714285746216774,
+        0.1428571492433548,
+        0.2142857164144516,
+        0.3571428656578064
+      ],
+      "y_cutpoints": [
+        0.8329342225188427,
+        1.2391775606030768,
+        2.5653850696608673,
+        2.588988470284642,
+        2.6789751357299165
+      ],
+      "grid_shape": [
+        6,
+        5
+      ],
+      "median_strata_match": true,
+      "weighted_reconstruction_error": 3.469446951953614e-18
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-2",
+      "events": 338625,
+      "target_POIs": 1935,
+      "overall_gain": -0.0237436266729778,
+      "x_cutpoints": [
+        0.0714285746216774,
+        0.1428571492433548,
+        0.2142857164144516,
+        0.3571428656578064
+      ],
+      "y_cutpoints": [
+        0.8329342225188427,
+        1.2391775606030768,
+        2.5653850696608673,
+        2.588988470284642,
+        2.6789751357299165
+      ],
+      "grid_shape": [
+        6,
+        5
+      ],
+      "median_strata_match": true,
+      "weighted_reconstruction_error": 6.938893903907228e-18
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-4",
+      "events": 297990,
+      "target_POIs": 1935,
+      "overall_gain": -0.007791040714661015,
+      "x_cutpoints": [
+        0.0714285746216774,
+        0.1428571492433548,
+        0.2142857164144516,
+        0.3571428656578064
+      ],
+      "y_cutpoints": [
+        0.6828571168581644,
+        0.8102679229341447,
+        1.0759878592922332,
+        1.7109889874091515,
+        2.714021689954235
+      ],
+      "grid_shape": [
+        6,
+        5
+      ],
+      "median_strata_match": true,
+      "weighted_reconstruction_error": 1.734723475976807e-18
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-4",
+      "events": 338625,
+      "target_POIs": 1935,
+      "overall_gain": -0.010807684321454547,
+      "x_cutpoints": [
+        0.0714285746216774,
+        0.1428571492433548,
+        0.2142857164144516,
+        0.3571428656578064
+      ],
+      "y_cutpoints": [
+        0.6828571168581644,
+        0.8102679229341447,
+        1.0759878592922332,
+        1.7109889874091515,
+        2.714021689954235
+      ],
+      "grid_shape": [
+        6,
+        5
+      ],
+      "median_strata_match": true,
+      "weighted_reconstruction_error": 0.0
+    }
+  ],
+  "provenance": [
+    {
+      "period": "december",
+      "adjacency": "NAICS-2",
+      "seed": 42,
+      "prediction_sha256": "5db485316413f51fd30ce1c76fcae942c6bdcda666db67a7cc32ac87db3b2d6f"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-2",
+      "seed": 43,
+      "prediction_sha256": "277d4bc421793b069471daddf3e9dd941b8ab0c461d1c9da518081da915021c4"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-2",
+      "seed": 44,
+      "prediction_sha256": "196ba8fb61769ff4f9af1f8ab79c193a7a8b252efe19e57e9e083649b138a3ce"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-2",
+      "seed": 45,
+      "prediction_sha256": "52e217bc221f9bb47fe48fb8b9704334f833519697b11f44f9331dc0666a0618"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-2",
+      "seed": 46,
+      "prediction_sha256": "5eb79f93702ec9e4686009a0c43867a2adb23e0aacc15a6637208ba2859dc3d7"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-2",
+      "seed": 42,
+      "prediction_sha256": "cc23e4da9269fa828c35656b3deaf5cb342cbc41861dde868bd1df550deccdd8"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-2",
+      "seed": 43,
+      "prediction_sha256": "7a1f8f45b43c197a9b0f2ecf04efa69ea86e1a8cddeb4868b5afacc6912dc955"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-2",
+      "seed": 44,
+      "prediction_sha256": "14c7078fe092b209f7bc6c032893c02b03352a011c4700a7d6abb1e9243083cd"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-2",
+      "seed": 45,
+      "prediction_sha256": "ee1552d8c99ec739a6d019fee147f9ee4cbb6550efaa6c0347dc3f140f6a39bb"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-2",
+      "seed": 46,
+      "prediction_sha256": "f46dce0f17e1dab44d21a53af001ef60ebcbdde66ad1b950e102e787684fc180"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-4",
+      "seed": 42,
+      "prediction_sha256": "4e9e67049da0135e6e98eda00256225d412918f08a5038d2e69186fa1c6e40da"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-4",
+      "seed": 43,
+      "prediction_sha256": "935d57e1572c926be70ce4dd3def543e8d5b8673f2168a1889eb2bae33335075"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-4",
+      "seed": 44,
+      "prediction_sha256": "ff1a2397962c018f867fc3b99630e0f5fc25647ec06cd6ad64687a58a2726938"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-4",
+      "seed": 45,
+      "prediction_sha256": "88e446939dac9c54f6f1fe80712213804a7809812a6df735728a7240c77c9230"
+    },
+    {
+      "period": "december",
+      "adjacency": "NAICS-4",
+      "seed": 46,
+      "prediction_sha256": "6bdc1ee30eaefc8097906e3c7cdc17d56531fcb662cf63c16bcf59394e8bf88b"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-4",
+      "seed": 42,
+      "prediction_sha256": "7c6a7d277ea5bd7c62282b00f9250c7d3aa9daabe3b50bb5bb6990eec82c6c69"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-4",
+      "seed": 43,
+      "prediction_sha256": "f1505e3343c364781c768d597b7c9ed2685b2458fcc8cd57794620ed254deb30"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-4",
+      "seed": 44,
+      "prediction_sha256": "357d52865814ebf9e3f28298ab78fbdeb755f662f9d2d5e38a54f1c0f001c1cf"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-4",
+      "seed": 45,
+      "prediction_sha256": "987b731cf55cd2572ec6643c9183f7b3690ab14d7be0a9135195cf92de4e9b9e"
+    },
+    {
+      "period": "january",
+      "adjacency": "NAICS-4",
+      "seed": 46,
+      "prediction_sha256": "9bd8b1f996f6d3f55f48258f38d09bd97d80ae9257cfbfde83242b83e60d75ef"
+    }
+  ],
+  "cutpoints": "Distinct validation sextiles; ties enter lower bin; open upper tail",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "source_sha256": "911edc14f3697a55b67eb00ad4c87b0c7d0cf10aec2bdb4f4147e5cf03ef8f12"
+}

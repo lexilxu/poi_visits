@@ -1,0 +1,107 @@
+[
+  {
+    "model": "GraphGRU",
+    "parameters": 6695,
+    "seconds": 8.561999999976251,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 42
+  },
+  {
+    "model": "GraphGRU",
+    "parameters": 6695,
+    "seconds": 16.06200000003446,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 43
+  },
+  {
+    "model": "GraphGRU",
+    "parameters": 6695,
+    "seconds": 8.922000000020489,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 44
+  },
+  {
+    "model": "GraphGRU",
+    "parameters": 6695,
+    "seconds": 10.937000000034459,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 45
+  },
+  {
+    "model": "GraphGRU",
+    "parameters": 6695,
+    "seconds": 13.655999999959022,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 46
+  },
+  {
+    "model": "Shared-LSTM",
+    "parameters": 4711,
+    "seconds": 12.625,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 42
+  },
+  {
+    "model": "Shared-LSTM",
+    "parameters": 4711,
+    "seconds": 10.73499999998603,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 43
+  },
+  {
+    "model": "Shared-LSTM",
+    "parameters": 4711,
+    "seconds": 7.297000000020489,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 44
+  },
+  {
+    "model": "Shared-LSTM",
+    "parameters": 4711,
+    "seconds": 8.875,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 45
+  },
+  {
+    "model": "Shared-LSTM",
+    "parameters": 4711,
+    "seconds": 11.01600000000326,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "seed": 46
+  },
+  {
+    "model": "Matched-LSTM",
+    "parameters": 8807,
+    "seconds": 14.357954826205969,
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "seed": 42
+  },
+  {
+    "model": "Matched-LSTM",
+    "parameters": 8807,
+    "seconds": 9.693586204200983,
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "seed": 43
+  },
+  {
+    "model": "Matched-LSTM",
+    "parameters": 8807,
+    "seconds": 11.041415873914957,
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "seed": 44
+  },
+  {
+    "model": "Matched-LSTM",
+    "parameters": 8807,
+    "seconds": 13.634390112012625,
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "seed": 45
+  },
+  {
+    "model": "Matched-LSTM",
+    "parameters": 8807,
+    "seconds": 21.275531861931086,
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "seed": 46
+  }
+]

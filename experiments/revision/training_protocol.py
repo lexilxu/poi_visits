@@ -33,7 +33,8 @@ def feature_mask(variant):
     # Encoded order: four numeric inputs, then category, NAICS2, NAICS4,
     # brand, parent, subcategory, each with eight embedding dimensions.
     groups = {'location':[0,1], 'identity':list(range(4,36))+list(range(44,52)),
-              'parent':list(range(36,44)), 'others':[2,3]}
+              'parent':list(range(36,44)), 'others':[2,3],
+              'parent_identity':list(range(37,44)), 'parent_presence':[36]}
     semantic = {'category':list(range(4,12)), 'naics2':list(range(12,20)),
                 'naics4':list(range(20,28)), 'subcategory':list(range(44,52))}
     mask = np.ones(52,dtype=np.float32)

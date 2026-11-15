@@ -1,0 +1,781 @@
+id,stage,model,T,H,adjacency,variant,loss,graph,k,seed,selected_lr,validation_MAE,best_epoch,NAICS2,cohort,POIs,MAE
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,11,All,1,0.04395272210240364
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,11,Known parent,1,0.04395272210240364
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,23,All,45,1.0914353132247925
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,31,All,116,0.765292763710022
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,31,Known parent,8,0.4085213243961334
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,32,All,67,0.789124071598053
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,32,Known parent,3,0.29120269417762756
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,33,All,26,1.1647911071777344
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,42,All,133,0.8371849060058594
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,42,Known parent,4,1.1159049272537231
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,44,All,1502,1.2583283185958862
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,44,Known parent,114,1.0717614889144897
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,45,All,699,1.3990391492843628
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,45,Known parent,37,1.8001060485839844
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,48,All,56,1.2023794651031494
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,48,Known parent,2,2.5256333351135254
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,49,All,44,1.0705314874649048
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,49,Known parent,1,0.04061628133058548
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,51,All,99,0.7988811731338501
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,51,Known parent,8,0.6222346425056458
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,52,All,178,0.4778161644935608
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,52,Known parent,4,0.6563277840614319
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,53,All,108,3.6724631786346436
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,53,Known parent,2,0.3452889919281006
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,54,All,94,0.5690714120864868
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,55,All,9,0.9276697635650635
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,56,All,19,0.9490370750427246
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,61,All,294,1.395672082901001
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,61,Known parent,8,1.5999263525009155
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,62,All,1118,1.4039115905761719
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,62,Known parent,118,2.2308878898620605
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,71,All,1142,1.756903886795044
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,71,Known parent,50,1.5126444101333618
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,72,All,3007,1.383018136024475
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,72,Known parent,180,1.474491000175476
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,81,All,1075,0.6518456935882568
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,81,Known parent,39,0.4155532121658325
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,92,All,52,0.9262117743492126
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,42,0.003,1.3262903249118345,49,92,Known parent,2,0.28079691529273987
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,11,All,1,0.05452144145965576
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,11,Known parent,1,0.05452144145965576
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,23,All,45,1.1031023263931274
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,31,All,116,0.7637882232666016
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,31,Known parent,8,0.3961617648601532
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,32,All,67,0.7886489033699036
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,32,Known parent,3,0.28755614161491394
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,33,All,26,1.1755250692367554
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,42,All,133,0.8390675187110901
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,42,Known parent,4,1.1120274066925049
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,44,All,1502,1.2632218599319458
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,44,Known parent,114,1.0746567249298096
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,45,All,699,1.4013230800628662
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,45,Known parent,37,1.7828710079193115
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,48,All,56,1.237809658050537
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,48,Known parent,2,2.5278685092926025
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,49,All,44,1.08210289478302
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,49,Known parent,1,0.04325387254357338
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,51,All,99,0.7981640696525574
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,51,Known parent,8,0.6207324266433716
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,52,All,178,0.4755333662033081
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,52,Known parent,4,0.6558815240859985
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,53,All,108,3.6484904289245605
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,53,Known parent,2,0.32632628083229065
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,54,All,94,0.5668786764144897
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,55,All,9,0.9367165565490723
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,56,All,19,0.9467785358428955
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,61,All,294,1.4042906761169434
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,61,Known parent,8,1.623248815536499
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,62,All,1118,1.4056684970855713
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,62,Known parent,118,2.2464609146118164
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,71,All,1142,1.761472225189209
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,71,Known parent,50,1.5218305587768555
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,72,All,3007,1.3885868787765503
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,72,Known parent,180,1.4748058319091797
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,81,All,1075,0.6511663794517517
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,81,Known parent,39,0.4142744243144989
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,92,All,52,0.9231798648834229
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,43,0.003,1.3134606976643348,66,92,Known parent,2,0.2801035940647125
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,11,All,1,0.04114693030714989
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,11,Known parent,1,0.04114693030714989
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,23,All,45,1.1048450469970703
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,31,All,116,0.7638425827026367
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,31,Known parent,8,0.3963504135608673
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,32,All,67,0.7926406860351562
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,32,Known parent,3,0.27995800971984863
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,33,All,26,1.1796255111694336
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,42,All,133,0.8425951600074768
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,42,Known parent,4,1.1396530866622925
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,44,All,1502,1.2727031707763672
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,44,Known parent,114,1.0735725164413452
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,45,All,699,1.419980764389038
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,45,Known parent,37,1.8335047960281372
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,48,All,56,1.231168508529663
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,48,Known parent,2,2.560547113418579
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,49,All,44,1.093773603439331
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,49,Known parent,1,0.040108658373355865
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,51,All,99,0.7957711219787598
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,51,Known parent,8,0.6137086153030396
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,52,All,178,0.4709688723087311
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,52,Known parent,4,0.6283130049705505
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,53,All,108,3.900071620941162
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,53,Known parent,2,0.3003276586532593
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,54,All,94,0.5653238892555237
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,55,All,9,0.9299931526184082
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,56,All,19,0.9574859142303467
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,61,All,294,1.4207215309143066
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,61,Known parent,8,1.641461730003357
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,62,All,1118,1.4331579208374023
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,62,Known parent,118,2.321157217025757
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,71,All,1142,1.786687970161438
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,71,Known parent,50,1.5115593671798706
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,72,All,3007,1.3917462825775146
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,72,Known parent,180,1.4865840673446655
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,81,All,1075,0.6458755135536194
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,81,Known parent,39,0.4112130403518677
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,92,All,52,0.9267143607139587
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,44,0.003,1.3288795112591778,28,92,Known parent,2,0.2735098898410797
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,11,All,1,0.04462055116891861
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,11,Known parent,1,0.04462055116891861
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,23,All,45,1.1133935451507568
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,31,All,116,0.7714638113975525
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,31,Known parent,8,0.4098377227783203
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,32,All,67,0.7916561365127563
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,32,Known parent,3,0.2841518223285675
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,33,All,26,1.1764787435531616
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,42,All,133,0.8422682285308838
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,42,Known parent,4,1.1178503036499023
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,44,All,1502,1.2708863019943237
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,44,Known parent,114,1.0819003582000732
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,45,All,699,1.4120286703109741
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,45,Known parent,37,1.8043640851974487
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,48,All,56,1.1965022087097168
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,48,Known parent,2,2.5611846446990967
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,49,All,44,1.0845141410827637
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,49,Known parent,1,0.043343499302864075
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,51,All,99,0.8064723014831543
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,51,Known parent,8,0.6219304800033569
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,52,All,178,0.4796011745929718
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,52,Known parent,4,0.6424053907394409
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,53,All,108,3.7115132808685303
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,53,Known parent,2,0.3532957136631012
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,54,All,94,0.5821903944015503
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,55,All,9,0.9477866888046265
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,56,All,19,0.9525126814842224
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,61,All,294,1.4114511013031006
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,61,Known parent,8,1.6184048652648926
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,62,All,1118,1.4154335260391235
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,62,Known parent,118,2.271444797515869
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,71,All,1142,1.7747344970703125
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,71,Known parent,50,1.5320549011230469
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,72,All,3007,1.3975498676300049
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,72,Known parent,180,1.4882888793945312
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,81,All,1075,0.655464768409729
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,81,Known parent,39,0.4187675416469574
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,92,All,52,0.9338212609291077
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,45,0.003,1.318906457767243,39,92,Known parent,2,0.29072800278663635
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,11,All,1,0.04714898392558098
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,11,Known parent,1,0.04714898392558098
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,23,All,45,1.1108648777008057
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,31,All,116,0.7641646265983582
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,31,Known parent,8,0.40404462814331055
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,32,All,67,0.7894898653030396
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,32,Known parent,3,0.28253576159477234
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,33,All,26,1.1708014011383057
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,42,All,133,0.8393433094024658
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,42,Known parent,4,1.1208865642547607
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,44,All,1502,1.2684484720230103
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,44,Known parent,114,1.0724042654037476
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,45,All,699,1.4051536321640015
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,45,Known parent,37,1.8091789484024048
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,48,All,56,1.215636968612671
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,48,Known parent,2,2.5647079944610596
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,49,All,44,1.0934618711471558
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,49,Known parent,1,0.04054539278149605
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,51,All,99,0.7972188591957092
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,51,Known parent,8,0.61567223072052
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,52,All,178,0.4746565520763397
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,52,Known parent,4,0.6502314209938049
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,53,All,108,3.722869634628296
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,53,Known parent,2,0.3284306526184082
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,54,All,94,0.5684587359428406
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,55,All,9,0.9431933760643005
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,56,All,19,0.9456327557563782
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,61,All,294,1.4057451486587524
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,61,Known parent,8,1.6479429006576538
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,62,All,1118,1.4205988645553589
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,62,Known parent,118,2.297269344329834
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,71,All,1142,1.7713077068328857
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,71,Known parent,50,1.519757628440857
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,72,All,3007,1.3869562149047852
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,72,Known parent,180,1.483567714691162
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,81,All,1075,0.6484317183494568
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,81,Known parent,39,0.41127538681030273
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,92,All,52,0.9325756430625916
+GNN-parent_T14_Identity_full_MAE,parent_resolved,GNN-parent,14,7,Identity,full,MAE,,,46,0.003,1.3254826862136497,30,92,Known parent,2,0.2722027599811554
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,11,All,1,0.040851790457963943
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,11,Known parent,1,0.040851790457963943
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,23,All,45,1.095084547996521
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,31,All,116,0.7630366086959839
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,31,Known parent,8,0.40401414036750793
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,32,All,67,0.7879530787467957
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,32,Known parent,3,0.2899031639099121
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,33,All,26,1.1688960790634155
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,42,All,133,0.8371865749359131
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,42,Known parent,4,1.12557053565979
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,44,All,1502,1.2635924816131592
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,44,Known parent,114,1.0692566633224487
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,45,All,699,1.4055993556976318
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,45,Known parent,37,1.8060660362243652
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,48,All,56,1.2079472541809082
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,48,Known parent,2,2.544719934463501
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,49,All,44,1.0799933671951294
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,49,Known parent,1,0.041144710034132004
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,51,All,99,0.7951685786247253
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,51,Known parent,8,0.6164129376411438
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,52,All,178,0.47383618354797363
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,52,Known parent,4,0.6598600745201111
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,53,All,108,3.717315673828125
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,53,Known parent,2,0.3407442271709442
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,54,All,94,0.5660414695739746
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,55,All,9,0.9298016428947449
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,56,All,19,0.9549858570098877
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,61,All,294,1.4050954580307007
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,61,Known parent,8,1.637188196182251
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,62,All,1118,1.4141215085983276
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,62,Known parent,118,2.2684237957000732
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,71,All,1142,1.7699077129364014
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,71,Known parent,50,1.514241099357605
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,72,All,3007,1.3869479894638062
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,72,Known parent,180,1.4810240268707275
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,81,All,1075,0.6481591463088989
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,81,Known parent,39,0.4113607108592987
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,92,All,52,0.924663245677948
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,42,0.003,1.3268964632595248,37,92,Known parent,2,0.27750101685523987
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,11,All,1,0.05311083793640137
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,11,Known parent,1,0.05311083793640137
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,23,All,45,1.10335111618042
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,31,All,116,0.7640823125839233
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,31,Known parent,8,0.4034675061702728
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,32,All,67,0.7885376214981079
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,32,Known parent,3,0.2917306125164032
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,33,All,26,1.1751878261566162
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,42,All,133,0.8387482166290283
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,42,Known parent,4,1.110507845878601
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,44,All,1502,1.2631169557571411
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,44,Known parent,114,1.074483036994934
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,45,All,699,1.4014359712600708
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,45,Known parent,37,1.7857767343521118
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,48,All,56,1.237018346786499
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,48,Known parent,2,2.5265908241271973
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,49,All,44,1.0816199779510498
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,49,Known parent,1,0.04531685262918472
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,51,All,99,0.797889769077301
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,51,Known parent,8,0.6209115386009216
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,52,All,178,0.4752109944820404
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,52,Known parent,4,0.6573528051376343
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,53,All,108,3.6483490467071533
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,53,Known parent,2,0.32083457708358765
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,54,All,94,0.5666938424110413
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,55,All,9,0.936521589756012
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,56,All,19,0.9472039341926575
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,61,All,294,1.4040002822875977
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,61,Known parent,8,1.633700966835022
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,62,All,1118,1.405307412147522
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,62,Known parent,118,2.2430386543273926
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,71,All,1142,1.761367917060852
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,71,Known parent,50,1.5222268104553223
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,72,All,3007,1.3886982202529907
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,72,Known parent,180,1.4765950441360474
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,81,All,1075,0.6508090496063232
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,81,Known parent,39,0.41436928510665894
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,92,All,52,0.9231395721435547
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,43,0.003,1.313328584797942,66,92,Known parent,2,0.2825815677642822
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,11,All,1,0.041407179087400436
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,11,Known parent,1,0.041407179087400436
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,23,All,45,1.1051616668701172
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,31,All,116,0.764195442199707
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,31,Known parent,8,0.4014014005661011
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,32,All,67,0.7924614548683167
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,32,Known parent,3,0.27549299597740173
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,33,All,26,1.1794410943984985
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,42,All,133,0.8422124981880188
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,42,Known parent,4,1.1378873586654663
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,44,All,1502,1.2728642225265503
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,44,Known parent,114,1.0728579759597778
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,45,All,699,1.4207870960235596
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,45,Known parent,37,1.8388712406158447
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,48,All,56,1.2314937114715576
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,48,Known parent,2,2.557676076889038
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,49,All,44,1.0940337181091309
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,49,Known parent,1,0.04038144275546074
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,51,All,99,0.7962003350257874
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,51,Known parent,8,0.6186906695365906
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,52,All,178,0.47096967697143555
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,52,Known parent,4,0.6351966857910156
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,53,All,108,3.907076358795166
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,53,Known parent,2,0.3068707287311554
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,54,All,94,0.5651814937591553
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,55,All,9,0.9300589561462402
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,56,All,19,0.9579445123672485
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,61,All,294,1.4212238788604736
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,61,Known parent,8,1.6414432525634766
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,62,All,1118,1.4331969022750854
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,62,Known parent,118,2.316965103149414
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,71,All,1142,1.7871217727661133
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,71,Known parent,50,1.5115582942962646
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,72,All,3007,1.3926457166671753
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,72,Known parent,180,1.4917364120483398
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,81,All,1075,0.645916759967804
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,81,Known parent,39,0.4120026230812073
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,92,All,52,0.9266543388366699
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,44,0.003,1.3291739987425566,28,92,Known parent,2,0.2759508192539215
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,11,All,1,0.04626525938510895
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,11,Known parent,1,0.04626525938510895
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,23,All,45,1.1140483617782593
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,31,All,116,0.7715173959732056
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,31,Known parent,8,0.4077002704143524
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,32,All,67,0.7915673851966858
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,32,Known parent,3,0.28408506512641907
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,33,All,26,1.1772565841674805
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,42,All,133,0.8423336744308472
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,42,Known parent,4,1.1221003532409668
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,44,All,1502,1.2717775106430054
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,44,Known parent,114,1.0795626640319824
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,45,All,699,1.413671851158142
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,45,Known parent,37,1.8068403005599976
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,48,All,56,1.198268175125122
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,48,Known parent,2,2.557262897491455
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,49,All,44,1.0855063199996948
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,49,Known parent,1,0.042668089270591736
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,51,All,99,0.8067253828048706
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,51,Known parent,8,0.6229382753372192
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,52,All,178,0.4791371524333954
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,52,Known parent,4,0.6465498805046082
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,53,All,108,3.714184522628784
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,53,Known parent,2,0.3612225651741028
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,54,All,94,0.5813555717468262
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,55,All,9,0.9475462436676025
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,56,All,19,0.9521565437316895
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,61,All,294,1.4124592542648315
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,61,Known parent,8,1.6155290603637695
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,62,All,1118,1.4151668548583984
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,62,Known parent,118,2.26415753364563
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,71,All,1142,1.7759568691253662
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,71,Known parent,50,1.5268577337265015
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,72,All,3007,1.3995453119277954
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,72,Known parent,180,1.4890260696411133
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,81,All,1075,0.6550105214118958
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,81,Known parent,39,0.41814732551574707
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,92,All,52,0.9337393641471863
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,45,0.003,1.3184634844553969,39,92,Known parent,2,0.293006032705307
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,11,All,1,0.04121585190296173
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,11,Known parent,1,0.04121585190296173
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,23,All,45,1.1032594442367554
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,31,All,116,0.762686550617218
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,31,Known parent,8,0.3930339813232422
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,32,All,67,0.7874064445495605
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,32,Known parent,3,0.27421629428863525
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,33,All,26,1.1714781522750854
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,42,All,133,0.835807740688324
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,42,Known parent,4,1.1169558763504028
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,44,All,1502,1.2639508247375488
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,44,Known parent,114,1.0705269575119019
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,45,All,699,1.4040277004241943
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,45,Known parent,37,1.7980221509933472
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,48,All,56,1.2169313430786133
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,48,Known parent,2,2.536076307296753
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,49,All,44,1.0832761526107788
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,49,Known parent,1,0.04045581445097923
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,51,All,99,0.7955243587493896
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,51,Known parent,8,0.6135984659194946
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,52,All,178,0.4698638916015625
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,52,Known parent,4,0.6438604593276978
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,53,All,108,3.6438276767730713
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,53,Known parent,2,0.3207688629627228
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,54,All,94,0.5652045011520386
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,55,All,9,0.933581531047821
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,56,All,19,0.9357457160949707
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,61,All,294,1.4053071737289429
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,61,Known parent,8,1.6176332235336304
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,62,All,1118,1.4023563861846924
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,62,Known parent,118,2.2510263919830322
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,71,All,1142,1.766616940498352
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,71,Known parent,50,1.5249780416488647
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,72,All,3007,1.3892738819122314
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,72,Known parent,180,1.4767571687698364
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,81,All,1075,0.6465249061584473
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,81,Known parent,39,0.40786653757095337
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,92,All,52,0.923920214176178
+GNN-parent_T14_Identity_without_parent_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent,MAE,,,46,0.003,1.3156400518334104,46,92,Known parent,2,0.2684673070907593
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,11,All,1,0.04086707532405853
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,11,Known parent,1,0.04086707532405853
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,23,All,45,1.0955451726913452
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,31,All,116,0.7637442946434021
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,31,Known parent,8,0.40462732315063477
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,32,All,67,0.7881556749343872
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,32,Known parent,3,0.28450891375541687
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,33,All,26,1.1674021482467651
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,42,All,133,0.8376579284667969
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,42,Known parent,4,1.122323751449585
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,44,All,1502,1.2633237838745117
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,44,Known parent,114,1.0714619159698486
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,45,All,699,1.4044655561447144
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,45,Known parent,37,1.804954171180725
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,48,All,56,1.2072066068649292
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,48,Known parent,2,2.546553134918213
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,49,All,44,1.0800018310546875
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,49,Known parent,1,0.04085681959986687
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,51,All,99,0.7961281538009644
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,51,Known parent,8,0.6171697378158569
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,52,All,178,0.47556421160697937
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,52,Known parent,4,0.6546135544776917
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,53,All,108,3.721935749053955
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,53,Known parent,2,0.335085928440094
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,54,All,94,0.5672375559806824
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,55,All,9,0.9318342208862305
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,56,All,19,0.9569467902183533
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,61,All,294,1.4038503170013428
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,61,Known parent,8,1.637794017791748
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,62,All,1118,1.4148770570755005
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,62,Known parent,118,2.269900321960449
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,71,All,1142,1.7685556411743164
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,71,Known parent,50,1.5162663459777832
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,72,All,3007,1.3859974145889282
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,72,Known parent,180,1.4826158285140991
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,81,All,1075,0.6493592858314514
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,81,Known parent,39,0.41236937046051025
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,92,All,52,0.9261468648910522
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,42,0.003,1.3288958842212522,37,92,Known parent,2,0.27558210492134094
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,11,All,1,0.04402071237564087
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,11,Known parent,1,0.04402071237564087
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,23,All,45,1.1017134189605713
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,31,All,116,0.7656657099723816
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,31,Known parent,8,0.39968398213386536
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,32,All,67,0.7945859432220459
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,32,Known parent,3,0.2895207107067108
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,33,All,26,1.1753356456756592
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,42,All,133,0.8403173089027405
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,42,Known parent,4,1.1203322410583496
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,44,All,1502,1.2686173915863037
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,44,Known parent,114,1.0778552293777466
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,45,All,699,1.4071179628372192
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,45,Known parent,37,1.7956889867782593
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,48,All,56,1.2360466718673706
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,48,Known parent,2,2.563014268875122
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,49,All,44,1.0901341438293457
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,49,Known parent,1,0.04133996739983559
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,51,All,99,0.7951664924621582
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,51,Known parent,8,0.6129924654960632
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,52,All,178,0.47823789715766907
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,52,Known parent,4,0.6558064222335815
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,53,All,108,3.775378704071045
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,53,Known parent,2,0.3147994875907898
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,54,All,94,0.569121778011322
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,55,All,9,0.9388512372970581
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,56,All,19,0.9583139419555664
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,61,All,294,1.409460186958313
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,61,Known parent,8,1.6599628925323486
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,62,All,1118,1.4259358644485474
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,62,Known parent,118,2.293417453765869
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,71,All,1142,1.7674434185028076
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,71,Known parent,50,1.52076256275177
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,72,All,3007,1.3870775699615479
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,72,Known parent,180,1.4850505590438843
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,81,All,1075,0.6486549973487854
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,81,Known parent,39,0.4123598337173462
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,92,All,52,0.9287644028663635
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,43,0.003,1.326226752652194,40,92,Known parent,2,0.2740307152271271
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,11,All,1,0.041103824973106384
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,11,Known parent,1,0.041103824973106384
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,23,All,45,1.1047464609146118
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,31,All,116,0.7638189196586609
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,31,Known parent,8,0.3980243504047394
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,32,All,67,0.7923479080200195
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,32,Known parent,3,0.2719084322452545
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,33,All,26,1.179864525794983
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,42,All,133,0.8419598937034607
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,42,Known parent,4,1.1320308446884155
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,44,All,1502,1.2730820178985596
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,44,Known parent,114,1.0743944644927979
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,45,All,699,1.4209294319152832
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,45,Known parent,37,1.8384236097335815
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,48,All,56,1.2320724725723267
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,48,Known parent,2,2.565422296524048
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,49,All,44,1.0941627025604248
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,49,Known parent,1,0.04012395069003105
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,51,All,99,0.795549213886261
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,51,Known parent,8,0.6134743094444275
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,52,All,178,0.47044771909713745
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,52,Known parent,4,0.6286715269088745
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,53,All,108,3.906559705734253
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,53,Known parent,2,0.29862064123153687
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,54,All,94,0.5648505687713623
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,55,All,9,0.9298545718193054
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,56,All,19,0.9573970437049866
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,61,All,294,1.4215219020843506
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,61,Known parent,8,1.6413352489471436
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,62,All,1118,1.4333465099334717
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,62,Known parent,118,2.321258306503296
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,71,All,1142,1.7874689102172852
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,71,Known parent,50,1.5139983892440796
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,72,All,3007,1.3927698135375977
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,72,Known parent,180,1.4942320585250854
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,81,All,1075,0.6455726623535156
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,81,Known parent,39,0.41102585196495056
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,92,All,52,0.9262253046035767
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,44,0.003,1.3287637148963694,28,92,Known parent,2,0.2729910612106323
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,11,All,1,0.053803808987140656
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,11,Known parent,1,0.053803808987140656
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,23,All,45,1.112492322921753
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,31,All,116,0.7750681638717651
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,31,Known parent,8,0.4208056628704071
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,32,All,67,0.7944393754005432
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,32,Known parent,3,0.2835766673088074
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,33,All,26,1.1734342575073242
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,42,All,133,0.8446194529533386
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,42,Known parent,4,1.1182743310928345
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,44,All,1502,1.271704077720642
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,44,Known parent,114,1.0864537954330444
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,45,All,699,1.4130468368530273
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,45,Known parent,37,1.8050166368484497
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,48,All,56,1.1918085813522339
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,48,Known parent,2,2.546196222305298
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,49,All,44,1.08010733127594
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,49,Known parent,1,0.045484013855457306
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,51,All,99,0.8077748417854309
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,51,Known parent,8,0.6294791102409363
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,52,All,178,0.4809097349643707
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,52,Known parent,4,0.6399085521697998
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,53,All,108,3.683408260345459
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,53,Known parent,2,0.3477334976196289
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,54,All,94,0.5823902487754822
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,55,All,9,0.9432882070541382
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,56,All,19,0.9501383304595947
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,61,All,294,1.4088624715805054
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,61,Known parent,8,1.6072691679000854
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,62,All,1118,1.4081557989120483
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,62,Known parent,118,2.2476069927215576
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,71,All,1142,1.7752556800842285
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,71,Known parent,50,1.5310238599777222
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,72,All,3007,1.404021143913269
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,72,Known parent,180,1.4955791234970093
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,81,All,1075,0.659310519695282
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,81,Known parent,39,0.42506280541419983
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,92,All,52,0.9337807893753052
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,45,0.003,1.319330235192519,45,92,Known parent,2,0.30098623037338257
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,11,All,1,0.04828691855072975
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,11,Known parent,1,0.04828691855072975
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,23,All,45,1.111245036125183
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,31,All,116,0.7643146514892578
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,31,Known parent,8,0.40368029475212097
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,32,All,67,0.7895419001579285
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,32,Known parent,3,0.28300172090530396
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,33,All,26,1.170590877532959
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,42,All,133,0.8394480347633362
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,42,Known parent,4,1.1181286573410034
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,44,All,1502,1.2685197591781616
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,44,Known parent,114,1.0740315914154053
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,45,All,699,1.4050517082214355
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,45,Known parent,37,1.8121708631515503
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,48,All,56,1.2158657312393188
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,48,Known parent,2,2.564997911453247
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,49,All,44,1.0937217473983765
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,49,Known parent,1,0.04060083627700806
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,51,All,99,0.7975113987922668
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,51,Known parent,8,0.6141225695610046
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,52,All,178,0.47500118613243103
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,52,Known parent,4,0.6457679271697998
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,53,All,108,3.7233262062072754
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,53,Known parent,2,0.3254616856575012
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,54,All,94,0.5688291788101196
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,55,All,9,0.9439446926116943
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,56,All,19,0.9459333419799805
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,61,All,294,1.4055324792861938
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,61,Known parent,8,1.6474933624267578
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,62,All,1118,1.4210067987442017
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,62,Known parent,118,2.29952073097229
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,71,All,1142,1.7712600231170654
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,71,Known parent,50,1.5240131616592407
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,72,All,3007,1.3870078325271606
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,72,Known parent,180,1.4869987964630127
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,81,All,1075,0.6487231850624084
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,81,Known parent,39,0.41025418043136597
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,92,All,52,0.9330243468284607
+GNN-parent_T14_Identity_without_parent_identity_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_identity,MAE,,,46,0.003,1.3261076816969706,30,92,Known parent,2,0.2726935148239136
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,11,All,1,0.04504614695906639
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,11,Known parent,1,0.04504614695906639
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,23,All,45,1.0916526317596436
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,31,All,116,0.7655888199806213
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,31,Known parent,8,0.4110560417175293
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,32,All,67,0.789618194103241
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,32,Known parent,3,0.29972517490386963
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,33,All,26,1.1651229858398438
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,42,All,133,0.8373759984970093
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,42,Known parent,4,1.1183018684387207
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,44,All,1502,1.2587577104568481
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,44,Known parent,114,1.0712831020355225
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,45,All,699,1.3996495008468628
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,45,Known parent,37,1.803062915802002
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,48,All,56,1.2034144401550293
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,48,Known parent,2,2.521953582763672
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,49,All,44,1.071152925491333
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,49,Known parent,1,0.040967125445604324
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,51,All,99,0.7991174459457397
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,51,Known parent,8,0.6238266825675964
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,52,All,178,0.47799405455589294
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,52,Known parent,4,0.662303626537323
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,53,All,108,3.669480800628662
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,53,Known parent,2,0.353031724691391
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,54,All,94,0.5689999461174011
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,55,All,9,0.9279047250747681
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,56,All,19,0.9485116600990295
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,61,All,294,1.395975947380066
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,61,Known parent,8,1.6024836301803589
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,62,All,1118,1.4042291641235352
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,62,Known parent,118,2.2311394214630127
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,71,All,1142,1.7572219371795654
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,71,Known parent,50,1.5117086172103882
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,72,All,3007,1.3831008672714233
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,72,Known parent,180,1.4735913276672363
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,81,All,1075,0.6516885161399841
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,81,Known parent,39,0.41575974225997925
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,92,All,52,0.9267792701721191
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,42,0.003,1.3264172435971555,49,92,Known parent,2,0.28626561164855957
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,11,All,1,0.05402029678225517
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,11,Known parent,1,0.05402029678225517
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,23,All,45,1.1037224531173706
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,31,All,116,0.7637434601783752
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,31,Known parent,8,0.39627066254615784
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,32,All,67,0.7887487411499023
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,32,Known parent,3,0.28822872042655945
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,33,All,26,1.1762577295303345
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,42,All,133,0.8390386700630188
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,42,Known parent,4,1.1110026836395264
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,44,All,1502,1.2635631561279297
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,44,Known parent,114,1.0741298198699951
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,45,All,699,1.4018008708953857
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,45,Known parent,37,1.7829334735870361
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,48,All,56,1.2381079196929932
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,48,Known parent,2,2.527125358581543
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,49,All,44,1.082648754119873
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,49,Known parent,1,0.04390702024102211
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,51,All,99,0.7981794476509094
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,51,Known parent,8,0.6212233304977417
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,52,All,178,0.47535449266433716
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,52,Known parent,4,0.6620873212814331
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,53,All,108,3.648876905441284
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,53,Known parent,2,0.3272414207458496
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,54,All,94,0.5664510726928711
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,55,All,9,0.9370980858802795
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,56,All,19,0.9468966126441956
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,61,All,294,1.4048223495483398
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,61,Known parent,8,1.6224859952926636
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,62,All,1118,1.405701994895935
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,62,Known parent,118,2.244434118270874
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,71,All,1142,1.7622443437576294
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,71,Known parent,50,1.5206819772720337
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,72,All,3007,1.3893036842346191
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,72,Known parent,180,1.4740136861801147
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,81,All,1075,0.6508370637893677
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,81,Known parent,39,0.4143373966217041
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,92,All,52,0.9226555228233337
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,43,0.003,1.312985655930219,66,92,Known parent,2,0.28185519576072693
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,11,All,1,0.04119209200143814
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,11,Known parent,1,0.04119209200143814
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,23,All,45,1.1049226522445679
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,31,All,116,0.7636645436286926
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,31,Known parent,8,0.3966204822063446
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,32,All,67,0.7926266193389893
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,32,Known parent,3,0.27992454171180725
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,33,All,26,1.179880976676941
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,42,All,133,0.8425115942955017
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,42,Known parent,4,1.1458766460418701
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,44,All,1502,1.2726436853408813
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,44,Known parent,114,1.071701169013977
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,45,All,699,1.4203534126281738
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,45,Known parent,37,1.8340246677398682
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,48,All,56,1.2311656475067139
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,48,Known parent,2,2.5574986934661865
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,49,All,44,1.093599796295166
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,49,Known parent,1,0.04000788554549217
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,51,All,99,0.7959436774253845
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,51,Known parent,8,0.6170953512191772
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,52,All,178,0.4705016613006592
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,52,Known parent,4,0.6306825280189514
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,53,All,108,3.899879217147827
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,53,Known parent,2,0.30386975407600403
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,54,All,94,0.56501704454422
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,55,All,9,0.9295979142189026
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,56,All,19,0.9570867419242859
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,61,All,294,1.4210271835327148
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,61,Known parent,8,1.6412409543991089
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,62,All,1118,1.4326159954071045
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,62,Known parent,118,2.3169331550598145
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,71,All,1142,1.7870221138000488
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,71,Known parent,50,1.5096319913864136
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,72,All,3007,1.392334222793579
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,72,Known parent,180,1.4850658178329468
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,81,All,1075,0.6455872058868408
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,81,Known parent,39,0.41166597604751587
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,92,All,52,0.9260616898536682
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,44,0.003,1.328467138448864,28,92,Known parent,2,0.2749219238758087
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,11,All,1,0.044858671724796295
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,11,Known parent,1,0.044858671724796295
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,23,All,45,1.1138256788253784
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,31,All,116,0.7712427973747253
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,31,Known parent,8,0.4067069888114929
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,32,All,67,0.7914981842041016
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,32,Known parent,3,0.2807920277118683
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,33,All,26,1.1767821311950684
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,42,All,133,0.8421836495399475
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,42,Known parent,4,1.1176403760910034
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,44,All,1502,1.2716662883758545
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,44,Known parent,114,1.0790927410125732
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,45,All,699,1.4135410785675049
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,45,Known parent,37,1.8039170503616333
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,48,All,56,1.1980164051055908
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,48,Known parent,2,2.5564606189727783
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,49,All,44,1.0852850675582886
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,49,Known parent,1,0.043213456869125366
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,51,All,99,0.8066642880439758
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,51,Known parent,8,0.6230948567390442
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,52,All,178,0.47917699813842773
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,52,Known parent,4,0.6449814438819885
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,53,All,108,3.711509943008423
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,53,Known parent,2,0.35924556851387024
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,54,All,94,0.581633985042572
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,55,All,9,0.9478480219841003
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,56,All,19,0.9519955515861511
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,61,All,294,1.4121747016906738
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,61,Known parent,8,1.6153243780136108
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,62,All,1118,1.4150713682174683
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,62,Known parent,118,2.264927864074707
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,71,All,1142,1.7756662368774414
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,71,Known parent,50,1.529739499092102
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,72,All,3007,1.3994113206863403
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,72,Known parent,180,1.4860143661499023
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,81,All,1075,0.6551014184951782
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,81,Known parent,39,0.4186636507511139
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,92,All,52,0.9338567852973938
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,45,0.003,1.3183684648168759,39,92,Known parent,2,0.29126864671707153
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,11,All,1,0.056173618882894516
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,11,Known parent,1,0.056173618882894516
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,23,All,45,1.113258719444275
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,31,All,116,0.7651554346084595
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,31,Known parent,8,0.40866029262542725
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,32,All,67,0.7903751134872437
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,32,Known parent,3,0.2857207953929901
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,33,All,26,1.1708494424819946
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,42,All,133,0.8405790328979492
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,42,Known parent,4,1.122489333152771
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,44,All,1502,1.2691625356674194
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,44,Known parent,114,1.0720456838607788
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,45,All,699,1.4053984880447388
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,45,Known parent,37,1.8096317052841187
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,48,All,56,1.2171562910079956
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,48,Known parent,2,2.556185245513916
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,49,All,44,1.0953583717346191
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,49,Known parent,1,0.04078615456819534
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,51,All,99,0.7990308403968811
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,51,Known parent,8,0.6250079274177551
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,52,All,178,0.47765177488327026
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,52,Known parent,4,0.6632927656173706
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,53,All,108,3.7275445461273193
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,53,Known parent,2,0.3489567041397095
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,54,All,94,0.5699517726898193
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,55,All,9,0.9458056688308716
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,56,All,19,0.9474760890007019
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,61,All,294,1.4062399864196777
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,61,Known parent,8,1.645830750465393
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,62,All,1118,1.4222372770309448
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,62,Known parent,118,2.2978403568267822
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,71,All,1142,1.7711973190307617
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,71,Known parent,50,1.5179977416992188
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,72,All,3007,1.3870904445648193
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,72,Known parent,180,1.4797204732894897
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,81,All,1075,0.6499425768852234
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,81,Known parent,39,0.41358682513237
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,92,All,52,0.9337709546089172
+GNN-parent_T14_Identity_without_parent_presence_MAE,parent_resolved,GNN-parent,14,7,Identity,without_parent_presence,MAE,,,46,0.003,1.3271837805146847,30,92,Known parent,2,0.27720654010772705

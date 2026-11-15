@@ -34,7 +34,7 @@ def replay_model(directory,raw,dates,attrs,device,graph_dir,diagnostic_out=None)
     import torch
     import pandas as pd
     from scipy import sparse
-    from train_controlled import make_model
+    from train_controlled import make_model,model_static_features
     from train_formal import static_features,group_average
     from train_mtgnn import sparse_operator,clique_operator
     from controlled_checks import propagate_neighbors
@@ -74,8 +74,8 @@ def replay_model(directory,raw,dates,attrs,device,graph_dir,diagnostic_out=None)
         graph=((filled+group_average(filled,labels))*.5)[history].astype('float32')
         op=clique_operator(labels,torch.device(device));operators=(op,op)
     static=None
-    if fit['model']=='GNN-static':
-        static,_=static_features(attrs)
+    if fit['model'] in ('GNN-static','GNN-parent'):
+        static,_=model_static_features(attrs,fit['model'])
         static[:,:4]=(static[:,:4]-saved['numeric_mean'])/saved['numeric_std']
     long_input=t>14
     if device.startswith('cuda'):

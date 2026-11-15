@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "eligible_POIs": 9853,
+  "unassigned": 31,
+  "regime_agreement": 0.7223180757129808,
+  "parent_regime_original": 1895,
+  "parent_regime_translated": 576,
+  "parent_share_original": 0.1828189497451282,
+  "parent_share_translated": 0.012137469108007538,
+  "maximum_prediction_difference": 5.684341886080802e-14,
+  "arithmetic": "FP64 paired evaluation of stored model parameters",
+  "consensus": "Normalize each seed separately; average shares across nonzero-attribution seeds per POI; standardize across eligible POIs",
+  "archived_FP32_replay_checks": [
+    {
+      "seed": 42,
+      "strict_replay_passed": false,
+      "max_difference": 0.0006268024444580078,
+      "mean_difference": 4.992744379705982e-06
+    },
+    {
+      "seed": 43,
+      "strict_replay_passed": false,
+      "max_difference": 0.0008697509765625,
+      "mean_difference": 7.277091754076537e-06
+    },
+    {
+      "seed": 44,
+      "strict_replay_passed": false,
+      "max_difference": 0.0006351470947265625,
+      "mean_difference": 4.916437774227234e-06
+    },
+    {
+      "seed": 45,
+      "strict_replay_passed": false,
+      "max_difference": 0.0008456707000732422,
+      "mean_difference": 4.2072847463714425e-06
+    },
+    {
+      "seed": 46,
+      "strict_replay_passed": false,
+      "max_difference": 0.0009315013885498047,
+      "mean_difference": 5.328806309989886e-06
+    }
+  ]
+}

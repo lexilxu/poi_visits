@@ -1,14 +1,14 @@
 We compare functional and identity adjacency on the same 1,935 low-history POIs with at least one NAICS-4 peer, using \(T=14\) and \(H=7\).
 The December and January evaluations contain 297,990 and 338,625 scored events, respectively.
 Target and neighbor evidence are classified using validation-period medians, before observing the test outcomes.
-Table~\ref{tab:graph_transfer_summary} reports MAE gain within these evidence strata, and Figure~\ref{fig:counterfactual_graph_transfer_map} compares the pattern across months.
+Table~\ref{tab:graph_transfer_summary} reports MAE gain within these evidence strata. Figure~\ref{fig:counterfactual_graph_transfer_map} resolves the pattern using validation-defined sextile cutpoints, with duplicate boundaries merged.
 
 \input{revision_graph_evidence.tex}
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[scale=0.80]{art/pre_outcome_graph_transfer.pdf}
-\caption{Five-seed mean MAE gain over identity adjacency within validation-defined evidence strata at \(T=14\), \(H=7\). Positive values indicate lower error under functional adjacency. The fitted models and evidence thresholds remain fixed in January.}
+\includegraphics[width=\linewidth]{art/pre_outcome_graph_transfer.pdf}
+\caption{Five-seed mean MAE gain over identity adjacency across target and neighbor evidence at \(T=14\), \(H=7\). Validation sextile cutpoints define the bins; ticks show successive upper bounds and the open tail. Positive gains indicate lower error under functional adjacency. Panel means weight cells by scored events; each cell contains at least 602 events. Fitted models and bin boundaries remain fixed in January.}
 \label{fig:counterfactual_graph_transfer_map}
 \end{figure}
 

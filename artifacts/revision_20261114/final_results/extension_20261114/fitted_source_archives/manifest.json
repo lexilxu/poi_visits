@@ -1,0 +1,14 @@
+{
+  "matched_training_source.zip": {
+    "sha256": "3b1963281c2ea1afb9dd3a945914887581b965029e6fab08b05835c4a7aeab4b",
+    "files": 102
+  },
+  "parent_training_source.zip": {
+    "sha256": "6cbd379c4a6b6a0fae20cc42f2cab1eff451e41548fa5fe1950c1f4fd7de93fa",
+    "files": 110
+  },
+  "city_training_source.zip": {
+    "sha256": "a836b9d76c5caeb061e43ff677a28a963b41de4f798a03de500a552973c029f7",
+    "files": 115
+  }
+}

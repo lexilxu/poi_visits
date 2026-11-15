@@ -453,25 +453,11 @@ def neighbors():
     tex_table(PAPER/'revision_graph_evidence.tex',
         'MAE gain over identity adjacency within validation-defined target/neighbor evidence strata at $T=14$, $H=7$. Values are means and standard deviations across five fitted seeds; positive values indicate lower error under functional adjacency.',
         'tab:graph_transfer_summary',['Target / neighbor evidence','Dec. NAICS-2','Dec. NAICS-4','Jan. NAICS-2','Jan. NAICS-4'],rows,'lrrrr')
-    fig,axes=plt.subplots(2,2,figsize=(7.4,5.0),layout='constrained',sharex=True,sharey=True)
-    cmap=LinearSegmentedColormap.from_list('gain',['#C46D45','#F8F8F5','#397D91'])
-    for i,period in enumerate(('december','january')):
-        for j,graph in enumerate(('NAICS-2','NAICS-4')):
-            block=table[(table.period==period)&(table.adjacency==graph)&(table.grouping=='evidence')].set_index('stratum')
-            values=np.array([block.loc[s,'MAE_gain_mean'] for s in strata]).reshape(2,2)
-            ax=axes[i,j];im=ax.imshow(values,cmap=cmap,vmin=-.2,vmax=.2)
-            for y in range(2):
-                for x in range(2):ax.text(x,y,f'{values[y,x]:+.3f}',ha='center',va='center',fontsize=13,
-                                             color='white' if abs(values[y,x])>.14 else '#222222')
-            ax.set_xticks([0,1],['Low','High']);ax.set_yticks([0,1],['Low','High'])
-            ax.set_title(f'{"December 2020" if i==0 else "January 2021"} · {graph}',loc='left')
-            if i==1:ax.set_xlabel('Neighbor evidence')
-            if j==0:ax.set_ylabel('Target evidence')
-            ax.tick_params(length=0,pad=5)
-            for spine in ax.spines.values():spine.set_visible(False)
-    fig.colorbar(im,ax=axes,shrink=.8,label='MAE gain over identity (visits)',pad=.035)
-    fig.savefig(PAPER/'art/pre_outcome_graph_transfer.pdf')
-    fig.savefig(qa/'pre_outcome_graph_transfer.png',dpi=180);plt.close(fig)
+    import sys
+    sys.path.insert(0,str(ROOT/'experiments/extension_20261114'))
+    from render_graph_evidence_grid import render
+    render(ROOT/'artifacts/revision_20261114/final_results/extension_20261114/graph_evidence_grid',
+           PAPER/'art/pre_outcome_graph_transfer.pdf',qa/'pre_outcome_graph_transfer.png')
     interventions=pd.read_csv(source/'interventions_summary.csv')
     names={'active':'Training-active','recent_active':'Recent-active','correlated':'Correlated',
            'random':'Random','activity_matched_replacement':'Matched replacement'}

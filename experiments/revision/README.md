@@ -43,6 +43,26 @@ The private input bundle is required to regenerate fitted models and event-level
 
 The current continuation uses AutoDL4 for training and experiment evaluation. Windows handles SSH, artifact transfer, source editing, manuscript rendering and verification. Historical local-GPU setup helpers remain for provenance.
 
+## Supplementary controls and external validation
+
+`experiments/extension_20261114` records the additional 84 neural fits, two earlier-period city cohorts, external parking evaluation, and prediction-preserving attribution-origin diagnostic. Its protocol files specify the cohort, fitting, validation and comparison rules. The additional results are under `final_results/extension_20261114`, with source hashes and aggregate-only export receipts.
+
+Three immutable source archives preserve the matched-LSTM, resolved-parent and city training code. These add 12 configurations and 60 selected five-seed runs. The original 497-fit archive remains a separate benchmark. The parking analysis uses 93 forecast-input/seed/radius combinations and 16 distinct ridge candidate fits. Corrected monitoring selection ranks the training-defined candidate set before applying the observation mask.
+
+The attribution-origin results use paired FP64 evaluation of the stored parameters. `attribution_origin/complete.json` records both the paired prediction difference and the separate archived FP32 replay discrepancies. The original benchmark scores retain their own predictions and arithmetic.
+
+Render the additional tables and figures from the released aggregates:
+
+```sh
+python experiments/extension_20261114/render_matched_table.py
+python experiments/extension_20261114/render_city_table.py
+python experiments/extension_20261114/render_substantive_tables.py
+python experiments/extension_20261114/render_origin_figure.py
+python experiments/extension_20261114/render_graph_evidence_grid.py
+```
+
+The detailed graph figure uses distinct validation sextile cutpoints and the same stored five-seed predictions as the median-stratum table. Its audit verifies event counts, median assignments and weighted reconstruction of the overall gain. Licensed event records and fitted weights remain in the private evidence archive.
+
 ## Preservation and delivery
 
 - Original Overleaf: https://www.overleaf.com/project/6953dd9e9db9f3ef2cddbd36

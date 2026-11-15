@@ -90,7 +90,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{An Explainable Framework for Points of Interest (POI) Visit Forecasting with Temporal Graph Networks}
+\title{Diagnosing Graph-Based Point-of-Interest Visit Forecasts: Temporal Controls, Attribution Stability, and Parking Validation}
 
 \author[a]{Xu Liu}
 \ead{xuliu8@uw.edu}
@@ -112,17 +112,16 @@ University of Washington, Seattle, WA 98195, USA}
 
 
 \begin{abstract}
-Points of interest (POIs), such as stores, clinics, and transit facilities, show where people access urban services and engage in daily activities.
-Their visit counts describe how activity varies across locations and time, providing information for local mobility and service planning.
-In practice, many POIs have sparse or intermittent visit histories, making future activity difficult to forecast from their own past observations.
-Even when statistical or machine learning models forecast POI visits accurately, explaining their predictions and identifying the underlying information sources remain challenging.
-To address these challenges, we develop an explainable temporal graph framework to forecast POI visits and examine when information from related POIs improves predictions and how model behavior varies across locations.
-Using 92 days of data for 9,884 POIs in Seattle and a further 31-day evaluation with fixed fitted parameters, we compare a graph-augmented gated recurrent unit (GraphGRU) and a Multivariate Time Series Graph Neural Network (MTGNN) with temporal and intermittent-demand baselines.
-The low-history diagnostics show that training loss and forecast calibration substantially change recovered visit mass, while comparisons at common validation false activation rates give no uniform advantage to the graph models over the temporal baselines.
-Matched neighbor-group perturbations reveal that active neighbors contribute to both correct positive detections and false activations.
-We use gradient-based feature attribution to characterize how historical visits and static attributes contribute to individual predictions, and assess these profiles across fitted seeds, attribution references, and evaluation months.
-The resulting POI regimes vary substantially with the attribution method, while broad industry codes most often receive the largest semantic attribution.
-These findings distinguish predictive accuracy, intermittent-activity detection, and the stability of model explanations when interpreting POI forecasts.
+Graph relationships can improve point-of-interest (POI) visit forecasts while also propagating activity that produces false activations.
+We evaluate this tradeoff using 9,884 Seattle POIs over October 2020--January 2021, earlier-period temporal controls in Seattle and Portland, and independent paid-parking observations.
+A graph-augmented gated recurrent unit (GraphGRU) and a Multivariate Time Series Graph Neural Network (MTGNN) are compared with linear, recurrent, and intermittent-demand baselines under common validation and five-seed protocols.
+Structural matching shows that input projection and the last-observation readout account for much of the difference between GraphGRU and a long short-term memory (LSTM) baseline.
+Under common validation false activation targets, temporal and intermittent-demand baselines remain competitive.
+Matched neighbor perturbations show that active neighbors support both correct detections and false activations.
+Feature-removal experiments yield small parent and semantic effects.
+A prediction-preserving shift of parent embeddings changes 27.8\% of attribution regimes, demonstrating sensitivity to the embedding origin.
+In an external evaluation of 1,343 blockfaces, adding MTGNN visit forecasts reduces paid-occupancy-ratio error by about 0.3\%, while high-pressure monitoring recall changes little.
+These results separate temporal architecture, graph information, attribution representation, and external predictive utility when assessing POI forecast models.
 \end{abstract}
 
 
@@ -132,14 +131,14 @@ These findings distinguish predictive accuracy, intermittent-activity detection,
 
 Points of interest (POIs), such as stores, clinics, and transit facilities, show where people access urban services and engage in daily activities. 
 Their visit counts describe how activity varies across locations and time, providing potential information for local mobility and service planning. 
-To anticipate changes in demand and support transportation and local service planning, one can forecast future POI visits by leveraging historical visit counts \citep{hajisafi2023learning}.
+Historical visit counts provide inputs for forecasting local activity and anticipating changes in demand \citep{hajisafi2023learning}.
 However, sparse or intermittent visit histories (e.g., frequent zero-visit days with only occasional positive counts) make future activity difficult to forecast from the past observations of that POI \citep{turkmen2021forecasting,zhuang2022uncertainty}.
 Some studies therefore use information from related POIs to improve forecasts \citep{hajisafi2023learning}.
 Excessive graph aggregation can make node representations increasingly similar \citep{li2018deeper,oono2020graph}, while high activity at related locations need not imply high future visits at a sparse target POI.
 
 To address these challenges, machine learning (ML) models have been introduced to learn shared patterns across POIs while using the visit history and attributes of each POI to distinguish its own activity.
 These models represent visit observations and POI attributes as feature vectors and learn how these inputs relate to future visit counts.
-Notably, recurrent models process historical inputs sequentially by updating hidden states that summarize earlier observations, allowing recent and earlier visits to inform forecasts \citep{hochreiter1997long}. 
+Recurrent models process historical inputs sequentially by updating hidden states that summarize earlier observations \citep{hochreiter1997long}.
 Graph neural networks (GNNs) further represent each POI as a \textit{node} with its own feature vector and relationships among POIs as \textit{edges}. 
 The edge weights form an \textit{adjacency matrix}, which specifies which POIs exchange information and the relative strength of their connections \citep{hajisafi2023learning}.
 Selecting and weighting these connections based on spatial proximity and functional similarity can limit noisy relationships among POIs and reduce over-smoothing.
@@ -151,7 +150,7 @@ We compare a graph-augmented gated recurrent unit (GraphGRU) with a fixed-adjace
 
 For urban planners and transportation agencies, forecasting future POI visits provides information about expected demand, while understanding what drives those forecasts can offer additional guidance for service planning and operational decisions \citep{hajisafi2023learning}. 
 For example, a clinic forecast may depend more on its recorded functional identity than on its coordinates. 
-Meanwhile, the parent-place context of a clinic within a larger medical facility may also contribute to its predicted visits.
+The parent-place context of a clinic within a larger medical facility may also contribute to its predicted visits.
 Attribution can show which recorded inputs support a forecast; estimating the effect of changing a POI requires a separate behavioral analysis.
 Yet neural forecasting models are often treated as black boxes because their prediction processes are difficult to interpret \citep{ribeiro2016should,lipton2018mythos}. In particular, it is hard to tell whether a high forecast for a sparse POI reflects useful evidence of future visits or excessive reliance on activity at related locations.
 
@@ -160,13 +159,14 @@ Among feature attribution methods, gradient-based approaches are particularly su
 This computational efficiency also enables fine-grained analysis across historical days and POI attributes. Specifically, gradient-based approaches backpropagate from a target prediction to the input and use the resulting gradients to quantify how sensitive that prediction is to individual input features. 
 We therefore use gradient-based attribution to identify which inputs drive POI visit predictions, assign POIs to attribution regimes according to their relative feature contributions, and examine how these contributions vary across POI types and urban contexts.
 
-Using 92 days of observations for 9,884 POIs in Seattle and a further 31-day evaluation on the same cohort, we develop an explainable forecasting framework that combines GraphGRU and MTGNN with gradient-based feature attribution. 
+Using 92 days of observations for 9,884 POIs in Seattle and a further 31-day evaluation on the same cohort, we examine the predictive value and interpretation of temporal graph models.
 To examine how different relationships among POIs affect forecasting, we construct alternative adjacency matrices based on spatial proximity, functional similarity, and historical visit patterns, and perturb selected neighbor groups to assess how their information changes individual forecasts. 
-We next incorporate diverse POI-level attributes to investigate which characteristics drive individual predictions.
+We compare attribution profiles with retrained feature-removal effects and resolve parent identities that the original encoding pooled.
+An external evaluation links POI forecasts to paid-parking observations and a fixed monitoring budget.
 To further examine forecasting behavior when historical information is sparse, we focus particularly on \textit{low-history POIs}, identified by frequent zero visits and small positive historical averages during training. 
 Based on these preliminary analyses, this study aims to address four research questions:
 \begin{compactenum}
-    \item \textbf{How do temporal graph models perform relative to simpler forecasting methods across different historical input windows and forecast leads, particularly for POIs with sparse visit histories?}
+    \item \textbf{How do temporal graph models compare with simpler forecasting methods for POI visits and an external parking-monitoring task?}
     \item \textbf{When does information from related POIs improve forecasts for low-history POIs, and when does it lead to over-prediction?}
     \item \textbf{Which information sources drive POI visit predictions, and how do these attribution profiles vary across POIs and urban functions?}
     \item \textbf{How do parent-place context and semantic information (i.e., category and industry classifications) at different levels of granularity contribute to POI visit predictions?}
@@ -177,6 +177,7 @@ We compare GraphGRU and MTGNN with historical-average, autoregressive, linear, a
 We measure both positive-visit recovery and false activations among low-history POIs. We use \textit{zero-demand collapse} to describe near-zero forecasts for observations with positive visits.
 We then compare alternative graph structures and perturb selected groups of connected POIs to determine how information transferred from related POIs affects individual forecasts. 
 Finally, we use gradient-based feature attribution to identify the information sources underlying POI predictions, assign POIs to attribution regimes, and examine the contributions of parent-place information and semantic attributes at different levels of granularity.
+Structural matching separates recurrent-cell comparisons from differences in input projection and readout. Earlier-period Seattle and Portland cohorts extend this temporal comparison, and independent parking observations assess the value of POI forecasts beyond the visit panel.
 
 
 Aggregate forecast accuracy and intermittent-visit detection yield different model rankings.
@@ -320,6 +321,8 @@ We retain this cohort for a further 31-day evaluation in January 2021; all 9,884
 Each POI is represented by its daily visit counts together with a collection of static attributes describing geographic location, functional identity, organizational context, and operating conditions.
 The static records harmonize November 2020--January 2021 snapshots. A sensitivity analysis uses only the available November--December 2020 records and their contemporaneous identifier crosswalks.
 Both versions describe retrospective POI characteristics; their availability at each historical forecast origin is not documented.
+Separate July-defined cohorts contain 11,234 Seattle POIs and 11,646 Portland POIs, observed over July--September 2020. Later missing monthly records remain missing; September coverage is 10,728 and 11,119 POIs, respectively. These cohorts support the earlier-period temporal controls.
+For external validation, we obtain the 2020 and 2021 paid-parking occupancy records from the Seattle Department of Transportation (SDOT). These records estimate paid occupancy from parking transactions \citep{sdot_parking_data}. We sample 10:00, 14:00, and 18:00 local time and retain 1,343 blockfaces with at least 15 observed training dates at one of these clock times. The resulting 3,569 eligible blockface--clock-time pairs define the monitoring candidates.
 
 Geographic information is represented by latitude and longitude, which can be used directly as node features or to construct spatial relationships among POIs.
 Functional identity is represented using SafeGraph top-level categories, sub-categories, and North American Industry Classification System (NAICS) codes.
@@ -521,6 +524,8 @@ This baseline provides a linear reference for assessing how effectively the hist
 The LSTM baseline \citep{hochreiter1997long} processes historical visit sequences recurrently.
 It processes the univariate history of each POI independently, with recurrent weights shared across POIs.
 We denote this specification Shared-LSTM.
+Matched-LSTM adds the same 32-dimensional input projection and additive last-observation readout as identity GraphGRU, while retaining an LSTM recurrent cell. This control separates these architectural choices from the comparison between recurrent cells. It uses the common learning-rate selection and five-seed protocol under both training losses.
+Shared-LSTM, identity GraphGRU, and Matched-LSTM contain 4,711, 6,695, and 8,807 trainable parameters, respectively.
 A decoder maps the final 32-dimensional hidden state to \(H\) forecasts.
 This provides a nonlinear temporal reference with the same hidden dimension and training loss as GraphGRU.
 
@@ -538,6 +543,7 @@ Its 52 static dimensions comprise four numeric inputs and six learned eight-dime
 The numeric inputs are latitude, longitude, opening hours, and an opening-hour missingness indicator.
 We standardize these four inputs across POIs with observed training visits and retain those transformations for validation and testing.
 Brand and parent-place labels appearing at most 20 times are pooled; missing labels form a separate category. Other categorical labels appearing only once are pooled.
+The GNN-parent sensitivity retains all 233 recorded parent identities. Its eight parent dimensions comprise a presence indicator and a seven-dimensional identity embedding; an absent parent has a zero indicator and zero embedding. The other inputs and the total static dimension remain fixed. Four retrained configurations retain the full block, presence alone, identity alone, or neither. The identity embedding also conveys presence through its zero padding, so these contrasts describe encoding utility.
 
 \subsubsection{MTGNN}
 \label{subsubsec:mtgnn}
@@ -571,7 +577,7 @@ Spatial relationships are represented using two types of graphs: \(k\)-nearest n
 The KNN graph connects each POI to its \(k\) geographically nearest locations and takes the symmetric union of these connections.
 The RBF graph instead assigns continuous distance-decay weights,
 \(A_{ij}=\exp[-d(i,j)^2/(2\sigma^2)]\mathbb{I}\{d(i,j)\leq2\text{ km}\}\) for \(i\ne j\),
-where \(A_{ij}\) denotes the relationship strength from POI \(j\) to POI \(i\), \(d(i,j)\) is their geographic distance, \(\sigma=1\text{ km}\) controls distance decay, and \(\mathbb{I}\{\cdot\}\) equals one when its condition holds and zero otherwise. We set the diagonal to one and normalize each row before constructing the model-specific propagation operators described above.
+where \(A_{ij}\) denotes the relationship strength from POI \(j\) to POI \(i\), \(d(i,j)\) is their geographic distance, \(\sigma=1\text{ km}\) controls distance decay, and \(\mathbb{I}\{\cdot\}\) equals one when its condition holds and zero otherwise. We set the diagonal to zero and normalize each nonempty row. The model-specific propagation operators then add self-connections and renormalize as described above.
 
 \textit{(3) Functional Adjacency.}
 Functional relationships are represented using NAICS-2 and NAICS-4.
@@ -902,6 +908,18 @@ Adaptive-MTGNN attains December MAE $1.221$ at $T=14$ and $1.207$ at $T=28$, clo
 
 \input{revision_forecasting_intervals.tex}
 
+The architectural control in Table~\ref{tab:matched_lstm} narrows the difference between the recurrent models. With $T=14$ and MAE training, Matched-LSTM attains MAE $1.298$ in December and $1.309$ in January, compared with $1.302$ and $1.311$ for identity GraphGRU. The paired differences are $-0.0037$ and $-0.0015$, with 95\% joint temporal and 3-km spatial intervals of $[-0.0083,0.0014]$ and $[-0.0067,0.0048]$. Relative to Shared-LSTM, the corresponding reductions are $0.0619$ and $0.0570$, with intervals of $[0.0212,0.1116]$ and $[0.0173,0.1048]$. Thus, the input projection and last-observation readout account for much of the difference from the original LSTM baseline. The MSE-trained control has larger errors, particularly at $T=28$.
+
+\input{revision_matched_lstm.tex}
+
+\subsubsection{Earlier-Period City Controls}
+\label{subsubsec:city_controls}
+We repeat the temporal architectural comparison on July-defined Seattle and Portland cohorts. Training targets end on August 19, validation spans August 20--September 2, and test targets span September 3--30. The $T=14$, $H=7$ settings retain the original optimization and five-seed protocol. The same training-based low-history rule is applied separately in each city.
+
+Table~\ref{tab:city_controls} shows that Matched-LSTM has lower aggregate September MAE than identity GraphGRU in Seattle, with GraphGRU-minus-LSTM difference $0.0261$ and a 95\% seven-origin block interval of $[0.0244,0.0281]$. The Portland difference is $0.0028$, with interval $[-0.0007,0.0065]$. NLinear-ridge remains competitive in aggregate, while the zero predictor attains the lowest low-history MAE in both cities. The architectural comparison and intermittent-demand tradeoff therefore extend beyond the original quarter with variation in model rankings.
+
+\input{revision_city_controls.tex}
+
 \subsubsection{Low-History POIs}
 \label{subsubsec:low_history_results}
 
@@ -961,6 +979,8 @@ These are normalized attribution magnitudes; the subsequent retraining experimen
 \subsubsection{Parent-Place Information}
 \label{subsubsec:parent_results}
 
+\input{revision_attribution_origin.tex}
+
 POIs located within larger destinations, such as shopping malls and medical facilities, may share contextual characteristics with their parent places.
 We further examine how parent-place information contributes to forecasts for these embedded POIs relative to their own historical visits and other static attributes.
 The analysis covers 581 POIs with 233 recorded parent places. Frequency pooling retains two parent labels separately and combines the remaining 231, so the attribution primarily describes this coarse parent-place encoding. We compare its attribution across embedded POI groups.
@@ -974,6 +994,10 @@ December shares range from \(9.4\%\) for repair services to \(13.1\%\) for clini
 The feature-removal comparison in Table~\ref{tab:parent_ablation} gives December MAE $1.454$ for the full model and $1.451$ after removing parent information from the harmonized metadata. The paired difference, defined as removed-feature MAE minus full-model MAE, is $-0.0023$, with a 95\% joint temporal and 1-km spatial interval of $[-0.0068,0.0014]$. January MAE changes from $1.469$ to $1.467$. With earlier metadata, the corresponding full and removed-feature values are $1.436$ and $1.436$ in December, and $1.453$ and $1.452$ in January. Parent-feature removal therefore has a small average effect in both metadata settings.
 
 \input{revision_parent_ablation.tex}
+
+The resolved encoding in Table~\ref{tab:resolved_parent} gives a similar conclusion with all 233 parent identities retained. Removing the complete parent block changes MAE on recorded-parent POIs from $1.4515$ to $1.4493$ in December and from $1.4664$ to $1.4656$ in January. The paired differences are $-0.00218$ and $-0.00078$, with joint temporal and 3-km spatial intervals of $[-0.00398,-0.00038]$ and $[-0.00337,0.00246]$. Resolving the identities therefore preserves the finding of limited average predictive utility under this representation and training budget.
+
+\input{revision_resolved_parent.tex}
 
 Across recorded-parent POIs, the mean within-seed Spearman correlation between parent attribution share and the MAE increase after removal is $-0.048$ in December and $-0.072$ in January. These weak associations describe limited correspondence between attribution magnitude and predictive benefit.
 
@@ -997,11 +1021,15 @@ Broad industry codes therefore receive the largest semantic attribution most oft
 The retrained comparisons in Table~\ref{tab:feature_ablations} quantify predictive utility. Removing NAICS-2 increases December MAE by $0.0062$, with a 95\% joint temporal and 1-km spatial interval of $[0.0032,0.0090]$; removing NAICS-4 increases MAE by $0.0031$, with an interval of $[0.0016,0.0046]$. In January, the corresponding MAEs are $1.313$ and $1.312$, compared with $1.310$ for the full model. The history-only variant attains MAE $1.298$ in December and $1.306$ in January. Its December difference from the full model is $-0.0030$, with an interval of $[-0.0060,0.0002]$. Feature effects thus depend on which other inputs remain available.
 
 
+\input{revision_parking_validation.tex}
+
 \section{Conclusions and future work}
 \label{conclude}
 
 Across 9,884 Seattle POIs, fixed and adaptive MTGNN improve on NLinear-ridge in the December comparison with 14-day inputs, while rankings change with input length and January evaluation.
 Simple temporal models also capture nearly the same observed visit mass within fixed spatial inspection budgets.
+Matching the input projection and last-observation readout brings the $T=14$ MAE-trained LSTM close to identity GraphGRU in both months.
+Independent paid-parking observations give a similar distinction between error and monitoring outcomes: POI forecasts slightly reduce occupancy-ratio MAE, while high-pressure recall under a fixed budget changes little.
 
 Training loss and calibration change both recovered positive visits and false activations.
 At the 10\% validation false activation target, Shared-LSTM and TSB attain higher recall than GraphGRU in both periods.
@@ -1013,11 +1041,12 @@ The magnitude depends on the intervention: replacing active-neighbor histories w
 January reproduces this tradeoff.
 
 Broad industry codes receive the largest semantic attribution most often, while attribution regimes vary across methods and fitted seeds.
-Retraining shows small predictive contributions from NAICS-2 and NAICS-4 when the other inputs are retained, while parent-feature removal has little average effect. The history-only variant remains competitive with the full static-feature model.
+The parent-embedding translation provides a stronger diagnostic: prediction-equivalent parameterizations yield different Gradient $\times$ Input profiles. A large embedding attribution can therefore reflect the coordinate origin as well as predictive dependence.
+Retraining shows small predictive contributions from NAICS-2 and NAICS-4 when the other inputs are retained, while parent-feature removal has little average effect under both pooled and resolved parent encodings. The history-only variant remains competitive with the full static-feature model.
 
-Future work can test longer periods, other cities, and independent mobility sources beyond the pandemic setting.
+Longer periods and observations beyond the pandemic setting can assess the stability of these findings.
 Weather, events, accessibility, and neighborhood conditions can help explain changing activity.
-Operational applications require travel-demand measures and explicit costs for missed activity and false activations.
+The parking analysis measures payment-based pressure and monitoring coverage; field deployment would additionally require physical-occupancy measurements and observed inspection costs. The retrospective static snapshots define a further boundary for deployment-oriented interpretation.
 
 \clearpage
 \input{revision_appendix.tex}

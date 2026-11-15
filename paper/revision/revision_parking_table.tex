@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Seven-day-ahead paid-parking validation with a 500-m POI catchment. Recall is the percentage of observed high-pressure events selected under a 10\% monitoring budget. Neural-input rows report five-seed means.}
+\label{tab:parking_validation}
+\begin{tabular}{lrrrr}
+\toprule
+ & \multicolumn{2}{c}{December} & \multicolumn{2}{c}{January} \\
+Forecast input & Ratio MAE & Recall (\%) & Ratio MAE & Recall (\%) \\
+\midrule
+Parking calendar & 0.1908 & 51.49 & 0.1916 & 50.87 \\
+Parking seven-day lag & 0.2062 & 44.82 & 0.2064 & 45.68 \\
+Parking ridge & 0.1908 & 53.23 & 0.1914 & 53.01 \\
++ NLinear-ridge & 0.1904 & 53.30 & 0.1911 & 52.97 \\
++ Shared-LSTM & 0.1902 & 53.31 & 0.1909 & 53.00 \\
++ Matched-LSTM & 0.1902 & 53.33 & 0.1909 & 52.97 \\
++ GraphGRU, Identity & 0.1902 & 53.35 & 0.1909 & 52.97 \\
++ GraphGRU, NAICS-2 & 0.1902 & 53.36 & 0.1909 & 52.98 \\
++ Fixed-MTGNN, Identity & 0.1902 & 53.30 & 0.1909 & 52.96 \\
++ Fixed-MTGNN, NAICS-2 & 0.1902 & 53.32 & 0.1909 & 52.96 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,20 @@
+\textit{Embedding-origin sensitivity.}
+The original parent-dominated regime contains 1,895 POIs, all with missing parent records. We test its dependence on the embedding origin while preserving the fitted predictive function. Let $\mathbf e_j^{P}$ denote the parent embedding, $\mathbf e_{\varnothing}^{P}$ the missing-parent embedding, $\mathbf W_P$ its input-projection weights, and $\mathbf b$ the projection bias. Set
+\begin{equation}
+\mathbf e_j^{P\prime}=\mathbf e_j^{P}-\mathbf e_{\varnothing}^{P},
+\qquad
+\mathbf b'=\mathbf b+\mathbf W_P\mathbf e_{\varnothing}^{P}.
+\label{eq:embedding_origin}
+\end{equation}
+Then $\mathbf W_P\mathbf e_j^{P\prime}+\mathbf b'=\mathbf W_P\mathbf e_j^{P}+\mathbf b$, so the recurrent inputs and forecasts are unchanged. The translated parent embedding is zero for a missing record, which makes its Gradient $\times$ Input attribution zero. Translating both an input and its reference preserves IG attribution because the displacement and the corresponding gradients are unchanged.
+
+Across all five fitted checkpoints, paired double-precision evaluation changes predictions by at most $5.7\times10^{-14}$. Using the original valid-seed consensus rule, the mean parent share falls from 18.28\% to 1.21\%, and 27.8\% of the 9,853 assigned POIs change regimes (Figure~\ref{fig:embedding_origin}). All 1,895 original parent-dominated POIs receive another label. These changes isolate the role of the embedding origin in the attribution profile. The diagnostic compares two evaluations of the same stored parameters; the archive retains the separate cross-device FP32 replay discrepancies and the original benchmark outputs.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{attribution_origin_translation.pdf}
+\caption{Attribution changes under a prediction-preserving parent-embedding translation. For each POI, shares are normalized within each seed and averaged across seeds with nonzero total attribution. Panel (a) averages these consensus shares across POIs; regime assignment standardizes them across POIs. Matrix entries count POIs; colors show row percentages. Both panels use the same 9,853 POIs.}
+\label{fig:embedding_origin}
+\end{figure}
+
+\textit{Recorded-parent predictive utility.}

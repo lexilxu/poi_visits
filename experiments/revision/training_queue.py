@@ -61,6 +61,19 @@ def recipes():
 def plan(stage):
     selected=[r for r in recipes() if stage=='all' or r['stage']==stage or
               (stage=='extension' and r['stage'] in ('spatial','density','metadata','adaptive'))]
+    if stage=='matched':
+        selected=[dict(id=f'Matched-LSTM_T{t}_Identity_full_{loss}',stage='matched',
+                       model='Matched-LSTM',T=t,H=7,adjacency='Identity',variant='full',
+                       loss=loss,graph=None,k=None) for t in (14,28) for loss in ('MAE','MSE')]
+    if stage=='parent_resolved':
+        selected=[dict(id=f'GNN-parent_T14_Identity_{variant}_MAE',stage='parent_resolved',
+                       model='GNN-parent',T=14,H=7,adjacency='Identity',variant=variant,
+                       loss='MAE',graph=None,k=None) for variant in
+                  ('full','without_parent_identity','without_parent_presence','without_parent')]
+    if stage=='cities':
+        selected=[dict(id=f'{city}_{model}_T14_Identity_full_MAE',stage='cities',city=city,
+                       model=model,T=14,H=7,adjacency='Identity',variant='full',loss='MAE',graph=None,k=None)
+                  for city in ('Seattle','Portland') for model in ('GraphGRU','Matched-LSTM')]
     if stage=='extension':
         order={'metadata':0,'density':1,'spatial':2,'adaptive':3}
         selected.sort(key=lambda r:order[r['stage']])
@@ -106,6 +119,10 @@ def command(args,recipe,seed,lr,destination):
         path=args.extra_input_dir/'earliest_metadata.csv'
         if not path.exists():raise FileNotFoundError(path)
         cmd+=['--attributes-file',str(path.resolve())]
+    if recipe['stage']=='cities':
+        path=args.city_panels/(recipe['city']+'.npz')
+        if not path.is_file():raise FileNotFoundError(path)
+        cmd+=['--panel-file',str(path.resolve())]
     return cmd
 
 
@@ -171,11 +188,12 @@ def run(args,manifest):
 
 if __name__=='__main__':
     p=ArgumentParser(description=__doc__)
-    p.add_argument('--stage',choices=('core','loss','graph','ablation','adaptive','spatial','density','metadata','extension','all'),default='core')
+    p.add_argument('--stage',choices=('core','loss','graph','ablation','adaptive','spatial','density','metadata','extension','matched','parent_resolved','cities','all'),default='core')
     p.add_argument('--plan-out',type=Path)
     p.add_argument('--execute',action='store_true')
     p.add_argument('--bundle',type=Path); p.add_argument('--graph-dir',type=Path)
     p.add_argument('--extra-input-dir',type=Path)
+    p.add_argument('--city-panels',type=Path)
     p.add_argument('--out',type=Path); p.add_argument('--max-hours',type=float)
     p.add_argument('--max-new-fits',type=int,default=7)
     p.add_argument('--max-fit-minutes',type=float,default=30)

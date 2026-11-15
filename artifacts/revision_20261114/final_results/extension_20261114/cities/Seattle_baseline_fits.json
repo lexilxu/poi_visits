@@ -1,0 +1,28 @@
+{
+  "nlinear": {
+    "ridge_penalty": 0.01,
+    "validation_MAE_by_penalty": {
+      "0.0": 1.3030672192424906,
+      "0.0001": 1.3030392105050455,
+      "0.01": 1.3008737167371238,
+      "1.0": 1.3982319217139734
+    },
+    "training_loss": "masked MSE plus coefficient penalty",
+    "selection_loss": "masked validation MAE",
+    "solver": "deterministic sufficient-statistic least squares",
+    "shared_across_pois": true,
+    "train_scale": 8.173322677612305,
+    "parameters": 98,
+    "seconds": 2.1732523292303085
+  },
+  "recent_mean": {
+    "T": 14,
+    "H": 7,
+    "selected_recent_days": 14,
+    "validation_MAE_by_recent_days": {
+      "7": 1.399896124727972,
+      "14": 1.3652290546805776
+    },
+    "selection_objective": "masked validation MAE; ties favor shorter history"
+  }
+}

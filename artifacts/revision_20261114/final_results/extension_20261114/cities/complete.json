@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "strictly_replayed_checkpoints": 20,
+  "neural_fits": 28,
+  "complete_configurations": 4,
+  "temporal_pairs": 12
+}

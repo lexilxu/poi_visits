@@ -1,0 +1,48 @@
+[
+  {
+    "city": "Seattle",
+    "POIs": 11234,
+    "coverage": [
+      {
+        "month": "2020-07",
+        "present": 11234,
+        "missing": 0
+      },
+      {
+        "month": "2020-08",
+        "present": 10779,
+        "missing": 455
+      },
+      {
+        "month": "2020-09",
+        "present": 10728,
+        "missing": 506
+      }
+    ],
+    "panel_sha256": "f61afe16fd94fb0dbc405da16e270622e1fba888ff2936bb499e2b3ae9f6e87c",
+    "cohort_rule": "All city records in July; subsequent missing rows remain missing"
+  },
+  {
+    "city": "Portland",
+    "POIs": 11646,
+    "coverage": [
+      {
+        "month": "2020-07",
+        "present": 11646,
+        "missing": 0
+      },
+      {
+        "month": "2020-08",
+        "present": 11200,
+        "missing": 446
+      },
+      {
+        "month": "2020-09",
+        "present": 11119,
+        "missing": 527
+      }
+    ],
+    "panel_sha256": "9a4beb62503dfad28f9900378c5502a47d0a2c098be925c5ca07a7cb3e5fe455",
+    "cohort_rule": "All city records in July; subsequent missing rows remain missing"
+  }
+]

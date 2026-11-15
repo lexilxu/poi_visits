@@ -1,0 +1,142 @@
+[
+  {
+    "id": "Seattle_GraphGRU_T14_Identity_full_MAE",
+    "seed": 42,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "f433f39479fa18a1675a24503c4d920af4401a7fb0d1a6fcc80b30ae69319f1a"
+  },
+  {
+    "id": "Seattle_GraphGRU_T14_Identity_full_MAE",
+    "seed": 43,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "88d60e4d4acb91c6a354482f8a7614a5cd6dd2258eb93c198a801501fb27f452"
+  },
+  {
+    "id": "Seattle_GraphGRU_T14_Identity_full_MAE",
+    "seed": 44,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "7b6e9215aa419dfadb06e27ea78f9c1ff3d77231fc5fa7f6797a8d1f99d627ec"
+  },
+  {
+    "id": "Seattle_GraphGRU_T14_Identity_full_MAE",
+    "seed": 45,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "1ae91072cd6c007b0e0f6dc50af4a41d5382a7f3f92df12af40238c8f52ea6bc"
+  },
+  {
+    "id": "Seattle_GraphGRU_T14_Identity_full_MAE",
+    "seed": 46,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "992c2de4a7b65fa27a4fbb499e56f2dad9f3a057022b8977a2ca15c10b767b1b"
+  },
+  {
+    "id": "Seattle_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 42,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "1c206a5746b79d6eaf46b0b7532645033d77d0504ec70fe92a103805315ce53d"
+  },
+  {
+    "id": "Seattle_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 43,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "3e425314d74a337967e3758c1d40473a2053d1b672b2f5efae42581867dc25c0"
+  },
+  {
+    "id": "Seattle_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 44,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "87a7c61178955cd0fa043cc50e72390a67393fff4529894988861f31397c69ce"
+  },
+  {
+    "id": "Seattle_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 45,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "99507664ff17ed9f8816713dfb3bd74ccd426b5db4cd4003e827632bc09d8030"
+  },
+  {
+    "id": "Seattle_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 46,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "61649901004de9bdb68ccf1aaf3d9a559e26a651a3605a1630e8bc45c57e3cfe"
+  },
+  {
+    "id": "Portland_GraphGRU_T14_Identity_full_MAE",
+    "seed": 42,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "3a821af0c0b3bc4b9430dde8a86b88ef50cdeaaee97a7d3db285b10ef206bf79"
+  },
+  {
+    "id": "Portland_GraphGRU_T14_Identity_full_MAE",
+    "seed": 43,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "f45610b7b37e0298fbc47f0b69c022e8eba5ac73d3555a283da766775e8bd239"
+  },
+  {
+    "id": "Portland_GraphGRU_T14_Identity_full_MAE",
+    "seed": 44,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "c7f091cd97994bbf0ac15d12fda6a7532f62cbdd618e8ebc890913c7d6f435cc"
+  },
+  {
+    "id": "Portland_GraphGRU_T14_Identity_full_MAE",
+    "seed": 45,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "7d8519dbd796993a06b50c90acf24f4d74400e3b3e858e58f000ba241d6df4d5"
+  },
+  {
+    "id": "Portland_GraphGRU_T14_Identity_full_MAE",
+    "seed": 46,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "449c249d82626e43de00bcbe57f452e467d27b0c7e408b0068eb780d7af801a8"
+  },
+  {
+    "id": "Portland_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 42,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "36d3931cdb5768b2be6f4dcb62bc155f2b07233dba5426658f01d302607c1993"
+  },
+  {
+    "id": "Portland_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 43,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "1faf42c9583cbe50b8961028fa9d4323156e1e667a0eeb13822a12970aada5b0"
+  },
+  {
+    "id": "Portland_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 44,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "686f7da0250453f964c7bfcbc3989141445c43f1862847a1222ce26b5e7e4c4d"
+  },
+  {
+    "id": "Portland_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 45,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "24df6033361a6a714f59d00db3d12e5c934a8403be7bc6d5cf17a8930cd66478"
+  },
+  {
+    "id": "Portland_Matched-LSTM_T14_Identity_full_MAE",
+    "seed": 46,
+    "strict_replay_passed": true,
+    "max_absolute_error": 0.0,
+    "prediction_sha256": "9e51fbf7214373b455175136c65b295ed450149acdc46b45043d6ad98c4eba50"
+  }
+]

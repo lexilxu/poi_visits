@@ -31,6 +31,19 @@ def environment():
     return report
 
 
+def model_static_features(attrs, model_name):
+    from train_formal import static_features
+    static,info=static_features(attrs)
+    if model_name=='GNN-parent':
+        import pandas as pd
+        parents=attrs.parent_placekey.fillna('').astype(str)
+        labels=sorted(set(parents)-{''})
+        mapping={name:i+1 for i,name in enumerate(labels)}
+        static[:,8]=parents.map(mapping).fillna(0).to_numpy()
+        info['resolved_parent_vocabulary']=labels
+    return static,info
+
+
 def make_model(model_name, horizon, static, mask, nodes, t, graph_operator, device, dropout):
     import torch
     from torch import nn
@@ -40,9 +53,20 @@ def make_model(model_name, horizon, static, mask, nodes, t, graph_operator, devi
     class StaticGRU(GraphGRU):
         def __init__(self):
             super().__init__(horizon,static)
+            if model_name=='GNN-parent':
+                self.embeddings[4]=nn.Embedding(int(static[:,8].max())+1,7,padding_idx=0)
             self.register_buffer('feature_mask',torch.as_tensor(mask))
 
         def encode_static(self):
+            if model_name=='GNN-parent':
+                groups=[self.static[:,:4]]
+                for i,layer in enumerate(self.embeddings):
+                    value=layer(self.static[:,4+i].long())
+                    if i==4:
+                        present=(self.static[:,8]>0).to(value.dtype)[:,None]
+                        value=torch.cat([present,value],dim=1)
+                    groups.append(value)
+                return torch.cat(groups,dim=1)*self.feature_mask
             return super().encode_static()*self.feature_mask
 
     class SharedLSTM(nn.Module):
@@ -68,6 +92,22 @@ def make_model(model_name, horizon, static, mask, nodes, t, graph_operator, devi
         def forward(self,x,own):
             return self.network(own)
 
+    class MatchedLSTM(nn.Module):
+        """Match GraphGRU input projection and last-observation readout."""
+        def __init__(self):
+            super().__init__()
+            self.project=nn.Linear(1,32)
+            self.lstm=nn.LSTM(32,32,batch_first=True)
+            self.last=nn.Linear(1,32)
+            self.output=nn.Linear(32,horizon)
+
+        def forward(self,x,own):
+            b,steps,n=own.shape
+            visits=own.transpose(1,2).reshape(b*n,steps,1)
+            _,(state,_)=self.lstm(self.project(visits))
+            state=state[-1]+self.last(visits[:,-1])
+            return self.output(state).reshape(b,n,horizon).transpose(1,2)
+
     class AdaptiveMTGNN(nn.Module):
         def __init__(self):
             super().__init__()
@@ -82,10 +122,12 @@ def make_model(model_name, horizon, static, mask, nodes, t, graph_operator, devi
 
     if model_name == 'GraphGRU':
         return GraphGRU(horizon)
-    if model_name == 'GNN-static':
+    if model_name in ('GNN-static','GNN-parent'):
         return StaticGRU()
     if model_name == 'Shared-LSTM':
         return SharedLSTM()
+    if model_name == 'Matched-LSTM':
+        return MatchedLSTM()
     if model_name == 'Fixed-MTGNN':
         return FixedMTGNN()
     if model_name == 'Adaptive-MTGNN':
@@ -106,7 +148,21 @@ def run(args):
     device=torch.device(args.device)
     if device.type=='cuda' and not torch.cuda.is_available():
         raise RuntimeError('CUDA preflight failed; do not launch the training matrix')
-    raw,dates,attrs=load_panel(args.bundle)
+    dataset_sha256=EXPECTED_BUNDLE_SHA256
+    if getattr(args,'panel_file',None):
+        import pandas as pd
+        if args.model not in ('GraphGRU','Matched-LSTM') or args.adjacency!='Identity':
+            raise ValueError('Supplementary city panels use the prespecified temporal controls')
+        if args.attributes_file or args.density or args.graph_file or args.sparse_graph:
+            raise ValueError('City-panel protocol uses its complete July-defined cohort')
+        with np.load(args.panel_file,allow_pickle=False) as panel:
+            raw=panel['visits'];dates=panel['dates'];attrs=pd.DataFrame({'placekey':panel['poi_id']})
+        assert raw.shape==(92,len(attrs)) and len(attrs)==attrs.placekey.nunique()
+        assert np.isfinite(raw[:50]).any(0).all() and np.all(raw[np.isfinite(raw)]>=0)
+        assert np.all(np.diff(dates.astype('datetime64[D]'))==np.timedelta64(1,'D'))
+        dataset_sha256=sha256(args.panel_file.read_bytes()).hexdigest()
+    else:
+        raw,dates,attrs=load_panel(args.bundle)
     from experiment_inputs import density_indices,replace_attributes
     metadata_sha256=None;density=None
     if args.attributes_file:
@@ -162,8 +218,8 @@ def run(args):
         graph_operators=(operation,operation)
     static=None
     numeric_mean,numeric_std=None,None
-    if args.model=='GNN-static':
-        static,_=static_features(attrs)
+    if args.model in ('GNN-static','GNN-parent'):
+        static,_=model_static_features(attrs,args.model)
         eligible=np.isfinite(raw[:protocol.train_end]).any(0)
         numeric_mean=static[eligible,:4].mean(0)
         numeric_std=static[eligible,:4].std(0)
@@ -224,7 +280,7 @@ def run(args):
                         poi_id=attrs.placekey.to_numpy(dtype=str),observed_visits=raw[target[selected]],
                         predicted_visits=output,valid=valid[selected],dataset_split=split[selected],
                         train_end=protocol.train_end,T=args.T,H=args.H,protocol='complete_horizon',
-                        bundle_sha256=EXPECTED_BUNDLE_SHA256,density=args.density or '')
+                        bundle_sha256=dataset_sha256,density=args.density or '')
     source_files=list(Path(__file__).parent.glob('*.py'))+list((ROOT/'experiments/archived_2020q4').glob('*.py'))
     source_files+=list((ROOT/'external/MTGNN').glob('*.py'))+list((ROOT/'src').glob('*.py'))
     record={'status':'complete','model':args.model,'adjacency':graph_label,'variant':args.variant,
@@ -233,7 +289,7 @@ def run(args):
             'seconds':time.monotonic()-started,'parameters':sum(p.numel() for p in model.parameters()),
             'train_end':protocol.train_end,'validation_end':protocol.validation_end,
             'origins':{s:int((split==s).sum()) for s in ('train','validation','test')},
-            'graph_sha256':graph_digest,'bundle_sha256':EXPECTED_BUNDLE_SHA256,
+            'graph_sha256':graph_digest,'bundle_sha256':dataset_sha256,
             'metadata_sha256':metadata_sha256,'density':density,
             'source_sha256':{str(f.relative_to(ROOT)).replace('\\','/'):sha256(f.read_bytes()).hexdigest() for f in sorted(source_files)},
             'environment':environment()}
@@ -248,7 +304,7 @@ def smoke(device_name):
     x=torch.randn(2,14,12,device=device)
     static=np.zeros((12,10),dtype=np.float32)
     static[:,:4]=np.arange(48,dtype=np.float32).reshape(12,4)/48
-    for name in ('GraphGRU','GNN-static','Shared-LSTM','Fixed-MTGNN'):
+    for name in ('GraphGRU','GNN-static','GNN-parent','Shared-LSTM','Matched-LSTM','Fixed-MTGNN'):
         model=make_model(name,7,static,feature_mask('full'),12,14,
                          (lambda z:z,lambda z:z),device,.1).to(device)
         output=model(x,x)
@@ -269,7 +325,8 @@ if __name__=='__main__':
     p.add_argument('--check-environment',action='store_true')
     p.add_argument('--smoke',action='store_true')
     p.add_argument('--bundle',type=Path); p.add_argument('--out',type=Path)
-    p.add_argument('--model',choices=('GraphGRU','GNN-static','Shared-LSTM','Fixed-MTGNN','Adaptive-MTGNN'),default='GraphGRU')
+    p.add_argument('--panel-file',type=Path)
+    p.add_argument('--model',choices=('GraphGRU','GNN-static','GNN-parent','Shared-LSTM','Matched-LSTM','Fixed-MTGNN','Adaptive-MTGNN'),default='GraphGRU')
     p.add_argument('--adjacency',choices=('Identity','NAICS-2','NAICS-4','Controlled','Adaptive','Distance KNN','Distance RBF','Visit correlation'),default='Identity')
     p.add_argument('--graph-file',type=Path); p.add_argument('--variant',default='full')
     p.add_argument('--sparse-graph',type=Path);p.add_argument('--attributes-file',type=Path)
@@ -292,7 +349,7 @@ if __name__=='__main__':
         p.error('Output already exists; preserve it or use a new run directory')
     if args.adjacency=='Controlled' and args.graph_file is None:
         p.error('Controlled adjacency requires --graph-file')
-    if args.model in ('GNN-static','Shared-LSTM') and args.adjacency!='Identity':
+    if args.model in ('GNN-static','Shared-LSTM','Matched-LSTM') and args.adjacency!='Identity':
         p.error('This configuration requires identity adjacency')
     if (args.model=='Adaptive-MTGNN') != (args.adjacency=='Adaptive'):
         p.error('Adaptive-MTGNN requires adjacency Adaptive, and vice versa')

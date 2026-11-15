@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Matched-LSTM magnitude errors. The input projection and last-observation readout match identity GraphGRU. Entries report five-seed mean MAE and sample standard deviation.}
+\label{tab:matched_lstm}
+\begin{tabular}{llrrrr}
+\toprule
+ & & \multicolumn{2}{c}{December} & \multicolumn{2}{c}{January} \\
+$T$ & Loss & All POIs & Low-history & All POIs & Low-history \\
+\midrule
+14 & MAE & $1.298\pm 0.015$ & $0.247\pm 0.005$ & $1.309\pm 0.014$ & $0.328\pm 0.005$ \\
+14 & MSE & $1.345\pm 0.016$ & $0.359\pm 0.012$ & $1.340\pm 0.014$ & $0.424\pm 0.011$ \\
+28 & MAE & $1.314\pm 0.013$ & $0.237\pm 0.003$ & $1.341\pm 0.013$ & $0.326\pm 0.001$ \\
+28 & MSE & $1.469\pm 0.052$ & $0.420\pm 0.024$ & $1.462\pm 0.047$ & $0.486\pm 0.023$ \\
+\bottomrule
+\end{tabular}
+\end{table}
