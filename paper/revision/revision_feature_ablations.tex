@@ -1,0 +1,31 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Retrained GNN-static variants at $T=14$, $H=7$. Values are five-seed MAE means and standard deviations. Single-descriptor variants retain all nonsemantic inputs, including brand and parent information.}
+\label{tab:feature_ablations}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrr}
+\toprule
+Inputs & Dec., all & Dec., low-history & Jan., all & Jan., low-history \\
+\midrule
+All static inputs & $1.301\pm 0.008$ & $0.245\pm 0.010$ & $1.310\pm 0.007$ & $0.324\pm 0.008$ \\
+History only & $1.298\pm 0.017$ & $0.247\pm 0.006$ & $1.306\pm 0.018$ & $0.326\pm 0.005$ \\
+Without location & $1.303\pm 0.007$ & $0.242\pm 0.006$ & $1.311\pm 0.005$ & $0.321\pm 0.005$ \\
+Without identity & $1.296\pm 0.003$ & $0.246\pm 0.007$ & $1.305\pm 0.004$ & $0.325\pm 0.005$ \\
+Without parent & $1.301\pm 0.007$ & $0.247\pm 0.012$ & $1.309\pm 0.005$ & $0.326\pm 0.010$ \\
+Without others & $1.301\pm 0.007$ & $0.246\pm 0.008$ & $1.310\pm 0.006$ & $0.325\pm 0.006$ \\
+Only top category & $1.302\pm 0.004$ & $0.246\pm 0.008$ & $1.308\pm 0.004$ & $0.325\pm 0.006$ \\
+Only sub-category & $1.300\pm 0.011$ & $0.250\pm 0.007$ & $1.307\pm 0.010$ & $0.328\pm 0.006$ \\
+Only NAICS-2 & $1.299\pm 0.012$ & $0.250\pm 0.014$ & $1.307\pm 0.010$ & $0.328\pm 0.012$ \\
+Only NAICS-4 & $1.301\pm 0.010$ & $0.243\pm 0.004$ & $1.309\pm 0.009$ & $0.322\pm 0.003$ \\
+Without NAICS-2 & $1.307\pm 0.008$ & $0.250\pm 0.012$ & $1.313\pm 0.006$ & $0.328\pm 0.010$ \\
+Without NAICS-4 & $1.304\pm 0.007$ & $0.243\pm 0.010$ & $1.312\pm 0.005$ & $0.323\pm 0.008$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

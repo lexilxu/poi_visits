@@ -1,0 +1,24 @@
+Figure~\ref{fig:attribution_fingerprint} summarizes the five-seed Gradient \(\times\) Input consensus at \(T=14\), \(H=7\).
+The history-driven regime contains 3,495 POIs, followed by 2,094 identity-driven, 1,895 parent-driven, 1,219 others-driven, and 1,150 location-driven POIs; 31 POIs have zero total attribution in every fit and remain unassigned.
+These labels identify the largest standardized share, not necessarily the largest original share.
+All POIs in the parent-driven regime use the learned missing-parent category.
+Table~\ref{tab:attri_regime} reports forecasting error within each regime, while Table~\ref{tab:category_regime_mae} describes their distribution across POI categories.
+Under this attribution rule, restaurants and cafes are predominantly identity-driven, whereas history-driven assignments are more common among clinics and repair services.
+Figure~\ref{fig:attribution_regime_map} maps these descriptive assignments.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[scale=0.70]{art/attribution_fingerprint.pdf}
+\caption{Mean standardized attribution shares and POI counts for the December five-seed consensus at \(T=14\), \(H=7\). Bold values identify the source defining each regime.}
+\label{fig:attribution_fingerprint}
+\end{figure}
+
+\input{revision_attribution_regimes.tex}
+\input{revision_regime_categories.tex}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[scale=0.62]{art/attribution_cluster_map.pdf}
+\caption{Spatial distribution of the December five-seed attribution consensus. The overview shows all regimes; each small panel highlights one regime against the other POIs. Gray also marks unassigned POIs. Counts refer to the mapped extent. Roads and water are from the 2020 U.S. Census Bureau TIGER/Line files.}
+\label{fig:attribution_regime_map}
+\end{figure}

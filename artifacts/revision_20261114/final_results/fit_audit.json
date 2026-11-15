@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "fits": 497,
+  "recipes": 71,
+  "selected_seeds": 355,
+  "fits_by_gpu": {
+    "NVIDIA GeForce RTX 5060 Laptop GPU": 115,
+    "NVIDIA GeForce RTX 4090 D": 382
+  },
+  "sources": [
+    {
+      "queue": "v1",
+      "source_archive_sha256": "b5f9ecee3680974071d1a8a6d4d833137b54cd9f9211d304697130a9c9599bcd"
+    },
+    {
+      "queue": "v2",
+      "source_archive_sha256": "46e09463592b3851e931adfdf924ffa2b9c8a30d567fda32202e3c52fb9c00b4"
+    }
+  ],
+  "inventory_sha256": "83f8d36834d93c6b9d9beaa57b297fec2000675eb0683118b97cf145af040b8e",
+  "completed_at": 1794719144.8475251
+}

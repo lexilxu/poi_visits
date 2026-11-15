@@ -1,0 +1,167 @@
+{
+  "status": "complete",
+  "period": "January",
+  "grid": "1 km occupied cells, fixed equirectangular coordinates at 47.6 degrees latitude",
+  "estimand": "Mean of per-seed observed-visit coverage, not coverage of ensemble predictions",
+  "interval": "2,000 paired circular seven-origin block bootstrap draws, conditional on the fixed city, cohort, and fitted seeds",
+  "interpretation": "Observed visits captured by a fixed spatial inspection budget; no transport ridership or operational benefit is estimated",
+  "sources": {
+    "Fixed-MTGNN_T14_Identity_full_MAE": [
+      "1f8fedae16752e581dea70927f1456bf689a05b59198119b079cbbfb432f44e0",
+      "bf360ba19eeac6501fcc070014dc87d33ab4668a6bc6ed00948d5dac98d4439c",
+      "8405fa23004931bc7d28c751ee56637a3f963b4205d9299b5dc629c6f45f9289",
+      "ec0f1d03d1f1bf7f84fa7c1e8fc9e498ae6a7f0babd41bd4f0ac7c8ab3e92364",
+      "28d161a772a170607ec8ec978ee3231963893e91b93f8c0356122eb9fca72b6e"
+    ],
+    "Fixed-MTGNN_T14_NAICS-2_full_MAE": [
+      "6b62ff9cc496083b6be4c38ce9541775dc5b429e7f50a0371ab8179eae4ab51f",
+      "887f9f44be07a2bc521997ba706dddfff6e6b29efeaa87444d4a5788a29de636",
+      "49322aeefbaaa5229a93b4e0323f5a7ae5630dcd65279f52467964bf77530f17",
+      "269d3a286262b0508408252a2d95d3fe4820f16897e9d4a2015693a392829174",
+      "11f9b3e4f33c981b0c19242fbc15927a1b0c7ee56b398210e5e21bed19545d80"
+    ],
+    "Fixed-MTGNN_T14_NAICS-4_full_MAE": [
+      "19fbc7427c58f61428be6bbe7d624d1360fff5a3284ef6f439570bcc0f56b7a3",
+      "c77a3b33bf50368a10ac3a9a80de3f53034be451d3a2255d73c20d8282ee1997",
+      "b6386643e3f463296a24a3a9f0586141139e19ac0d9fabd1746f66300226cd93",
+      "0ae5237d95f31b153d4fa911c5beb7c06a53818d9515bd66815398ddd211a046",
+      "eebd9fcf7c83de679e0dd5f0c86249ed3c13adee299eb9e1879d14d1f54064b1"
+    ],
+    "Fixed-MTGNN_T28_Identity_full_MAE": [
+      "d4386a3a4ed63d70b8bd7c192cdc8b8a59a69e194f524243555444c82d2e1dfc",
+      "0b1c7f0d72098c35c6028aa529406605bbb6755ec1030135fc18090e89784112",
+      "2e34d928a0e5b2d68898e52106ed9032b2b17c700afafb39af514bb24fb78559",
+      "282c586d14137a48a882102bb59deef3c9ed22484cd2612717a1dfe683195476",
+      "ca6089f22c6aa6dd0fcc6b7ea7c9b70dfddcfe563c048797b5a80aa9211a684d"
+    ],
+    "Fixed-MTGNN_T28_NAICS-2_full_MAE": [
+      "83939fef6ef482653036766b17af4d5856593290c3c3e7498d14ac1a282932ae",
+      "5b817092ab435eddcd97c3e30d389ac12d2888873191387c836d8e83ef96e128",
+      "6a6bf353d9421cf012bd1ac0788da2f8ee0344b26120be83a73b7a6ecddd3807",
+      "37bb3efc1aeb2c1623b51f35dd3c4d3e779ae42a803d9c689277d63efec23434",
+      "8eb4c738b470ed3b6946057b2adbd4ae3de86ee1cbb2610f091f3aff76bb633c"
+    ],
+    "Fixed-MTGNN_T28_NAICS-4_full_MAE": [
+      "3336a0ab917e612a193d380cd774ce8c651dfead0ef3298e2b2543d17f423cc4",
+      "2baaa7ceb1acc9c77fa5094fb8c3e5bac5d863e4875e581b02744da5ebe4f366",
+      "7fb5da3630f16f1dddc75344d3f25be69728786695d09be0e94d0198c739e13d",
+      "a74687f44952c13abef2d2ad2160175abd7e0c67dcd407f4d8230ccc9f238f12",
+      "ce17e3da8cac0c55d4bb6636b52b7b492a74ae6367d45ad052cc9ed920fafb58"
+    ],
+    "GNN-static_T14_Identity_full_MAE": [
+      "739fdaeb936cdbd65815e897f708cbc9aa6e2dd3648ed162f9635128e29ae65d",
+      "b4bdd9e1af82d5d9b0e6f943c347363ac1899e0b3da5857ecf99e27e5a78e49d",
+      "20f9c37146125e4d006459d3f184f70654b9624c52aa1767ef7232d2328aa531",
+      "6d45c362954284148eab61931e6545cbb6f4ac004ef724bded7718965abf0b04",
+      "2a128b1435d2ad2b7de0fa926f496e8988b35793088cbbc70aa066afb8c55896"
+    ],
+    "GNN-static_T28_Identity_full_MAE": [
+      "b1d1d35936bd277ad176743338edd4f1989f7278c7deec58381e5bff4a877b87",
+      "09c15d28c20b29a79dd8580d5ebadcede24076d07e0a6707e302d3a4920669ee",
+      "a08a02ab37539ec92c4333b7f6f9d2b20958b57e1dce778faad105d966c9a6c7",
+      "3c9ee280f298d0dbef92b995680d51b60065587a1e84345306aa1a45654a076e",
+      "c44e284df8a64dba07ec0fbf9e78d36ef5545be6e363de9426ac3c853482bd94"
+    ],
+    "GraphGRU_T14_Identity_full_MAE": [
+      "b07e1a00c0df5dc4267880ab45e5d638384812354e57fbc2e448f9cbd2fbacb0",
+      "116d348a7422d550a09af6fedaac97056d1c97f17f3c4334fe87b640e3000842",
+      "c41d40a9b408aa12db86a05de7ec798c9183bb91ac580184cf7f23ea3144c477",
+      "591ac9bfc7ec934e6a065d70c6064ed7ef1d7f6f3f59cc0b03d6913f490afc3c",
+      "b9cac4fa88a99fb20bd98ee7faf8415c1f4a80c6607c2ff7d765807faf93c180"
+    ],
+    "GraphGRU_T14_NAICS-2_full_MAE": [
+      "015e118d5294702eb9db4ae583bb2601b87bdc981ddec4015d8262e212b10dbd",
+      "899ad47cefc64e0d1064efb908dbcdfc80b62000b37ea365d5f43769ae5b33a6",
+      "6ff0fd0c2177fcb0b300204067acde7af4a9b225ec3aefa3ab783950d43fc11b",
+      "7a0138e5937c65a8034692380800b0ae48073bb543291b072cd1660a2c4fabfe",
+      "8fb10d860c2b4cbd8f313c8e853ba877da3e252a9604e86eb9387082e067f478"
+    ],
+    "GraphGRU_T14_NAICS-4_full_MAE": [
+      "179b56671da8683427c8f9779ca75563ea61dca7d266c5fdad10c77936415fde",
+      "1139906ab26801440b99d6435dde95ab2bb0abfd238c9fcc3bfb19cbc1a6f753",
+      "15dc26534ec67ddcb63975eb204e25d8bbd7052ebb4d1108a0c78091426a33c0",
+      "246c5140c7833b6a90237041189b768b48896ad4670236736a6e17a8b67f2168",
+      "9b7b8921a924f871dc204da26bd7c594fc9ee20e8dd7a286a55e3982be2046a5"
+    ],
+    "GraphGRU_T28_Identity_full_MAE": [
+      "0e46a4e1e314f21aed3292f8e07d6cbe328962af006e7ee785867487c49fc979",
+      "24957f57dcd4084c15b9058b12cb677df6afd88df79930d65daf369794766642",
+      "84e7d1bdb96f91b21ddba66ec8da233d2c39f9f38163cd3e834b157ea37d5e23",
+      "2df00e32260611f0febb43629fd40165e252596114ca88ebc0f2295c80414ebb",
+      "1507c0a864849e2fe150ef957478fd347a6e8f80de2ad6f3e81d567206a79cf9"
+    ],
+    "GraphGRU_T28_NAICS-2_full_MAE": [
+      "399c70983b469cf20b067ec818b7e4f67e8f7471a1d189d6e2145b0421cb58d1",
+      "f0058542a7fdb4c6f8493f69a76585d5892fc1fa07b9bc4c80e1458702edbab8",
+      "72f35c0b370bf483684e4624a8e3b3e4fa44c2eb57b3779fa6e7053a305f0d82",
+      "8c477d9e85f1c1613cdd58ee32d4a9795e4816c5e9fec19a3b31250e57ea8191",
+      "276136c8a6cb7ce4878f43d9811b0a7633da8a9f2bf26e48a5690e76022aa5a8"
+    ],
+    "GraphGRU_T28_NAICS-4_full_MAE": [
+      "2cd02728cb01c0df055edce8c51eb6609c84e8a2cae59212b668941cfebe4190",
+      "49ca42300be46c07648a02cd7e97ba19cb221c0ab7a95eb842cd5dc567f26677",
+      "ab76034f1ef883f09f30ab0b522e8421f9b88e29d5a5c14ce0a55b69d1227267",
+      "9fa4bde2c7f3ba69289e5fb6af55ce90623c0912745da445d1bb20c95b8818c8",
+      "d70b7505ac28a27f83c0804c47d9d9f5cf391d0563a44dd49ff62288e22d59b5"
+    ],
+    "Shared-LSTM_T14_Identity_full_MAE": [
+      "44ca151c08aebb74b6b889e9c13982f7e9f8f05fb35abddd4bb4099e6bac8bce",
+      "b0effae1638e0478b7b41bd6e9a8f039e767af0fb0c60ab5d739fcc62b665081",
+      "0b6c8e9d9b4129f1a139d746389a50b360a3ee063d679cad21651a144221dc50",
+      "db74443877bd37cbf1546dd1bb05e790b10d0e1b04271b7693b0c821c84f1324",
+      "c2bd4ddea6cc660d4807ed79c635c93c10b9ab2474fcf03061c05e0f6a02970c"
+    ],
+    "Shared-LSTM_T28_Identity_full_MAE": [
+      "fbfb256dcf18122485cb10dfb31b2ad2f729b29639e29c34b5d2c524bdbea890",
+      "2600d7e7cc0994c43b8fd4f022211bf3c1ca60874dcfff3ce01082883a19bcff",
+      "dbfd2da507b98c03189ce84e88d866f648b72f40271c2bd04c90d39e4346be56",
+      "8c0d645f0abbfd404c5da7e2b479c08258ccde9c8c468d2151d0685a81a0f441",
+      "cf40d447e711e51c1a46bade63dce2d5f45fc7bc80a8d0a5aeb96dceb449f597"
+    ],
+    "Adaptive-MTGNN_T14_Adaptive_full_MAE": [
+      "3152cfed46b49267f8c79ac5aaee3af18164ecd3e758da9531d757d48578e31a",
+      "f3b101eb5194bb10359829bc4a58649f76d33e5784fa7e36f2328d2c54e9f6be",
+      "b2b12d6d2f37afdcb2f4295d6a270507977a5863846d44651cace747754c4ea0",
+      "3614d6f3c472d5803dc52955cdf2c7b3e78bf0c175d92a178ba2214e96e60f08",
+      "3cce27e2f0677ea9de21f9e7a4bb944c9db71464218043878224d6290dd4d350"
+    ],
+    "Adaptive-MTGNN_T28_Adaptive_full_MAE": [
+      "9dd4ef14f128e54eaf3b57ccbc5e3b63c62475dccdf7d131231eb806da3244f1",
+      "484cbbc38f43e7c406e44de04b9bfe677fc15f289030173b1628929dca72ae9c",
+      "3e6aec78aa3100523406f2aae010b162c0c19b43eceeea8718422e71954fa506",
+      "812104b7c859448c45c2e3dee6025fd98266c89b4ccf3df755968d52a9bb18ac",
+      "5d9490129fd6afa63343cf98358f7f1e1e1e4a74993e208aa34413d1b281ac61"
+    ],
+    "Calendar HA_T14": [
+      "1d13894ab3577f671a7978065eaa11f2b6a7fd7a0e6101d647da9a3c1cf14a72"
+    ],
+    "Weekday HA_T14": [
+      "0c2cedba4ad881b847eb1ea6ffed2662b011348caca6cd84f1b0edd064be4dcd"
+    ],
+    "Seasonal naive_T14": [
+      "c8d4ca26c0e20d5d79b0ead6340d7b4a82e374e5020784bfb45a234d2c9acae2"
+    ],
+    "NLinear ridge_T14": [
+      "174097f9b52d13ba056869f863d7b5e52e731ef3eede578d0f366e8b6b4975d4"
+    ],
+    "TSB_T14": [
+      "5a2c9159fff9a8deb155f7b745a9c88231fc5d826ce584ed9fa4a66f4803afe8"
+    ],
+    "Calendar HA_T28": [
+      "db2688292b7ef337b708ce2420a8c06aa152cb184353f0dc629356fa3f28ff5c"
+    ],
+    "Weekday HA_T28": [
+      "10e7e5e3ee2b7c04c3f2a31abd65482a98cbfa9e2e758e7d7f62dcf55c6b517d"
+    ],
+    "Seasonal naive_T28": [
+      "f025ed24bf1c3ca6e6841cb12fc22cab8e8262e11968a9d4bcc2169e9074267e"
+    ],
+    "NLinear ridge_T28": [
+      "c66233aa37c099dd722337a179caa907ecbe0bfe0f7d36ee879c49eeb2bff8ec"
+    ],
+    "TSB_T28": [
+      "061e07a43445536f2077f407de9ef5be049c76c6c3726e4fbcf726f122e55d8f"
+    ]
+  },
+  "analysis_sha256": "0a205648448b7ea0eb2c1bf037ce7314bc32ebedea6d7909454980e3720722e6"
+}

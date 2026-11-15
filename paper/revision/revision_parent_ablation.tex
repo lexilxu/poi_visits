@@ -1,0 +1,23 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Parent-feature removal on the same 581 POIs with a recorded parent in the harmonized metadata. Earlier metadata uses the earliest available 2020 record and its parent-identifier crosswalk; POI membership is held fixed for comparison. Paired differences use unrounded seed-level errors.}
+\label{tab:parent_ablation}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llrr}
+\toprule
+Period & Metadata & Full MAE & Without-parent MAE \\
+\midrule
+December & Harmonized metadata & $1.454\pm 0.009$ & $1.451\pm 0.005$ \\
+December & Earlier metadata & $1.436\pm 0.021$ & $1.436\pm 0.024$ \\
+January & Harmonized metadata & $1.469\pm 0.010$ & $1.467\pm 0.008$ \\
+January & Earlier metadata & $1.453\pm 0.019$ & $1.452\pm 0.025$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

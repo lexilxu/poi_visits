@@ -1,0 +1,31 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Paired MAE differences relative to NLinear-ridge. Negative values favor the neural model. Intervals use 2,000 paired resamples and the 2.5th and 97.5th percentiles, conditional on the five fitted seeds. Temporal blocks retain seven consecutive origins and all POIs and leads; the joint sensitivity also resamples occupied 3-km cells.}
+\label{tab:forecasting_intervals}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lllrrr}
+\toprule
+Period & $T$ & Model / adjacency & $\Delta$MAE & Temporal interval & Joint interval \\
+\midrule
+December & 14 & GraphGRU, identity & +0.028 & [-0.039, +0.082] & [-0.042, +0.093] \\
+December & 14 & Fixed-MTGNN, identity & -0.047 & [-0.091, -0.004] & [-0.091, -0.004] \\
+December & 14 & Adaptive-MTGNN & -0.052 & [-0.093, -0.014] & [-0.093, -0.014] \\
+December & 28 & GraphGRU, identity & +0.081 & [+0.016, +0.132] & [+0.011, +0.146] \\
+December & 28 & Fixed-MTGNN, identity & -0.016 & [-0.054, +0.017] & [-0.054, +0.019] \\
+December & 28 & Adaptive-MTGNN & -0.016 & [-0.052, +0.014] & [-0.052, +0.016] \\
+January & 14 & GraphGRU, identity & +0.048 & [+0.019, +0.069] & [+0.002, +0.092] \\
+January & 14 & Fixed-MTGNN, identity & -0.017 & [-0.037, +0.006] & [-0.040, +0.009] \\
+January & 14 & Adaptive-MTGNN & -0.023 & [-0.043, -0.002] & [-0.045, +0.001] \\
+January & 28 & GraphGRU, identity & +0.088 & [+0.070, +0.109] & [+0.043, +0.132] \\
+January & 28 & Fixed-MTGNN, identity & +0.011 & [-0.005, +0.028] & [-0.010, +0.033] \\
+January & 28 & Adaptive-MTGNN & +0.011 & [-0.005, +0.027] & [-0.010, +0.032] \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

@@ -1,0 +1,32 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Visit-density sensitivity at $T=28$, $H=7$. Each subset is selected from training data and refitted at all five seeds. HA uses the identical POIs and forecast events. Nonzero ratios use observed counts within the first 50 calendar days.}
+\label{tab:sublevel}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrrr}
+\toprule
+Subset & POIs & Nonzero ratio & GraphGRU MAE & HA MAE & Skill (\%) \\
+\midrule
+Full & 9,884 & 0.63 & $1.304\pm 0.008$ & 1.483 & $12.1\pm 0.6$ \\
+Dense10 & 8,896 & 0.69 & $1.425\pm 0.006$ & 1.624 & $12.3\pm 0.4$ \\
+Dense25 & 7,413 & 0.77 & $1.627\pm 0.005$ & 1.848 & $12.0\pm 0.3$ \\
+Dense50 & 4,942 & 0.89 & $2.052\pm 0.008$ & 2.348 & $12.6\pm 0.4$ \\
+Dense75 & 2,471 & 0.97 & $2.772\pm 0.032$ & 3.233 & $14.3\pm 1.0$ \\
+Recent-dense10 & 8,896 & 0.69 & $1.420\pm 0.005$ & 1.619 & $12.3\pm 0.3$ \\
+Recent-dense25 & 7,413 & 0.77 & $1.631\pm 0.005$ & 1.841 & $11.4\pm 0.3$ \\
+Recent-dense50 & 4,942 & 0.88 & $2.030\pm 0.008$ & 2.322 & $12.6\pm 0.4$ \\
+Recent-dense75 & 2,471 & 0.96 & $2.725\pm 0.018$ & 3.139 & $13.2\pm 0.6$ \\
+Persist-dense10 & 8,896 & 0.69 & $1.421\pm 0.005$ & 1.622 & $12.4\pm 0.3$ \\
+Persist-dense25 & 7,413 & 0.77 & $1.628\pm 0.004$ & 1.847 & $11.8\pm 0.2$ \\
+Persist-dense50 & 4,942 & 0.89 & $2.050\pm 0.008$ & 2.346 & $12.6\pm 0.3$ \\
+Persist-dense75 & 2,471 & 0.97 & $2.770\pm 0.031$ & 3.232 & $14.3\pm 1.0$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

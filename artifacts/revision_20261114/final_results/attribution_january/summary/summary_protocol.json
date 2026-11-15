@@ -1,0 +1,113 @@
+{
+  "status": "complete",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "period": "2021-01",
+  "unassigned_POIs": 36,
+  "primary_regime": "Standardize mean nonzero-attribution shares across all five fits; take largest standardized source",
+  "method_comparison": "Identical IG-sampled POIs and forecast events; zero-total-attribution profiles excluded from agreement",
+  "parent_association": "Descriptive Spearman correlation within recorded-parent POIs; no independent-event significance test",
+  "completeness": [
+    {
+      "seed": 42,
+      "checks": [
+        {
+          "reference_number": 1,
+          "completeness_mean_absolute": 0.000876224716193974,
+          "completeness_p95_scaled": 0.0040416110306978215,
+          "completeness_max_scaled": 0.019961174577474594,
+          "quadrature_steps": 32
+        },
+        {
+          "reference_number": 2,
+          "completeness_mean_absolute": 0.006208370439708233,
+          "completeness_p95_scaled": 0.008417466515675182,
+          "completeness_max_scaled": 0.013682174496352673,
+          "quadrature_steps": 32
+        }
+      ]
+    },
+    {
+      "seed": 43,
+      "checks": [
+        {
+          "reference_number": 1,
+          "completeness_mean_absolute": 0.0005800831131637096,
+          "completeness_p95_scaled": 0.0030085667967796317,
+          "completeness_max_scaled": 0.009972183965146542,
+          "quadrature_steps": 32
+        },
+        {
+          "reference_number": 2,
+          "completeness_mean_absolute": 0.00500749796628952,
+          "completeness_p95_scaled": 0.00790547369979322,
+          "completeness_max_scaled": 0.012751207686960697,
+          "quadrature_steps": 32
+        }
+      ]
+    },
+    {
+      "seed": 44,
+      "checks": [
+        {
+          "reference_number": 1,
+          "completeness_mean_absolute": 0.0005159088177606463,
+          "completeness_p95_scaled": 0.0025733483373187476,
+          "completeness_max_scaled": 0.013770652003586292,
+          "quadrature_steps": 32
+        },
+        {
+          "reference_number": 2,
+          "completeness_mean_absolute": 0.0037807971239089966,
+          "completeness_p95_scaled": 0.007328104833140969,
+          "completeness_max_scaled": 0.013391727581620216,
+          "quadrature_steps": 32
+        }
+      ]
+    },
+    {
+      "seed": 45,
+      "checks": [
+        {
+          "reference_number": 1,
+          "completeness_mean_absolute": 0.0007048654952086508,
+          "completeness_p95_scaled": 0.0035089147393591695,
+          "completeness_max_scaled": 0.009407886303961277,
+          "quadrature_steps": 32
+        },
+        {
+          "reference_number": 2,
+          "completeness_mean_absolute": 0.0054419939406216145,
+          "completeness_p95_scaled": 0.008158803125843404,
+          "completeness_max_scaled": 0.012131278403103352,
+          "quadrature_steps": 32
+        }
+      ]
+    },
+    {
+      "seed": 46,
+      "checks": [
+        {
+          "reference_number": 1,
+          "completeness_mean_absolute": 0.002222450915724039,
+          "completeness_p95_scaled": 0.004309588111937046,
+          "completeness_max_scaled": 0.014381159096956253,
+          "quadrature_steps": 32
+        },
+        {
+          "reference_number": 2,
+          "completeness_mean_absolute": 0.006869511213153601,
+          "completeness_p95_scaled": 0.009325627190992235,
+          "completeness_max_scaled": 0.012955538928508759,
+          "quadrature_steps": 32
+        }
+      ]
+    }
+  ],
+  "summary_source_sha256": "0fa2cb7e6ec0febe472b94b794bdd48206c014ebd1008eccbacebf5f2cb8c3cb"
+}

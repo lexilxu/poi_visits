@@ -1,0 +1,35 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{MAE for seven-day forecasts. Every December configuration uses 1,522,136 events from 22 origins, and every January configuration uses 1,729,700 events from 25 origins. Neural values are means and standard deviations over all five seeds; deterministic baselines have one value. January retains the original fitted weights and validation choices.}
+\label{tab:multihorizon}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrr}
+\toprule
+Model / adjacency & Dec., $T=14$ & Dec., $T=28$ & Jan., $T=14$ & Jan., $T=28$ \\
+\midrule
+Historical average & 1.483 & 1.483 & 1.590 & 1.590 \\
+Weekday historical average & 1.439 & 1.439 & 1.509 & 1.509 \\
+Seasonal naive & 1.484 & 1.484 & 1.452 & 1.452 \\
+Recent mean & 1.351 & 1.351 & 1.335 & 1.335 \\
+AR-ridge & 1.453 & 1.448 & 1.583 & 1.579 \\
+NLinear-ridge & 1.273 & 1.223 & 1.263 & 1.239 \\
+TSB & 1.337 & 1.337 & 1.327 & 1.327 \\
+Shared-LSTM & $1.360\pm 0.013$ & $1.366\pm 0.009$ & $1.366\pm 0.012$ & $1.384\pm 0.007$ \\
+GraphGRU, Identity & $1.302\pm 0.007$ & $1.304\pm 0.008$ & $1.311\pm 0.007$ & $1.327\pm 0.006$ \\
+GraphGRU, NAICS-2 & $1.336\pm 0.007$ & $1.338\pm 0.012$ & $1.351\pm 0.010$ & $1.363\pm 0.010$ \\
+GraphGRU, NAICS-4 & $1.350\pm 0.004$ & $1.343\pm 0.004$ & $1.361\pm 0.007$ & $1.364\pm 0.004$ \\
+Fixed-MTGNN, Identity & $1.227\pm 0.005$ & $1.207\pm 0.005$ & $1.247\pm 0.004$ & $1.250\pm 0.004$ \\
+Fixed-MTGNN, NAICS-2 & $1.222\pm 0.008$ & $1.202\pm 0.001$ & $1.244\pm 0.011$ & $1.247\pm 0.003$ \\
+Fixed-MTGNN, NAICS-4 & $1.222\pm 0.007$ & $1.208\pm 0.004$ & $1.247\pm 0.011$ & $1.252\pm 0.003$ \\
+Adaptive-MTGNN & $1.221\pm 0.007$ & $1.207\pm 0.008$ & $1.240\pm 0.007$ & $1.249\pm 0.008$ \\
+GNN-static & $1.301\pm 0.008$ & $1.317\pm 0.038$ & $1.310\pm 0.007$ & $1.339\pm 0.033$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

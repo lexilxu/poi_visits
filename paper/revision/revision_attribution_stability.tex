@@ -1,0 +1,27 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Attribution stability. Method comparisons use the same 1,024 sampled POIs and forecast events; regime agreement reports the mean and SD across five seeds. The last row in each period averages the ten seed-pair comparisons over all eligible POIs. Remaining columns are mean Spearman rank correlations for feature-group shares. Zero-attribution profiles are excluded.}
+\label{tab:attribution_stability}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llrrrrrr}
+\toprule
+Period & Comparison & Agreement (\%) & History & Location & Identity & Parent & Others \\
+\midrule
+December & Gradient $\times$ Input / IG 1 & $21.3\pm 7.7$ & -0.06 & 0.51 & -0.07 & -0.30 & 0.05 \\
+December & Gradient $\times$ Input / IG 2 & $22.9\pm 7.1$ & -0.12 & 0.90 & -0.20 & -0.30 & 0.06 \\
+December & IG 1 / IG 2 & $24.8\pm 2.8$ & 0.08 & 0.61 & 0.03 & 1.00 & -0.77 \\
+December & Different fitted seeds & 50.4 & 0.77 & 0.86 & 0.69 & 0.63 & 0.59 \\
+January & Gradient $\times$ Input / IG 1 & $21.2\pm 8.8$ & -0.04 & 0.53 & -0.06 & -0.30 & 0.04 \\
+January & Gradient $\times$ Input / IG 2 & $23.1\pm 7.3$ & -0.16 & 0.90 & -0.25 & -0.29 & 0.07 \\
+January & IG 1 / IG 2 & $25.0\pm 3.2$ & 0.09 & 0.63 & 0.03 & 1.00 & -0.78 \\
+January & Different fitted seeds & 50.2 & 0.77 & 0.86 & 0.68 & 0.61 & 0.60 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

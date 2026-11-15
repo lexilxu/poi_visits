@@ -1,0 +1,26 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Degree-controlled graph comparison at $T=14$, $H=7$. Each target has the same non-self degree under NAICS-2, NAICS-4, and random graphs, capped by $k$ and its available NAICS-4 peers. Values are five-seed MAE means and standard deviations.}
+\label{tab:semantic_granularity_transfer}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llrrrrrr}
+\toprule
+Model & $k$ & Dec. NAICS-2 & Dec. NAICS-4 & Dec. random & Jan. NAICS-2 & Jan. NAICS-4 & Jan. random \\
+\midrule
+GraphGRU & 5 & $1.394\pm 0.002$ & $1.395\pm 0.012$ & $1.397\pm 0.001$ & $1.405\pm 0.001$ & $1.401\pm 0.012$ & $1.409\pm 0.003$ \\
+GraphGRU & 10 & $1.375\pm 0.004$ & $1.366\pm 0.004$ & $1.374\pm 0.007$ & $1.387\pm 0.003$ & $1.375\pm 0.001$ & $1.388\pm 0.006$ \\
+GraphGRU & 20 & $1.362\pm 0.006$ & $1.360\pm 0.006$ & $1.359\pm 0.010$ & $1.376\pm 0.008$ & $1.369\pm 0.007$ & $1.375\pm 0.011$ \\
+\addlinespace[3pt]
+Fixed-MTGNN & 5 & $1.226\pm 0.005$ & $1.223\pm 0.003$ & $1.226\pm 0.005$ & $1.250\pm 0.008$ & $1.246\pm 0.004$ & $1.247\pm 0.004$ \\
+Fixed-MTGNN & 10 & $1.220\pm 0.005$ & $1.219\pm 0.005$ & $1.224\pm 0.006$ & $1.242\pm 0.007$ & $1.240\pm 0.008$ & $1.244\pm 0.007$ \\
+Fixed-MTGNN & 20 & $1.224\pm 0.006$ & $1.221\pm 0.005$ & $1.224\pm 0.006$ & $1.247\pm 0.007$ & $1.242\pm 0.010$ & $1.247\pm 0.009$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

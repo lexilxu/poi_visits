@@ -1,0 +1,30 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Matched neighbor interventions under NAICS-4 at $T=14$, $H=7$, averaged over five seeds. Every rule intervenes on the same number of neighbors for each target. Removed false activations and lost positive activations are percentages of their originally activated zero-visit and positive-visit events, respectively.}
+\label{tab:metric_targeted_perturbation_naics4}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llrrrr}
+\toprule
+Period & Neighbor group & \makecell{Reduction\\per neighbor} & $\Delta\mathrm{MAE}$ & \makecell{False activations\\removed (\%)} & \makecell{Positive activations\\lost (\%)} \\
+\midrule
+December & Training-active & $0.0026\pm 0.0003$ & $-0.016\pm 0.002$ & $40.1\pm 7.8$ & $22.5\pm 4.0$ \\
+ & Recent-active & $0.0025\pm 0.0003$ & $-0.016\pm 0.002$ & $39.7\pm 7.8$ & $22.1\pm 4.2$ \\
+ & Correlated & $0.0013\pm 0.0001$ & $-0.006\pm 0.001$ & $17.8\pm 3.5$ & $9.4\pm 1.4$ \\
+ & Random & $0.0013\pm 0.0001$ & $-0.006\pm 0.001$ & $17.9\pm 3.5$ & $8.9\pm 1.1$ \\
+ & Matched replacement & $0.0006\pm 0.0001$ & $-0.003\pm 0.001$ & $17.1\pm 2.0$ & $9.5\pm 0.8$ \\
+\addlinespace[3pt]
+January & Training-active & $0.0030\pm 0.0003$ & $-0.016\pm 0.001$ & $32.5\pm 5.6$ & $10.7\pm 1.1$ \\
+ & Recent-active & $0.0029\pm 0.0003$ & $-0.016\pm 0.002$ & $32.3\pm 5.7$ & $10.5\pm 1.1$ \\
+ & Correlated & $0.0014\pm 0.0001$ & $-0.005\pm 0.001$ & $15.2\pm 2.5$ & $4.7\pm 0.6$ \\
+ & Random & $0.0014\pm 0.0001$ & $-0.006\pm 0.000$ & $14.9\pm 2.3$ & $4.4\pm 0.5$ \\
+ & Matched replacement & $0.0008\pm 0.0001$ & $-0.004\pm 0.000$ & $16.3\pm 1.6$ & $5.5\pm 0.2$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

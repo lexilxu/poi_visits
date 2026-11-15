@@ -1,0 +1,327 @@
+\documentclass{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\title{Research Questions for Studying LLM-Based POI Prediction}
+\author{Lexi Liu}
+\date{December 2025}
+
+\begin{document}
+
+\textbf{Reading list:}
+\begin{enumerate}
+    \item \href{https://web.stanford.edu/~jurafsky/slp3/}{Speech and Language Processing} by Dan Jurafsky and James H. Martin.\\
+    Intuitive and easy to understand.
+    
+    \item Annotated version of the attention paper:  \href{https://nlp.seas.harvard.edu/annotated-transformer/}{https://nlp.seas.harvard.edu/annotated-transformer/}
+    Helpful in coding attention-based models.
+
+    \item UW CSE599 G1 \href{https://courses.cs.washington.edu/courses/cse493g1/24au/}{}
+\end{enumerate}
+
+
+Ranked from the easiest to the hardest:
+\section{Semantic and Spatial Representation of POIs}
+
+
+\begin{enumerate}
+    \item How does the LLM represent POIs internally: as semantic entities or spatial locations?\\
+    \textit{Background: POIs can be represented symbolically (using names or functions) or geometrically (using coordinates), 
+    and LLMs may prefer one over the other. Experiments can ablate spatial information while preserving semantics to assess representational bias.}
+    \begin{enumerate}
+        \item How sensitive are predictions to the textual representation of POIs (e.g., POI IDs or functional categories)?\\
+        \textit{Test robustness by varying POI naming schemes 
+        (IDs, natural language names, categories) while holding trajectories fixed, 
+        and measure prediction stability and accuracy.}
+        \item Does classifying POIs into coarser semantic categories reduce prediction variance?\\
+        \textit{Coarse categories may act as regularization ? compare variance and entropy of predictions under fine-grained versus aggregated POI labels.}
+        
+    \end{enumerate}
+
+    
+    \item How does the LLM interpret time in POI trajectories: 
+    as a continuous process or 
+    a discrete label?\\
+    \textit{LLMs may treat time as symbolic tokens rather than continuous variables, affecting temporal generalization across resolutions.} \\
+    Does providing numeric timestamps versus natural language time descriptions significantly change predictions or calibration?\\
+    \textit{Evaluate performance and uncertainty under numeric times (e.g., Unix timestamps) versus descriptive times (e.g., ``late evening'').}
+    
+    \item To what extent does the LLM encode spatial proximity implicitly?\\
+    
+    \textit{Although LLMs lack explicit spatial embeddings, 
+    co-occurrence patterns may induce implicit spatial structure. 
+    This can be tested by removing all explicit distance cues? }
+    
+    \begin{enumerate}
+        \item When given semantically similar but spatially distant candidate POIs, does the LLM favor semantic coherence or geographic proximity?\\
+        \textit{Construct controlled choice sets where semantic similarity and spatial distance are decoupled, and analyze systematic selection preferences.}
+        \item Does explicitly providing distance or travel-time information in the prompt help improve prediction accuracy?
+    \end{enumerate}
+
+
+
+    \item Does the LLM capture temporal dependence beyond immediate context?\\
+    \textit{Long-range temporal dependencies are crucial for routine mobility; truncation experiments can reveal effective memory length.}\\
+    How sensitive are predictions to addition of early trajectory history while keeping the recent window fixed (temporal dependence)?\\
+    \textit{Incrementally add earlier visits and examine whether predictions shift, indicating non-Markovian reasoning.}
+
+    \item How does the LLM handle periodic and cyclical mobility patterns?
+    
+    \textit{Many mobility processes exhibit strong diurnal or weekly cycles; compare LLM-generated visit frequencies against empirical seasonal patterns.}
+    
+    Does the LLM reproduce daily or weekly visitation cycles observed in the empirical data?
+
+    \item {\color{blue}(Hard)} How does the LLM respond to structural changes in spatio-temporal dynamics?\\
+    \textit{Simulate regime changes (e.g., lockdowns, relocation) and test whether the LLM adapts or continues extrapolating historical patterns.}
+    Requires simulated or real regime shifts and nontrivial evaluation of adaptation behavior.
+
+    \item {\color{blue}(Hard)}  Does the LLM jointly reason about space and time, or treat them independently?\\
+    \textit{Joint reasoning would imply interaction effects between distance and time that cannot be reduced to marginal constraints.} Hard to evaluate or test.\\
+    Does adding joint space--time constraints improve realism more than spatial or temporal constraints alone?\\
+    \textit{Compare constraint violations and trajectory realism under joint versus marginal constraint prompting.}
+\end{enumerate}
+
+\section{Generative Behavior and Prediction}
+
+\begin{enumerate}
+    \item How often does the LLM select semantically plausible but empirically rare POIs under different prompting strategies?\\
+    \textit{Quantify over-selection of low-frequency POIs and relate it to prompt specificity, examples, or likelihood-style prompting.}
+
+    \item  {\color{blue}(Hard)} How do prediction errors accumulate in multi-step POI forecasting?\\
+    \textit{Analyze error propagation?}
+\end{enumerate}
+
+\section{Prompt Design and Inductive Bias Control}
+
+\begin{enumerate}
+    \item How does the stated prediction objective influence LLM behavior?
+    Variation across zero-shot, few-shot as well as fine-tuning?\\
+    \textit{Different objectives may induce different inductive biases; compare accuracy, diversity, and constraint adherence across training regimes.}
+
+    \item Can explicit spatial and temporal constraints improve prediction realism?\\
+    \textit{Constraints may act as soft regularizers; evaluate improvements in physical plausibility without sacrificing predictive accuracy.}
+    \begin{enumerate}
+        \item How often does the LLM violate explicit distance or time constraints under constrained prompts?\\
+        \textit{Measure violation rates and severity to assess whether constraints are internally enforced or ignored.}
+    \end{enumerate}
+
+
+    \item ({\color{blue}Hard}) Can probabilistic prompting elicit calibrated uncertainty estimates?\\
+    \textit{Probabilistic prompts aim to align LLM outputs with predictive uncertainty rather than point predictions.}
+    \begin{enumerate}
+        \item How well do elicited probabilities align with empirical frequencies across POI categories?\\
+        \textit{Evaluate calibration using reliability diagrams or expected calibration error across frequency strata.}
+        \item Does predicted uncertainty increase appropriately in ambiguous or low-frequency contexts?\\
+        \textit{Test whether entropy or variance increases for sparse histories or multiple plausible next locations.}
+    \end{enumerate}
+\end{enumerate}
+
+\section{Failure Modes and Stress Tests}
+
+\begin{enumerate}
+    \item How does the LLM perform on rare or atypical mobility behaviors?\\
+    \textit{Stress-test the model on outliers to identify regression toward typical routines.}
+    \begin{enumerate}
+        \item Are irregular schedules or night-time trajectories systematically mapped to typical routines?\\
+        \textit{Compare prediction diversity and timing bias for atypical versus regular users.}
+        \item Does the LLM hallucinate common POIs in sparsely observed regimes?\\
+        \textit{Track hallucination rates when historical data are deliberately thinned or partially masked.}
+    \end{enumerate}
+
+    \item 
+    How does performance change for unseen POIs or newly developed regions?\\
+    \textit{Evaluate zero-shot generalization by holding out regions or POIs and measuring semantic versus spatial extrapolation.}
+\end{enumerate}
+
+\section{Experiment}
+
+
+\noindent 
+The key to a dynamic GCN is to learn a weight matrix that changes through time.
+Consider a GCN equation:
+at time $t$,
+the $\ell$th layer 
+update a node embedding matrix 
+by
+\[
+H^{(\ell+1)}_t = \sigma(P_t H^{(\ell)}_t W^{(\ell)}_t) 
+\]
+where $P_t$ is a normalized adjacency matrix defined as 
+$P_t = D_t^{-1/2} A_t D_t^{-1/2}$
+where $D_t$ is the degree matrix 
+defined as 
+\[
+D^{(i,j)}_t = 
+\begin{cases}
+    \deg (v^{(i)}_t) 
+    \quad \text{if}\quad i=j;\\
+    0 \quad \text{otherwise}
+\end{cases}
+\]
+where the degree $\deg (v^{(i)}_t)$ of a vertex counts the number of times an edge terminates at that vertex. 
+The function $\sigma(\cdot)$
+is an activation function 
+for all layers except for the output layer.
+An example is the ReLU function $\sigma(x) = \max(x,0)$.
+The node embedding matrix is initialized by the input node features,
+i.e.,
+$H^{(0)}_t = X_t$
+where $X_t \in \mathbb{R}^{v_t}$
+is a vector containing the visitor counts at time $t$.\\
+
+
+
+\subsection{Learned graph structure with MTGNN}
+
+Let $E_1, E_2 \in \mathbb{R}^{N \times d}$ denote learnable node embeddings. 
+The adjacency matrix is defined as
+\[
+A = \mathrm{softmax}\big(\mathrm{ReLU}(E_1 E_2^\top)\big).
+\]
+This formulation induces a directed, weighted graph, where edge weights reflect similarity in a latent embedding space. The row-wise softmax normalization ensures numerical stability and facilitates interpretation as transition weights. This component enables the model to uncover hidden relationships among variables when the underlying graph is unknown.\\
+
+\noindent 
+For modeling the temporal structure,
+the model uses dilated inception CNN,
+which is designed to capture long-range temporal dependencies.
+The algorithm is summarized as follows:
+\begin{algorithm}[H]
+\caption{MTGNN for Multivariate Time Series Forecasting \citep{wu2020connecting}}
+\label{alg:mtgnn}
+\begin{algorithmic}[1]
+\REQUIRE Input time series $X \in \mathbb{R}^{T \times N}$, 
+input length $L$, prediction horizon $H$, 
+number of layers $K$
+
+\ENSURE Predictions $\hat{Y} \in \mathbb{R}^{H \times N}$
+
+\STATE Extract sliding window input:
+\[
+X_{\text{in}} = X_{(t-L+1):t}
+\]
+
+\STATE Learn adaptive adjacency matrix:
+\[
+A = \text{softmax}\big(\text{ReLU}(E_1 E_2^\top)\big)
+\]
+where $E_1, E_2 \in \mathbb{R}^{N \times d}$ are learnable node embeddings
+
+\STATE Initialize hidden representation:
+\[
+H^{(0)} = X_{\text{in}}
+\]
+
+\FOR{$k = 1$ to $K$}
+
+    \STATE Temporal convolution (dilated causal CNN):
+    \[
+    \tilde{H}^{(k)} = \text{TCN}\big(H^{(k-1)}\big)
+    \]
+
+    \STATE Graph convolution (mix-hop propagation):
+    \[
+    H^{(k)} = \sum_{m=0}^{M} A^m \tilde{H}^{(k)} W_m^{(k)}
+    \]
+
+\ENDFOR
+
+\STATE \textbf{Output layer:}
+\[
+\hat{Y} = \text{Linear}(H^{(K)})
+\]
+
+\RETURN $\hat{Y}$
+\end{algorithmic}
+\end{algorithm}
+
+\noindent The key component for accomodating the evolving graphs is the update of the
+weight matrix $W^{(\ell)}_t$ at time $t$ based on the
+current as well as
+historical information. 
+This requirement can be naturally fulfilled by using a recurrent architecture.
+One option is to use the  long short-term memory (LSTM)
+cell to model this input-output relationship
+written as 
+\[
+W^{(\ell)}_t = \text{LSTM}(W^{(\ell)}_{t-1}).
+\]
+The LSTM structure is used
+to learn how the convolution rule should evolve.
+Our prediction is generated after an output layer
+\begin{equation}\label{eqt:output}
+    \hat{X}_{T+1} = H_T W_{\textrm{out}} 
+\end{equation}
+where $W_{\textrm{out}} \in \mathbb{R}^{v_{T}}$ is a 
+weight matrix.
+The algorithm is described as follows:
+
+\begin{algorithm}[H]
+\caption{EvolveGCN-H for Dynamic Graph Learning \citep{pareja2020evolvegcn}}
+\label{alg:evolvegcnH}
+\begin{algorithmic}[1]
+\REQUIRE Sequence of graphs $\{G_t = (A_t, X_t)\}_{t=1}^T$, 
+initial GCN weights $W_0^{(l)}$ for layers $l = 1, \dots, L$
+\ENSURE Node embeddings $\{H_t^{(l)}\}$
+
+\FOR{$t = 1$ to $T$}
+    \STATE Initialize $H_t^{(0)} = X_t$
+    
+    \FOR{$l = 1$ to $L$}
+        \STATE \textbf{Evolve weights via GRU:}
+        \[
+        W_t^{(l)} = \text{GRU}\big(H_{t-1}^{(l)}, \, W_{t-1}^{(l)}\big);
+        \]
+        
+        \STATE \textbf{Graph convolution:}
+        \[
+        H_t^{(l)} = \sigma\big(\tilde{A}_t H_t^{(l-1)} W_t^{(l)}\big),
+        \]
+        where $\tilde{A}_t$ denotes the normalized adjacency matrix $A_t$ at time $t$.
+    \ENDFOR
+\ENDFOR
+
+\RETURN Output $\hat{X}_{T+1}$
+using (\ref{eqt:output}).
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsection{Pre-determined adjacency matrices}
+
+\noindent
+To use the EvolveGCN framework in \cite{pareja2020evolvegcn},
+we need to determine the adjacency matrices $A_t$ as requirements.
+The ways we define the adjacency matrix depend on what kind of relationship between the POIs we would like to capture.
+We explore several options
+for determining the adjacency matrix $A_t$ at time $t$:
+\begin{itemize}
+    \item(Distance-based graph) We can define adjacency via geographic distance as 
+    \[
+        A_{ij} = \exp\left(-\frac{d(i,j)^2}{\sigma^2}\right)
+    \]
+    where $d(i,j)$ is a distance measure between two POIs.
+    We use the Haversine distance to compute the distance measuer, i.e.,
+    \[
+    d(i,j) = 2r\arcsin\sqrt{\sin^2(\Delta \phi/2) + \cos(\phi_i)\cos(\phi_j)\sin^2(\Delta \lambda/2)}
+    \]
+    where $\Delta \phi = (\phi_i - \phi_j)\times \pi/180$,
+    $\Delta \lambda = (\lambda_i - \lambda_j)\times \pi/180$
+    are the differences of latitudes represented by $\phi_i, \phi_j$
+    and of longitudes $\lambda_i, \lambda_j$.
+    The radius of earth $r=6371$km approximately.
+
+    \item(Semantic similarity graph)
+    The adjacency matrix can also be defined to describe the semantic similarity of the POIs.
+    For example, we can consider
+    \[
+    A_{ij} = \mathds{1}(\text{category}_i=\text{category}_j)
+    \]
+    where $\text{category}_i$
+    is a label of the $i$th POI.
+
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "subsets": 13,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "baseline_sha256": "a5a64ba2984fbbab4dab662c0dbd4283702a090cad5433a84e78696b710a98ec",
+  "selection": "Observed counts within the first 50 calendar days; stable ties; same original POI order",
+  "source_sha256": "fa6a663005a46aa4b23e867c6ccb86a8e8018519990393023f48c411e56acec8"
+}

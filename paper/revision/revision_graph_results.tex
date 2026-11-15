@@ -1,0 +1,34 @@
+We compare functional and identity adjacency on the same 1,935 low-history POIs with at least one NAICS-4 peer, using \(T=14\) and \(H=7\).
+The December and January evaluations contain 297,990 and 338,625 scored events, respectively.
+Target and neighbor evidence are classified using validation-period medians, before observing the test outcomes.
+Table~\ref{tab:graph_transfer_summary} reports MAE gain within these evidence strata, and Figure~\ref{fig:counterfactual_graph_transfer_map} compares the pattern across months.
+
+\input{revision_graph_evidence.tex}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[scale=0.80]{art/pre_outcome_graph_transfer.pdf}
+\caption{Five-seed mean MAE gain over identity adjacency within validation-defined evidence strata at \(T=14\), \(H=7\). Positive values indicate lower error under functional adjacency. The fitted models and evidence thresholds remain fixed in January.}
+\label{fig:counterfactual_graph_transfer_map}
+\end{figure}
+
+Neighbor utility varies with both target evidence and neighbor activity.
+For low target evidence and high neighbor evidence, NAICS-2 increases MAE by \(0.056\) visits in December and \(0.191\) in January; the corresponding increases under NAICS-4 are \(0.037\) and \(0.043\).
+When target evidence is high and neighbor evidence is low, both graphs instead yield positive mean gains in both months.
+Across all matched targets, NAICS-2 increases MAE by \(0.014\) in December, with a paired joint temporal--spatial 95\% interval of \([0.006,0.022]\), and by \(0.024\) in January, with an interval of \([0.013,0.037]\).
+The corresponding NAICS-4 increases are \(0.008\) and \(0.011\); its December interval \([-0.001,0.017]\) includes zero.
+These comparisons locate the largest errors in an evidence stratum that can be identified before the target visits are realized.
+
+NAICS-4 and top category induce the same partition of the 9,884 POIs into 134 groups and therefore represent one graph specification.
+NAICS-2 forms 22 groups, with a mean non-self degree of 1,586.5 compared with 767.0 under NAICS-4.
+The clique comparison consequently changes both functional detail and neighborhood size.
+
+Table~\ref{tab:semantic_granularity_transfer} holds the non-self degree fixed within each target. At $k=10$, NAICS-4 reduces December MAE relative to random neighbors by $0.0082$ for GraphGRU and $0.0056$ for Fixed-MTGNN, with joint temporal and 3-km spatial intervals of $[-0.0140,-0.0020]$ and $[-0.0069,-0.0044]$. The corresponding January reductions are $0.0126$ and $0.0037$. Relative to identity adjacency, however, GraphGRU error increases by $0.0645$ in December, while Fixed-MTGNN error decreases by $0.0080$. Functional similarity thus helps identify neighbors within a fixed-size graph, while the utility of graph propagation depends on the forecasting architecture.
+
+\input{revision_degree_controls.tex}
+
+The spatial and visit-correlation alternatives in Table~\ref{tab:spatial_graphs} show the same architectural distinction. All three GraphGRU alternatives have higher MAE than identity adjacency in both periods. Distance-neighbor propagation reduces Fixed-MTGNN MAE by $0.0051$ in December and $0.0045$ in January, with joint intervals of $[-0.0089,-0.0022]$ and $[-0.0071,-0.0020]$.
+
+\input{revision_spatial_graphs.tex}
+
+The outcome-conditioned transfer regimes remain descriptive assignments; in particular, negative MAE gain for a zero-visit event with positive graph lift follows directly from its definition.

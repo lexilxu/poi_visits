@@ -1,0 +1,31 @@
+The calendar-based rule identifies 1,944 low-history POIs and 299,376 December test events, of which 53,212 (\(17.8\%\)) have positive visits.
+The zero forecast has a low-history MAE of \(0.224\), despite recovering no positive visits.
+In Table~\ref{tab:zero_collapse_diagnostic}, Fixed-MTGNN with identity adjacency has lower low-history MAE than GraphGRU, \(0.242\) versus \(0.253\), but also lower DMR, \(7.9\%\) versus \(12.0\%\).
+NLinear-ridge and TSB recover more positive visit mass, with DMR of \(23.4\%\) and \(27.5\%\), while activating more zero-visit events.
+Thus, the ordering by MAE differs from the ordering by positive-visit recovery.
+
+\input{revision_low_history.tex}
+
+Training loss accounts for a substantial part of this difference.
+Table~\ref{tab:calibration_loss} compares the same identity-adjacency architectures under absolute- and squared-error training.
+Changing GraphGRU from MAE to MSE raises DMR from \(12.0\%\) to \(23.7\%\), but also raises FAR from \(2.2\%\) to \(7.5\%\) and MAE from \(0.253\) to \(0.328\).
+Fixed-MTGNN shows the same shift, with DMR increasing from \(7.9\%\) to \(24.0\%\).
+Validation-MAE calibration moves these forecasts toward zero and reduces DMR, showing how minimizing absolute error can favor small forecasts in this cohort.
+
+\input{revision_calibration_loss.tex}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[scale=0.80]{recovery_activation_tradeoff.pdf}
+\caption{December diagnostics for the 1,944 low-history POIs at \(T=14\), \(H=7\). Panel (a) shows five-seed means and standard deviations at a fixed 0.5-visit threshold. Panel (b) reports test recall and realized test FAR at thresholds selected for validation FAR targets of \(5\%,10\%,20\%,30\%\).}
+\label{fig:recovery_activation_tradeoff}
+\end{figure}
+
+Threshold matching gives a different comparison from forecast magnitude alone.
+At the \(10\%\) validation-FAR target, GraphGRU trained with MAE attains \(27.9\%\) December recall, compared with \(30.6\%\) for Shared-LSTM and \(29.2\%\) for TSB; their realized test FARs are \(13.7\%\), \(14.4\%\), and \(13.5\%\), respectively.
+GraphGRU trained with MSE has similar matched-threshold recall of \(27.3\%\), despite its much larger raw DMR.
+Figure~\ref{fig:recovery_activation_tradeoff} shows this distinction across the four validation targets.
+With the same fitted models and thresholds in January, recall is \(39.3\%\) for MAE-trained GraphGRU, \(42.7\%\) for Shared-LSTM, and \(41.2\%\) for TSB, at realized FARs of \(14.6\%\), \(15.8\%\), and \(14.7\%\).
+Forecast magnitude and matched-threshold detection describe different aspects of intermittent-visit recovery; Shared-LSTM and TSB achieve higher matched-threshold recall than GraphGRU in these comparisons.
+
+\input{revision_january_low_history.tex}

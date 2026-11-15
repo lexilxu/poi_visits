@@ -1,0 +1,21 @@
+\appendix
+\section{Supplementary experimental details}
+\label{app:experimental_details}
+
+\subsection{Implementation settings}
+\label{app:implementation_settings}
+\input{revision_parameter_settings.tex}
+
+\subsection{Checkpoint replay and numerical verification}
+\label{app:checkpoint_replay}
+January evaluation reconstructs each fitted checkpoint and first replays its archived validation and December forecasts.
+The pointwise check uses relative and absolute tolerances of $2\times10^{-4}$.
+For 19 MTGNN checkpoints, repeated graph operations exposed FP32 summation variation; deterministic graph evaluation with FP64 accumulation produced identical December and January predictions in two independent processes.
+For these checkpoints, the supplementary numerical check bounds the change in cohort and per-lead MAE by $0.00005$ visits and the change in FAR, recall, and precision by $0.01$ percentage points across the five activation thresholds.
+The measured maxima were $0.00000144$ visits and $0.00750$ percentage points, respectively.
+The archive retains the original pointwise-check results, operator checks, and both independent prediction runs.
+Validation calibration uses the archived predictions unchanged, and January retains the fitted parameters and selection choices.
+
+\subsection{Descriptive attribution profiles}
+\label{app:descriptive_attribution}
+\input{revision_attribution_descriptive.tex}

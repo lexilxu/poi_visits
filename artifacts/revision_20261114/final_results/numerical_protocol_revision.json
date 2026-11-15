@@ -1,0 +1,14 @@
+{
+  "status": "approved_by_user",
+  "approved_choice": "Adopt audited numerical verification revision and finish January analysis and manuscript",
+  "scope": "The 19 individually audited checkpoints only",
+  "original_strict_rtol": 0.0002,
+  "original_strict_atol": 0.0002,
+  "accepted_cohort_and_lead_MAE_change": 5e-05,
+  "accepted_rate_change_percentage_points": 0.01,
+  "required_independent_prediction_repeats": "bit identical over December and January",
+  "training_protocol": "Original weights, splits, seed selection and validation predictions retained",
+  "audit_sha256": "86a9a4a03da8c3c3dd198d73d0f82a442f2cb1afeb4dafa0559cf772706e8b76",
+  "repeat_audit_sha256": "27c0baf8651a5179b49180c602366cef7b1c2cc64706220d243bebe96942089f",
+  "created_at": 1794718243.9615104
+}

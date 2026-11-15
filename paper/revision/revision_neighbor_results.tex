@@ -1,0 +1,26 @@
+We perturb matched neighbor sets while holding each fitted GraphGRU and its adjacency fixed.
+Each target receives the same intervention size across selection rules and graphs, between one and ten neighbors, with a mean of 9.88.
+Table~\ref{tab:metric_targeted_perturbation_naics4} reports the NAICS-4 results over all matched target events.
+The disconnected-node control gives zero forecast change in every graph, seed, and evaluation month.
+
+\input{revision_neighbor_interventions.tex}
+
+Zeroing neighbors with the highest training activity reduces December MAE by \(0.016\) visits, compared with \(0.006\) for random neighbors of the same size.
+Its paired joint temporal--spatial 95\% interval is \([-0.023,-0.010]\) visits.
+Recent-active neighbors produce a similar reduction, while correlation-based selection is close to random selection.
+The ordering persists in January, when the MAE reductions are \(0.016\) for training-active neighbors and \(0.006\) for random neighbors.
+Replacing active-neighbor histories with activity-matched external histories produces smaller reductions of \(0.003\) and \(0.004\) visits in the two months.
+Thus, the effect of setting histories to zero partly reflects the amount of activity removed; it exceeds the effect of replacing histories with comparable training activity.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[scale=0.80]{art/neighbor_perturbation_tradeoff.pdf}
+\caption{Matched neighbor interventions under NAICS-4 at \(T=14\), \(H=7\). Points and bars show five-seed means and standard deviations. Each percentage uses its own originally activated zero-visit or positive-visit events as the denominator.}
+\label{fig:neighbor_perturbation_tradeoff}
+\end{figure}
+
+The reduction in aggregate error comes with lost positive-event detections.
+In December, zeroing training-active neighbors removes \(40.1\%\) of original false activations and \(22.5\%\) of original positive activations; in January, the corresponding fractions are \(32.5\%\) and \(10.7\%\).
+Recent-active selection has nearly the same tradeoff, as Figure~\ref{fig:neighbor_perturbation_tradeoff} shows.
+The activity-matched replacement removes \(17.1\%\) of false activations and \(9.5\%\) of positive activations in December.
+Active neighbors therefore support both correct detections and false activations, and lower aggregate MAE after their removal does not imply better detection of intermittent visits.

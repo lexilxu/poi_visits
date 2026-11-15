@@ -1,0 +1,31 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Observed-visit coverage (\%) when prioritizing 13, 26, or 52 of the 256 occupied 1-km cells at $T=14$, $H=7$. Selection ranks each fitted model separately; reported values average coverage across seeds, origins, and leads. The last row ranks cells retrospectively by observed visits. Paired gains use unrounded coverage values.}
+\label{tab:activity_coverage}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & Dec., 13 & Dec., 26 & Dec., 52 & Jan., 13 & Jan., 26 & Jan., 52 \\
+\midrule
+Historical average & 33.95 & 48.01 & 65.78 & 34.33 & 48.31 & 66.28 \\
+Weekday historical average & 34.25 & 48.32 & 66.01 & 34.43 & 48.71 & 66.60 \\
+Seasonal naive & 34.20 & 48.24 & 65.96 & 34.32 & 48.40 & 66.27 \\
+NLinear-ridge & 34.26 & 48.29 & 66.07 & 34.37 & 48.54 & 66.44 \\
+TSB & 34.05 & 48.08 & 65.93 & 34.25 & 48.37 & 66.31 \\
+Shared-LSTM & $33.94\pm 0.00$ & $47.84\pm 0.01$ & $65.90\pm 0.01$ & $34.25\pm 0.05$ & $48.08\pm 0.04$ & $66.24\pm 0.02$ \\
+GraphGRU, identity & $33.85\pm 0.01$ & $47.95\pm 0.02$ & $65.93\pm 0.02$ & $33.99\pm 0.01$ & $48.17\pm 0.03$ & $66.22\pm 0.02$ \\
+Fixed-MTGNN, identity & $34.13\pm 0.05$ & $48.22\pm 0.03$ & $66.06\pm 0.00$ & $34.24\pm 0.02$ & $48.45\pm 0.04$ & $66.38\pm 0.02$ \\
+Adaptive-MTGNN & $34.14\pm 0.03$ & $48.24\pm 0.03$ & $66.07\pm 0.01$ & $34.25\pm 0.01$ & $48.48\pm 0.02$ & $66.39\pm 0.02$ \\
+GNN-static & $33.87\pm 0.03$ & $47.93\pm 0.06$ & $65.94\pm 0.01$ & $34.02\pm 0.05$ & $48.15\pm 0.06$ & $66.21\pm 0.03$ \\
+\addlinespace[3pt]
+Observed-ranking upper bound & 34.48 & 48.85 & 66.70 & 34.57 & 48.96 & 66.95 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

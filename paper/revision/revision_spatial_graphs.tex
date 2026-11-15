@@ -1,0 +1,23 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Additional fixed spatial and visit-correlation graphs at $T=14$, $H=7$. Values are five-seed MAE means and standard deviations.}
+\label{tab:spatial_graphs}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llrr}
+\toprule
+Model & Adjacency & December & January \\
+\midrule
+GraphGRU & Distance KNN & $1.375\pm 0.010$ & $1.381\pm 0.009$ \\
+GraphGRU & Distance RBF & $1.348\pm 0.011$ & $1.357\pm 0.010$ \\
+GraphGRU & Visit correlation & $1.346\pm 0.010$ & $1.358\pm 0.011$ \\
+Fixed-MTGNN & Distance KNN & $1.222\pm 0.008$ & $1.242\pm 0.009$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

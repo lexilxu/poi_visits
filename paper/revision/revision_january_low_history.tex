@@ -1,0 +1,27 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{January diagnostics for the fixed low-history cohort at $T=14$, $H=7$. Models, calibration, and activation thresholds retain their original validation choices. All rates are percentages.}
+\label{tab:january_low_history}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrrrr}
+\toprule
+Model (training loss) & MAE & DMR & FAR & AP & Matched test FAR & Matched test recall \\
+\midrule
+GraphGRU (MAE) & $0.331\pm 0.006$ & $27.7\pm 0.9$ & $3.2\pm 0.4$ & $41.6\pm 0.3$ & $14.6\pm 0.3$ & $39.3\pm 0.9$ \\
+GraphGRU (MSE) & $0.395\pm 0.026$ & $38.0\pm 2.8$ & $8.5\pm 2.3$ & $42.9\pm 0.5$ & $14.3\pm 0.3$ & $38.7\pm 0.8$ \\
+Fixed-MTGNN (MAE) & $0.323\pm 0.010$ & $23.4\pm 1.5$ & $1.7\pm 0.3$ & $42.1\pm 0.7$ & $14.1\pm 0.4$ & $38.1\pm 1.6$ \\
+Fixed-MTGNN (MSE) & $0.422\pm 0.021$ & $35.9\pm 2.8$ & $7.7\pm 5.8$ & $41.9\pm 1.3$ & $13.4\pm 1.0$ & $35.0\pm 4.4$ \\
+Shared-LSTM (MAE) & $0.332\pm 0.006$ & $26.9\pm 1.3$ & $2.8\pm 0.3$ & $43.3\pm 0.7$ & $15.8\pm 0.1$ & $42.7\pm 0.1$ \\
+Shared-LSTM (MSE) & $0.349\pm 0.010$ & $31.5\pm 1.6$ & $4.2\pm 0.6$ & $44.3\pm 0.3$ & $15.5\pm 0.1$ & $42.2\pm 0.1$ \\
+NLinear-ridge & 0.368 & 39.4 & 9.7 & 42.5 & 13.3 & 37.9 \\
+TSB & 0.402 & 41.3 & 10.2 & 45.0 & 14.7 & 41.2 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}

@@ -1,0 +1,77 @@
+\begin{table}[!htbp]
+\centering
+\fontsize{9pt}{11pt}\selectfont
+\caption{Parameter settings for POI visit forecasting and attribution.}
+\label{tab:parameter_settings}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{@{}
+>{\raggedright\arraybackslash}p{0.34\linewidth}
+>{\raggedright\arraybackslash}X@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Training / validation / test
+& Oct.~1--Nov.~19 / Nov.~20--Dec.~3 /
+Dec.~4--31, 2020 \\
+
+Later-month evaluation & Jan.~1--31, 2021 \\
+
+\addlinespace[2pt]
+KNN neighbors \(k\)
+& 10 \\
+
+Controlled semantic and random graphs & \(k\in\{5,10,20\}\); matched degree per POI \\
+
+Adaptive MTGNN graph & 20 selected neighbors per POI \\
+
+RBF bandwidth \(\sigma\) and cutoff
+& 1 km and 2 km \\
+
+Visit-correlation threshold \(\eta_c\)
+& 0.30 \\
+
+\addlinespace[2pt]
+Ridge penalty
+& AR-ridge: \(\{1,10,100,1000\}\); validation selected \\
+
+Hidden dimensions
+& GraphGRU: 32;
+GNN-static: 32;
+LSTM: 32 \\
+
+MTGNN architecture
+& 3 temporal layers; graph depth 2; convolution/residual channels 32, skip channels 64, output channels 128 \\
+
+MTGNN dropout / neural gradient clipping
+& 0.1 / maximum gradient norm 5 \\
+
+Neural learning-rate candidates
+& \(\{3\times10^{-4},10^{-3},3\times10^{-3}\}\) \\
+
+Batch size / optimizer
+& 4 / Adam, weight decay \(10^{-4}\) \\
+
+Training seeds & 42, 43, 44, 45, 46 \\
+
+\addlinespace[2pt]
+Recent-density window \(L_{\mathrm{rec}}\)
+& 14 days \\
+
+Density exclusion quantiles
+& \(\{0.10,0.25,0.50,0.75\}\) \\
+
+Low-history thresholds
+& \(\eta_z=0.70\), \(\alpha=0.25\) \\
+
+Graph-lift threshold \(\eta_G\)
+& 0.1 \\
+
+False-activation threshold \(\eta_{\mathrm{FAR}}\)
+& 0.5 \\
+
+Static-feature dimensions \(D_s\)
+& 52 \\
+\bottomrule
+\end{tabularx}
+\end{table}

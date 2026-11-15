@@ -1,0 +1,1876 @@
+{
+  "summary": {
+    "cases": 19,
+    "max_absolute_prediction_difference": 0.0381317138671875,
+    "max_mean_absolute_prediction_difference": 2.6309429100849737e-05,
+    "max_absolute_cohort_MAE_change": 5.471426610344127e-07,
+    "max_absolute_lead_cohort_MAE_change": 1.4316403504573938e-06,
+    "max_absolute_rate_change_pp": 0.007495372435006864
+  },
+  "rows": [
+    {
+      "recipe": "Fixed-MTGNN_T14_Controlled_full_MAE_NAICS-4_k20",
+      "seed": 42,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 3.6846632986705237e-09,
+          "lead_delta_MAE": [
+            1.508207371340064e-08,
+            -4.778776793004328e-08,
+            9.336182448446546e-09,
+            -1.1824551921934444e-08,
+            -2.4763634608266527e-08,
+            3.762925584726497e-08,
+            4.812108554182575e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.00011191703813695497,
+              "precision_pp": -2.2461241400151266e-05
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -6.94686703510946e-09,
+          "lead_delta_MAE": [
+            1.4533231287826726e-08,
+            -5.7344105731580217e-08,
+            -1.285246058077657e-08,
+            7.501031591613061e-08,
+            -3.7704453323826645e-08,
+            2.864836040972058e-08,
+            -5.891895722326071e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0015773773193359375,
+      "mean_absolute_difference": 8.35338262610021e-07
+    },
+    {
+      "recipe": "Fixed-MTGNN_T14_Controlled_full_MAE_NAICS-4_k20",
+      "seed": 45,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -1.7192171555095932e-08,
+          "lead_delta_MAE": [
+            -2.495660796245638e-08,
+            -1.8924545984754832e-09,
+            -3.952116222598424e-09,
+            -1.345660213620487e-08,
+            -8.099946898167806e-09,
+            -2.065911329343862e-08,
+            -4.7328359774329936e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.00015907937583325982,
+              "recall_pp": 0.0,
+              "precision_pp": -7.228020347804787e-05
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": -0.00015907937583881093,
+              "recall_pp": 0.00011191703813695497,
+              "precision_pp": 0.00015384284031139117
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -2.5557589922129175e-08,
+          "lead_delta_MAE": [
+            8.108394671324885e-09,
+            -2.242142548509363e-08,
+            -6.656186481651366e-09,
+            2.4124494974326872e-08,
+            -8.139612966381206e-08,
+            -8.176963426537876e-08,
+            -1.8892643204620166e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.003326416015625,
+      "mean_absolute_difference": 5.727159379055099e-07
+    },
+    {
+      "recipe": "Fixed-MTGNN_T14_Controlled_full_MAE_NAICS-4_k20",
+      "seed": 46,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 1.7161549565855576e-08,
+          "lead_delta_MAE": [
+            -3.541828557042499e-08,
+            6.290876524613563e-08,
+            3.435090170506237e-08,
+            7.808951851565607e-08,
+            2.706341648561434e-08,
+            -2.7060127167077013e-08,
+            -1.980334225397737e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -2.5731201869126063e-08,
+          "lead_delta_MAE": [
+            8.309083710972664e-09,
+            -3.461885933924203e-09,
+            1.598822682527313e-08,
+            -1.6567995162033384e-08,
+            -2.061522412826361e-08,
+            -1.4622147681781786e-07,
+            -1.7549141578089196e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0093841552734375,
+      "mean_absolute_difference": 6.508027153223848e-07
+    },
+    {
+      "recipe": "Fixed-MTGNN_T14_Controlled_full_MAE_Random_k20",
+      "seed": 45,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 3.8152179177591944e-09,
+          "lead_delta_MAE": [
+            1.3047630198063877e-10,
+            7.773207923459987e-09,
+            5.069936305533392e-09,
+            2.5399021305726866e-09,
+            3.4548809037058215e-09,
+            1.9039123913805056e-08,
+            -1.1301002054743225e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.00015907937583325982,
+              "recall_pp": 0.0,
+              "precision_pp": -6.809889320225082e-05
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -3.760928530700954e-09,
+          "lead_delta_MAE": [
+            2.6758538619703985e-08,
+            3.4089263262393724e-09,
+            1.1818354557035926e-09,
+            4.59354912971585e-09,
+            -1.3872629865652785e-08,
+            -2.2747545174521272e-08,
+            -2.5649174206095424e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0020294189453125,
+      "mean_absolute_difference": 2.0489141673877645e-07
+    },
+    {
+      "recipe": "Fixed-MTGNN_T28_NAICS-4_full_MAE",
+      "seed": 42,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 5.471426610344127e-07,
+          "lead_delta_MAE": [
+            1.770300272394282e-07,
+            1.1950368355987202e-07,
+            3.240927179445385e-07,
+            1.3594177884028573e-06,
+            6.861803543137414e-07,
+            7.435997951408345e-07,
+            4.2017426063961716e-07
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": -0.001431714382527094,
+              "recall_pp": -0.0004476681525589221,
+              "precision_pp": 0.0005479732343549593
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": -0.0007953968791829524,
+              "recall_pp": -0.0006715022288217298,
+              "precision_pp": 0.0002743040698582888
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": -0.0009544762550162122,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0005958067243239107
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": -0.00015907937583603537,
+              "recall_pp": -0.0007834192669586848,
+              "precision_pp": 6.241216321534182e-06
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": -0.00015907937583603537,
+              "recall_pp": -0.00022383407627390994,
+              "precision_pp": 0.0002126848982597629
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -4.941147324696273e-07,
+          "lead_delta_MAE": [
+            -1.4316403504573938e-06,
+            -6.142729148408067e-07,
+            -3.8900504253171956e-07,
+            1.6722414228651258e-07,
+            -2.0286038356285794e-07,
+            -3.7255690332392026e-07,
+            -6.156916748572056e-07
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.001879275351424764,
+              "precision_pp": -0.007495372435006864
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.01001739501953125,
+      "mean_absolute_difference": 2.6309429100849737e-05
+    },
+    {
+      "recipe": "Fixed-MTGNN_T28_NAICS-4_full_MAE",
+      "seed": 43,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -1.736893326792324e-08,
+          "lead_delta_MAE": [
+            -1.1600549329542472e-07,
+            -2.4247759817662406e-09,
+            -1.3842000624828353e-08,
+            9.422252950173271e-08,
+            7.728144259498607e-08,
+            -1.0268375321925027e-07,
+            -5.81304818509119e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.00033575111442196715,
+              "precision_pp": 7.19242332913872e-05
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.0001119170381480572,
+              "precision_pp": -2.3052716169313925e-05
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.00011191703813695497,
+              "precision_pp": 1.9153129604543295e-05
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -8.985612834705953e-09,
+          "lead_delta_MAE": [
+            -2.4216477450832105e-08,
+            -2.9467840654949014e-08,
+            9.298592170347135e-09,
+            -2.3589324201932795e-08,
+            -2.2075794361255786e-09,
+            2.3633921766298968e-08,
+            -1.635058203574829e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.00187927535142407,
+              "precision_pp": 0.0032804708183675757
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0095367431640625,
+      "mean_absolute_difference": 2.3392431269861534e-06
+    },
+    {
+      "recipe": "Fixed-MTGNN_T28_NAICS-4_full_MAE",
+      "seed": 44,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -4.295505414473759e-08,
+          "lead_delta_MAE": [
+            -6.671012103577323e-08,
+            4.969063870388696e-09,
+            -2.9087992045339126e-08,
+            -8.104880875973797e-09,
+            -8.769816618294455e-08,
+            -8.44576392039212e-08,
+            -2.959564353959993e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.00022383407627390994,
+              "precision_pp": 4.5987840779915246e-05
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": -0.00015907937583603537,
+              "recall_pp": 0.0,
+              "precision_pp": 0.00010012292804839618
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -1.0210054892080802e-08,
+          "lead_delta_MAE": [
+            -1.705299367451552e-08,
+            9.948044201429534e-09,
+            -2.1225653290525607e-08,
+            1.5129723711224295e-08,
+            7.481241422425573e-09,
+            -4.918832614811627e-08,
+            -1.656242046648761e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.00644683837890625,
+      "mean_absolute_difference": 1.0038353276609747e-06
+    },
+    {
+      "recipe": "Fixed-MTGNN_T28_NAICS-4_full_MAE",
+      "seed": 45,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 2.8922038093420175e-08,
+          "lead_delta_MAE": [
+            5.428691314004526e-08,
+            2.2099834812787855e-08,
+            -1.0165310007755446e-07,
+            1.3535984356905696e-07,
+            -1.68599503828259e-08,
+            5.0200483077172654e-08,
+            5.9020242515258856e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.00015907937583881093,
+              "recall_pp": 0.00011191703813695497,
+              "precision_pp": -5.604779401702231e-05
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": -0.00015907937583603537,
+              "recall_pp": 0.0,
+              "precision_pp": 0.00014020596713626432
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -3.2054499388187063e-09,
+          "lead_delta_MAE": [
+            -2.256915491705658e-08,
+            1.897905098557963e-08,
+            3.2667715898221944e-08,
+            -3.12405938385044e-08,
+            -3.414222287007855e-08,
+            -1.951143441020082e-11,
+            1.3886566604517213e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": -0.0004062332428791948,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0011862647108784596
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0071125030517578125,
+      "mean_absolute_difference": 1.508970493240724e-06
+    },
+    {
+      "recipe": "Fixed-MTGNN_T28_NAICS-4_full_MAE",
+      "seed": 46,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 7.145731253910841e-09,
+          "lead_delta_MAE": [
+            4.367666797814071e-09,
+            -5.656476622714423e-08,
+            -7.411382884354014e-09,
+            1.3632032458195645e-08,
+            2.3100335867891494e-08,
+            -2.335525805453434e-08,
+            9.625149081950726e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.00011191703813695497,
+              "precision_pp": -2.3784308977869983e-05
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": -0.00015907937583603537,
+              "recall_pp": -0.00011191703813695497,
+              "precision_pp": 0.00012353582602431246
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.00011191703813695497,
+              "precision_pp": -1.4634997391738125e-05
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": 8.076937460745173e-09,
+          "lead_delta_MAE": [
+            2.194757636370304e-08,
+            8.604542574898562e-09,
+            1.9360917630464987e-08,
+            -1.6219576690422656e-08,
+            2.3302227381325553e-08,
+            1.169571125502895e-08,
+            -1.2152836289782225e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.006134033203125,
+      "mean_absolute_difference": 1.3815500464983701e-06
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T14_Adaptive_full_MAE",
+      "seed": 42,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 1.8554106063765384e-09,
+          "lead_delta_MAE": [
+            -7.499646265105623e-09,
+            -2.451090530064857e-09,
+            7.631219006598704e-09,
+            -9.875630688568179e-09,
+            1.5781053902582636e-08,
+            -8.572512328030454e-09,
+            1.797448114722354e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": 4.189383702647405e-09,
+          "lead_delta_MAE": [
+            1.0145945893304428e-08,
+            -4.445819697752901e-09,
+            1.796724374402207e-08,
+            -1.1182839264817957e-08,
+            -3.5092708460632623e-09,
+            2.8375200327977766e-09,
+            1.751290605704168e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0032806396484375,
+      "mean_absolute_difference": 2.4582886554640405e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T14_Adaptive_full_MAE",
+      "seed": 43,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -7.988345019222781e-10,
+          "lead_delta_MAE": [
+            2.5233458939348073e-08,
+            6.498596990245764e-09,
+            -2.7935634117762225e-08,
+            -7.109313798676149e-09,
+            -1.5363858668098325e-08,
+            7.758405990042015e-09,
+            5.3265031514449e-09
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": -0.00015907937583881093,
+              "recall_pp": 0.0,
+              "precision_pp": 8.37747893056573e-05
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -5.539256409802115e-09,
+          "lead_delta_MAE": [
+            -2.8832325362731044e-08,
+            7.598310028886777e-09,
+            -9.62192451200189e-09,
+            3.587316583704065e-09,
+            5.100846424381072e-09,
+            -2.116990633506789e-08,
+            4.562888304214106e-09
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0020904541015625,
+      "mean_absolute_difference": 2.1707419111284743e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T14_Adaptive_full_MAE",
+      "seed": 44,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 7.380212675357439e-09,
+          "lead_delta_MAE": [
+            5.257975681917254e-09,
+            1.9819788846664005e-08,
+            -3.1736441687643605e-09,
+            5.8599209742480995e-09,
+            6.411978268762819e-09,
+            1.2077281229552403e-09,
+            1.6277741001719016e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": 7.684319617307254e-09,
+          "lead_delta_MAE": [
+            9.733418422917325e-09,
+            8.490261316210243e-09,
+            -8.384342100840582e-09,
+            1.8424368778775348e-09,
+            -8.640778095946078e-10,
+            1.6147105648327623e-08,
+            2.6825434966253245e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.002933502197265625,
+      "mean_absolute_difference": 1.3647891672572044e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T14_Adaptive_full_MAE",
+      "seed": 45,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -1.3945144256105965e-09,
+          "lead_delta_MAE": [
+            1.0780741506089332e-08,
+            9.716098739507818e-09,
+            3.897294246976306e-09,
+            3.113888215336253e-10,
+            -6.393338797051299e-09,
+            -5.566075184913552e-09,
+            -2.2507710311416407e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": 8.213517501616579e-09,
+          "lead_delta_MAE": [
+            4.889007993641749e-09,
+            3.5834142968220255e-08,
+            9.80310211723947e-09,
+            -4.00541874963694e-09,
+            5.212340335296505e-10,
+            2.554325499072576e-08,
+            -1.5090700842403892e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0019989013671875,
+      "mean_absolute_difference": 1.8312513448909517e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T14_Adaptive_full_MAE",
+      "seed": 46,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": 1.6398036079655549e-09,
+          "lead_delta_MAE": [
+            -2.080493974859345e-09,
+            1.618892940121119e-08,
+            1.6216888608778467e-08,
+            -1.517362641268958e-08,
+            -6.232162188722275e-09,
+            5.6916175090882e-09,
+            -3.1325276870477725e-09
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.00015907937583325982,
+              "recall_pp": 0.0,
+              "precision_pp": -7.093417789816314e-05
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -6.233306005250687e-09,
+          "lead_delta_MAE": [
+            -5.569120850225892e-09,
+            -2.1206141856115407e-08,
+            -4.978203122374095e-09,
+            -1.3574383653954e-09,
+            4.92803086246215e-09,
+            -1.1330568696780906e-08,
+            -4.1197000083252595e-09
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0013308525085449219,
+      "mean_absolute_difference": 2.023007651221993e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T28_Adaptive_full_MAE",
+      "seed": 42,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -1.1408609761178637e-08,
+          "lead_delta_MAE": [
+            -2.8721233028427162e-09,
+            -3.199081565453023e-08,
+            -3.636725396844384e-08,
+            -6.368668908021347e-09,
+            -2.5060769716138403e-08,
+            2.8420808602017962e-08,
+            -5.62144538029189e-09
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.00011191703813695497,
+              "precision_pp": 1.9276907070597815e-05
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -1.131703015045546e-08,
+          "lead_delta_MAE": [
+            4.4597564366173304e-11,
+            -6.005062041905236e-08,
+            -3.037930337668268e-08,
+            1.172915942830358e-08,
+            -2.6870032530619418e-08,
+            1.7153338194339408e-08,
+            9.153650086157071e-09
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.003753662109375,
+      "mean_absolute_difference": 4.975478041536484e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T28_Adaptive_full_MAE",
+      "seed": 43,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -5.3514549820637665e-08,
+          "lead_delta_MAE": [
+            5.972799422054039e-08,
+            -3.227588992776524e-08,
+            -5.800219842795614e-08,
+            -1.673122838406517e-07,
+            -1.5034762348438757e-07,
+            -7.244778900438401e-08,
+            4.60559417201406e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.00015907937583603537,
+              "recall_pp": 0.0,
+              "precision_pp": -0.00023460466910263378
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -1.527187844764147e-08,
+          "lead_delta_MAE": [
+            -4.423520915569815e-09,
+            -3.05130960697812e-08,
+            -5.807996554362207e-08,
+            -2.4606706139036123e-08,
+            -1.633107060133809e-08,
+            -6.015096493887625e-09,
+            3.306630662974462e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0381317138671875,
+      "mean_absolute_difference": 9.589674564696734e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T28_Adaptive_full_MAE",
+      "seed": 44,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -4.1425051122232335e-09,
+          "lead_delta_MAE": [
+            1.0871745985622047e-08,
+            5.1928471748781785e-08,
+            -3.526971801648905e-08,
+            -2.2082840000345e-08,
+            9.25833524306314e-09,
+            -1.538085348054118e-08,
+            -2.8322677265654372e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": -0.00015907937583603537,
+              "recall_pp": 0.0,
+              "precision_pp": 0.00010008067825584277
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": 2.1581239227838042e-08,
+          "lead_delta_MAE": [
+            2.1128096118474604e-08,
+            7.306195982288342e-08,
+            3.1831511566356198e-09,
+            -3.4507365428326596e-09,
+            3.70048290328323e-08,
+            2.690069335612116e-08,
+            -6.759318349248142e-09
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.0029058456420898438,
+      "mean_absolute_difference": 5.003192899726706e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T28_Adaptive_full_MAE",
+      "seed": 45,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -7.821999481763672e-09,
+          "lead_delta_MAE": [
+            -6.353866974603375e-09,
+            -9.012732792276056e-09,
+            2.2871728229547266e-09,
+            -3.457073782730706e-09,
+            -4.039831383593811e-09,
+            4.4806000675956326e-09,
+            -3.8658264329692116e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.00022383407628501217,
+              "precision_pp": -5.009629151508932e-05
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.00011191703813695497,
+              "precision_pp": 2.377496270966617e-05
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.0001119170381480572,
+              "precision_pp": -2.240399411546079e-05
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.00011191703813695497,
+              "precision_pp": -1.9838495046720084e-05
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -1.561472222370643e-08,
+          "lead_delta_MAE": [
+            -2.5428973732037442e-08,
+            -1.2860822624095227e-08,
+            -4.9023872629516006e-08,
+            -1.209708933432451e-09,
+            -5.3096187725702205e-08,
+            2.3268779208050923e-08,
+            9.04773087078741e-09
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": -0.00187927535142407,
+              "precision_pp": -0.0014463897063943243
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.002946138381958008,
+      "mean_absolute_difference": 8.15030009960564e-07
+    },
+    {
+      "recipe": "Adaptive-MTGNN_T28_Adaptive_full_MAE",
+      "seed": 46,
+      "details": [
+        {
+          "cohort": "All",
+          "delta_MAE": -2.1090797192908774e-09,
+          "lead_delta_MAE": [
+            4.200514594142236e-08,
+            -4.773459061368982e-08,
+            2.2131631558648683e-08,
+            -7.233978971240843e-08,
+            2.8881861416999967e-08,
+            2.5532238706488608e-08,
+            -1.3240055332497507e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.00015907937583881093,
+              "recall_pp": 0.0,
+              "precision_pp": -6.773321746811334e-05
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": -0.00015907937583325982,
+              "recall_pp": 0.00011191703813695497,
+              "precision_pp": 0.00010329618114202077
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        },
+        {
+          "cohort": "Low-history",
+          "delta_MAE": -4.289330029932311e-09,
+          "lead_delta_MAE": [
+            -2.7653277254800337e-08,
+            -3.7657068411687585e-08,
+            -6.210210837989633e-09,
+            1.7334515799576987e-08,
+            -5.579712771762858e-08,
+            5.530934185737356e-08,
+            2.464851635562941e-08
+          ],
+          "rate_deltas": [
+            {
+              "threshold": 0.1,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.25,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 0.5,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 1.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            },
+            {
+              "threshold": 2.0,
+              "FAR_pp": 0.0,
+              "recall_pp": 0.0,
+              "precision_pp": 0.0
+            }
+          ]
+        }
+      ],
+      "max_absolute_difference": 0.003051280975341797,
+      "mean_absolute_difference": 8.206794928655312e-07
+    }
+  ],
+  "status": "diagnostic_evidence_only",
+  "accepted_january_records": 296
+}

@@ -1,0 +1,143 @@
+{
+  "status": "complete",
+  "periods": [
+    "2020-12",
+    "2021-01"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "target_POIs": 1935,
+  "maximum_negative_control_error": 0.0,
+  "estimand": "Mean of within-fit changes over five fixed seeds, not a prediction ensemble",
+  "uncertainty": "Paired seven-origin blocks and 3-km spatial cells, conditional on these fitted models and this panel",
+  "activation_denominators": "Net changes divide by all zero/positive events; fraction removed/lost divides by originally activated zero/positive events",
+  "outcome_conditioned_regimes": "Descriptive partitions; performance by these regimes is not an independent validation",
+  "provenance": [
+    {
+      "period": "december",
+      "graph": "NAICS-2",
+      "seed": 42,
+      "counterfactual_sha256": "94b9fa1e3a77606a0d7f0805e2801c2057cd6289c8d4f4168630442ba2c7cab7"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-2",
+      "seed": 43,
+      "counterfactual_sha256": "3d9b9c4a51cd0b971415e2ae9716f2723048a018752bc5120a2c5f05782c5318"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-2",
+      "seed": 44,
+      "counterfactual_sha256": "32408f5bdc86e8cda64e87eebc33a6db684a8cb1e2ae11d552f90729705009de"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-2",
+      "seed": 45,
+      "counterfactual_sha256": "ec1508c0abffc02c17a91521f941001a10a5fbeedeb6884b77a1e1abb365111f"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-2",
+      "seed": 46,
+      "counterfactual_sha256": "ef69246fb587272219b5940d7601403f3b51f241f73a8e1fef3682e69d804ea7"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-4",
+      "seed": 42,
+      "counterfactual_sha256": "11e2d4c81302a6dfac75021e1c3f82968ae9cba9eb814358b0eb73c04995365e"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-4",
+      "seed": 43,
+      "counterfactual_sha256": "2848e1b73032e55c7d624666d7662bc33243f4d39072a6be907a34bfeaba809b"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-4",
+      "seed": 44,
+      "counterfactual_sha256": "b4b89fc0b0868dca2c5098ada65654405d8c2233643c59cd4c7ea7956278fa2f"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-4",
+      "seed": 45,
+      "counterfactual_sha256": "ee9507ab90744c4ba6aed08f21a2a6ae891c04ad9e8d5419ff5bf4b5cdd016e4"
+    },
+    {
+      "period": "december",
+      "graph": "NAICS-4",
+      "seed": 46,
+      "counterfactual_sha256": "a7082e5ef8cafecbe9daeaa8c4eee8d56741c34e88dac37a17e4629ecc1c90ec"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-2",
+      "seed": 42,
+      "counterfactual_sha256": "214bb96b8de40e89ff3cbe86a383627e8ca9b2d63a86b8335f90902d83d68cff"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-2",
+      "seed": 43,
+      "counterfactual_sha256": "952dedeb9d6e51899f7a96da189382c5605eadb7beb10f08c7a098867f3fc712"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-2",
+      "seed": 44,
+      "counterfactual_sha256": "34f047786ff74f9cbac4e68b1e8a9ae9afc4e5e73af009acbc92da68198a22cf"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-2",
+      "seed": 45,
+      "counterfactual_sha256": "cc86967e83ac3c919c5fdec8b80b89c24022db395a596b708ad44315e4b859c8"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-2",
+      "seed": 46,
+      "counterfactual_sha256": "1b71a67d487121a35374e0f3c4ec1dae1666470b71fc4e033d68f87f5ab2e4d3"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-4",
+      "seed": 42,
+      "counterfactual_sha256": "3410677253a82d83efb9387f37538b569e2988278b22068345559896856bf8a3"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-4",
+      "seed": 43,
+      "counterfactual_sha256": "58c0f7fd8d7159be3c79873b325ed52f8bfcc86f7b2a1a5dab52d37f4f5af536"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-4",
+      "seed": 44,
+      "counterfactual_sha256": "cbd8d35227914f7229435588aaaa667d80e462da9cad0fd4669a2d3f870f5ce4"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-4",
+      "seed": 45,
+      "counterfactual_sha256": "01cd707051c7661278311c9f536ed15cb401ca9a781d8c1c6792d8f122552acc"
+    },
+    {
+      "period": "january",
+      "graph": "NAICS-4",
+      "seed": 46,
+      "counterfactual_sha256": "1b50fadc925ef7aa9d8af8295a65abca740c9ea0690c6e9e9a461fe226b1d2e5"
+    }
+  ],
+  "source_sha256": "d9c255b570bdcc36e641636de8c1816b4f316cabea3ce7dc713cdea266f8c789"
+}

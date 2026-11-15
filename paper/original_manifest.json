@@ -1,0 +1,108 @@
+{
+  "source_project": "https://www.overleaf.com/project/6953dd9e9db9f3ef2cddbd36",
+  "snapshot_date": "2026-11-14",
+  "files": [
+    {
+      "path": "art/attribution_cluster_map.pdf",
+      "size": 6775204,
+      "sha256": "02963e9aaff30a975f240f62b989ed928e82c73894e6e146129283c8f689a525",
+      "git_sha": "d0ab11eaf15b43f14d639f80de011076a0907acf"
+    },
+    {
+      "path": "art/attribution_fingerprint.pdf",
+      "size": 57907,
+      "sha256": "d0b1a0047ea90d2742330749a9f4eb3b182dee8e219565a03233160ba3325470",
+      "git_sha": "6bac8add2067525a0acbc4dbcc9a295f875af76c"
+    },
+    {
+      "path": "art/category_visit.pdf",
+      "size": 13107,
+      "sha256": "a96102491dc0124fb27a4893f7766061554d9fa5397b139c0d28025552289f7a",
+      "git_sha": "54fd49d407363630d1d40a4317def709ecf6fcbe"
+    },
+    {
+      "path": "art/daily_visit.pdf",
+      "size": 11069,
+      "sha256": "520dfc435cacb49dfb3b971fac39e09dc9787ceacea82d3cd4733758451e17e4",
+      "git_sha": "a92ccb829774bbb8ccd7a6a21f9209d9e356d1b3"
+    },
+    {
+      "path": "art/exp_logic.png",
+      "size": 1597053,
+      "sha256": "eff1ec459e4ba0f2787dd40160bdc73503af64dcfcc7b5d1a923cfded1fc4bd1",
+      "git_sha": "09847eee3ca45875fdf324395285a6ad1d6ff3bc"
+    },
+    {
+      "path": "art/figure1_selected_models_mae_grouped_bar.png",
+      "size": 87270,
+      "sha256": "f744ce19fe6b54900a9e97e11e034ab036eed3086a8db28afa5f70b3e2e92ca1",
+      "git_sha": "941e41e79ebdcf5545d0666e1b76c12dd156308a"
+    },
+    {
+      "path": "art/figure2_graph_adjacency_heatmaps.png",
+      "size": 254522,
+      "sha256": "d0a102ba48e88d9599422182ec61260fefa765c6c2f65fa86b7b18ddeffd999e",
+      "git_sha": "307b9ce8e6c2ecdfc00c37a5bf5f57128e8efaa4"
+    },
+    {
+      "path": "art/figure3_tradeoff_all_models.png",
+      "size": 210116,
+      "sha256": "c53de88a268362c27ca81ff0cd04d0a4082037dea6b7484950d56994b196a82b",
+      "git_sha": "60f711b69d1656fac1314d6b78cd0b186823fdd8"
+    },
+    {
+      "path": "art/forecasting_performance_across_horizons.pdf",
+      "size": 59850,
+      "sha256": "f997e81ac3375d051911d24cc63f45491accaba18faa35b3f29eb5e2a7a3b339",
+      "git_sha": "89a5d43a88f49258bc2a079c3e8f8166f43b8d3e"
+    },
+    {
+      "path": "art/low_history_graph_transfer_two_panel_map.png",
+      "size": 224113,
+      "sha256": "6f9a2b6a5e84055d7f1272b4edabc01413dd3cff06f68c09b2d89e72e7ee099e",
+      "git_sha": "c68d17abd8624a8e99a73b943b56ffe66d276405"
+    },
+    {
+      "path": "art/neighbor_perturbation_tradeoff.pdf",
+      "size": 42273,
+      "sha256": "cecbdcaf77cb008f93539254b498a8c4cfdc2f0e21c2cdffd55fa81d63c8016e",
+      "git_sha": "0af4f341b06707f2fde0dc6c7808e693129184e9"
+    },
+    {
+      "path": "art/outcome_conditioned_graph_transfer.pdf",
+      "size": 57647,
+      "sha256": "e10fac515e4de1bc1427a80d82d15b59fc1ff8226c23bc19db661b1b6dc35e05",
+      "git_sha": "603a5c07c6b6982831b4d412d051e6adaeacee44"
+    },
+    {
+      "path": "art/poi_temporal_sparsity.pdf",
+      "size": 54963,
+      "sha256": "01460abe8736b33452afa53740694d95e3e3e21fc3f546a9e47bb425779af045",
+      "git_sha": "e3f80e9ed7b398e8e9c4ca534dc21199243195c6"
+    },
+    {
+      "path": "art/recovery_activation_tradeoff.pdf",
+      "size": 45686,
+      "sha256": "8ce8fad0f18f335338626249caef35d6ec94d9f6c0686c99abd6535236a4918c",
+      "git_sha": "dcbfe44d504bf77f9deb98887eb2f3c2a1ee53a2"
+    },
+    {
+      "path": "main.tex",
+      "size": 13830,
+      "sha256": "bd8a6a28e08dbcabd849199f3d7ce02f912a0b8f882dff300af29083c1f89d1f",
+      "git_sha": "6219a74e84807ffe18b44a6faa3fe6a7565d521d"
+    },
+    {
+      "path": "outline.tex",
+      "size": 108717,
+      "sha256": "f3f670d4a26932b2e486c29543d5bc7b28c8b5964582855d10af8cc364dcac63",
+      "git_sha": "2d8495f42231b0b8c8fb8cc002b475e6d69b5ecd"
+    },
+    {
+      "path": "reference.bib",
+      "size": 23855,
+      "sha256": "0fe6b1725504cb8f07992f87f2572e3d817aa881974675ed961832519113e04f",
+      "git_sha": "794a22157afb24380a1ee590e00b974588d1c26a"
+    }
+  ]
+}

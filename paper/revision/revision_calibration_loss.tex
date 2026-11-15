@@ -1,0 +1,27 @@
+\begin{table}[!htbp]
+\centering
+\begingroup
+\singlespacing
+\fontsize{9pt}{10.5pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Loss-function and calibration diagnostics on low-history POIs in December at $T=14$, $H=7$. Neural models use identity adjacency. Calibration minimizes validation MAE. The last two columns use a threshold selected to keep validation FAR at or below 10\%; all rates are percentages.}
+\label{tab:calibration_loss}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Model (training loss) & Raw MAE & Raw DMR & Raw FAR & \makecell{Calibrated\\DMR} & \makecell{Calibrated\\FAR} & \makecell{Matched-threshold\\test FAR} & \makecell{Matched-threshold\\test recall} \\
+\midrule
+GraphGRU (MAE) & $0.253\pm 0.007$ & $12.0\pm 1.2$ & $2.2\pm 0.4$ & $3.0\pm 1.2$ & $0.3\pm 0.1$ & $13.7\pm 0.2$ & $27.9\pm 0.9$ \\
+GraphGRU (MSE) & $0.328\pm 0.029$ & $23.7\pm 3.8$ & $7.5\pm 2.3$ & $1.9\pm 0.8$ & $0.2\pm 0.1$ & $13.5\pm 0.2$ & $27.3\pm 0.7$ \\
+Fixed-MTGNN (MAE) & $0.242\pm 0.011$ & $7.9\pm 1.9$ & $1.0\pm 0.2$ & $3.5\pm 0.4$ & $0.4\pm 0.0$ & $13.2\pm 0.3$ & $26.0\pm 1.7$ \\
+Fixed-MTGNN (MSE) & $0.353\pm 0.025$ & $24.0\pm 3.4$ & $6.6\pm 5.9$ & $2.0\pm 1.2$ & $0.2\pm 0.1$ & $12.6\pm 0.9$ & $24.0\pm 4.1$ \\
+Shared-LSTM (MAE) & $0.251\pm 0.008$ & $12.0\pm 1.5$ & $1.8\pm 0.2$ & $6.5\pm 0.2$ & $0.7\pm 0.0$ & $14.4\pm 0.0$ & $30.6\pm 0.1$ \\
+Shared-LSTM (MSE) & $0.273\pm 0.011$ & $16.5\pm 2.0$ & $3.0\pm 0.5$ & $6.4\pm 0.2$ & $0.7\pm 0.0$ & $14.3\pm 0.1$ & $30.2\pm 0.1$ \\
+NLinear-ridge & 0.301 & 23.4 & 9.2 & 0.1 & 0.0 & 13.0 & 27.0 \\
+TSB & 0.334 & 27.5 & 8.9 & 5.8 & 0.7 & 13.5 & 29.2 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}
