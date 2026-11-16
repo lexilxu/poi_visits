@@ -1,11 +1,11 @@
 {
   "status": "minimal_items_1_to_3_locally_compiled_and_verified",
-  "date_utc": "2026-11-16T05:03:02.847813+00:00",
+  "date_utc": "2026-11-16T05:08:48.358586+00:00",
   "entrypoint": "outline.tex",
   "alternate_entrypoint": "main.tex",
   "pdf": "LLM_POI_Revision.pdf",
   "pdf_pages": 37,
-  "pdf_sha256": "f98f606bdc30013a6a372e76f9bc661d7a46e9761009691ab9c008e28ce5f522",
+  "pdf_sha256": "b7d641679970ce4c9b6852b7bc13a726bad743a35c16368c292fd85a4cfc1517",
   "source_files": {
     "reference.bib": "0fe6b1725504cb8f07992f87f2572e3d817aa881974675ed961832519113e04f",
     "art/attribution_cluster_map.pdf": "02963e9aaff30a975f240f62b989ed928e82c73894e6e146129283c8f689a525",
@@ -22,8 +22,8 @@
     "art/outcome_conditioned_graph_transfer.pdf": "e10fac515e4de1bc1427a80d82d15b59fc1ff8226c23bc19db661b1b6dc35e05",
     "art/poi_temporal_sparsity.pdf": "01460abe8736b33452afa53740694d95e3e3e21fc3f546a9e47bb425779af045",
     "art/recovery_activation_tradeoff.pdf": "8ce8fad0f18f335338626249caef35d6ec94d9f6c0686c99abd6535236a4918c",
-    "outline.tex": "e9fd220c3278a97c7b59355f07d910b08262526648c4b960311b7418813fc0e6",
-    "LLM_POI_Revision.pdf": "f98f606bdc30013a6a372e76f9bc661d7a46e9761009691ab9c008e28ce5f522",
+    "outline.tex": "a24fdae3c71c10258382b9b24ca05af64df76144ec686252f4c1635e0822e723",
+    "LLM_POI_Revision.pdf": "b7d641679970ce4c9b6852b7bc13a726bad743a35c16368c292fd85a4cfc1517",
     "main.tex": "b72093b8a8141ff85a60472028a3b64ea4fa55418ba24808559dc6fa55f0902c",
     "COORDINATE_ORIGIN_PROTOCOL.md": "d09a93e92d64c04408edd32e4e37accdffc19ec6c6d6c02c9f9ab5b49bc4eb84",
     "COORDINATE_ORIGIN_RESULT.json": "9e8e0e3291d919aae3e39399941d057239f7439476954cca398ccf445689c13c"

@@ -1546,7 +1546,7 @@ Without parent & \(1.451\pm0.005\) & \(1.467\pm0.008\) \\
 \endgroup
 \end{table}
 
-Activity-matched replacement produces a smaller error reduction than zeroing active neighbors in both months. Zeroing active neighbors removes 40.1\% of false activations and 22.5\% of positive activations in December; matched replacement removes 17.1\% and 9.5\%, respectively. Each percentage uses the corresponding originally activated events as its denominator. Parent removal produces similar MAE in both evaluation months.
+Activity-matched replacement has a December paired 95\% joint interval of \([-0.0066,-0.0004]\) visits. The January interval is \([-0.0068,-0.0009]\); resampling follows \ref{app:minimal_forecasting}. Zeroing active neighbors removes 40.1\% of false activations and 22.5\% of positive activations in December; matched replacement removes 17.1\% and 9.5\%, respectively. Each percentage uses the corresponding originally activated events as its denominator. Parent removal produces similar MAE in both evaluation months.
 
 We also test sensitivity to the origin of the parent embedding in the five supplementary GNN-static fits. Let \(\mathbf e_j^{P}\) be the parent embedding, \(\mathbf e_{\varnothing}^{P}\) the missing-parent embedding, \(\mathbf W_P\) its projection weights, and \(\mathbf b\) the projection bias. The transformation
 \[
