@@ -90,7 +90,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{Diagnosing Graph-Based Point-of-Interest Visit Forecasts: Temporal Controls, Attribution Stability, and Parking Validation}
+\title{An Explainable Framework for Points of Interest (POI) Demand Forecasting with Temporal Graph Networks}
 
 \author[a]{Xu Liu}
 \ead{xuliu8@uw.edu}
@@ -112,16 +112,17 @@ University of Washington, Seattle, WA 98195, USA}
 
 
 \begin{abstract}
-Graph relationships can improve point-of-interest (POI) visit forecasts while also propagating activity that produces false activations.
-We evaluate this tradeoff using 9,884 Seattle POIs over October 2020--January 2021, earlier-period temporal controls in Seattle and Portland, and independent paid-parking observations.
-A graph-augmented gated recurrent unit (GraphGRU) and a Multivariate Time Series Graph Neural Network (MTGNN) are compared with linear, recurrent, and intermittent-demand baselines under common validation and five-seed protocols.
-Structural matching shows that input projection and the last-observation readout account for much of the difference between GraphGRU and a long short-term memory (LSTM) baseline.
-Under common validation false activation targets, temporal and intermittent-demand baselines remain competitive.
-Matched neighbor perturbations show that active neighbors support both correct detections and false activations.
-Feature-removal experiments yield small parent and semantic effects.
-A prediction-preserving shift of parent embeddings changes 27.8\% of attribution regimes, demonstrating sensitivity to the embedding origin.
-In an external evaluation of 1,343 blockfaces, adding MTGNN visit forecasts reduces paid-occupancy-ratio error by about 0.3\%, while high-pressure monitoring recall changes little.
-These results separate temporal architecture, graph information, attribution representation, and external predictive utility when assessing POI forecast models.
+Points of interest (POIs), such as stores, clinics, and transit facilities, show where people access urban services and engage in daily activities.
+Their visit counts describe how activity varies across locations and time, providing information for local mobility and service planning.
+In practice, many POIs have sparse or intermittent visit histories, making future activity difficult to forecast from their own past observations.
+Even when statistical or machine learning models forecast POI visits accurately, explaining their predictions and identifying the underlying information sources remain challenging.
+To address these challenges, we use an explainable temporal graph framework to forecast POI visits and examine when information from related POIs improves predictions and how model behavior varies across locations.
+Using 92 days of data for 9,884 POIs in Seattle, we apply Evolving Graph Convolutional Networks (EvolveGCN) and Multivariate Time Series Graph Neural Networks (MTGNN) to forecast POI visits while incorporating spatial, functional, and visit-based relationships among POIs.
+The forecasting results show that MTGNN achieves the lowest mean absolute error (MAE) across four input-window and forecast-horizon settings, while EvolveGCN with identity adjacency achieves greater positive-demand recovery among low-history POIs at the cost of more false activations.
+Neighbor-group perturbations further reveal that recently active neighbors contribute to both positive-demand recovery and false activation.
+We use gradient-based feature attribution to characterize how historical visits and static attributes contribute to individual predictions, revealing heterogeneous attribution patterns across POIs and urban functions.
+Finally, we examine parent-place information and compare category labels and industry codes at different levels of granularity.
+The results show a small parent-place attribution share, while broad industry classifications dominate semantic attribution and more specific functional connections are associated with fewer spurious transfers.
 \end{abstract}
 
 
@@ -131,27 +132,28 @@ These results separate temporal architecture, graph information, attribution rep
 
 Points of interest (POIs), such as stores, clinics, and transit facilities, show where people access urban services and engage in daily activities. 
 Their visit counts describe how activity varies across locations and time, providing potential information for local mobility and service planning. 
-Historical visit counts provide inputs for forecasting local activity and anticipating changes in demand \citep{hajisafi2023learning}.
-However, sparse or intermittent visit histories (e.g., frequent zero-visit days with only occasional positive counts) make future activity difficult to forecast from the past observations of that POI \citep{turkmen2021forecasting,zhuang2022uncertainty}.
-Some studies therefore use information from related POIs to improve forecasts \citep{hajisafi2023learning}.
-Excessive graph aggregation can make node representations increasingly similar \citep{li2018deeper,oono2020graph}, while high activity at related locations need not imply high future visits at a sparse target POI.
+To anticipate changes in demand and support transportation and local service planning, one can forecast future POI visits by leveraging historical visit counts \citep{hajisafi2023learning}.
+However, sparse or intermittent visit histories (e.g., frequent zero-visit days with only occasional positive counts) make future activity difficult to forecast from the past observations of a POI \citep{turkmen2021forecasting,zhuang2022uncertainty}. Some studies therefore use information from related POIs to improve forecasts \citep{hajisafi2023learning}, but connecting a POI to distant locations may cause over-smoothing (e.g., producing near-identical forecasts for POIs with different visit patterns), and directly using neighboring visit counts may lead to over-prediction (e.g., forecasting substantially more visits than the POI actually receives) for POIs with limited histories \citep{zhang2026causalpoi}.
 
 To address these challenges, machine learning (ML) models have been introduced to learn shared patterns across POIs while using the visit history and attributes of each POI to distinguish its own activity.
 These models represent visit observations and POI attributes as feature vectors and learn how these inputs relate to future visit counts.
-Recurrent models process historical inputs sequentially by updating hidden states that summarize earlier observations \citep{hochreiter1997long}.
+Notably, recurrent models process historical inputs sequentially by updating hidden states that summarize earlier observations, allowing recent and earlier visits to inform forecasts \citep{hochreiter1997long}. 
 Graph neural networks (GNNs) further represent each POI as a \textit{node} with its own feature vector and relationships among POIs as \textit{edges}. 
 The edge weights form an \textit{adjacency matrix}, which specifies which POIs exchange information and the relative strength of their connections \citep{hajisafi2023learning}.
 Selecting and weighting these connections based on spatial proximity and functional similarity can limit noisy relationships among POIs and reduce over-smoothing.
+For POIs with sparse or intermittent visit histories, scaling adjacency weights derived from neighboring POIs can also reduce over-prediction \citep{zhang2026causalpoi}.
 
 POI visits exhibit both spatial and temporal dependencies across locations and over time.
 To capture spatial and temporal dependencies jointly, some studies have begun using spatiotemporal graph neural networks (ST-GNNs) for POI visit forecasting \citep{hajisafi2023learning,zhang2026causalpoi}.
-Representative architectures include Evolving Graph Convolutional Networks (EvolveGCN), which update graph-convolution parameters across input days \citep{pareja2020evolvegcn}, and Multivariate Time Series Graph Neural Networks (MTGNN), which combine graph learning with temporal convolutions \citep{wu2020connecting}.
-We compare a graph-augmented gated recurrent unit (GraphGRU) with a fixed-adjacency MTGNN to examine how temporal modeling and supplied POI relationships affect forecasts.
+Representative architectures include Evolving Graph Convolutional Networks (EvolveGCN) and the Multivariate Time Series Graph Neural Network (MTGNN). 
+EvolveGCN recurrently updates graph-convolution parameters across input days \citep{pareja2020evolvegcn}, while MTGNN learns relationships among time series and uses temporal convolutions to capture lagged patterns \citep{wu2020connecting}. 
+These models provide a natural framework for POI visit forecasting by jointly modeling visit histories and relationships among POIs.
+We therefore use EvolveGCN and MTGNN to predict future visit counts for individual POIs.
 
 For urban planners and transportation agencies, forecasting future POI visits provides information about expected demand, while understanding what drives those forecasts can offer additional guidance for service planning and operational decisions \citep{hajisafi2023learning}. 
-For example, a clinic forecast may depend more on its recorded functional identity than on its coordinates. 
-The parent-place context of a clinic within a larger medical facility may also contribute to its predicted visits.
-Attribution can show which recorded inputs support a forecast; estimating the effect of changing a POI requires a separate behavioral analysis.
+For example, visits to a clinic may be driven more by its functional identity than by its location, so opening a restaurant at the same site may not necessarily attract the same level of customer traffic. 
+Meanwhile, the parent-place context of a clinic within a larger medical facility may also contribute to its predicted visits.
+Therefore, understanding what drives predicted visits can help decision makers assess whether demand is tied to the location itself or to the specific type of POI operating there.
 Yet neural forecasting models are often treated as black boxes because their prediction processes are difficult to interpret \citep{ribeiro2016should,lipton2018mythos}. In particular, it is hard to tell whether a high forecast for a sparse POI reflects useful evidence of future visits or excessive reliance on activity at related locations.
 
 In recent years, developments in explainable artificial intelligence (XAI) provide tools for examining the information behind individual predictions. One widely used approach is \textit{feature attribution}, which estimates the contributions of input features to a model output and has been applied to image and text models to help users uncover latent information underlying their predictions \citep{ribeiro2016should,pmlr-v70-sundararajan17a}. 
@@ -159,31 +161,30 @@ Among feature attribution methods, gradient-based approaches are particularly su
 This computational efficiency also enables fine-grained analysis across historical days and POI attributes. Specifically, gradient-based approaches backpropagate from a target prediction to the input and use the resulting gradients to quantify how sensitive that prediction is to individual input features. 
 We therefore use gradient-based attribution to identify which inputs drive POI visit predictions, assign POIs to attribution regimes according to their relative feature contributions, and examine how these contributions vary across POI types and urban contexts.
 
-Using 92 days of observations for 9,884 POIs in Seattle and a further 31-day evaluation on the same cohort, we examine the predictive value and interpretation of temporal graph models.
+Using a dataset that includes 92 days of observations for 9,884 POIs in Seattle, we use an explainable forecasting framework that combines EvolveGCN and MTGNN with gradient-based feature attribution. 
 To examine how different relationships among POIs affect forecasting, we construct alternative adjacency matrices based on spatial proximity, functional similarity, and historical visit patterns, and perturb selected neighbor groups to assess how their information changes individual forecasts. 
-We compare attribution profiles with retrained feature-removal effects and resolve parent identities that the original encoding pooled.
-An external evaluation links POI forecasts to paid-parking observations and a fixed monitoring budget.
+We next incorporate diverse POI-level attributes to investigate which characteristics drive individual predictions.
 To further examine forecasting behavior when historical information is sparse, we focus particularly on \textit{low-history POIs}, identified by frequent zero visits and small positive historical averages during training. 
 Based on these preliminary analyses, this study aims to address four research questions:
 \begin{compactenum}
-    \item \textbf{How do temporal graph models compare with simpler forecasting methods for POI visits and an external parking-monitoring task?}
+    \item \textbf{How do temporal graph models perform relative to simpler forecasting methods across different historical input windows and forecast horizons, particularly for POIs with sparse visit histories?}
     \item \textbf{When does information from related POIs improve forecasts for low-history POIs, and when does it lead to over-prediction?}
     \item \textbf{Which information sources drive POI visit predictions, and how do these attribution profiles vary across POIs and urban functions?}
     \item \textbf{How do parent-place context and semantic information (i.e., category and industry classifications) at different levels of granularity contribute to POI visit predictions?}
 \end{compactenum}
 
 To answer the above questions, we conduct a sequence of forecasting and attribution experiments. 
-We compare GraphGRU and MTGNN with historical-average, autoregressive, linear, and intermittent-demand baselines, together with long short-term memory (LSTM) networks \citep{hochreiter1997long}. The experiments use two input lengths and seven forecast leads.
-We measure both positive-visit recovery and false activations among low-history POIs. We use \textit{zero-demand collapse} to describe near-zero forecasts for observations with positive visits.
+We first compare EvolveGCN and MTGNN with historical-average, autoregressive ridge regression, and long short-term memory (LSTM) baselines across different historical input windows and forecast horizons \citep{hochreiter1997long}. 
+In addition to aggregate forecasting error, we evaluate whether the models can recover positive visits for low-history POIs without over-predicting zero-visit observations, thereby examining \textit{zero-demand collapse}, defined as near-zero forecasts for observations with positive visits.
 We then compare alternative graph structures and perturb selected groups of connected POIs to determine how information transferred from related POIs affects individual forecasts. 
 Finally, we use gradient-based feature attribution to identify the information sources underlying POI predictions, assign POIs to attribution regimes, and examine the contributions of parent-place information and semantic attributes at different levels of granularity.
-Structural matching separates recurrent-cell comparisons from differences in input projection and readout. Earlier-period Seattle and Portland cohorts extend this temporal comparison, and independent parking observations assess the value of POI forecasts beyond the visit panel.
 
 
-Aggregate forecast accuracy and intermittent-visit detection yield different model rankings.
-Training loss and forecast calibration substantially change recovered visit mass. At common validation false activation rates, rankings vary across graph, temporal, and intermittent-demand models.
-For low-history POIs, high neighbor activity can increase error even when functional relationships connect the locations; matched interventions show that active neighbors support both correct detections and false activations.
-Attribution profiles differ across POIs, but their regime assignments are sensitive to the attribution method and fitted seed, motivating a separate assessment of feature utility through retraining.
+The results show that MTGNN achieves the lowest forecasting error across all four input-window and forecast-horizon settings, while EvolveGCN with identity adjacency recovers more positive demand mass among low-history POIs at the cost of more false activations.
+For low-history POIs, information from related POIs can improve the recovery of positive visits, but such information can also raise predictions when no visits occur, indicating that graph-based transfer is not uniformly beneficial across prediction settings.
+The attribution results reveal heterogeneous attribution profiles across POIs, with varying reliance on visit history, location, functional identity, parent-place context, and other static attributes.
+Parent-place information receives small attribution shares, while broad industry classifications show stronger semantic attribution and finer-grained functional connections are associated with fewer spurious transfers.
+
 
 The remainder of the paper is organized as follows.
 Section~\ref{lit} reviews the relevant literature.
@@ -210,7 +211,7 @@ Longer-horizon forecasts are more likely to accumulate prediction errors \citep{
 Recursive approaches repeatedly apply a one-step-ahead model, whereas direct approaches estimate separate predictions for different horizons \citep{marcellino2006comparison,chevillon2007direct}.
 Because recursive forecasts may accumulate errors and direct forecasts require horizon-specific models, \citet{taieb2012review} examined multi-output and hybrid strategies that combine their advantages.
 Multi-step traffic forecasting similarly shows that prediction performance can change as the forecast horizon increases \citep{wang2020forecast}.
-We therefore evaluate POI forecasting performance separately at each forecast lead.
+We therefore evaluate POI forecasting performance across multiple forecast horizons.
 
 A further challenge arises when POI visit histories are sparse or intermittent, with many zero-visit periods and only occasional positive observations.
 To address such settings, \citet{croston1972forecasting} separated positive demand sizes from inter-arrival intervals, while \citet{syntetos2005accuracy} introduced a bias-adjusted estimator and \citet{teunter2011intermittent} updated demand-occurrence probabilities during zero-demand periods.
@@ -218,7 +219,7 @@ More recently, \citet{turkmen2021forecasting} combined renewal processes with re
 Sparse observations also complicate evaluation: all-zero forecasts can perform well under some aggregate accuracy measures despite missing positive demand \citep{turkmen2021forecasting}.
 For low-history POIs, aggregate error may therefore mask whether a model captures occasional positive visits or simply produces consistently small forecasts.
 
-Motivated by these studies, we evaluate POI visit forecasts across different historical input windows and forecast leads.
+Motivated by these studies, we evaluate POI visit forecasts across different historical input windows and forecast horizons.
 To examine whether models can recover positive visits without increasing false positive predictions, we compare temporal graph models with simpler baselines and separately evaluate positive- and zero-visit observations for low-history POIs.
 
 
@@ -232,11 +233,10 @@ In spatial forecasting, \citet{yao2018deep} combined similarities in regional de
 Some studies rely on predefined network structure \citep{li2018diffusion}, whereas others learn dependencies directly from data \citep{wu2019graph,bai2020adaptive}.
 
 For POIs, relationships may arise from historical activity, geographic proximity, or functional characteristics. 
-To identify useful connections while limiting irrelevant information, \citet{hajisafi2023learning} developed the Busyness Graph Neural Network (BysGNN), combining geographic, semantic, and temporal information to learn POI relationships.
+To identify useful connections while limiting irrelevant information, \citet{hajisafi2023learning} integrated geographic distance, historical visit patterns, textual attributes, and category relationships with mechanisms that filter noisy connections. 
 \citet{zhang2026causalpoi} similarly used functional interactions with surrounding locations to supplement limited historical information for newly introduced POIs. 
 However, excessive information sharing can make node representations increasingly similar and weaken location-specific visit patterns \citep{li2018deeper,oono2020graph}. 
-This motivates evaluating information sharing through both aggregate accuracy and its effects on positive- and zero-visit events.
-For sparse existing POIs, we use calibration, degree-controlled graphs, and matched neighbor interventions to distinguish forecast scale, neighborhood composition, and sensitivity to neighbor histories.
+This suggests that related-POI information is useful only when it supplements limited histories without obscuring meaningful differences in activity across locations.
 
 POI context can also reflect whether an individual establishment is located within a larger containing place such as a shopping mall, airport, or stadium, i.e., parent-place relationships.
 For example, \citet{gould2005contracts} examined customer externalities among tenants within shopping malls, suggesting that activity at an individual establishment may also be associated with its surrounding parent place.
@@ -258,6 +258,7 @@ For example, \citet{bento2021timeshap} developed TimeSHAP to attribute recurrent
 For graph predictions, \citet{ying2019gnnexplainer} identified influential subgraphs and node features, and \citet{luo2020parameterized} developed an explainer that can be applied across multiple graph instances.
 To characterize broader model behavior, \citet{lundberg2020local} aggregated attribution profiles to identify groups with similar patterns of model reliance.
 This approach provides a way to examine whether different observations systematically depend on different information sources.
+\citet{tygesen2023unboxing} learn and interpret transport-prediction graphs through neural relational inference. Together with the contextual POI graph learning of \citet{hajisafi2023learning}, this work motivates our empirical focus on sparse-visit errors, neighbor-input sensitivity, and relative attribution profiles.
 
 To identify which information sources drive individual POI forecasts, we use gradient-based attribution to quantify the contributions of historical visits and static POI attributes.
 We then assign POIs to attribution regimes according to their relative feature contributions to identify differences in the information sources underlying predictions.
@@ -307,7 +308,7 @@ G: grouping by attribution profiles.
 \label{problem_setting}
 
 To answer the four research questions introduced in Section~\ref{intro}, we organize the empirical analysis into two complementary tasks. 
-The \textit{prediction task} addresses the first research question by evaluating forecasting performance across historical input windows, forecast leads, and POIs with different levels of historical activity. 
+The \textit{prediction task} addresses the first research question by evaluating forecasting performance across historical input windows, forecast horizons, and POIs with different levels of historical activity. 
 The \textit{attribution task} then addresses the remaining questions by examining when information from related POIs improves or worsens individual forecasts, which information sources drive POI predictions, and how parent-place context and semantic information at different levels of granularity contribute to these predictions. We first describe the dataset and then formulate the two tasks.
 
 
@@ -315,14 +316,9 @@ The \textit{attribution task} then addresses the remaining questions by examinin
 \label{subsec:data}
 
 To capture both temporal visit patterns and heterogeneous POI characteristics, we use SafeGraph POI visit data from the Seattle metropolitan area.
-The dataset contains daily observed visits from October to December 2020, covering \(92\) days and \(N=9{,}884\) POIs. A zero denotes no visits recorded in the panel for a POI-day and does not establish that no visits occurred outside the panel.
-The panel contains 905,918 observed POI-days and 3,410 missing POI-days, with missing values distinguished from recorded zeros.
-We retain this cohort for a further 31-day evaluation in January 2021; all 9,884 POIs have observed January records.
+The dataset contains daily observed visits from October to December 2020, covering \(92\) days and \(N=9{,}884\) POIs.
+These counts represent visits detected in the SafeGraph device sample, whose coverage varies across space and time \citep{li2024safegraph}. Recorded zeros can reflect low activity or incomplete detection. Throughout the paper, zero-demand collapse, demand recovery, and false activation refer to these observed visit records.
 Each POI is represented by its daily visit counts together with a collection of static attributes describing geographic location, functional identity, organizational context, and operating conditions.
-The static records harmonize November 2020--January 2021 snapshots. A sensitivity analysis uses only the available November--December 2020 records and their contemporaneous identifier crosswalks.
-Both versions describe retrospective POI characteristics; their availability at each historical forecast origin is not documented.
-Separate July-defined cohorts contain 11,234 Seattle POIs and 11,646 Portland POIs, observed over July--September 2020. Later missing monthly records remain missing; September coverage is 10,728 and 11,119 POIs, respectively. These cohorts support the earlier-period temporal controls.
-For external validation, we obtain the 2020 and 2021 paid-parking occupancy records from the Seattle Department of Transportation (SDOT). These records estimate paid occupancy from parking transactions \citep{sdot_parking_data}. We sample 10:00, 14:00, and 18:00 local time and retain 1,343 blockfaces with at least 15 observed training dates at one of these clock times. The resulting 3,569 eligible blockface--clock-time pairs define the monitoring candidates.
 
 Geographic information is represented by latitude and longitude, which can be used directly as node features or to construct spatial relationships among POIs.
 Functional identity is represented using SafeGraph top-level categories, sub-categories, and North American Industry Classification System (NAICS) codes.
@@ -423,8 +419,8 @@ As a result, the data contain a large number of zero or low-count observations t
 
 We then examine POI-level activity to assess whether sparsity is concentrated among particular locations or broadly distributed across POIs.
 As shown in Figure~\ref{fig:poi_temporal_sparsity}(b), the median nonzero ratio is \(66.3\%\) over the full observation period, compared with \(35.9\%\) at the 25th percentile.
-Over the training period, the corresponding ratios are \(70.0\%\) and \(38.0\%\).
-At the lower end of the training-period distribution, \(159\) POIs are active on no more than \(5\%\) of observed days and \(624\) are active on no more than \(10\%\).
+Over the training period, the corresponding ratios are approximately \(62.5\%\) and \(32.8\%\).
+At the lower end of the training-period distribution, \(214\) POIs are active on no more than \(5\%\) of days and \(607\) are active on no more than \(10\%\).
 Thus, sparsity varies substantially across POIs rather than being uniformly distributed across the visit matrix.
 The amount of self-history, namely the historical visit information of a POI, available for forecasting therefore differs considerably across locations, motivating a separate examination of forecasting performance for POIs with limited historical activity.
 
@@ -444,12 +440,13 @@ The resulting augmented input is \(\widetilde{\mathbf{X}}_b\in\mathbb{R}^{(1+D_s
 The observed and predicted future visits are
 \(\mathbf{Y}_b=[Y_{b,h,j}]\) and
 \(\hat{\mathbf{Y}}_b=[\hat{Y}_{b,h,j}]\), respectively, with
-\(\mathbf{Y}_b,\hat{\mathbf{Y}}_b\in\mathbb{R}_{\geq0}^{H\times N}\),
-where \(Y_{b,h,j}\) and \(\hat{Y}_{b,h,j}\) denote the observed and predicted visit counts, respectively, for POI \(j\) at forecast lead \(h\) in sample \(b\), with \(h=1,\ldots,H\) and \(j=1,\ldots,N\).
-Neural training losses use the raw outputs in visit units. Validation and evaluation replace each output by its maximum with zero; \(\hat{Y}_{b,h,j}\) denotes this nonnegative forecast throughout the metrics, graph-transfer diagnostics, and attribution analysis. Linear baselines use the same truncation.
+\(\mathbf{Y}_b,\hat{\mathbf{Y}}_b\in\mathbb{R}^{H\times N}\),
+where \(Y_{b,h,j}\) and \(\hat{Y}_{b,h,j}\) denote the observed and predicted visit counts, respectively, for POI \(j\) at forecast horizon \(h\) in sample \(b\), with \(h=1,\ldots,H\) and \(j=1,\ldots,N\).
 
-We compare 14- and 28-day input histories and evaluate each of the seven forecast steps.
-A longer historical input contains more weekly cycles, while later forecast steps require predictions further from the observed period.
+We vary \(T\) and \(H\) separately to examine two distinct dimensions of forecasting performance.
+A longer historical input provides more observations from which the model can learn recurring temporal patterns; for example, a 28-day input contains more weekly cycles than a 14-day input.
+A longer forecast horizon instead requires the model to predict further from the observed period, where recent temporal information may become less informative.
+We therefore evaluate multiple combinations of \(T\) and \(H\).
 We further examine whether forecasting performance differs between POIs with frequent positive historical visits and those with sparse or intermittent visit histories.
 Locations with frequent positive visits provide more direct evidence of future activity, whereas sparse or intermittent histories may contain predominantly zero observations.
 For such POIs, a model can obtain relatively low aggregate error by repeatedly predicting values close to zero while failing to recover occasional positive visits.
@@ -466,10 +463,10 @@ We therefore complement the prediction analysis with an attribution task that di
 \subsubsection{Cross-POI Information}
 
 A target POI may receive information from other locations through geographic proximity, functional similarity, or similarity in historical activity. Such information can supplement limited self-history, especially when the target POI has sparse or irregular observations, but it may also overestimate demand when related POIs exhibit activity that is not realized at the target location. 
-We refer to the incorporation of related POIs' historical visit information into the prediction for the target POI through graph connections as cross-POI \textit{information transfer}.
-For each target POI, forecast lead, and sample, we consider this transfer \textit{beneficial} when it reduces prediction error compared with using only the history of the target POI, and \textit{harmful} when it increases the error.
+We refer to the incorporation of historical visit information from related POIs into the target prediction through graph connections as cross-POI \textit{information transfer}.
+For each target POI, forecast horizon, and sample, we consider this transfer \textit{beneficial} when it reduces prediction error compared with using only the target history, and \textit{harmful} when it increases the error.
 
-To capture dependencies across locations, previous studies have used adjacency matrices to represent geographic proximity, functional similarity, and correlations in historical activity \citep{geng2019spatiotemporal,hajisafi2023learning}. Following this approach, we represent relationships among POIs using an adjacency matrix \(A\in\mathbb{R}^{N\times N}\), where \(A_{ij}\) represents the relationship strength from POI \(j\) to POI \(i\). We consider four types of adjacency matrices. The identity matrix contains only self-connections and serves as a baseline without cross-POI information transfer. Spatial matrices capture geographic proximity through nearest-neighbor connections or distance-based weights. Functional matrices represent similarities among POIs based on shared category labels or industry classifications at different levels of detail. Finally, visit-correlation matrices capture similarities in training-period daily visits.
+To capture dependencies across locations, previous studies have used adjacency matrices to represent geographic proximity, functional similarity, and correlations in historical activity \citep{geng2019spatiotemporal,hajisafi2023learning}. Following this approach, we represent relationships among POIs using an adjacency matrix \(A\in\mathbb{R}^{N\times N}\), where \(A_{ij}\) represents the relationship strength from POI \(i\) to POI \(j\). We consider four types of adjacency matrices. The identity matrix contains only self-connections and serves as a baseline without cross-POI information transfer. Spatial matrices capture geographic proximity through nearest-neighbor connections or distance-based weights. Functional matrices represent similarities among POIs based on shared category labels or industry classifications at different levels of detail. Finally, empirical matrices capture similarities in historical visit patterns through static correlations or correlations updated over rolling historical windows.
 
 Using the adjacency matrices described above, we adopt a graph neural network with adjacency-based information sharing (GNN-adj) formulation, where the model input \(\mathbf{X}_b\in\mathbb{R}^{1\times T\times N}\) contains only historical visit counts, and the selected adjacency matrix \(A\) controls information propagation across POIs. We first compare forecasting performance under different graph structures against the identity-adjacency baseline. Subsequently, we perturb the historical visits of selected groups of connected POIs to examine their influence on target POI predictions, distinguishing \textit{beneficial} transfer, which reduces prediction error relative to the identity-adjacency baseline, from \textit{harmful} transfer, which increases it.
 
@@ -480,18 +477,18 @@ The second part of the attribution task examines information associated directly
 
 
 To isolate target-POI information from cross-POI propagation, we use the \textit{GNN-static} formulation with the augmented input \(\widetilde{\mathbf{X}}_b\) and identity adjacency, i.e., \(A=I_N\).
-At each forecast origin, this specification uses the history of the target POI and static attributes, with parameters learned jointly across training POIs.
+Under this setting, the prediction for each POI relies on its own historical visits and static attributes rather than information from other POIs.
 This formulation supports the subsequent \textit{Feature Attribution and POI Regimes} analysis, where gradient-based attribution is used to quantify the contributions of self-history and static POI attributes to individual predictions.
 POIs are then compared according to their attribution profiles to examine whether different locations rely on systematically different sources of predictive information.
 
 To examine how different POI relationships affect forecasting, we use \textit{GNN-adj} in \textit{Alternative Adjacency Matrices}, where the historical visit inputs remain fixed while the adjacency matrix varies.
 We also use \textit{GNN-adj} in \textit{Related-POI Perturbation Analysis}, as perturbing the historical visits of connected POIs allows us to examine how information transferred through the graph affects target POI predictions.
-In contrast, to identify the contributions of the historical visits and static attributes of a target POI, we use \textit{GNN-static} in \textit{Feature Attribution and POI Regimes}, where identity adjacency excludes cross-POI information transfer and allows attribution analysis to focus on target-specific features.
+In contrast, to identify the contributions of the historical visits of the target POI and static attributes, we use \textit{GNN-static} in \textit{Feature Attribution and POI Regimes}, where identity adjacency excludes cross-POI information transfer and allows attribution analysis to focus on target-specific features.
 
 \section{Methodology}
 \label{sec:methodology}
 
-To evaluate POI visit forecasting under different temporal and cross-POI dependencies, we first introduce two temporal graph networks, i.e., GraphGRU and MTGNN, alongside the benchmark models.
+To evaluate POI visit forecasting under different temporal and cross-POI dependencies, we first introduce two temporal graph networks, i.e., EvolveGCN and MTGNN, alongside the benchmark models.
 We then describe alternative adjacency matrices and static POI features to represent relationships among POIs and their individual characteristics.
 For POIs with sparse visit histories, we introduce additional evaluation metrics to assess whether the models can capture occasional positive visits without overpredicting activity on days with no observed visits.
 Finally, we employ related-POI perturbation analysis and gradient-based feature attribution to investigate the sources of cross-POI information transfer and the factors driving individual predictions.
@@ -500,50 +497,38 @@ Finally, we employ related-POI perturbation analysis and gradient-based feature 
 \label{subsec:forecasting_models}
 \subsubsection{Benchmark Models}
 \label{subsubsec:benchmark_models}
-The benchmarks include historical averages, autoregressive ridge regression (AR-ridge), LSTM, NLinear-ridge, and an intermittent-demand model.
+To benchmark the forecasting performance of the temporal graph models, we consider three baseline methods with different capacities for capturing temporal patterns: historical average, autoregressive ridge regression (AR-ridge), and long short-term memory (LSTM).
 
 \textit{(1) Historical Average.}
-The historical-average (HA) predictor uses equally weighted observed training days.
-Let \(\mathcal T_{\mathrm{tr}}\) denote the training calendar, \(\mathcal T_{\mathrm{tr},j}\) its dates with an observed count for POI \(j\), and \(y_{\tau,j}\) that count.
-Its forecast is \(\bar y_j^{\mathrm{hist}}=|\mathcal T_{\mathrm{tr},j}|^{-1}\sum_{\tau\in\mathcal T_{\mathrm{tr},j}}y_{\tau,j}\).
-We also evaluate a same-weekday training mean, the last observation, a repeated last-week forecast, and a recent mean whose window is selected by validation mean absolute error (MAE) from 7, 14, and 28 days subject to the available input length.
-These additional benchmarks use the same scored test events as the fitted models.
-We fit a ridge-regression implementation of NLinear \citep{zeng2023transformers}, denoted NLinear-ridge, with weights shared across POIs. It subtracts the last observation before the affine forecast and restores that observation afterward; we solve its ridge-regularized squared-error objective directly and select the penalty from \(\{0,10^{-4},10^{-2},1\}\) by validation MAE.
-The Teunter--Syntetos--Babai (TSB) benchmark \citep{teunter2011intermittent} separately smooths positive-visit size and visit-occurrence probability, selecting both smoothing constants from \(\{0.05,0.1,0.2\}\) on validation MAE.
+The historical-average predictor uses the mean training-period visits of each POI as its forecast.
+Let \(\mathcal{T}_{\mathrm{tr}}\) denote the training period and \(y_{\tau,j}\) the observed visits of POI \(j\) on training day \(\tau\).
+Its historical average is \(\bar y_j^{\mathrm{hist}}=|\mathcal{T}_{\mathrm{tr}}|^{-1}\sum_{\tau\in\mathcal{T}_{\mathrm{tr}}}y_{\tau,j}\).
+The same value is predicted for every test sample and forecast step.
+This baseline contains no short-term dynamics but provides a reference for evaluating whether more complex models improve upon typical POI activity levels.
 
 \textit{(2) AR-ridge.}
 AR-ridge models the linear relationship between historical visits and future demand.
-For POI \(j\), let \(\mathbf v_{b,j}\in\mathbb{R}^{T+1}\) contain a leading constant followed by its historical visits in sample \(b\), and let \(\mathbf y_{b,j}\in\mathbb{R}^{H}\) contain its next \(H\) visits.
+For POI \(j\), let \(\mathbf v_{b,j}\in\mathbb{R}^{T}\) contain its historical visits in sample \(b\), and let \(\mathbf y_{b,j}\in\mathbb{R}^{H}\) contain its next \(H\) visits.
 The model takes the form
 \(\mathbf y_{b,j}=B_j^\top\mathbf v_{b,j}+\boldsymbol{\varepsilon}_{b,j}\),
-where \(B_j\in\mathbb{R}^{(T+1)\times H}\) is the coefficient matrix and \(\boldsymbol{\varepsilon}_{b,j}\) is the error term.
-Ridge regularization penalizes the lag coefficients while leaving the intercept unpenalized; one penalty is selected for all POIs and leads by validation MAE.
+where \(B_j\in\mathbb{R}^{T\times H}\) is the coefficient matrix and \(\boldsymbol{\varepsilon}_{b,j}\) is the error term.
+Ridge regularization penalizes large coefficients to reduce estimation instability.
 This baseline provides a linear reference for assessing how effectively the historical visits of a POI predict future activity.
 
 \textit{(3) LSTM.}
-The LSTM baseline \citep{hochreiter1997long} processes historical visit sequences recurrently.
-It processes the univariate history of each POI independently, with recurrent weights shared across POIs.
-We denote this specification Shared-LSTM.
-Matched-LSTM adds the same 32-dimensional input projection and additive last-observation readout as identity GraphGRU, while retaining an LSTM recurrent cell. This control separates these architectural choices from the comparison between recurrent cells. It uses the common learning-rate selection and five-seed protocol under both training losses.
-Shared-LSTM, identity GraphGRU, and Matched-LSTM contain 4,711, 6,695, and 8,807 trainable parameters, respectively.
-A decoder maps the final 32-dimensional hidden state to \(H\) forecasts.
-This provides a nonlinear temporal reference with the same hidden dimension and training loss as GraphGRU.
+The LSTM baseline \citep{hochreiter1997long} captures nonlinear temporal dependencies in historical visit sequences.
+At historical step \(t\), the model receives the visit vector
+\[\mathbf v_{b,t}=(X_{b,1,t,1},\ldots,X_{b,1,t,N})^\top.\]
+The sequence of \(T\) visit vectors is processed recurrently, and a decoder maps the resulting hidden representation to the \(H\times N\) forecast.
+This baseline provides a nonlinear temporal reference without explicitly incorporating graph relationships among POIs.
 
-A resource probe of the official BysGNN implementation used the full 9,884-POI cohort shape and batch size four. Its per-POI recurrent units contain 979 million parameters, and the attention forward pass exhausted the 23.52-GiB GPU memory. The reproducibility archive retains the source hash and allocation trace.
-
-\subsubsection{GraphGRU}
+\subsubsection{EvolveGCN}
 \label{subsubsec:evolvegcn}
-GraphGRU applies a fixed graph operator to historical visits, projects the inputs for each POI to 32 dimensions, and processes the sequence with a shared gated recurrent unit (GRU).
-For functional graphs, the propagated input is the average of the target count and its group mean, including the target in that mean.
-The decoder combines the final recurrent state with a linear projection of the last observation of the target POI to produce \(H\) forecasts.
-The graph operator is fixed; the recurrent state evolves across input days.
+EvolveGCN is designed for temporal graph data in which the graph-convolution parameters evolve over time \citep{pareja2020evolvegcn}.
+A conventional GCN uses a fixed graph-convolution transformation, which can be restrictive when the relevance of cross-node relationships changes across the observed sequence.
+EvolveGCN instead updates the graph-convolution parameters recurrently and can therefore operate with either a fixed adjacency matrix or an input-window sequence of adjacency matrices.
 
-The GNN-static specification uses this same recurrence with identity adjacency and adds static attributes to the input projection at each time step.
-Its 52 static dimensions comprise four numeric inputs and six learned eight-dimensional embeddings for category, NAICS-2, NAICS-4, brand, parent place, and sub-category.
-The numeric inputs are latitude, longitude, opening hours, and an opening-hour missingness indicator.
-We standardize these four inputs across POIs with observed training visits and retain those transformations for validation and testing.
-Brand and parent-place labels appearing at most 20 times are pooled; missing labels form a separate category. Other categorical labels appearing only once are pooled.
-The GNN-parent sensitivity retains all 233 recorded parent identities. Its eight parent dimensions comprise a presence indicator and a seven-dimensional identity embedding; an absent parent has a zero indicator and zero embedding. The other inputs and the total static dimension remain fixed. Four retrained configurations retain the full block, presence alone, identity alone, or neither. The identity embedding also conveys presence through its zero padding, so these contrasts describe encoding utility.
+The tables retain the EvolveGCN label used in the original experiment archive.\footnote{The archived training script routes this label to graph-aggregated inputs followed by a gated recurrent unit with fixed recurrent weights. Its correspondence with the published evolving-weight architecture requires implementation reconciliation.} The reported comparisons vary the supplied adjacency under the same archived forecasting implementation.
 
 \subsubsection{MTGNN}
 \label{subsubsec:mtgnn}
@@ -552,16 +537,7 @@ MTGNN combines temporal convolution with graph learning for multivariate time-se
 A central motivation of MTGNN is that the true dependency structure among variables may not be fully observed in advance.
 The model therefore includes an adaptive graph-learning component together with temporal convolutions that capture lagged dependence.
 
-The fixed MTGNN specification, denoted Fixed-MTGNN, disables graph learning and holds the supplied adjacency fixed.
-Both graph-propagation directions use the selected relation, while temporal convolutions model lagged dependence.
-For functional graphs, propagation averages the current node representation with its group mean; identity adjacency leaves it unchanged.
-For sampled, spatial, and visit-correlation graphs, we first normalize the supplied adjacency by rows.
-The two propagation directions use this matrix and its transpose, respectively, adding self-connections and renormalizing rows within each direction.
-The implementation normalizes across channels and time within each node, with POI-specific learned affine parameters; identity adjacency therefore does not mix POI histories through normalization.
-The adaptive specification, denoted Adaptive-MTGNN, learns a directed top-20 graph from node embeddings.
-Its candidate scores are evaluated in blocks, and gradients are retained for the selected edge weights; this implements the same top-\(k\) graph operator without storing a dense adjacency gradient.
-Tie-breaking noise is fixed during validation and testing.
-Both specifications use the same temporal architecture and within-POI normalization.
+The reported MTGNN implementation uses the alternative supplied graphs with adjacency fixed during fitting. Its temporal and graph-convolution parameters are learned. The comparisons assess forecast behavior under each supplied graph.
 
 \subsection{Adjacency Matrices}
 \label{subsec:adjacency}
@@ -570,28 +546,23 @@ To examine how different relationships among POIs affect forecasting performance
 
 \textit{(1) Identity Adjacency.}
 The identity adjacency, \(A=I_N\), contains only self-connections.
-It excludes cross-POI information transfer while preserving the information of each POI.
+It excludes cross-POI information transfer while preserving the information associated with each POI.
 
 \textit{(2) Spatial Adjacency.}
 Spatial relationships are represented using two types of graphs: \(k\)-nearest neighbors (KNN) \citep{cover1967nearest} and radial basis function (RBF) \citep{li2018diffusion}.
-The KNN graph connects each POI to its \(k\) geographically nearest locations and takes the symmetric union of these connections.
+The KNN graph connects each POI to its \(k\) geographically nearest locations, representing local spatial relationships through a fixed neighborhood.
 The RBF graph instead assigns continuous distance-decay weights,
-\(A_{ij}=\exp[-d(i,j)^2/(2\sigma^2)]\mathbb{I}\{d(i,j)\leq2\text{ km}\}\) for \(i\ne j\),
-where \(A_{ij}\) denotes the relationship strength from POI \(j\) to POI \(i\), \(d(i,j)\) is their geographic distance, \(\sigma=1\text{ km}\) controls distance decay, and \(\mathbb{I}\{\cdot\}\) equals one when its condition holds and zero otherwise. We set the diagonal to zero and normalize each nonempty row. The model-specific propagation operators then add self-connections and renormalize as described above.
+\(A_{ij}=\exp[-d(i,j)^2/(2\sigma^2)]\),
+where \(A_{ij}\) denotes the relationship strength from POI \(i\) to POI \(j\), \(d(i,j)\) is their geographic distance, and \(\sigma\) controls the rate at which the relationship weakens with distance.
 
 \textit{(3) Functional Adjacency.}
-Functional relationships are represented using NAICS-2 and NAICS-4.
-For each classification \(q\in\{\mathrm{naics2},\mathrm{naics4}\}\), the corresponding adjacency matrix is defined as
+Functional relationships are represented using top category, sub-category, NAICS-2, and NAICS-4.
+For each classification \(q\in\{\mathrm{cat},\mathrm{subcat},\mathrm{naics2},\mathrm{naics4}\}\), the corresponding adjacency matrix is defined as
 \(
 A_{ij}^{(q)}=\mathbb{I}\{q_i=q_j\},
 \)
-where \(q_i\) and \(q_j\) denote the classification labels or industry-code prefixes of POIs \(i\) and \(j\), respectively.
-NAICS-2 represents broader functional groups, whereas NAICS-4 represents more specific classifications.
-Top category produces the same graph as NAICS-4 in this cohort.
-To separate semantic grouping from neighborhood size, we also sample NAICS-2, NAICS-4, and random neighbors with identical non-self row degrees.
-Each target receives the smaller of \(k\) and its number of NAICS-4 peers, with \(k\in\{5,10,20\}\); singleton NAICS-4 groups remain isolated in all three controls.
-GraphGRU averages the normalized neighbor signal with the input of the target POI, and isolated rows retain the target input.
-The sampled controls match row degrees; the transposed MTGNN operator also reflects column-degree variation.
+where \(q_i\) and \(q_j\) denote the classification labels or industry-code prefixes of POIs \(i\) and \(j\), respectively, and \(\mathbb{I}\{\cdot\}\) is the indicator function, equal to one when the condition holds and zero otherwise.
+NAICS-2 gives broader industry groups. On this cohort, top category and NAICS-4 induce identical node partitions.
 
 \textit{(4) Visit-Correlation Adjacency.}
 Historical similarity is represented using Pearson correlations between POI visit sequences.
@@ -601,34 +572,38 @@ where \(\operatorname{corr}(\cdot,\cdot)\) denotes the Pearson correlation coeff
 For the static correlation graph, the adjacency weights are defined as
 \(A_{ij}=|\rho_{ij}|\mathbb{I}\{|\rho_{ij}|\geq\eta_c\}\),
 where \(\eta_c\) is the threshold used to remove weak correlations.
-All reported visit-correlation graphs use training-period observations and remain fixed during validation and testing.
+To capture changes in visit-pattern similarity over time, we additionally construct dynamic adjacency matrices for EvolveGCN using rolling historical windows.
+Specifically, for a rolling window of \(w\) historical steps ending at \(t\), the correlation is computed as
+\[\rho_{ij}^{(b,t)}=\operatorname{corr}((X_{b,1,\tau,i})_{\tau=t-w+1}^{t},(X_{b,1,\tau,j})_{\tau=t-w+1}^{t}),\]
+where \(w\) is the rolling-window length.
+At each time step, the dynamic adjacency connects each POI to its \(k\) most strongly correlated neighbors based on \(|\rho_{ij}^{(b,t)}|\), using these absolute correlations as edge weights.
 
 \subsection{Forecast Evaluation}
 \label{subsec:low_history_method}
 
-We evaluate overall forecasting accuracy, visit-density sensitivity, low-history POI behavior, and the coverage of observed activity under spatial prioritization.
+We evaluate the forecasting models from three perspectives: \textit{overall forecasting accuracy}, \textit{visit-density sensitivity}, and \textit{low-history POI evaluation}.
 
 \textit{(1) Overall Forecasting Accuracy.}
-We evaluate forecasting accuracy using MAE and root mean squared error (RMSE).
-MAE measures average absolute error, while RMSE gives greater weight to large errors.
-MAE skill relative to HA is \(100(1-\mathrm{MAE}^{\mathrm{model}}/\mathrm{MAE}^{\mathrm{HA}})\).
-Metrics pool scored events across forecast origins, leads, and POIs within each setting.
-Forecast windows overlap, so the same observed POI-day can be predicted at several leads from different origins.
+Accuracy metrics comprise mean absolute error (MAE), root mean squared error (RMSE), relative squared error (RSE), and Pearson correlation (CORR).
+MAE and RMSE measure prediction errors, while RSE is the square root of the ratio of summed squared errors to summed squared deviations from the observed mean at each forecast horizon.
+CORR measures the Pearson correlation between observed and predicted visits, while anomaly correlation measures their correlation after subtracting the historical average of each POI \(\bar y_j^{\mathrm{hist}}\).
+All metrics are computed across test samples and POIs for each forecast horizon.
+Forecast windows overlap and repeatedly score some POI-days. Event counts therefore describe evaluation coverage; comparisons across independent periods and uncertainty based on temporal blocks and POI groups require separate assessment.
 
 \textit{(2) Visit-Density Sensitivity.}
 To examine how historical visit sparsity affects forecasting performance, we construct POI subsets with progressively higher frequencies of positive visits.
 For POI \(j\), the training-period nonzero ratio is defined as
 \(
 r_j=
-\frac{1}{|\mathcal{T}_{\mathrm{tr},j}|}
-\sum_{\tau\in\mathcal{T}_{\mathrm{tr},j}}
+\frac{1}{|\mathcal{T}_{\mathrm{tr}}|}
+\sum_{\tau\in\mathcal{T}_{\mathrm{tr}}}
 \mathbb{I}\{y_{\tau,j}>0\}.
 \)
 We consider three approaches to constructing these subsets.
 The \textit{density-based} approach ranks POIs by their training-period nonzero ratios \(r_j\).
 The \textit{recent-density} approach ranks POIs by their nonzero ratios over the final \(L_{\mathrm{rec}}\) days of the training period, where \(L_{\mathrm{rec}}\) denotes the recent-history window length.
-The \textit{persistence-density} approach ranks POIs by the product of the overall nonzero ratio and the probability of consecutive positive-visit days, estimated as \(p_j^{\mathrm{persist}}=\frac{\sum_{\tau\in\mathcal{T}_{\mathrm{tr},j}^{-}}\mathbb{I}\{y_{\tau,j}>0,\;y_{\tau+1,j}>0\}}{\sum_{\tau\in\mathcal{T}_{\mathrm{tr},j}^{-}}\mathbb{I}\{y_{\tau,j}>0\}}\), where \(\mathcal{T}_{\mathrm{tr},j}^{-}\) contains training days with both the current and following count observed for POI \(j\); the probability is zero when its denominator is zero.
-For each approach, we exclude the lowest-ranked fraction, denoted by \(\gamma^{\mathrm{den}},\gamma^{\mathrm{rec}},\gamma^{\mathrm{per}}\in(0,1)\), respectively, breaking tied scores by the fixed POI order.
+The \textit{persistence-density} approach combines the overall nonzero ratio with the probability of consecutive positive-visit days, estimated as \(p_j^{\mathrm{persist}}=\frac{\sum_{\tau\in\mathcal{T}_{\mathrm{tr}}^{-}}\mathbb{I}\{y_{\tau,j}>0,\;y_{\tau+1,j}>0\}}{\sum_{\tau\in\mathcal{T}_{\mathrm{tr}}^{-}}\mathbb{I}\{y_{\tau,j}>0\}}\), where \(\mathcal{T}_{\mathrm{tr}}^{-}\) contains all training days except the last day.
+For each approach, we retain POIs whose ranking scores exceed the corresponding quantile threshold, denoted by \(\gamma^{\mathrm{den}},\gamma^{\mathrm{rec}},\gamma^{\mathrm{per}}\in(0,1)\), respectively.
 We consider quantile thresholds of \(0.10\), \(0.25\), \(0.50\), and \(0.75\), corresponding to the percentages of POIs excluded from each subset.
 For example, Dense10 retains the top \(90\%\) of POIs ranked by their training-period nonzero ratios.
 The same suffix convention applies to the recent-density and persistence-density subsets.
@@ -638,16 +613,20 @@ For each subset, we reconstruct the visit matrix and retrain the forecasting mod
 To assess forecasting performance for POIs with sparse historical activity, we identify locations characterized by frequent zero observations and low average visit counts.
 The low-history POI set is defined as
 \(\mathcal{I}_{0}=\left\{j:z_j\geq\eta_z,\;0<\bar y_j^{\mathrm{hist}}\leq Q_{\alpha}\right\}\),
-where \(z_j=|\mathcal T_{\mathrm{tr},j}|^{-1}\sum_{\tau\in\mathcal T_{\mathrm{tr},j}}\mathbb I\{y_{\tau,j}=0\}\) is the zero-visit ratio over observed training days, and \(Q_{\alpha}\) is the \(\alpha\)-quantile of strictly positive historical averages across POIs.
-Using the first 50 calendar days for identification fixes the same 1,944-POI cohort across input lengths, models, seeds, and evaluation months.
+where \(z_j=1-r_j\) denotes the training-period zero-visit ratio, and \(Q_{\alpha}\) is the \(\alpha\)-quantile of positive historical averages across POIs.
 For these POIs, we distinguish test events with positive observed visits from those with zero observed visits, defined respectively as
 \(\Omega_0^+=\{(b,h,j):j\in\mathcal{I}_0,\;Y_{b,h,j}>0\}\)
 and
 \(\Omega_0^0=\{(b,h,j):j\in\mathcal{I}_0,\;Y_{b,h,j}=0\}\).
-We evaluate forecast magnitude on positive events and distinguish positive-event detection from false activation.
+We use three diagnostic metrics to characterize model predictions for these events.
 
-\textit{(i) Demand Mass Recovery Ratio (DMR).}
-DMR measures the ratio of predicted to observed visit totals among events with positive realized demand,
+\textit{(i) Prediction Lift.}
+Lift measures the average increase in predicted visits relative to the historical-average (HA) baseline, 
+i.e.,
+\(\mathrm{Lift}=\frac{\sum_{(b,h,j)\in\Omega_0^+\cup\Omega_0^0}(\max\{0,\hat Y_{b,h,j}\}-\bar y_j^{\mathrm{hist}})}{|\Omega_0^+|+|\Omega_0^0|}\).
+
+\textit{(ii) Demand Mass Recovery Ratio (DMR).}
+DMR measures the ratio of predicted to observed visit totals among events with positive observed visits,
 i.e., 
 \(\mathrm{DMR}^{\mathrm{model}}=\frac{\sum_{(b,h,j)\in\Omega_0^+}\hat Y_{b,h,j}}{\sum_{(b,h,j)\in\Omega_0^+}Y_{b,h,j}}\),
 while the corresponding HA baseline is
@@ -656,28 +635,10 @@ The difference
 \(\Delta\mathrm{DMR}=\mathrm{DMR}^{\mathrm{model}}-\mathrm{DMR}^{\mathrm{HA}}\)
 measures the change in predicted demand mass relative to the HA baseline.
 
-\textit{(ii) False Activation Rate (FAR).}
+\textit{(iii) False Activation Rate (FAR).}
 FAR measures the proportion of zero-visit events for which the predicted visit count reaches a specified threshold.
 For an activation threshold \(\eta_{\mathrm{FAR}}>0\), we define
 \(\mathrm{FAR}_{\eta_{\mathrm{FAR}}}=\frac{1}{|\Omega_0^0|}\sum_{(b,h,j)\in\Omega_0^0}\mathbb{I}\{\hat Y_{b,h,j}\geq\eta_{\mathrm{FAR}}\}\).
-We also report recall, precision, and average precision (AP) for detecting positive visits, using activation thresholds of \(0.1,0.25,0.5,1,2\) visits.
-Recall is the activated fraction of positive events, precision is the positive fraction of activated events, and AP integrates precision over increases in recall while treating tied scores as one threshold.
-To separate forecast scale from event discrimination, we fit the calibration \(\max\{0,a\hat Y_{b,h,j}+c\}\) on low-history validation events only.
-The slope \(a\) lies in \([0,20]\), and the absolute intercept \(|c|\) is bounded by the larger of one and the 99th percentile of their observed visits.
-We use bounded Powell search with validation MAE as the objective and retain the identity transformation as a candidate.
-For each model, we additionally choose thresholds that keep validation FAR at or below \(5\%,10\%,20\%,30\%\), then report recall and realized FAR on the test events.
-
-\textit{(4) Spatial Activity Prioritization.}
-To assess whether forecast accuracy translates into identifying areas with high observed activity, we partition the cohort into fixed 1-km grid cells and rank their summed POI forecasts for each origin and lead.
-We select the highest-ranked \(K\) cells, where \(K\) is the rounded-up number corresponding to \(5\%,10\%,20\%\) of occupied cells.
-Let \(S_{b,h}\) denote the POIs in those selected cells for sample \(b\) and lead \(h\).
-Coverage is the fraction of observed visits in the selected cells, i.e.,
-\[
-\mathrm{Coverage}_{b,h}
-=\frac{\sum_{j\in S_{b,h}}Y_{b,h,j}}{\sum_{j=1}^{N}Y_{b,h,j}}.
-\]
-We average coverage over forecast origins and leads and compare it with the retrospective upper bound obtained by ranking cells using observed visits.
-This experiment evaluates the prioritization of observed location-level activity under a fixed monitoring budget.
 
 \subsection{Related-POI Perturbation Analysis}
 \label{subsec:perturbation_method}
@@ -687,13 +648,13 @@ We first identify \textit{graph-transfer regimes} based on graph lift and histor
 
 \textit{(1) Graph-Transfer Regimes.}
 We characterize cross-POI information transfer by comparing predictions from the same forecasting architecture under different adjacency matrices.
-For test sample \(b\), forecast lead \(h\), and target POI \(j\), let \(\hat Y_{b,h,j}^{A}\) denote the prediction under a non-identity adjacency matrix \(A\), and \(\hat Y_{b,h,j}^{\mathrm{ID}}\) the corresponding prediction under identity adjacency.
-Their difference, defined as
+For test sample \(b\), forecast horizon \(h\), and target POI \(j\), let \(\hat Y_{b,h,j}^{A}\) denote the prediction under a non-identity adjacency matrix \(A\), and \(\hat Y_{b,h,j}^{\mathrm{ID}}\) the corresponding prediction under identity adjacency.
+The difference
 \(G_{b,h,j}=\hat Y_{b,h,j}^{A}-\hat Y_{b,h,j}^{\mathrm{ID}}\),
-is termed \textit{graph lift}. The two models are fitted separately, so this contrast includes changes in learned parameters as well as adjacency. The subsequent fixed-model perturbations isolate sensitivity to neighbor inputs.
+defines \textit{graph lift}, a contrast between separately fitted model configurations. It combines the effect of the supplied graph with differences in fitted parameters. The fixed-model perturbation below measures sensitivity to selected neighbor inputs.
 
 For low-history POIs \(j\in\mathcal{I}_0\), we characterize graph transfer using the historical activity of the target POI and its connected neighbors.
-Let \(\mathcal{N}(j)=\{i\neq j:A_{ji}>0\}\) denote the neighbors of POI \(j\) under the selected adjacency matrix.
+Let \(\mathcal{N}(j)=\{i\neq j:A_{ij}>0\}\) denote the neighbors of POI \(j\) under the selected adjacency matrix.
 We define \textit{target evidence} as the average historical visits of the target POI,
 \(\frac{1}{T}\sum_{t=1}^{T}X_{b,1,t,j}\),
 and \textit{neighbor evidence} as the average historical visits across its connected neighbors,
@@ -702,10 +663,11 @@ for POIs with nonempty neighborhoods.
 Under functional adjacency, neighbor evidence summarizes historical activity among POIs sharing the corresponding functional classification.
 
 We classify prediction events according to target evidence, neighbor evidence, graph lift, and realized visits.
-Low and high levels of target and neighbor evidence are determined using their respective empirical medians among low-history validation events.
+Low and high levels of target and neighbor evidence are determined using their respective empirical medians among low-history events.
 Positive graph lift is defined by \(G_{b,h,j}\geq\eta_G\), where \(\eta_G>0\) is the graph-lift threshold.
 Positive activation follows the threshold \(\eta_{\mathrm{FAR}}\) defined in the preceding subsection.
-Table~\ref{tab:graph_transfer_regime_definitions} summarizes the resulting graph-transfer regimes. Events are assigned in the order spurious, substitutive, confirmatory, redundant, and conservative zero; unassigned events form Other. Because realized visits enter these definitions, the regimes describe forecast outcomes after observation.
+Table~\ref{tab:graph_transfer_regime_definitions} summarizes the resulting graph-transfer regimes.
+These regimes are descriptive and conditioned on realized outcomes. Spurious events are reported separately from the remaining substitutive events; their zero observed labels and positive activations partly determine the unfavorable error contrast.
 
 \begin{table}[t]
 \centering
@@ -740,7 +702,6 @@ To assess the predictive value of graph transfer, we compute the event-level MAE
 \(|Y_{b,h,j}-\hat Y_{b,h,j}^{\mathrm{ID}}|-|Y_{b,h,j}-\hat Y_{b,h,j}^{A}|\).
 Positive values indicate lower prediction error under non-identity adjacency, whereas negative values indicate higher error.
 We compare graph lift and MAE gain across the identified regimes to characterize the conditions under which cross-POI information improves or worsens forecasting accuracy.
-We separately report MAE gain in the four low/high target-evidence and neighbor-evidence strata, whose membership uses only the inputs available at the forecast origin.
 
 \textit{(2) Neighbor-Group Perturbation.}
 We further examine which neighboring POIs contribute to the graph-transfer effects identified above.
@@ -755,66 +716,56 @@ D_{b,h,j}(S)
 \hat Y_{b,h,j}^{A}(\mathbf{X}_b^{(-S)}),
 \label{eq:perturbation_effect}
 \end{equation}
-where a positive value indicates that the selected neighbor group increases the original prediction for the target POI.
+where a positive value indicates that the selected neighbor group increases the original target prediction.
+Zeroing measures a finite input perturbation that may produce unusual history combinations. Assessing robustness to the replacement rule requires additional comparisons with activity-matched observed histories.
 
-We compare neighbors selected by training-period mean activity, pairwise observed training correlation, activity during the final seven input days, and uniform random sampling.
-Every rule perturbs the same number of neighbors for a given target, equal to the smaller of ten and its number of NAICS-4 peers, under both NAICS-2 and NAICS-4.
-The target set consists of the 1,935 low-history POIs with at least one NAICS-4 peer.
-An additional intervention replaces the most active neighbors' histories with histories from outside the functional group, matched on training-standardized log mean, nonzero frequency, and log standard deviation.
-Perturbing disconnected nodes provides a negative control.
-We evaluate forecast changes and MAE changes on identical events, including the evidence strata defined above.
+We consider several neighbor groups to examine different sources of information transfer.
+Perturbing all neighbors measures the overall neighborhood effect, while perturbing recently active neighbors examines the contribution of recent activity.
+High-mean and low-mean neighbors are distinguished by their average historical visits, and the top-10 active neighbors are selected to examine whether graph transfer is concentrated among highly active locations.
+Randomly selected neighbors provide a reference for comparison.
+We additionally perturb highly correlated neighbors and temporally aligned neighbors to examine the contributions of similar visit patterns.
+For each group, we compare perturbation effects across beneficial and harmful graph-transfer events and evaluate the associated changes in prediction error, positive-demand recovery, and false activation.
 
 \subsection{Feature Attribution and POI Regimes}
 \label{subsec:attribution_method}
 
 The preceding analysis examines the influence of information transferred through graph connections.
-We next investigate the contributions of the historical visits and static attributes of a target POI using the GNN-static formulation introduced in Section~\ref{subsec:attribution_task}.
+We next investigate the contributions of the historical visits of the target POI and static attributes using the GNN-static formulation introduced in Section~\ref{subsec:attribution_task}.
 With identity adjacency excluding cross-POI propagation, we apply gradient-based attribution to individual predictions and examine how the resulting information sources vary across POIs.
 
 \textit{(1) Gradient-Based Feature Attribution.}
 We use Gradient \(\times\) Input to quantify the contribution of each input component to an individual prediction.
-Let \(x_{b,j,m}\), \(m=1,\ldots,T+D_s\), index the \(T\) historical visits followed by the \(D_s\) encoded static components of POI \(j\). Each static component is shared across input steps, so its derivative sums the effects through all \(T\) copies in \(\widetilde{\mathbf{X}}_b\).
-The attribution score for forecast lead \(h\) is defined as
-\(\phi_{b,h,j,m}=x_{b,j,m}\frac{\partial\hat Y_{b,h,j}}{\partial x_{b,j,m}}\).
-The score combines the standardized numeric input or learned embedding component with local prediction sensitivity. Outputs clipped from negative values contribute zero gradient attribution.
-We compare it with integrated gradients (IG) \citep{pmlr-v70-sundararajan17a}, which attributes the change from a reference input \(\mathbf x'\) to the observed input \(\mathbf x_{b,j}\), i.e.,
-\[
-\phi^{\mathrm{IG}}_{b,h,j,m}
-=(x_{b,j,m}-x'_m)\int_0^1
-\frac{\partial\hat Y_{b,h,j}(\mathbf x'+u(\mathbf x_{b,j}-\mathbf x'))}{\partial x_m}\,\mathrm du.
-\]
-Here \(u\) indexes the interpolation path.
-Two observed POI records define the reference endpoints, selected near the lower and upper quartiles of positive training mean visits and then near the geographic median.
-Each endpoint combines the final training-history window of that POI with its complete static record; categorical paths interpolate between learned embeddings.
-We use identical sampled events for the method comparison and check that summed signed IG values recover the change in forecast from the reference endpoint.
+Let \(x_{b,j,m}\) denote an encoded input component of POI \(j\) in \(\widetilde{\mathbf{X}}_b\), with \(m\) indexing feature coordinates and historical steps. Historical visits use the training normalization, and repeated static-feature entries are treated as separate input components.
+Let \(f_{b,h,j}\) denote the model output before inverse scaling and clipping at zero. The attribution score is
+\(\phi_{b,h,j,m}=x_{b,j,m}\frac{\partial f_{b,h,j}}{\partial x_{b,j,m}}\).
+It measures input-weighted local sensitivity of this output. Absolute scores are computed before aggregation across historical steps.
+For categorical features, the differentiated inputs are learned embedding coordinates. Gradient $\times$ Input depends on the coordinate origin and encoding \citep{kindermans2017unreliability}; normalized magnitudes describe the specified representation. Alternative-reference attribution and retrained feature removal assess reference sensitivity and predictive utility, respectively.
 
 To summarize attribution across different information sources, we consider five feature groups: \textit{history}, \textit{location}, \textit{identity}, \textit{parent}, and \textit{others}.
 History includes historical visit counts; location includes latitude and longitude; identity includes category, industry, and brand information; parent includes parent-place information; and others includes opening-hour features and their missingness indicators.
-The parent encoding includes a learned missing-parent category, so its attribution can also be nonzero for POIs without a recorded containing place.
 Let \(\mathcal{G}\) denote the set of these groups and \(\mathcal{F}_g\) the input components belonging to group \(g\in\mathcal{G}\).
-For fitted seed \(s\in\{42,\ldots,46\}\), let \(\phi^{(s)}_{b,h,j,m}\) denote the corresponding attribution score. We aggregate absolute scores across test samples and forecast leads to obtain the seed-specific share
+For each POI \(j\), we aggregate the absolute attribution scores across test samples and forecast horizons and compute the normalized attribution share as
 \begin{equation}
-\pi^{(s)}_{j,g}
+\pi_{j,g}
 =
 \frac{
 \sum_{b,h}
 \sum_{m\in\mathcal{F}_g}
-|\phi^{(s)}_{b,h,j,m}|
+|\phi_{b,h,j,m}|
 }{
 \sum_{g'\in\mathcal{G}}
 \sum_{b,h}
 \sum_{m\in\mathcal{F}_{g'}}
-|\phi^{(s)}_{b,h,j,m}|
+|\phi_{b,h,j,m}|
 }.
 \label{eq:attribution_group_share}
 \end{equation}
-Let \(\mathcal S_j\) contain the fitted seeds with positive total attribution for POI \(j\). We average their shares, \(\pi_{j,g}=|\mathcal S_j|^{-1}\sum_{s\in\mathcal S_j}\pi^{(s)}_{j,g}\). The resulting attribution profile
+The resulting attribution profile
 \(\boldsymbol{\pi}_j=(\pi_{j,g})_{g\in\mathcal{G}}\)
 summarizes the relative contributions of different information sources to predictions for POI \(j\).
-POIs with zero total attribution remain unassigned.
 
 \textit{(2) Attribution-Based POI Regimes.}
-We characterize differences in feature reliance by standardizing these seed-averaged shares across eligible POIs.
+We characterize differences in feature reliance by standardizing the attribution shares across POIs.
 For each feature group \(g\in\mathcal{G}\), let \(\mu_g\) and \(\sigma_g\) denote the mean and standard deviation of \(\pi_{j,g}\) across POIs, respectively.
 The standardized attribution score is defined as
 \begin{equation}
@@ -824,34 +775,32 @@ The standardized attribution score is defined as
 \end{equation}
 Each POI is assigned to the regime corresponding to its highest standardized attribution score.
 The resulting five regimes are history-driven, location-driven, identity-driven, parent-driven, and others-driven.
-These assignments reflect relative feature reliance across POIs rather than the largest original attribution share.
+The suffix ``-driven'' identifies the largest standardized share within a POI. These labels describe relative attribution profiles under the fitted encoding.
 We further compare forecasting errors across the resulting regimes.
-Retraining after removing location, identity, parent, or other static inputs, and after removing all static inputs, measures the predictive contribution of each source separately from its attribution share.
 
 \textit{(3) Parent-Place Attribution.}
 To examine the role of containment relationships in POI predictions, we focus on locations with valid parent-place information.
 For each embedded POI, we compare the parent-place attribution share \(\pi_{j,\mathrm{parent}}\) with the combined share of the remaining information sources, \(1-\pi_{j,\mathrm{parent}}\).
 We then aggregate these shares across different embedded POI groups to assess how reliance on parent-place context varies with POI function and surrounding destination type.
-We compare the full and parent-removed fits on the same embedded POIs and relate the parent attribution share of each POI to its change in MAE after removal.
 
 \textit{(4) Semantic Granularity.}
 We further examine how category and industry representations at different levels of granularity contribute to individual predictions.
-Using GNN-static with identity adjacency, we compare the attribution of four semantic descriptors: top category, sub-category, NAICS-2, and NAICS-4.
+Using the same GNN-static fit with identity adjacency, we compare the attribution of four semantic descriptors: top category, sub-category, NAICS-2, and NAICS-4.
 For each prediction event, we compute the Gradient \(\times\) Input attribution scores associated with each descriptor and compare their relative contributions.
-We report the attribution share of each descriptor and fit four variants retaining one semantic descriptor at a time, while holding the remaining nonsemantic inputs fixed.
-The joint specification and additional fits without NAICS-2 or without NAICS-4 assess whether a descriptor adds predictive information when the overlapping classifications are available.
+We report the average attribution share of each descriptor, its dominance rate among the four semantic representations, and the MAE of prediction events in which it is dominant.
+These measures characterize both the relative influence of semantic information and the forecasting accuracy associated with different dominant descriptors.
 
 \section{Empirical Results}
 \label{sec:results}
 
 Figure~\ref{fig:exp_logic} outlines the empirical analyses, organized into prediction and attribution tasks.
-We begin in Section~\ref{subsec:forecasting_results} by comparing forecasting performance across historical input lengths and forecast leads, examining visit-history sparsity, and evaluating positive-demand recovery and false activation for low-history POIs.
+We begin in Section~\ref{subsec:forecasting_results} by comparing forecasting performance across historical input lengths and forecast horizons, examining visit-history sparsity, and evaluating positive-demand recovery and false activation for low-history POIs.
 To investigate information sharing among POIs, Section~\ref{subsec:information_sharing_results} compares alternative adjacency matrices and examines how related-POI perturbation affects individual forecasts.
 Finally, Section~\ref{subsec:explanation_results} analyzes attribution patterns and POI attribution regimes to identify the information sources driving predictions, while examining parent-place context and semantic granularity to assess their roles in forecasting.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.65]{art/exp_logic.pdf}
+\includegraphics[scale=0.23]{art/exp_logic.png}
 \caption{Design logic of the empirical analyses.}
 \label{fig:exp_logic}
 \end{figure}
@@ -859,66 +808,183 @@ Finally, Section~\ref{subsec:explanation_results} analyzes attribution patterns 
 \subsection{Parameter Settings}
 \label{subsec:parameter_settings}
 
-We evaluate \((T,H)\in\{(14,7),(28,7)\}\), retaining only windows whose entire target sequence lies within one split.
-Training targets end on November 19, validation targets span November 20--December 3, and December test targets span December 4--31, 2020.
-Every forecast lead is therefore represented in validation.
-Density sensitivity uses \(T=28\); graph controls, neighbor perturbations, and feature attribution use \(T=14\).
-Neural visit normalization uses observed counts from the first 50 calendar days; missing lag values enter as zero placeholders and missing labels are unscored.
-The fitted weights, graph parameters, normalization, calibration, and activation thresholds are then held fixed for January 2021, using only observations before each forecast origin as inputs.
-\ref{app:checkpoint_replay} documents checkpoint replay and numerical verification.
-Table~\ref{tab:revision_protocol} reports the origin counts, and Table~\ref{tab:parameter_settings} in \ref{app:implementation_settings} summarizes the settings.
+We first evaluate the forecasting models across four combinations of historical input lengths and forecast horizons. The observations are divided chronologically into training, validation, and test periods, and model configurations are selected based on validation loss. The subsequent analyses use \(T=28\), \(H=14\) for density sensitivity, graph transfer, and neighbor perturbation, providing a longer historical window to characterize POI activity and cross-POI relationships. In contrast, demand recovery and feature attribution use \(T=14\), \(H=7\) to focus on near-term predictions, particularly the recovery of intermittent positive visits and the contributions of recent inputs.
+Table~\ref{tab:parameter_settings} summarizes the main experimental settings.
 
-All neural models minimize masked absolute error in the main comparison.
-For each configuration, we select the learning rate by validation MAE at seed 42, retain that fitted model, and repeat the selected configuration at seeds 43--46.
-We report means and standard deviations across all five seeds; GraphGRU, MTGNN, and LSTM are also refitted with mean squared error (MSE) loss to examine loss-function sensitivity.
-Degree-controlled graph sampling uses the corresponding training seed.
-Checkpoints minimize validation MAE, with at most 100 epochs and early stopping after ten epochs without improvement.
-Paired error differences use 2,000 seven-origin block resamples, retaining all POIs and leads together, with percentile intervals at 95\% confidence.
-Occupied spatial cells of 1, 3, and 5 km provide separate and joint resampling sensitivities.
-These intervals describe variation within the observed Seattle panel, conditional on the fitted seeds.
-Feature attribution uses eight evenly spaced test origins and all seven leads.
-Gradient \(\times\) Input covers all POIs, while its comparison with IG uses a fixed uniform sample of 1,024 POIs across seeds and methods.
-\input{revision_protocol.tex}
+For sample $b$, let $o_b$ be its first target date. Inputs cover $o_b-T,\ldots,o_b-1$ and outputs cover $o_b,\ldots,o_b+H-1$. The split is determined by $o_b$. For split $s$ with date set $\mathcal D_s$, the loss is
+\[
+\mathcal L_s=\frac{\sum_{b\in s,h,j}m^{(s)}_{b,h,j}\ell(\hat Y_{b,h,j},Y_{b,h,j})}{\sum_{b\in s,h,j}m^{(s)}_{b,h,j}},\quad
+m^{(s)}_{b,h,j}=\mathbb I\{o_b+h-1\in\mathcal D_s\}\mathbb I\{Y_{b,h,j}\text{ is observed}\},
+\]
+where $\ell$ is the fitted model loss. Thus, earlier dates supply input histories, while each loss uses observed labels inside its own split. For $(T,H)=(14,7),(28,7),(28,14),(28,28)$, there are 43, 29, 29, and 29 training origins, of which 37, 23, 16, and 2 have complete training targets. Seven validation origins contribute $7,6,\ldots,1$ origins at leads 1--7; later leads have zero validation weight. Complete test windows give 22, 22, 15, and 1 origins. The $H=14,28$ comparisons consequently describe exploratory long-horizon behavior under partial-horizon model selection.
 
 
+\begin{table}[!htbp]
+\centering
+\fontsize{9pt}{11pt}\selectfont
+\caption{Parameter settings for POI visit forecasting and attribution.}
+\label{tab:parameter_settings}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{@{}
+>{\raggedright\arraybackslash}p{0.34\linewidth}
+>{\raggedright\arraybackslash}X@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Training / validation / test
+& Oct.~1--Nov.~26 / Nov.~27--Dec.~3 /
+Dec.~4--31, 2020 \\
+
+\addlinespace[2pt]
+KNN neighbors \(k\)
+& 10 \\
+
+RBF bandwidth \(\sigma\) and cutoff
+& 1 km and 2 km \\
+
+Visit-correlation threshold \(\eta_c\)
+& 0.30 \\
+
+\addlinespace[2pt]
+Ridge penalty
+& 100 \\
+
+Hidden dimensions
+& EvolveGCN: 32;
+GNN-static: 32;
+LSTM: 128 \\
+
+Learning rate (EvolveGCN, NAICS-2)
+& \(5\times10^{-4}\) \\
+
+Batch sizes
+& EvolveGCN: 6;
+GNN-static: 6;
+LSTM: 32;
+MTGNN: 4 \\
+
+\addlinespace[2pt]
+Recent-density window \(L_{\mathrm{rec}}\)
+& 14 days \\
+
+Density exclusion quantiles
+& \(\{0.10,0.25,0.50,0.75\}\) \\
+
+Low-history thresholds
+& \(\eta_z=0.70\), \(\alpha=0.25\) \\
+
+Graph-lift threshold \(\eta_G\)
+& 0.1 \\
+
+False-activation threshold \(\eta_{\mathrm{FAR}}\)
+& 0.5 \\
+
+Static-feature dimensions \(D_s\)
+& 52 \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{Forecasting Performance}
 \label{subsec:forecasting_results}
 
 
-\subsubsection{Input Windows and Forecast Leads}
+\subsubsection{Input Windows and Forecast Horizons}
 \label{subsubsec:multi_horizon_results}
 
-We compare input histories of 14 and 28 days for a seven-day forecast window. Table~\ref{tab:multihorizon} reports December performance and the January evaluation using frozen parameters.
+To provide a reliable predictive foundation for the subsequent attribution analysis, we first compare the temporal graph models with the historical-average, AR-ridge, and LSTM benchmarks across different input lengths and forecast horizons.
+Specifically, we evaluate \((T,H)\in\{(14,7),(28,7),(28,14),(28,28)\}\) to examine how forecasting performance varies with the amount of historical information and the prediction horizon.
+Comparing the first two settings isolates the effect of extending the input history from 14 to 28 days, while the remaining settings examine forecast horizons of 7, 14, and 28 days with \(T=28\).
 
-\input{revision_forecasting.tex}
 
-At $T=14$, Fixed-MTGNN with identity adjacency has December MAE $1.227\pm0.005$, compared with $1.273$ for NLinear-ridge and $1.302\pm0.007$ for GraphGRU with identity adjacency. The corresponding Fixed-MTGNN values for NAICS-2 and NAICS-4 are $1.222\pm0.008$ and $1.222\pm0.007$. GraphGRU with identity adjacency has lower aggregate MAE than either semantic graph at both input lengths.
-
-Extending the input history reduces December MAE from $1.227$ to $1.207$ for Fixed-MTGNN with identity adjacency and from $1.273$ to $1.223$ for NLinear-ridge. GraphGRU with identity adjacency changes from $1.302$ to $1.304$. In January at $T=28$, NLinear-ridge has MAE $1.239$, compared with $1.250$ for Fixed-MTGNN with identity adjacency. Model rankings therefore depend on the evaluation month and input length.
-
-Adaptive-MTGNN attains December MAE $1.221$ at $T=14$ and $1.207$ at $T=28$, close to the corresponding fixed-graph specifications. Its January values are $1.240$ and $1.249$. Figure~\ref{fig:complete_horizon_skill} shows performance at each forecast lead, while Table~\ref{tab:forecasting_intervals} reports paired differences from NLinear-ridge. At $T=14$, the December joint intervals favor fixed identity and adaptive MTGNN; their $T=28$ intervals span zero. The January joint intervals span zero for both MTGNN specifications at both input lengths.
-
-\begin{figure}[!htbp]
+\begin{table}[!htbp]
 \centering
-\includegraphics[width=0.96\linewidth]{forecasting_performance_across_horizons.pdf}
-\caption{MAE skill relative to HA by forecast lead, computed from five-seed mean errors for neural models. Positive values indicate lower error than HA.}
-\label{fig:complete_horizon_skill}
+\begingroup
+\singlespacing
+\fontsize{9pt}{10pt}\selectfont
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.92}
+\captionsetup{skip=4pt}
+\caption{Multi-horizon forecasting diagnostics. Validation scores leads 1--7; $H=14,28$ are exploratory, and $H=28$ has one test origin. For each \((T,H)\), the best MTGNN and non-identity EvolveGCN adjacencies are selected by validation loss. Skill is \(100(1-\mathrm{MAE}_{\mathrm{model}}/\mathrm{MAE}_{\mathrm{HA}})\). Anomaly correlation uses deviations from the historical average.}
+\label{tab:multihorizon}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lllrrrrrrr}
+\toprule
+\((T,H)\) & Model & Adjacency & MAE & RSE & CORR &
+Skill (\%) & Anom. CORR & \(\Delta\mathrm{DMR}\) &
+\(\mathrm{FAR}_{0.5}\) \\
+\midrule
+(14,7) & Historical average & -- & 1.47 & 0.45 & 0.90 & 0.00 & -- & 0.00 & 0.00 \\
+(14,7) & AR-ridge & -- & 1.43 & 0.47 & 0.88 & 2.63 & 0.40 & -0.00 & 0.01 \\
+(14,7) & LSTM & -- & 1.86 & 0.97 & 0.35 & -26.05 & 0.24 & -0.00 & 0.00 \\
+(14,7) & MTGNN & NAICS-2 & 1.22 & 0.37 & 0.93 & 17.34 & 0.58 & -0.09 & 0.01 \\
+(14,7) & EvolveGCN & Identity & 1.37 & 0.45 & 0.89 & 7.01 & 0.38 & 0.19 & 0.18 \\
+(14,7) & EvolveGCN & Distance RBF & 1.40 & 0.45 & 0.89 & 4.82 & 0.37 & 0.19 & 0.26 \\
+\midrule
+(28,7) & Historical average & -- & 1.48 & 0.45 & 0.90 & 0.00 & -- & 0.00 & 0.00 \\
+(28,7) & AR-ridge & -- & 1.66 & 0.82 & 0.65 & -12.50 & 0.15 & -0.00 & 0.02 \\
+(28,7) & LSTM & -- & 1.98 & 0.99 & 0.29 & -33.87 & 0.24 & -0.00 & 0.02 \\
+(28,7) & MTGNN & Identity & 1.20 & 0.37 & 0.93 & 18.79 & 0.58 & -0.13 & 0.01 \\
+(28,7) & EvolveGCN & Identity & 1.38 & 0.46 & 0.89 & 6.75 & 0.37 & 0.13 & 0.13 \\
+(28,7) & EvolveGCN & Distance RBF & 1.41 & 0.46 & 0.89 & 4.88 & 0.37 & 0.08 & 0.15 \\
+\midrule
+(28,14) & Historical average & -- & 1.47 & 0.44 & 0.90 & 0.00 & -- & 0.00 & 0.00 \\
+(28,14) & AR-ridge & -- & 1.61 & 0.74 & 0.70 & -9.76 & 0.19 & 0.00 & 0.03 \\
+(28,14) & LSTM & -- & 2.00 & 1.00 & 0.28 & -36.16 & 0.23 & 0.00 & 0.03 \\
+(28,14) & MTGNN & NAICS-2 & 1.20 & 0.36 & 0.94 & 17.93 & 0.59 & -0.11 & 0.01 \\
+(28,14) & EvolveGCN & Identity & 1.40 & 0.47 & 0.89 & 4.62 & 0.33 & 0.15 & 0.19 \\
+(28,14) & EvolveGCN & Distance RBF & 1.45 & 0.48 & 0.88 & 0.90 & 0.32 & 0.09 & 0.16 \\
+\midrule
+(28,28) & Historical average & -- & 1.47 & 0.44 & 0.91 & 0.00 & -- & 0.00 & 0.00 \\
+(28,28) & AR-ridge & -- & 1.54 & 0.62 & 0.79 & -4.54 & 0.29 & 0.01 & 0.06 \\
+(28,28) & LSTM & -- & 2.01 & 1.00 & 0.28 & -36.64 & 0.22 & 0.01 & 0.06 \\
+(28,28) & MTGNN & Top category & 1.27 & 0.41 & 0.93 & 13.72 & 0.49 & -0.10 & 0.00 \\
+(28,28) & EvolveGCN & Identity & 1.45 & 0.49 & 0.88 & 1.37 & 0.26 & 0.14 & 0.21 \\
+(28,28) & EvolveGCN & Distance RBF & 1.47 & 0.50 & 0.88 & -0.24 & 0.26 & 0.09 & 0.20 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\endgroup
+\end{table}
+
+
+Table~\ref{tab:multihorizon} compares the forecasting performance of the benchmark and temporal graph models across the four settings.
+MTGNN achieves the lowest test MAE and highest CORR and anomaly correlation in every setting, with MAE skill relative to the historical average ranging from \(13.72\%\) to \(18.79\%\).
+Within EvolveGCN, identity adjacency consistently outperforms the validation-selected non-identity adjacency, indicating that incorporating cross-POI connections does not necessarily improve aggregate forecasting accuracy.
+The historical average remains a competitive POI-specific baseline, particularly at longer horizons.
+At \((T,H)=(28,28)\), for example, EvolveGCN with distance RBF adjacency has slightly negative MAE skill relative to the historical average.
+AR-ridge improves upon the historical average at \((14,7)\) but performs worse with longer input windows, while LSTM has higher MAE than both the historical average and EvolveGCN across all four settings.
+The LSTM implementation compresses the full 9,884-POI visit vector into 128 hidden dimensions. It uses squared-error training, while MTGNN uses absolute error, so this contrast combines specification and objective differences. The rankings apply to these fitted configurations. BysGNN remains a relevant comparator for a direct performance evaluation.
+
+The comparison also reveals different sensitivities to input length.
+At \(H=7\), doubling the input history has little effect on EvolveGCN with identity adjacency: its MAE changes from \(1.37\) to \(1.38\), and its MAE skill changes from \(7.01\%\) to \(6.75\%\).
+In contrast, AR-ridge MAE increases from \(1.43\) to \(1.66\), with RSE increasing from \(0.47\) to \(0.82\).
+These results indicate that additional historical observations do not uniformly improve forecasting performance.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.60]{art/forecasting_performance_across_horizons.pdf}
+\caption{Mean absolute error (MAE) skill relative to the historical average at \(T=28\) days. The best MTGNN and non-identity EvolveGCN configurations are selected by validation loss within each horizon. Validation scores leads 1--7; the 28-day horizon has one test forecast origin.}
+\label{fig:forecast_horizon_skill}
 \end{figure}
 
-\input{revision_forecasting_intervals.tex}
+To further examine the effect of forecast horizon, Figure~\ref{fig:forecast_horizon_skill} illustrates how MAE skill relative to the historical average changes as \(H\) increases with \(T=28\).
+For EvolveGCN with identity adjacency, MAE skill decreases from \(6.75\%\) at \(H=7\) to \(4.62\%\) at \(H=14\) and \(1.37\%\) at \(H=28\).
+The corresponding values for the validation-selected MTGNN configurations are \(18.79\%\), \(17.93\%\), and \(13.72\%\).
+Both architectures maintain an advantage over the historical average, although this advantage diminishes at longer horizons, particularly for EvolveGCN.
+At \(H=28\), where the evaluation contains only one test forecast origin, EvolveGCN with identity adjacency retains a CORR of \(0.88\), while its anomaly correlation declines from \(0.37\) at \(H=7\) to \(0.26\).
+This 28-day comparison describes one forecast origin; its cross-POI correlation provides evidence for that window.
 
-The architectural control in Table~\ref{tab:matched_lstm} narrows the difference between the recurrent models. With $T=14$ and MAE training, Matched-LSTM attains MAE $1.298$ in December and $1.309$ in January, compared with $1.302$ and $1.311$ for identity GraphGRU. The paired differences are $-0.0037$ and $-0.0015$, with 95\% joint temporal and 3-km spatial intervals of $[-0.0083,0.0014]$ and $[-0.0067,0.0048]$. Relative to Shared-LSTM, the corresponding reductions are $0.0619$ and $0.0570$, with intervals of $[0.0212,0.1116]$ and $[0.0173,0.1048]$. Thus, the input projection and last-observation readout account for much of the difference from the original LSTM baseline. The MSE-trained control has larger errors, particularly at $T=28$.
+Despite its superior aggregate forecasting accuracy, MTGNN does not consistently achieve better positive-demand recovery among low-history POIs.
+As shown in Table~\ref{tab:multihorizon}, at \((T,H)=(28,14)\), MTGNN achieves a \(\Delta\mathrm{DMR}\) of \(-0.11\) and a \(\mathrm{FAR}_{0.5}\) of \(0.01\), whereas EvolveGCN with identity adjacency achieves a \(\Delta\mathrm{DMR}\) of \(0.15\) and a \(\mathrm{FAR}_{0.5}\) of \(0.19\).
+This contrast indicates that lower aggregate forecasting error does not necessarily correspond to greater positive-demand recovery for POIs with sparse histories, while increased recovery may be accompanied by more false activations.
+We examine this tradeoff in greater detail in the following analysis of low-history POIs.
 
-\input{revision_matched_lstm.tex}
 
-\subsubsection{Earlier-Period City Controls}
-\label{subsubsec:city_controls}
-We repeat the temporal architectural comparison on July-defined Seattle and Portland cohorts. Training targets end on August 19, validation spans August 20--September 2, and test targets span September 3--30. The $T=14$, $H=7$ settings retain the original optimization and five-seed protocol. The same training-based low-history rule is applied separately in each city.
 
-Table~\ref{tab:city_controls} shows that Matched-LSTM has lower aggregate September MAE than identity GraphGRU in Seattle, with GraphGRU-minus-LSTM difference $0.0261$ and a 95\% seven-origin block interval of $[0.0244,0.0281]$. The Portland difference is $0.0028$, with interval $[-0.0007,0.0065]$. NLinear-ridge remains competitive in aggregate, while the zero predictor attains the lowest low-history MAE in both cities. The architectural comparison and intermittent-demand tradeoff therefore extend beyond the original quarter with variation in model rankings.
 
-\input{revision_city_controls.tex}
+
 
 \subsubsection{Low-History POIs}
 \label{subsubsec:low_history_results}
@@ -931,12 +997,110 @@ We then focus on low-history POIs to evaluate positive-demand recovery and false
 
 
 \textit{(1) Density Sensitivity.}
-We form subsets using overall nonzero frequency, recent-14-day nonzero frequency, and persistence over the training period. Each rule excludes the lowest 10\%, 25\%, 50\%, or 75\% of POIs. GraphGRU with identity adjacency is refitted on each subset at $T=28$ and $H=7$ using the common validation and five-seed protocol.
-\input{revision_density.tex}
-Table~\ref{tab:sublevel} compares each refitted model with the historical average on the same retained POIs and forecast events. MAE skill is $100(1-\mathrm{MAE}_{\mathrm{model}}/\mathrm{MAE}_{\mathrm{HA}})$. It is $12.1\%$ on the full panel and ranges from $11.4\%$ to $14.3\%$ across the subsets. The densest overall and persistence subsets attain $14.3\%$ skill, while their larger visit counts raise absolute MAE to approximately $2.77$.
+For the density sensitivity analysis, we construct three types of subsets based on different measures of historical activity.
+The density-based subsets retain locations with the largest overall training-period nonzero ratios.
+The recent-density subsets emphasize activity near the end of the training period, while the persistence-density subsets favor locations with frequent activity on consecutive days.
+We rebuild the visit matrix and refit EvolveGCN with identity adjacency for each subset at \(T=28\), \(H=14\).
+
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\caption{Visit-density sensitivity at \(T=28\), \(H=14\). Skill is relative to the historical average within each subset.}
+\label{tab:sublevel}
+\begingroup
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccccc@{}}
+\toprule
+\makecell[l]{Subset}
+& \makecell[c]{POIs}
+& \makecell[c]{Nonzero\\ratio}
+& \makecell[c]{EvolveGCN\\MAE}
+& \makecell[c]{HA\\MAE}
+& \makecell[c]{Skill\\(\%)}
+& \makecell[c]{RSE}
+& \makecell[c]{CORR} \\
+\midrule
+Full & 9,884 & 0.62 & 1.40 & 1.47 & 4.62 & 0.47 & 0.89 \\
+Dense10 & 8,896 & 0.68 & 1.52 & 1.61 & 5.54 & 0.47 & 0.89 \\
+Dense25 & 7,413 & 0.76 & 1.71 & 1.83 & 6.42 & 0.47 & 0.88 \\
+Dense50 & 4,942 & 0.88 & 2.14 & 2.31 & 7.44 & 0.47 & 0.88 \\
+Dense75 & 2,471 & 0.97 & 2.92 & 3.16 & 7.86 & 0.46 & 0.89 \\
+Recent-dense10 & 8,896 & 0.68 & 1.52 & 1.60 & 5.14 & 0.47 & 0.89 \\
+Recent-dense25 & 7,413 & 0.76 & 1.71 & 1.82 & 5.85 & 0.47 & 0.88 \\
+Recent-dense50 & 4,942 & 0.86 & 2.13 & 2.27 & 6.12 & 0.47 & 0.89 \\
+Recent-dense75 & 2,471 & 0.95 & 2.89 & 3.07 & 6.00 & 0.46 & 0.89 \\
+Persist-dense10 & 8,896 & 0.68 & 1.52 & 1.60 & 5.49 & 0.47 & 0.89 \\
+Persist-dense25 & 7,413 & 0.76 & 1.71 & 1.83 & 6.41 & 0.47 & 0.88 \\
+Persist-dense50 & 4,942 & 0.88 & 2.14 & 2.32 & 7.50 & 0.47 & 0.88 \\
+Persist-dense75 & 2,471 & 0.97 & 2.91 & 3.16 & 8.00 & 0.46 & 0.89 \\
+\bottomrule
+\end{tabular*}
+\endgroup
+\end{table}
+
+Removing sparse POIs yields a moderate improvement relative to the historical average, even as the scale of the errors increases.
+In Table~\ref{tab:sublevel}, the nonzero ratio increases from \(0.62\) for the full cohort to \(0.97\) for the densest overall-density and persistence-density subsets.
+Both EvolveGCN and the historical average have larger absolute MAEs in the denser subsets, which contain more active POIs with larger visit counts.
+Against the historical-average MAE for each subset, EvolveGCN improves by \(4.62\%\) on the full cohort and by \(5.14\%\) to \(8.00\%\) on the denser subsets.
+The improvement reaches \(7.86\%\) for the densest overall-density subset and \(8.00\%\) for the densest persistence-density subset, while the maximum in the recent-density subsets is \(6.12\%\) at Recent-dense50.
+RSE remains between \(0.46\) and \(0.47\), and CORR ranges from \(0.88\) to \(0.89\).
+These results describe changes in forecast performance as the cohort contains more regularly active locations.
+To examine the forecasting problem for sparse locations directly, we next compare performance on positive- and zero-visit events among low-history POIs.
 
 \textit{(2) Zero-Demand Collapse.}
-\input{revision_low_history_results.tex}
+We apply the low-history rule to observed training-window inputs, selecting POIs with at least \(70\%\) zero counts and a historical mean in the lowest quartile of strictly positive POI-level means.
+At \(T=14\), \(H=7\), this rule identifies 1,931 POIs and 297,374 test events, of which 51,492 (\(17.3\%\)) have positive visits.
+The prevalence of zero-visit events allows a model with near-zero forecasts to achieve low aggregate error even when it recovers little positive demand.
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Zero-demand collapse at \(T=14\), \(H=7\). MAE and root mean squared error (RMSE) use all test POIs. Other columns use low-history POIs.}
+\label{tab:zero_collapse_diagnostic}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llrrrrrrrr}
+\toprule
+Model & Adjacency & MAE & RMSE & Lift & \(\mathrm{DMR}^{\mathrm{model}}\) & \(\mathrm{DMR}^{\mathrm{HA}}\) & \(\Delta\mathrm{DMR}\) & \(\mathrm{FAR}_{0.5}\) & Mean pred. \\
+\midrule
+Historical average & -- & 1.47 & 3.45 & 0.00 & 0.19 & 0.19 & 0.00 & 0.00 & 0.19 \\
+AR-ridge & -- & 1.43 & 3.61 & -0.01 & 0.18 & 0.19 & -0.00 & 0.01 & 0.18 \\
+LSTM & -- & 1.86 & 7.39 & -0.01 & 0.18 & 0.19 & -0.00 & 0.00 & 0.18 \\
+MTGNN & Identity & 1.24 & 3.07 & -0.14 & 0.07 & 0.19 & -0.11 & 0.01 & 0.05 \\
+MTGNN & NAICS-2 & 1.22 & 2.85 & -0.13 & 0.10 & 0.19 & -0.09 & 0.01 & 0.06 \\
+MTGNN & Top category & 1.22 & 2.85 & -0.13 & 0.09 & 0.19 & -0.10 & 0.01 & 0.06 \\
+MTGNN & Distance KNN & 1.24 & 2.87 & -0.08 & 0.14 & 0.19 & -0.04 & 0.02 & 0.11 \\
+EvolveGCN & Identity & 1.37 & 3.41 & 0.19 & 0.38 & 0.19 & 0.19 & 0.18 & 0.38 \\
+EvolveGCN & NAICS-2 & 1.46 & 3.56 & 0.13 & 0.34 & 0.19 & 0.15 & 0.20 & 0.32 \\
+EvolveGCN & Top category & 1.41 & 3.46 & 0.22 & 0.41 & 0.19 & 0.22 & 0.26 & 0.41 \\
+EvolveGCN & Distance RBF & 1.40 & 3.45 & 0.19 & 0.38 & 0.19 & 0.19 & 0.26 & 0.38 \\
+EvolveGCN & Visit correlation & 1.41 & 3.46 & 0.17 & 0.36 & 0.19 & 0.18 & 0.22 & 0.36 \\
+EvolveGCN & Distance KNN & 1.43 & 3.46 & 0.26 & 0.44 & 0.19 & 0.25 & 0.32 & 0.45 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[scale=0.65]{art/recovery_activation_tradeoff.pdf}
+\caption{Demand mass recovery ratio (DMR) and false activation rate (FAR) among 1,931 low-history POIs at \(T=14\), \(H=7\). The activation threshold is 0.5 visits. Labels identify adjacency matrices and benchmarks.}
+\label{fig:recovery_activation_tradeoff}
+\end{figure}
+
+Table~\ref{tab:zero_collapse_diagnostic} reports MAE and RMSE for all test POIs and the remaining diagnostics for the low-history cohort.
+Within that cohort, the historical average predicts \(0.19\) visits on average, with a DMR of \(18.6\%\) and a FAR of \(0.16\%\).
+LSTM is similarly conservative, with a mean forecast of \(0.18\) visits and a DMR of \(18.2\%\), despite a full-cohort RMSE of \(7.39\).
+AR-ridge reduces full-cohort MAE from the historical-average value of \(1.47\) to \(1.43\) and records a DMR of \(18.2\%\) and a FAR of \(0.81\%\) for low-history POIs.
+MTGNN reduces aggregate MAE further, with DMR between \(7.3\%\) and \(14.1\%\) across the four reported adjacencies.
+The three benchmarks recover a similar fraction of positive demand mass for sparse locations despite differences in full-cohort error.
+MTGNN improves overall accuracy while assigning a smaller share of realized demand mass to the positive-visit events of those POIs.
+
+EvolveGCN with identity adjacency recovers \(37.9\%\) of positive demand mass using the visit history of the target POI, with a FAR of \(18.2\%\).
+Relative to this within-model reference, top-category adjacency raises DMR to \(40.9\%\) and FAR to \(26.0\%\).
+Distance KNN reaches \(43.6\%\) DMR and \(31.6\%\) FAR, the highest values of both metrics among the configurations shown in Figure~\ref{fig:recovery_activation_tradeoff}.
+Distance RBF yields a DMR close to the identity result with a higher FAR, while NAICS-2 raises FAR to \(20.2\%\) and reduces DMR to \(33.8\%\).
+An upward revision can recover visits on a positive-visit event or produce a false activation on a zero-visit event.
+The next analysis examines where these outcomes arise among individual predictions under functional adjacency.
 
 \subsection{Information Sharing among POIs}
 \label{subsec:information_sharing_results}
@@ -950,108 +1114,371 @@ The analysis combines graph-transfer regime comparisons with neighbor-group pert
 \subsubsection{Alternative Adjacency Matrices}
 \label{subsubsec:adjacency_results}
 
-\input{revision_graph_results.tex}
+
+We first compare EvolveGCN forecasts under NAICS-2 and identity adjacency to characterize graph-transfer outcomes for individual prediction events.
+The former allows information sharing among POIs with the same two-digit NAICS prefix, whereas the latter excludes cross-POI information transfer.
+The comparison is conducted at \(T=28\), \(H=14\), covering 407,820 test events from 1,942 low-history POIs.
+For each event, graph lift measures the difference between the two forecasts, while target evidence and neighbor evidence summarize historical visits at the target POI and its connected neighbors, respectively.
+Combining these measures with observed visits, we identify the graph-transfer regimes reported in Table~\ref{tab:graph_transfer_summary} and evaluate their forecasting performance using MAE gain.
+
+
+\begin{table}[!t]
+\centering
+\small
+\captionsetup{skip=3pt}
+\caption{Graph-transfer regimes under NAICS-2 at \(T=28\), \(H=14\). The shares of positive-demand events and false activations use all events in each regime.}
+\label{tab:graph_transfer_summary}
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+\toprule
+\multicolumn{1}{c}{Regime}
+& Events
+& Graph lift
+& \makecell[c]{Target\\evidence}
+& \makecell[c]{Neighbor\\evidence}
+& MAE gain
+& \makecell[c]{Positive /\\false share} \\
+\midrule
+Spurious transfer & 10,172 & 0.77 & 0.10 & 6.04 & -0.77 & 0.00 / 1.00 \\
+Substitutive transfer & 15,097 & 0.22 & 0.08 & 3.10 & -0.08 & 0.19 / 0.00 \\
+Confirmatory transfer & 33,802 & 0.53 & 0.35 & 3.80 & -0.34 & 0.27 / 0.63 \\
+Redundant self-history & 150,003 & -0.15 & 0.32 & 1.88 & 0.08 & 0.23 / 0.05 \\
+Conservative zero & 151,118 & -0.08 & 0.08 & 1.83 & 0.08 & 0.00 / 0.00 \\
+Other & 47,628 & 0.21 & 0.21 & 1.56 & -0.19 & 0.55 / 0.45 \\
+\bottomrule
+\end{tabular*}
+\endgroup
+\end{table}
+
+\begin{figure}[!t]
+\centering
+\captionsetup{skip=3pt}
+\includegraphics[scale=0.80]{art/outcome_conditioned_graph_transfer.pdf}
+\caption{MAE gain of NAICS-2 over identity adjacency at \(T=28\), \(H=14\). Positive gains indicate lower error under NAICS-2. Both panels use pooled evidence sextiles and a common zero-centered color scale. Axis ticks mark bin edges. Panel means weight cells by event count. Cells with fewer than 30 events are marked with a dash.}
+\label{fig:counterfactual_graph_transfer_map}
+\end{figure}
+
+
+
+Table~\ref{tab:graph_transfer_summary} shows that stronger neighbor evidence does not necessarily improve forecasting accuracy for low-history POIs.
+Although substitutive and spurious transfer both occur under low target evidence and high neighbor evidence, only \(19.3\%\) of substitutive events have positive observed visits, and their mean MAE gain remains negative at \(-0.08\) visits.
+In the spurious regime, a mean graph lift of \(0.77\) visits corresponds to an MAE gain of \(-0.77\) visits: the NAICS-2 configuration predicts more visits and incurs greater error on zero-visit events.
+This limitation also appears in confirmatory transfer, where relatively strong target and neighbor evidence is accompanied by a negative mean MAE gain of \(-0.34\) visits.
+In contrast, redundant self-history yields a positive MAE gain of \(0.08\) visits alongside a negative graph lift, suggesting that reducing predicted demand can improve accuracy when the target POI has informative historical observations.
+Figure~\ref{fig:counterfactual_graph_transfer_map} further shows that, within the same target and neighbor evidence bins, graph transfer can improve positive-visit forecasts while increasing errors for zero-visit events.
+These findings suggest that cross-POI information should be incorporated selectively rather than treating stronger neighbor activity as sufficient evidence of higher demand at the target location.
+
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Substitutive and spurious transfer under functional adjacencies at \(T=28\), \(H=14\).}
+\label{tab:semantic_granularity_transfer}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr@{}}
+\toprule
+Adjacency & Regime & Events & Graph lift & MAE gain & Positive / false share \\
+\midrule
+NAICS-2 & Spurious & 10,172 & 0.77 & -0.77 & 0.00 / 1.00 \\
+NAICS-2 & Substitutive & 15,097 & 0.22 & -0.08 & 0.19 / 0.00 \\
+NAICS-4 & Spurious & 7,837 & 0.59 & -0.59 & 0.00 / 1.00 \\
+NAICS-4 & Substitutive & 9,238 & 0.22 & -0.10 & 0.22 / 0.00 \\
+Top category & Spurious & 7,837 & 0.59 & -0.59 & 0.00 / 1.00 \\
+Top category & Substitutive & 9,238 & 0.22 & -0.10 & 0.22 / 0.00 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+
+Table~\ref{tab:semantic_granularity_transfer} shows how restricting functional neighbors changes the frequency and accuracy of graph transfer.
+Relative to NAICS-2, NAICS-4 reduces the number of substitutive events from 15,097 to 9,238 and raises the positive-visit share among them from \(19.3\%\) to \(21.7\%\).
+Mean graph lift remains approximately \(0.22\) visits for both graphs, while mean MAE gain is negative in both substitutive regimes, indicating that more specific functional connections do not necessarily improve prediction accuracy.
+NAICS-4 also reduces the number of spurious events from 10,172 to 7,837, with mean MAE gain increasing from \(-0.77\) to \(-0.59\) visits.
+The top-category and NAICS-4 labels induce exactly the same 134 groups and 7,580,720 directed non-self edges on this cohort. Their adjacency matrices are identical, explaining the repeated results in Table~\ref{tab:semantic_granularity_transfer}; these rows represent one graph comparison.
+These findings suggest that restricting functional neighbors changes the frequency and composition of graph transfer more than the magnitude of the remaining substitutive transfers.
 
 \subsubsection{Related-POI Perturbation}
 \label{subsubsec:perturbation_results}
 
-\input{revision_neighbor_results.tex}
+We further examine the sensitivity of NAICS-4 forecasts to different neighbor groups within the identified transfer regimes.
+For each group, we perturb its historical visit counts while keeping the fitted model and adjacency matrix fixed.
+Comparing the full neighborhood with the top-10 active neighbors allows us to assess whether prediction changes are concentrated among highly active POIs, while the correlated and aligned groups examine the contribution of similar temporal visit patterns.
+We evaluate these perturbations separately for beneficial and harmful attempted-substitution events.
+Beneficial events have positive observed visits and lower absolute error under NAICS-4 than under identity adjacency, whereas harmful events are false activations.
+Among beneficial events, recovered positives are those for which the identity forecast is below \(0.5\) visits but the NAICS-4 forecast reaches that threshold.
 
-\subsubsection{Spatial Activity Prioritization}
-\label{subsubsec:activity_prioritization}
-We also rank the 256 occupied 1-km cells by predicted visits and measure the observed visit mass captured by fixed budgets of 13, 26, and 52 cells. Table~\ref{tab:activity_coverage} reports coverage for each model, averaging per-seed selections over origins and leads.
-At the 26-cell budget, HA captures $48.01\%$ of December visits, compared with $48.22\%$ for Fixed-MTGNN with identity adjacency and $48.29\%$ for NLinear-ridge. The corresponding gains are $0.20$ percentage points (paired 95\% interval $[0.16,0.25]$) and $0.28$ points ($[0.24,0.32]$). January gains are $0.15$ points ($[0.01,0.26]$) and $0.23$ points ($[0.09,0.34]$). Historical spatial concentration accounts for most captured visits, with modest gains from the fitted forecasts. This outcome measures observed-visit coverage under a fixed inspection budget.
 
-\input{revision_activity_coverage.tex}
+
+\begin{table}[!t]
+\centering
+\fontsize{9pt}{11pt}\selectfont
+\captionsetup{skip=3pt}
+\caption{Neighbor-group perturbation under NAICS-4 at \(T=28\), \(H=14\). Ben. and harm. refer to beneficial and harmful attempted-substitution events. \(D\) denotes the perturbation effect. A positive \(\Delta\mathrm{MAE}\) indicates higher error after perturbation.}
+\label{tab:metric_targeted_perturbation_naics4}
+\begingroup
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccccc@{}}
+\toprule
+\makecell[c]{Neighbor\\group}
+& \makecell[c]{\(D\)\\Ben.}
+& \makecell[c]{\(D\)\\Harm.}
+& \makecell[c]{Per node\\Ben.}
+& \makecell[c]{Per node\\Harm.}
+& \makecell[c]{\(\Delta\mathrm{MAE}\)\\Ben.}
+& \makecell[c]{\(\Delta\mathrm{MAE}\)\\Harm.}
+& \makecell[c]{False activations\\removed}
+& \makecell[c]{Recoveries\\lost} \\
+\midrule
+All & 0.281 & 0.546 & 0.010 & 0.027 & 0.248 & -0.546 & 0.535 & 0.617 \\
+Recent-active & 0.280 & 0.544 & 0.011 & 0.029 & 0.247 & -0.544 & 0.535 & 0.617 \\
+High-mean & 0.269 & 0.526 & 0.021 & 0.059 & 0.237 & -0.526 & 0.485 & 0.575 \\
+Top-10 active & 0.161 & 0.399 & 0.019 & 0.052 & 0.129 & -0.399 & 0.327 & 0.398 \\
+Random-10 & 0.072 & 0.161 & 0.010 & 0.028 & 0.051 & -0.161 & 0.139 & 0.188 \\
+Top-10 correlated & 0.060 & 0.134 & 0.009 & 0.025 & 0.039 & -0.134 & 0.128 & 0.164 \\
+Aligned & 0.252 & 0.442 & 0.009 & 0.021 & 0.226 & -0.442 & 0.467 & 0.572 \\
+Low-mean & 0.035 & 0.037 & 0.001 & 0.004 & 0.030 & -0.037 & 0.052 & 0.086 \\
+\bottomrule
+\end{tabular*}
+\end{adjustbox}
+\endgroup
+\end{table}
+
+\begin{figure}[!t]
+\centering
+\captionsetup{skip=3pt}
+\includegraphics[scale=0.8]{art/neighbor_perturbation_tradeoff.pdf}
+\caption{Effect of zeroing neighbor histories under NAICS-4 adjacency at \(T=28\), \(H=14\). Each pair gives the share of false activations removed and the share of positive-demand recoveries lost in their respective reference sets.}
+\label{fig:neighbor_perturbation_tradeoff}
+\end{figure}
+
+
+Table~\ref{tab:metric_targeted_perturbation_naics4} shows that perturbing the full neighborhood produces the largest reductions in predicted visits, with nearly identical effects obtained by perturbing recent-active neighbors.
+Recently active neighbors account for most of the forecast reduction under this zeroing intervention.
+However, removing this information has opposing effects on beneficial and harmful events.
+As shown in Figure~\ref{fig:neighbor_perturbation_tradeoff}, zeroing all neighbor histories eliminates \(53.5\%\) of false activations but also loses \(61.7\%\) of positive-demand recoveries.
+The corresponding MAE decreases by \(0.546\) visits for harmful events but increases by \(0.248\) visits for beneficial events.
+These results reveal a tradeoff: suppressing neighbor information can correct overprediction at zero-demand locations while removing useful signals for recovering positive demand.
+
+The contribution of neighbor information also varies across groups.
+High-mean neighbors have larger effects per perturbed node than the full-neighborhood average, indicating that more active POIs exert greater influence on individual predictions.
+However, the top-10 active neighbors account for only \(32.7\%\) of false activations removed and \(39.8\%\) of recoveries lost, suggesting that influential information extends beyond a small number of highly active locations.
+Meanwhile, perturbing the top-10 correlated neighbors produces effects comparable to random-10, whereas aligned neighbors account for a substantial share of the prediction changes.
+Under zeroing, recent activity and temporal alignment identify neighbor groups with larger prediction effects than correlation-based selection.
+Nevertheless, the contribution of active neighbors to both beneficial and harmful events indicates that filtering neighbors solely by activity may reduce false activations at the expense of positive-demand recovery.
 
 \subsection{Explaining POI Visit Predictions}
 \label{subsec:explanation_results}
 
 
-Following the analysis of cross-POI information transfer, we examine the contributions of the history and static attributes of a POI using the five GNN-static fits with identity adjacency at \(T=14\), \(H=7\).
-With numeric inputs standardized, history accounts for \(57.7\%\) of the mean Gradient \(\times\) Input share among eligible POIs, compared with \(22.5\%\) for identity, \(18.3\%\) for parent, \(1.0\%\) for other attributes, and \(0.45\%\) for location.
-These are normalized attribution magnitudes; the subsequent retraining experiments assess whether each input improves predictive accuracy.
+Following the analysis of cross-POI information transfer, we further examine how the historical visits of a POI and static attributes contribute to its predictions.
+This analysis uses the GNN-static fit with identity adjacency at \(T=14\) and \(H=7\), excluding cross-POI information transfer.
+For each POI, the absolute Gradient \(\times\) Input scores are aggregated across test samples and forecast steps and normalized across feature groups to obtain attribution shares.
+Examining these shares reveals a strong dominance of location, which has the largest attribution share for 9,806 of the 9,884 POIs (\(99.2\%\)).
+The calculation uses uncentered geographic coordinates. Their numerical origin contributes to these magnitudes, so the location share describes the chosen encoding.
+Since this dominance obscures differences in reliance on other feature groups, we standardize the attribution shares across POIs and assign each POI to the regime with the highest standardized score.
+
 
 \subsubsection{POI Attribution Regimes}
 \label{subsubsec:attribution_regimes}
-\input{revision_attribution_results.tex}
+
+
+
+Figure~\ref{fig:attribution_fingerprint} reveals substantial heterogeneity in the relative contributions of different information sources across POIs.
+Although the parent-driven regime contains only 506 POIs and has a mean original parent share of \(4.0\%\), its standardized parent attribution is \(3.06\) standard deviations above the cohort mean.
+The parent share is unusually high relative to its distribution across POIs, while its original magnitude remains small.
+In contrast, the others-driven regime includes 2,749 POIs, with opening-hour features and their missingness indicators accounting for \(13.1\%\) of the original attribution on average.
+These differences suggest that contextual attributes contribute unevenly across locations, motivating a closer examination of how attribution regimes relate to POI functions and forecasting accuracy.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.70]{art/attribution_fingerprint.pdf}
+\caption{Mean standardized attribution scores and POI counts by regime for the GNN-static fit at \(T=14\), \(H=7\). Positive values indicate shares above the cohort mean for the corresponding source. Bold marks the source that defines each regime.}
+\label{fig:attribution_fingerprint}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\fontsize{9pt}{11pt}\selectfont
+\captionsetup{skip=5pt}
+\caption{Attribution regimes for the GNN-static fit at \(T=14\), \(H=7\). Representative POIs have the smallest Euclidean distances to the mean attribution profile of their regime. Distances use the original attribution shares.}
+\label{tab:attri_regime}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\linewidth}{@{}lr>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Regime & POIs & Representative POIs & MAE \\
+\midrule
+History-driven & 1,581 & The Polyclinic Plastic Surgery at Nordstrom Tower, Trask Orthodontics, Eighteen15 Bar & 3.108 \\
+Location-driven & 2,591 & Southsea Spices, Lennar at High Point, The Laser Dome & 1.629 \\
+Identity-driven & 2,457 & Freed Art Design, J \& J Auto Master, ANT Autoworks & 1.153 \\
+Parent-driven & 506 & Tecnicolfs llc, 2bar Spirits, The Landing at Tyee on Lake Union & 1.415 \\
+Others-driven & 2,749 & CDI (Center for Diagnostic Imaging), Cafe 5ive, Theo Chocolate & 1.298 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+Table~\ref{tab:attri_regime} shows differences in forecasting accuracy across attribution regimes.
+The history-driven regime has the highest MAE of \(3.108\) visits, compared with \(1.153\) visits for the identity-driven regime. These errors compare POI groups with different visit levels and attribution profiles.
+These attribution patterns also differ across urban functions, as shown in Table~\ref{tab:category_regime_mae}.
+Among schools, campuses, and education-related POIs, \(81.3\%\) are identity-driven, whereas \(55.6\%\) of grocery and daily retail POIs are location-driven.
+The others-driven regime is more prevalent among bars and nightlife (\(44.4\%\)) and restaurants and cafes (\(38.7\%\)), reflecting greater relative reliance on opening-hour information and its missingness indicators.
+These differences suggest that the information underlying POI forecasts varies systematically across urban functions, rather than following a uniform attribution profile.
+
+
+\begin{table}[!htb]
+\centering
+\fontsize{9pt}{11pt}\selectfont
+\caption{Attribution-regime shares within broad POI categories. H, L, I, P, and O denote history-driven, location-driven, identity-driven, parent-driven, and others-driven, respectively. MAE uses the same GNN-static predictions.}
+\label{tab:category_regime_mae}
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xrrrrrrr@{}}
+\toprule
+POI category & POIs & H (\%) & L (\%) & I (\%) & P (\%) & O (\%) & MAE \\
+\midrule
+Bars and nightlife POIs & 383 & 16.2 & 16.2 & 20.9 & 2.3 & 44.4 & 1.308 \\
+Clinics and medical services & 1,090 & 15.0 & 27.6 & 32.6 & 9.4 & 15.3 & 1.656 \\
+Grocery and daily retail & 423 & 15.6 & 55.6 & 0.2 & 8.5 & 20.1 & 1.825 \\
+Pharmacies and health-related retail & 240 & 22.5 & 48.3 & 1.7 & 3.8 & 23.8 & 1.789 \\
+Repair, towing, and irregular services & 283 & 13.4 & 9.9 & 30.4 & 2.1 & 44.2 & 1.106 \\
+Restaurants and cafes & 2,604 & 13.1 & 18.7 & 24.9 & 4.6 & 38.7 & 1.720 \\
+Schools, campuses, and education-related POIs & 294 & 5.4 & 2.7 & 81.3 & 2.4 & 8.2 & 1.577 \\
+Shopping centers and office-building POIs & 2,879 & 16.4 & 34.6 & 28.9 & 4.2 & 15.9 & 1.648 \\
+Small local businesses & 1,688 & 21.8 & 21.1 & 12.4 & 5.7 & 38.9 & 1.627 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{art/attribution_cluster_map.pdf}
+\caption{Spatial distribution of the five attribution regimes in Seattle. The overview shows the regimes together. Each small panel highlights one regime and shows the other POIs in gray. Legend counts refer to the 9,882 POIs within the mapped extent. Road and water features are from the 2020 U.S. Census Bureau TIGER/Line files.}
+\label{fig:attribution_regime_map}
+\end{figure}
+
+
+Figure~\ref{fig:attribution_regime_map} illustrates the spatial distribution of the five attribution regimes across Seattle.
+The regimes exhibit substantial geographic overlap rather than forming distinct spatial regions, with POIs assigned to different regimes frequently appearing near one another.
+Nearby POIs can have different leading standardized attribution shares.
 
 \subsubsection{Parent-Place Information}
 \label{subsubsec:parent_results}
 
-\input{revision_attribution_origin.tex}
-
 POIs located within larger destinations, such as shopping malls and medical facilities, may share contextual characteristics with their parent places.
 We further examine how parent-place information contributes to forecasts for these embedded POIs relative to their own historical visits and other static attributes.
-The analysis covers 581 POIs with 233 recorded parent places. Frequency pooling retains two parent labels separately and combines the remaining 231, so the attribution primarily describes this coarse parent-place encoding. We compare its attribution across embedded POI groups.
+The analysis covers 581 POIs with recorded parent places and compares attribution patterns across different embedded POI groups.
 
 
-\input{revision_parent_categories.tex}
+\begin{table}[!htbp]
+\centering
+\fontsize{9pt}{11pt}\selectfont
+\caption{Mean attribution shares for POIs with a recorded parent place. Selected subgroups use the top category of the embedded POI. Gap is the parent share minus the combined share of the other sources, computed before rounding.}
+\label{tab_parent}
+\begingroup
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccc@{}}
+\toprule
+Embedded POI group
+& POIs
+& Parent (\%)
+& Other (\%)
+& Gap (pp)
+& MAE \\
+\midrule
+Cafes and restaurants
+& 181 & 3.4 & 96.6 & -93.2 & 1.874 \\
+Pharmacies and health retail
+& 18 & 3.3 & 96.7 & -93.4 & 2.240 \\
+Retail and service shops
+& 126 & 3.3 & 96.7 & -93.4 & 1.743 \\
+Education-related POIs
+& 8 & 4.5 & 95.5 & -91.0 & 2.182 \\
+Medical and clinic-related POIs
+& 61 & 3.9 & 96.1 & -92.2 & 3.557 \\
+\midrule
+All embedded POIs
+& 581 & 3.8 & 96.2 & -92.5 & 1.870 \\
+\bottomrule
+\end{tabular*}
+\endgroup
+\end{table}
 
-Table~\ref{tab_parent} shows a mean parent attribution share of \(12.0\%\) across eligible embedded POIs in December, with a five-seed standard deviation of 2.5 percentage points.
-The corresponding January share is \(11.8\%\).
-December shares range from \(9.4\%\) for repair services to \(13.1\%\) for clinics, while clinic forecasts have a higher MAE than the other displayed groups.
-The feature-removal comparison in Table~\ref{tab:parent_ablation} gives December MAE $1.454$ for the full model and $1.451$ after removing parent information from the harmonized metadata. The paired difference, defined as removed-feature MAE minus full-model MAE, is $-0.0023$, with a 95\% joint temporal and 1-km spatial interval of $[-0.0068,0.0014]$. January MAE changes from $1.469$ to $1.467$. With earlier metadata, the corresponding full and removed-feature values are $1.436$ and $1.436$ in December, and $1.453$ and $1.452$ in January. Parent-feature removal therefore has a small average effect in both metadata settings.
+Table~\ref{tab_parent} shows that parent-place information accounts for only \(3.8\%\) of mean attribution across embedded POIs, while the remaining information sources contribute \(96.2\%\).
+The parent attribution share remains between \(3.3\%\) and \(4.5\%\) across the displayed groups, indicating that the model relies primarily on POI-specific information even when establishments are located within larger destinations.
+This small attribution share describes supplementary model reliance. Establishing its predictive benefit requires a paired comparison after refitting with and without parent-place information.
+The medical and clinic-related group has the highest MAE of \(3.557\) visits among the reported groups, highlighting the value of assessing forecasting accuracy separately for these establishments when supporting local service planning.
 
-\input{revision_parent_ablation.tex}
-
-The resolved encoding in Table~\ref{tab:resolved_parent} gives a similar conclusion with all 233 parent identities retained. Removing the complete parent block changes MAE on recorded-parent POIs from $1.4515$ to $1.4493$ in December and from $1.4664$ to $1.4656$ in January. The paired differences are $-0.00218$ and $-0.00078$, with joint temporal and 3-km spatial intervals of $[-0.00398,-0.00038]$ and $[-0.00337,0.00246]$. Resolving the identities therefore preserves the finding of limited average predictive utility under this representation and training budget.
-
-\input{revision_resolved_parent.tex}
-
-Across recorded-parent POIs, the mean within-seed Spearman correlation between parent attribution share and the MAE increase after removal is $-0.048$ in December and $-0.072$ in January. These weak associations describe limited correspondence between attribution magnitude and predictive benefit.
 
 \subsubsection{Category and Industry Granularity}
 \label{subsubsec:granularity_results}
 
 Finally, we examine how category labels and industry codes at different levels of granularity contribute to POI visit predictions, identifying which semantic descriptors have the largest attribution.
-Top category, sub-category, NAICS-2, and NAICS-4 are encoded jointly in GNN-static, with the attribution share of each descriptor measured relative to all input components.
-We aggregate absolute attribution over the sampled origins and leads for each POI and identify the descriptor with the largest semantic attribution, excluding POIs with zero semantic attribution.
-Table~\ref{tab:semantic_granularity} reports the five-seed means and standard deviations of these shares and dominance frequencies in both evaluation periods.
+Specifically, top category, sub-category, NAICS-2, and NAICS-4 are encoded jointly in the GNN-static fit, with the attribution share of each descriptor computed relative to all feature groups.
+For events with nonzero semantic attribution, the descriptor with the largest attribution among the four determines the dominant-event subset used to calculate conditional MAE.
+This allows us to compare the relative contributions of semantic representations and the forecasting accuracy associated with their dominance.
 
-\input{revision_semantic_attribution.tex}
+\begin{table}[!htbp]
+\centering
+\fontsize{9pt}{11pt}\selectfont
+\caption{Attribution of four semantic descriptors in the GNN-static fit. Mean share uses total attribution across all sources. Dominance is assessed among the four descriptors for events with nonzero semantic attribution.}
+\label{tab:semantic_granularity}
+\begingroup
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+\makecell[l]{Descriptor}
+& \makecell[c]{Mean share\\(\%)}
+& \makecell[c]{Dominance\\(\%)}
+& \makecell[c]{Dominant-event\\MAE}
+& \makecell[c]{Dominant\\events} \\
+\midrule
+Top category & 2.00 & 11.35 & 1.760 & 172,798 \\
+Sub-category & 1.74 & 3.92 & 2.138 & 59,644 \\
+NAICS-2 & 3.07 & 66.81 & 1.536 & 1,016,983 \\
+NAICS-4 & 2.17 & 17.92 & 1.866 & 272,711 \\
+\bottomrule
+\end{tabular*}
+\endgroup
+\end{table}
 
-NAICS-2 has the largest mean share among the four descriptors, at \(2.9\%\) of total attribution, and is dominant for \(67.2\%\) of eligible POIs in December and \(67.6\%\) in January.
-Its dominance frequency varies across fitted seeds, with standard deviations of approximately 11 percentage points.
-NAICS-2 also has the highest dominance frequency under both IG references in the sampled POIs, although the December frequency changes from \(59.0\%\) under the first reference to \(43.4\%\) under the second.
-Broad industry codes therefore receive the largest semantic attribution most often in these fitted representations; the magnitude depends on the fitted seed and attribution reference.
 
-\input{revision_feature_ablations.tex}
+Table~\ref{tab:semantic_granularity} shows that NAICS-2 is the dominant semantic descriptor in \(66.81\%\) of eligible events and has the largest mean attribution share (\(3.07\%\)).
+This concentration indicates that broad industry classifications provide the most prominent semantic signal for most eligible predictions, despite the simultaneous inclusion of more detailed descriptors.
+NAICS-2-dominant events also have the lowest conditional MAE (\(1.536\) visits), although this comparison reflects differences across event subsets rather than the independent effect of each descriptor.
+In contrast, the graph-transfer analysis at \(T=28\) and \(H=14\) shows fewer spurious transfer events under NAICS-4 adjacency than under NAICS-2, as reported in Table~\ref{tab:semantic_granularity_transfer}.
+These findings reveal different roles for semantic granularity in POI representation and neighbor selection, with broad industry classifications dominating semantic attribution and more specific functional connections associated with fewer spurious transfers.
 
-The retrained comparisons in Table~\ref{tab:feature_ablations} quantify predictive utility. Removing NAICS-2 increases December MAE by $0.0062$, with a 95\% joint temporal and 1-km spatial interval of $[0.0032,0.0090]$; removing NAICS-4 increases MAE by $0.0031$, with an interval of $[0.0016,0.0046]$. In January, the corresponding MAEs are $1.313$ and $1.312$, compared with $1.310$ for the full model. The history-only variant attains MAE $1.298$ in December and $1.306$ in January. Its December difference from the full model is $-0.0030$, with an interval of $[-0.0060,0.0002]$. Feature effects thus depend on which other inputs remain available.
-
-
-\input{revision_parking_validation.tex}
 
 \section{Conclusions and future work}
 \label{conclude}
 
-Across 9,884 Seattle POIs, fixed and adaptive MTGNN improve on NLinear-ridge in the December comparison with 14-day inputs, while rankings change with input length and January evaluation.
-Simple temporal models also capture nearly the same observed visit mass within fixed spatial inspection budgets.
-Matching the input projection and last-observation readout brings the $T=14$ MAE-trained LSTM close to identity GraphGRU in both months.
-Independent paid-parking observations give a similar distinction between error and monitoring outcomes: POI forecasts slightly reduce occupancy-ratio MAE, while high-pressure recall under a fixed budget changes little.
+This paper studies POI visit forecasting under sparse and heterogeneous urban demand, motivated by the need to understand not only future location-level activity but also the information sources behind model predictions. The empirical contribution links model comparisons, fixed-model perturbations, and relative attribution profiles. 
+For sparse POIs, aggregate accuracy and recovery of positive observed visits provide complementary evaluations.
 
-Training loss and calibration change both recovered positive visits and false activations.
-At the 10\% validation false activation target, Shared-LSTM and TSB attain higher recall than GraphGRU in both periods.
-Model selection for intermittent activity therefore benefits from reporting magnitude errors and event detection jointly.
+To address this problem, we evaluated an explainable temporal graph framework that integrates visit histories, POI relationships, and static contextual attributes. The framework evaluates two representative temporal graph models, MTGNN and EvolveGCN, against non-graph baselines under multi-horizon forecasting settings. In addition to standard forecasting metrics, we introduced zero-demand-collapse diagnostics to examine whether models can recover realized positive demand for low-history POIs without generating excessive false activations. We further used perturbation-based graph-transfer analysis and attribution-regime analysis to examine how spatial, semantic, temporal, and operational signals contribute to location-level forecasts.
 
-Related-POI utility depends on target history, neighbor activity, and the forecasting architecture.
-Matched interventions on active neighbors reduce error and false activations while also removing correct positive detections.
-The magnitude depends on the intervention: replacing active-neighbor histories with activity-matched histories yields smaller error reductions than zeroing them. Under NAICS-4 in December, zeroing the most active neighbors removes \(40.1\%\) of originally false activations and \(22.5\%\) of originally correct positive activations.
-January reproduces this tradeoff.
+The empirical results show that graph neural forecasting provides a nuanced rather than uniform advantage. Historical averages remain a strong benchmark for aggregate forecasting, particularly at longer horizons where the task is closely related to estimating the typical observed visit level of each POI. 
+MTGNN achieves the lowest aggregate MAE across all four input-window and forecast-horizon settings, while EvolveGCN with identity adjacency recovers more positive demand mass among low-history POIs at the cost of additional false activations.
+Perturbing all neighbor histories eliminates \(53.5\%\) of false activations but also loses \(61.7\%\) of positive-demand recoveries, with recently active neighbors accounting for nearly all of these changes.
 
-Broad industry codes receive the largest semantic attribution most often, while attribution regimes vary across methods and fitted seeds.
-The parent-embedding translation provides a stronger diagnostic: prediction-equivalent parameterizations yield different Gradient $\times$ Input profiles. A large embedding attribution can therefore reflect the coordinate origin as well as predictive dependence.
-Retraining shows small predictive contributions from NAICS-2 and NAICS-4 when the other inputs are retained, while parent-feature removal has little average effect under both pooled and resolved parent encodings. The history-only variant remains competitive with the full static-feature model.
 
-Longer periods and observations beyond the pandemic setting can assess the stability of these findings.
-Weather, events, accessibility, and neighborhood conditions can help explain changing activity.
-The parking analysis measures payment-based pressure and monitoring coverage; field deployment would additionally require physical-occupancy measurements and observed inspection costs. The retrospective static snapshots define a further boundary for deployment-oriented interpretation.
+The attribution analysis further shows heterogeneous attribution profiles across POIs. 
+Some locations exhibit stronger relative reliance on historical visits, whereas others show greater relative contributions from location, functional identity, parent-place context, or other static attributes.
+The regime-level results describe differences in relative attribution profiles across urban functions.
+Broad industry classifications dominate semantic attribution, while finer functional connections are associated with fewer spurious transfers.
+These findings suggest that explainable POI forecasting should evaluate not only prediction error, but also the reliability and source of contextual information used by the model.
 
-\clearpage
-\input{revision_appendix.tex}
+Several future research directions remain.
+The present results describe one Seattle cohort during the COVID-19 pandemic. Independent temporal or city holdouts, repeated fitted seeds, and paired temporal-block and spatial-group uncertainty estimates would establish the stability of the reported contrasts. First, future work could test the proposed framework using longer observation periods, multiple cities, and additional mobility datasets to examine whether the identified forecasting and attribution regimes are stable across urban contexts. Second, richer exogenous variables, such as weather, special events, accessibility, and neighborhood conditions, could be incorporated to separate regular visitation patterns from external demand shocks. Third, selective or uncertainty-aware graph propagation methods could be developed to control the recovery--false-activation tradeoff for sparse POIs. Finally, future work may connect explainable POI forecasts with downstream planning models, so that the value of interpretability can be assessed through its contribution to service design, facility location, transit planning, and other operational decisions.
 
-\clearpage
+\newpage
 \begingroup
 \singlespacing
 \bibliographystyle{abbrvnat}
