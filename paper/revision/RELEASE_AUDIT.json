@@ -1,14 +1,13 @@
 {
-  "status": "minimal_manuscript_locally_compiled_and_visually_verified",
-  "date_utc": "2026-11-16T04:16:27.511798+00:00",
+  "status": "minimal_items_1_to_3_locally_compiled_and_verified",
+  "date_utc": "2026-11-16T05:03:02.847813+00:00",
   "entrypoint": "outline.tex",
   "alternate_entrypoint": "main.tex",
   "pdf": "LLM_POI_Revision.pdf",
-  "pdf_sha256": "94791dd403aae4f4ff0ece52806112212c890369fcfba2fa1ca1ff10dc0bb9be",
-  "pdf_pages": 36,
+  "pdf_pages": 37,
+  "pdf_sha256": "f98f606bdc30013a6a372e76f9bc661d7a46e9761009691ab9c008e28ce5f522",
   "source_files": {
-    "outline.tex": "fad03b980a5825b0d665d1aa274efbec25f51d2bb9bf76013592068971c5e7fe",
-    "reference.bib": "ac199232549a004b74fa63f6a4e7599fca5fade49fcfd2750938244466981e01",
+    "reference.bib": "0fe6b1725504cb8f07992f87f2572e3d817aa881974675ed961832519113e04f",
     "art/attribution_cluster_map.pdf": "02963e9aaff30a975f240f62b989ed928e82c73894e6e146129283c8f689a525",
     "art/attribution_fingerprint.pdf": "d0b1a0047ea90d2742330749a9f4eb3b182dee8e219565a03233160ba3325470",
     "art/category_visit.pdf": "a96102491dc0124fb27a4893f7766061554d9fa5397b139c0d28025552289f7a",
@@ -23,11 +22,15 @@
     "art/outcome_conditioned_graph_transfer.pdf": "e10fac515e4de1bc1427a80d82d15b59fc1ff8226c23bc19db661b1b6dc35e05",
     "art/poi_temporal_sparsity.pdf": "01460abe8736b33452afa53740694d95e3e3e21fc3f546a9e47bb425779af045",
     "art/recovery_activation_tradeoff.pdf": "8ce8fad0f18f335338626249caef35d6ec94d9f6c0686c99abd6535236a4918c",
+    "outline.tex": "e9fd220c3278a97c7b59355f07d910b08262526648c4b960311b7418813fc0e6",
+    "LLM_POI_Revision.pdf": "f98f606bdc30013a6a372e76f9bc661d7a46e9761009691ab9c008e28ce5f522",
     "main.tex": "b72093b8a8141ff85a60472028a3b64ea4fa55418ba24808559dc6fa55f0902c",
-    "LLM_POI_Revision.pdf": "94791dd403aae4f4ff0ece52806112212c890369fcfba2fa1ca1ff10dc0bb9be"
+    "COORDINATE_ORIGIN_PROTOCOL.md": "d09a93e92d64c04408edd32e4e37accdffc19ec6c6d6c02c9f9ab5b49bc4eb84",
+    "COORDINATE_ORIGIN_RESULT.json": "9e8e0e3291d919aae3e39399941d057239f7439476954cca398ccf445689c13c"
   },
-  "scope": "Current minimum revision of original manuscript; six sections and original result tables retained. Existing supplementary .tex files outside this manifest are not included by this manuscript.",
-  "independent_review": "pending",
-  "overleaf_server_compilation": "not_observed",
-  "original_model_labels_preserved": true
+  "original_main_text_and_14_tables": "preserved exactly; original source recovered after removing declared additions",
+  "added_evidence": "complete-window H7, five seeds, January, paired intervals, neighbor and feature checks, original-checkpoint coordinate-origin diagnostic",
+  "review_scope": "independent review completed for preceding appendix version; current coordinate diagnostic was added afterward",
+  "editorial_goal_achieved": false,
+  "overleaf_server_compilation": "not_observed"
 }

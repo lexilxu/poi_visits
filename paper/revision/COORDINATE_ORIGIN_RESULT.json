@@ -1,0 +1,78 @@
+{
+  "status": "complete",
+  "checkpoint_sha256": "46ed4633a378136366a43787d09e3fe0a57b71c5d66e01cae673877a97c9022c",
+  "source_sha256": "5b08ac04ea7342a7d3615dc7ecbe6ca2357a60023d2740ebff3573616180f7b2",
+  "formal_source_sha256": "f4a2a2f347ea14ccb7b585ca3c09d9f0558024f3b1270acbad912af713993a51",
+  "numerical_scope": "FP64 paired evaluation of original stored parameters; FP32 replay separately checked",
+  "forecast_origin_dates": [
+    "2020-12-04",
+    "2020-12-05",
+    "2020-12-06",
+    "2020-12-07",
+    "2020-12-08",
+    "2020-12-09",
+    "2020-12-10",
+    "2020-12-11",
+    "2020-12-12",
+    "2020-12-13",
+    "2020-12-14",
+    "2020-12-15",
+    "2020-12-16",
+    "2020-12-17",
+    "2020-12-18",
+    "2020-12-19",
+    "2020-12-20",
+    "2020-12-21",
+    "2020-12-22",
+    "2020-12-23",
+    "2020-12-24",
+    "2020-12-25"
+  ],
+  "POIs": 9884,
+  "eligible_POIs": 9884,
+  "seed": 42,
+  "T": 14,
+  "H": 7,
+  "batch_size": 6,
+  "shift_latitude_longitude": [
+    47.62230682373047,
+    -122.3328628540039
+  ],
+  "archived_FP32_replay": {
+    "max_abs": 0.0,
+    "mean_abs": 0.0,
+    "atol": 0.002,
+    "rtol": 0.001,
+    "passed": true
+  },
+  "maximum_paired_prediction_change": 5.684341886080802e-14,
+  "mean_location_share_before": 0.6604045198146304,
+  "mean_location_share_after": 0.0010281566059912144,
+  "location_dominant_before": 9806,
+  "location_dominant_after": 0,
+  "standardized_regime_agreement": 0.6642047753945771,
+  "regimes_before": [
+    1581,
+    2587,
+    2458,
+    504,
+    2754
+  ],
+  "regimes_after": [
+    2549,
+    1391,
+    2190,
+    836,
+    2918
+  ],
+  "group_order": [
+    "history",
+    "location",
+    "identity",
+    "parent",
+    "others"
+  ],
+  "output_attribution": "Original normalized pre-clipping output; absolute values before lag aggregation",
+  "checkpoint_unchanged": true,
+  "completed_at_utc": "2026-11-16T04:57:34Z"
+}
