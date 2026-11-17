@@ -60,3 +60,13 @@ paper/revision/*.out
 paper/revision/*.bbl
 paper/revision/*.blg
 paper/revision/*.synctex.gz
+
+# Reorganized experiment outputs and local credentials
+/results/
+/build/
+/dist/
+.pytest_cache/
+.env.*
+*.pem
+*.key
+*.token

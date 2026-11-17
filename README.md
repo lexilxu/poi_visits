@@ -1,22 +1,38 @@
 # Seattle POI forecasting
 
-The revision diagnoses seven-day visit forecasts for 9,884 Seattle points of interest using temporal controls, attribution stability and independent paid-parking observations. Earlier July-defined Seattle and Portland cohorts provide additional temporal comparisons.
+Code for the LLM-POI empirical study. All experiment code lives under [`exp/`](exp/README.md), organized by the existing `exp0`–`exp6` figure groups and three supplementary experiment groups.
 
-- [Revised paper](paper/revision/LLM_POI_Revision.pdf)
-- [Experiment protocol and reproduction guide](experiments/revision/README.md)
-- [Required evidence checklist](experiments/revision/REQUIREMENTS.md)
-- [Aggregate results and numerical audits](artifacts/revision_20261114/final_results)
-- [Release source and PDF checksums](paper/revision/RELEASE_AUDIT.json)
-- [Preserved original manuscript](paper/original)
+| Folder | Experiment |
+| --- | --- |
+| [`exp0/`](exp/exp0/) | Data preparation and temporal sparsity |
+| [`exp1/`](exp/exp1/) | Forecasting performance and model comparisons |
+| [`exp2/`](exp/exp2/) | Visit density and low-history demand recovery |
+| [`exp3/`](exp/exp3/) | Graph information transfer and adjacency controls |
+| [`exp4/`](exp/exp4/) | Neighbor perturbations and activity-matched replacement |
+| [`exp5/`](exp/exp5/) | Attribution regimes, maps, stability and faithfulness |
+| [`exp6/`](exp/exp6/) | Parent-place information and semantic granularity |
+| [`exp7/`](exp/exp7/) | Temporal validation and matched architecture controls |
+| [`exp8/`](exp/exp8/) | Independent parking validation |
+| [`exp9/`](exp/exp9/) | Decision losses and spatial monitoring coverage |
 
-The frozen queues contain 497 fits across 71 configurations and 355 selected seed runs. The continuation retains 115 earlier fits and completes 382 additional fits on AutoDL4. December has 375 evaluation records and January has 315; density-subset refits are evaluated in December.
+`exp/common/` contains shared models, data loading, graph operators, training and evaluation. `exp/tests/` contains protocol tests and numerical replay checks. Each experiment folder has its own README and executable analysis scripts; shared training implementations are not duplicated.
 
-The [supplementary protocol](experiments/extension_20261114/PROTOCOL.md) adds 84 AutoDL4 fits across 12 configurations and 60 selected seed runs: matched LSTM controls, resolved parent encoding, and July–September city comparisons. Cumulative totals are 581 fits, 83 configurations and 415 selected runs. The original cohort adds 40 records in each evaluation month; the two city cohorts have 20 separate September neural records. [Extension aggregates](artifacts/revision_20261114/final_results/extension_20261114) preserve all five seeds.
+From the repository root, use Python 3.11:
 
-External validation combines saved POI forecasts with official Seattle payment-based parking observations. Its 93 input/seed/radius combinations select among 16 distinct fitted ridge candidates. The attribution-origin diagnostic compares paired double-precision evaluations of stored parameters; its archive separately records cross-device single-precision replay discrepancies. The detailed graph figure uses validation-defined evidence bins and stored predictions.
+```bash
+python -m pip install -r requirements.txt
+python -m exp --list
+python -m exp exp5 --help
+python -m exp exp5 reference-centered --help
+python -m unittest discover -s exp/tests -t . -v
+```
 
-The study reports forecasting accuracy, intermittent-visit detection, graph-input sensitivity, feature removal, attribution stability and observed-visit coverage. January uses the same Seattle cohort. Licensed input records, event predictions and fitted checkpoints remain in private evidence storage.
+Install a CUDA-compatible PyTorch build for full training and GPU replay. The corrected EvolveGCN numerical gate was developed with PyTorch 2.7.1. CPU tests, input preparation and aggregate plots do not require a GPU. Run commands from this checkout; `pip install -e .` is also supported for local development.
 
-The source snapshots used for fitting are preserved under `final_results/fitted_source_archives`; the current analysis code documents the accepted numerical replay revision.
+The two training protocols have separate entry points: `original_masked` retains the original 57-day training period and horizon masks; complete-window controls use 50 training days and validation ending at day 64. The corrected EvolveGCN-H model, the earlier GraphGRU control, and their checkpoint formats are explicitly distinguished in the [reproduction guide](exp/README.md).
 
-Revision Overleaf: https://www.overleaf.com/project/6af81bebf43f69875df8b640
+Licensed inputs and saved checkpoints are supplied separately. Place them under ignored `data/` and `runs/` directories, or pass their paths explicitly. New outputs go under ignored `results/`. `POI_DATA_ROOT`, `POI_RUNS_ROOT`, and `POI_RESULTS_ROOT` override defaults. The [data contract](exp/DATA.md) documents panel schemas and the frozen bundle checksum.
+
+Existing [aggregate results](artifacts/revision_20261114/final_results/), [paper files](paper/), and upstream model implementations in [`external/`](external/) remain available. Published aggregates describe their recorded experiment version; reorganizing source code does not regenerate results or revise the manuscript. Historical fitting snapshots in `artifacts/revision_20261114/final_results/fitted_source_archives/` remain preserved.
+
+The [migration ledger](exp/MIGRATION.json) maps previous script paths to the consolidated modules and records retired prototypes. Git history preserves removed code. The [validation record](exp/VALIDATION.md) reports the checks performed on this layout.

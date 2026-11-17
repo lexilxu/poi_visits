@@ -1,0 +1,34 @@
+name: Experiment checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  protocol-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install CPU dependencies
+        run: |
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.7.1
+          python -m pip install -r requirements.txt
+      - name: Protocol and relocation tests
+        run: python -m unittest discover -s exp/tests -t . -v
+      - name: Check command entry points
+        run: |
+          python - <<'PY'
+          import json, subprocess, sys
+          from pathlib import Path
+          catalog = json.loads(Path('exp/catalog.json').read_text())
+          for group, spec in catalog.items():
+              for action in spec['actions']:
+                  result = subprocess.run([sys.executable, '-m', 'exp', group, action, '--help'], check=True, capture_output=True, text=True, timeout=60)
+                  assert 'usage:' in result.stdout.lower(), (group, action, result.stdout)
+          PY

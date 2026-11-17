@@ -1,0 +1,496 @@
+{
+  "exp0": {
+    "title": "Data preparation and temporal sparsity",
+    "actions": {
+      "extract-attributes": [
+        "exp.exp0.extract_attributes",
+        []
+      ],
+      "package": [
+        "exp.exp0.package",
+        []
+      ],
+      "plot-sparsity": [
+        "exp.exp0.plot_sparsity",
+        []
+      ],
+      "prepare": [
+        "exp.exp0.prepare",
+        []
+      ],
+      "profile": [
+        "exp.exp0.profile",
+        []
+      ],
+      "describe": [
+        "exp.exp0.describe",
+        []
+      ],
+      "plot": [
+        "exp.exp0.plot",
+        []
+      ]
+    }
+  },
+  "exp1": {
+    "title": "Forecasting performance and model comparisons",
+    "actions": {
+      "baselines": [
+        "exp.exp1.baselines",
+        []
+      ],
+      "complete-baselines": [
+        "exp.exp1.complete_baselines",
+        []
+      ],
+      "export-figure-inputs": [
+        "exp.exp1.export_figure_inputs",
+        []
+      ],
+      "extended-baselines": [
+        "exp.exp1.extended_baselines",
+        []
+      ],
+      "plot": [
+        "exp.exp1.plot",
+        []
+      ],
+      "queue": [
+        "exp.exp1.queue",
+        []
+      ],
+      "queue-controls": [
+        "exp.exp1.queue_controls",
+        []
+      ],
+      "summarize": [
+        "exp.exp1.summarize",
+        []
+      ],
+      "tables": [
+        "exp.exp1.tables",
+        []
+      ],
+      "train": [
+        "exp.exp1.train",
+        []
+      ],
+      "train-complete": [
+        "exp.exp1.train_complete",
+        []
+      ],
+      "train-mtgnn": [
+        "exp.exp1.train_mtgnn",
+        []
+      ]
+    }
+  },
+  "exp2": {
+    "title": "Visit density and low-history demand recovery",
+    "actions": {
+      "plot": [
+        "exp.exp2.plot",
+        []
+      ],
+      "summarize-complete-density": [
+        "exp.exp2.summarize_complete_density",
+        []
+      ],
+      "summarize-density": [
+        "exp.exp2.summarize_density",
+        []
+      ],
+      "train": [
+        "exp.exp2.train",
+        []
+      ],
+      "train-controls": [
+        "exp.exp1.queue_controls",
+        [
+          "--stage",
+          "density"
+        ]
+      ]
+    }
+  },
+  "exp3": {
+    "title": "Graph information transfer and adjacency controls",
+    "actions": {
+      "evaluate": [
+        "exp.exp3.evaluate",
+        []
+      ],
+      "evidence-grid": [
+        "exp.exp3.evidence_grid",
+        []
+      ],
+      "plot": [
+        "exp.exp3.plot",
+        []
+      ],
+      "prepare-graphs": [
+        "exp.exp3.prepare_graphs",
+        []
+      ],
+      "tables": [
+        "exp.exp3.tables",
+        []
+      ],
+      "train-controls": [
+        "exp.exp1.queue_controls",
+        [
+          "--stage",
+          "graph"
+        ]
+      ]
+    }
+  },
+  "exp4": {
+    "title": "Neighbor perturbations and activity-matched replacement",
+    "actions": {
+      "audit": [
+        "exp.exp4.audit",
+        []
+      ],
+      "evaluate": [
+        "exp.exp4.evaluate",
+        []
+      ],
+      "plot": [
+        "exp.exp4.plot",
+        []
+      ],
+      "summarize": [
+        "exp.exp4.summarize",
+        []
+      ]
+    }
+  },
+  "exp5": {
+    "title": "Attribution regimes, maps, stability and faithfulness",
+    "actions": {
+      "compare-periods": [
+        "exp.exp5.compare_periods",
+        []
+      ],
+      "embedding-origin": [
+        "exp.exp5.embedding_origin",
+        []
+      ],
+      "evaluate": [
+        "exp.exp5.evaluate",
+        []
+      ],
+      "export-map-inputs": [
+        "exp.exp5.export_map_inputs",
+        []
+      ],
+      "faithfulness": [
+        "exp.exp5.faithfulness",
+        []
+      ],
+      "fingerprint": [
+        "exp.exp5.fingerprint",
+        []
+      ],
+      "location-origin": [
+        "exp.exp5.location_origin",
+        []
+      ],
+      "map": [
+        "exp.exp5.map",
+        []
+      ],
+      "method-audit": [
+        "exp.exp5.method_audit",
+        []
+      ],
+      "plot-map": [
+        "exp.exp5.plot_map",
+        []
+      ],
+      "plot-origin": [
+        "exp.exp5.plot_origin",
+        []
+      ],
+      "prepare-cartography": [
+        "exp.exp5.prepare_cartography",
+        []
+      ],
+      "reference-centered": [
+        "exp.exp5.reference_centered",
+        []
+      ],
+      "reference-centered-figures": [
+        "exp.exp5.reference_centered_figures",
+        []
+      ],
+      "summarize": [
+        "exp.exp5.summarize",
+        []
+      ],
+      "summarize-origin": [
+        "exp.exp5.summarize_origin",
+        []
+      ],
+      "summarize-stability": [
+        "exp.exp5.summarize_stability",
+        []
+      ],
+      "tables": [
+        "exp.exp5.tables",
+        []
+      ]
+    }
+  },
+  "exp6": {
+    "title": "Parent-place information and semantic granularity",
+    "actions": {
+      "prepare-metadata": [
+        "exp.exp6.prepare_metadata",
+        []
+      ],
+      "tables": [
+        "exp.exp6.tables",
+        []
+      ],
+      "train": [
+        "exp.exp1.queue_controls",
+        [
+          "--stage",
+          "ablation"
+        ]
+      ],
+      "train-parent": [
+        "exp.exp1.queue_controls",
+        [
+          "--stage",
+          "parent_resolved"
+        ]
+      ]
+    }
+  },
+  "exp7": {
+    "title": "Temporal validation and matched architecture controls",
+    "actions": {
+      "audit-inputs": [
+        "exp.exp7.audit_inputs",
+        []
+      ],
+      "city-tables": [
+        "exp.exp7.city_tables",
+        []
+      ],
+      "compare-controls": [
+        "exp.exp7.compare_controls",
+        []
+      ],
+      "evaluate-cities": [
+        "exp.exp7.evaluate_cities",
+        []
+      ],
+      "evaluate-controls": [
+        "exp.exp7.evaluate_controls",
+        []
+      ],
+      "evaluate-evolvegcn": [
+        "exp.exp7.evaluate_evolvegcn",
+        []
+      ],
+      "evaluate-matched": [
+        "exp.exp7.evaluate_matched",
+        []
+      ],
+      "extract-monthly": [
+        "exp.exp7.extract_monthly",
+        []
+      ],
+      "matched-tables": [
+        "exp.exp7.matched_tables",
+        []
+      ],
+      "paired-uncertainty": [
+        "exp.exp7.paired_uncertainty",
+        []
+      ],
+      "prepare-cities": [
+        "exp.exp7.prepare_cities",
+        []
+      ],
+      "prepare-january": [
+        "exp.exp7.prepare_january",
+        []
+      ],
+      "train-matched": [
+        "exp.exp1.queue_controls",
+        [
+          "--stage",
+          "matched"
+        ]
+      ],
+      "train-cities": [
+        "exp.exp1.queue_controls",
+        [
+          "--stage",
+          "cities"
+        ]
+      ]
+    }
+  },
+  "exp8": {
+    "title": "Independent parking validation",
+    "actions": {
+      "audit-coverage": [
+        "exp.exp8.audit_coverage",
+        []
+      ],
+      "audit-screening": [
+        "exp.exp8.audit_screening",
+        []
+      ],
+      "compare-calendar": [
+        "exp.exp8.compare_calendar",
+        []
+      ],
+      "download": [
+        "exp.exp8.download",
+        []
+      ],
+      "evaluate": [
+        "exp.exp8.evaluate",
+        []
+      ],
+      "evaluate-availability": [
+        "exp.exp8.evaluate_availability",
+        []
+      ],
+      "historical-forecasts": [
+        "exp.exp8.historical_forecasts",
+        []
+      ],
+      "tables": [
+        "exp.exp8.tables",
+        []
+      ],
+      "verify": [
+        "exp.exp8.verify",
+        []
+      ]
+    }
+  },
+  "exp9": {
+    "title": "Decision losses and spatial monitoring coverage",
+    "actions": {
+      "analyze": [
+        "exp.exp9.analyze",
+        []
+      ],
+      "plot": [
+        "exp.exp9.plot",
+        []
+      ],
+      "spatial-coverage": [
+        "exp.exp9.spatial_coverage",
+        []
+      ],
+      "verify": [
+        "exp.exp9.verify",
+        []
+      ]
+    }
+  },
+  "checks": {
+    "title": "Numerical verification and saved-checkpoint replay",
+    "actions": {
+      "audit-group-replay": [
+        "exp.tests.audit_group_replay",
+        []
+      ],
+      "register-group-replay": [
+        "exp.tests.register_group_replay",
+        []
+      ],
+      "verify-counterfactuals": [
+        "exp.tests.verify_counterfactuals",
+        []
+      ],
+      "verify-evolvegcn": [
+        "exp.tests.verify_evolvegcn",
+        []
+      ],
+      "verify-feature-worlds": [
+        "exp.tests.verify_feature_worlds",
+        []
+      ],
+      "verify-own-gradients": [
+        "exp.tests.verify_own_gradients",
+        []
+      ],
+      "verify-reused-worlds": [
+        "exp.tests.verify_reused_worlds",
+        []
+      ]
+    }
+  },
+  "common": {
+    "title": "Shared training, evaluation and original protocol utilities",
+    "actions": {
+      "adjacency": [
+        "exp.common.adjacency",
+        []
+      ],
+      "audit": [
+        "exp.common.audit",
+        []
+      ],
+      "compact-figures": [
+        "exp.common.compact_figures",
+        []
+      ],
+      "controlled-training": [
+        "exp.common.controlled_training",
+        []
+      ],
+      "evaluate": [
+        "exp.common.evaluate",
+        []
+      ],
+      "evolvegcn-training": [
+        "exp.common.evolvegcn_training",
+        []
+      ],
+      "figures": [
+        "exp.common.figures",
+        []
+      ],
+      "lstm": [
+        "exp.common.lstm",
+        []
+      ],
+      "original-analysis": [
+        "exp.common.original_analysis",
+        []
+      ],
+      "original-protocol": [
+        "exp.common.original_protocol",
+        []
+      ],
+      "paired": [
+        "exp.common.paired",
+        []
+      ],
+      "primary-figures": [
+        "exp.common.primary_figures",
+        []
+      ],
+      "static-features": [
+        "exp.common.static_features",
+        []
+      ],
+      "summarize": [
+        "exp.common.summarize",
+        []
+      ]
+    }
+  }
+}

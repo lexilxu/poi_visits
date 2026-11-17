@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "architecture": "EvolveGCN-H",
+  "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "activation": "torch.nn.RReLU() from author run_exp.build_gcn",
+  "author_factory_activation_calls": 2,
+  "training_equivalence_max_error": 0.0,
+  "torch": "2.7.1+cu128",
+  "equivalence_cases": [
+    {
+      "features": 1,
+      "max_forward_error": 2.220446049250313e-16,
+      "max_gradient_error": 1.3322676295501878e-15,
+      "weight_evolution_max_change": 0.1811883432701703
+    },
+    {
+      "features": 5,
+      "max_forward_error": 4.440892098500626e-16,
+      "max_gradient_error": 5.329070518200751e-15,
+      "weight_evolution_max_change": 0.5264213501106687
+    },
+    {
+      "features": 32,
+      "max_forward_error": 1.2212453270876722e-15,
+      "max_gradient_error": 3.019806626980426e-14,
+      "weight_evolution_max_change": 0.7481282324829404
+    },
+    {
+      "features": 53,
+      "max_forward_error": 1.7763568394002505e-15,
+      "max_gradient_error": 5.684341886080802e-14,
+      "weight_evolution_max_change": 0.7612425162393087
+    }
+  ],
+  "checkpoint_roundtrip": "bitwise_equal",
+  "amp_graph_cases": [
+    {
+      "graph": "identity",
+      "status": "passed"
+    },
+    {
+      "graph": "group",
+      "status": "passed"
+    },
+    {
+      "graph": "sparse",
+      "status": "passed"
+    }
+  ],
+  "sparse_dense_forward_backward": "passed",
+  "identity_scope": "Identity removes graph-convolution edges; H weight evolution still conditions on pooled node embeddings.",
+  "source_sha256": {
+    "external/EvolveGCN/egcn_h.py": "79579dd38881a08d0734f07319fa05b3df7ed7151d3eac06ac591e86753f9172",
+    "external/EvolveGCN/run_exp.py": "8bffd8616b6456315a9f4a8a14b045197140308849faa0b6ed338995d68d5db4",
+    "exp/common/evolvegcn.py": "5114f817da2b718f200ea28de496193d9e07ea7304b54755f08fe12e7f58dfc0",
+    "exp/tests/verify_evolvegcn.py": "ced75fc628bd04dffb1761b239bf6eea0ddcd1e46ce729d5977db7ddf14d9388"
+  }
+}

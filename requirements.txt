@@ -1,0 +1,11 @@
+# Python 3.11. Install a PyTorch build suitable for your CUDA runtime separately.
+numpy>=1.24,<3
+pandas>=2.0,<3
+scipy>=1.10,<2
+scikit-learn>=1.3,<2
+matplotlib>=3.7,<4
+torch>=2.7,<3
+PyYAML>=6,<7
+psutil>=5.9,<8
+pyshp>=2.3,<3
+requests>=2.31,<3
